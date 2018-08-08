@@ -10,6 +10,7 @@
   border-radius: 10px;
   border: 4px solid $san_juan;
   padding: $base-margin - 4px $base-margin*1.5 - 4px;
+  margin-right: $base-margin*1.5;
   text-align: center;
   text-decoration: none;
   transition: 0.2s all ease-in-out;
@@ -59,6 +60,11 @@
     &:hover {
       box-shadow: none;
       background: $hawkes_blue;
+
+      &.btn--dark {
+        background: $white;
+        color: $san_juan;
+      }
     }
 
     &:focus {
@@ -70,6 +76,11 @@
       &.btn--small {
         padding: $base-margin - 15px $base-margin*1.5 - 14px;
       }
+    }
+
+    &.btn--dark {
+      color: $white;
+      border-color: $white;
     }
   }
 
