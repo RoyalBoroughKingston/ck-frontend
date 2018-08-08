@@ -19,7 +19,7 @@
 
   i {
     display: inline-block;
-    margin-left: $base-margin*0.75;
+    margin-left: $base-margin*0.625;
     font-size: 1.3125rem;
     line-height: 1.8125rem;
   }
@@ -81,6 +81,39 @@
     &.btn--dark {
       color: $white;
       border-color: $white;
+    }
+  }
+
+  // Toggle button styling
+  &--toggle {
+    background: transparent;
+    color: $san_juan;
+    font-weight: $font_regular;
+    font-size: 1.1875rem;
+    line-height: 1.4375rem;
+    padding: $base-margin*0.75 - 4px $base-margin - 4px;
+    border: 2px solid $san_juan;
+
+    &:hover {
+      box-shadow: none;
+      background: $hawkes_blue;
+      border-color: $hawkes_blue;
+
+      &.btn--dark {
+        background: $white;
+        color: $san_juan;
+      }
+    }
+
+    &.active {
+      background: $san_juan;
+      border-color: $san_juan;
+      color: $white;
+      padding: $base-margin - 5px $base-margin*1.5 - 7px;
+
+      &.btn--small {
+        padding: $base-margin - 15px $base-margin*1.5 - 14px;
+      }
     }
   }
 
