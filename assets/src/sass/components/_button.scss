@@ -18,7 +18,7 @@
 
   i {
     display: inline-block;
-    margin-left: $base-margin;
+    margin-left: $base-margin*0.75;
     font-size: 1.3125rem;
     line-height: 1.8125rem;
   }
@@ -32,19 +32,55 @@
     border-color: $puerto_rico;
   }
 
+  // Reduced padding button style
+  &--small {
+    font-weight: $font_regular;
+    font-size: 1.1875rem;
+    line-height: 1.4375rem;
+    padding: $base-margin - 11px $base-margin*1.5 - 11px;
+
+    i {
+      margin-left: $base-margin*0.5;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  // Secondary button style overrides main button style
+  &--secondary {
+    background: transparent;
+    color: $san_juan;
+    font-weight: $font_regular;
+    font-size: 1.1875rem;
+    line-height: 1.4375rem;
+    border: 2px solid $san_juan;
+    border-radius: 40px;
+
+    &:hover {
+      box-shadow: none;
+      background: $hawkes_blue;
+    }
+
+    &:focus {
+      background: $hawkes_blue;
+      border: 5px solid $puerto_rico;
+      box-shadow: inset 0px 0px 0px 2px $san_juan;
+      padding: $base-margin - 5px $base-margin*1.5 - 7px;
+
+      &.btn--small {
+        padding: $base-margin - 15px $base-margin*1.5 - 14px;
+      }
+    }
+  }
+
+  // Disabled button style
   &.disabled,
   &:disabled {
-    padding: $base-margin $base-margin*1.5;
-    background: $san_juan_25;
-    border: none;
+    opacity: 0.25;
     cursor: not-allowed;
 
     &:hover {
       box-shadow: none;
-    }
-
-    &:hover {
-      border: none;
     }
   }
 }
