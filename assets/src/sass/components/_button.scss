@@ -2,25 +2,49 @@
 
 .btn {
   display: inline-block;
-  background-color: $black;
+  background-color: $san_juan;
   color: $white;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
   font-weight: $font_bold;
-  border-radius: 3px;
-  padding: $base-margin*0.75 $base-margin*1.25;
+  border-radius: 10px;
+  border: 4px solid $san_juan;
+  padding: $base-margin - 4px $base-margin*1.5 - 4px;
   text-align: center;
   text-decoration: none;
-  transition: 0.1s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  box-sizing: border-box;
   cursor: pointer;
 
-  &:hover {
-    background: $gray;
-    color: $white;
+  i {
+    display: inline-block;
+    margin-left: $base-margin;
+    font-size: 1.3125rem;
+    line-height: 1.8125rem;
   }
 
-  &--secondary {
-    background-color: $white;
-    color: $black;
+  &:hover {
+    box-shadow: 0px 2px 10px 0px $mine-shaft;
+  }
+
+  &:focus {
+    box-shadow: none;
+    border-color: $puerto_rico;
+  }
+
+  &.disabled,
+  &:disabled {
+    padding: $base-margin $base-margin*1.5;
+    background: $san_juan_25;
+    border: none;
+    cursor: not-allowed;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &:hover {
+      border: none;
+    }
   }
 }
