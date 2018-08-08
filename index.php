@@ -25,7 +25,7 @@
 	<main id="content" class="page" role="main">
 		<section class="section">
 			<div class="flex-container">
-				
+				<i class="fa fa-bars"></i>
 			</div>
 		</section>
 	</main>
