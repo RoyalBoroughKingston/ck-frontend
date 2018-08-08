@@ -1,0 +1,30 @@
+/* ACCORDION */
+
+.accordion {
+  display: block;
+  width: 100%;
+  clear: both;
+  margin-bottom: $base-margin;
+  overflow: hidden;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &__title {
+    background-color: $black;
+    color: $white;
+    padding: $base-margin;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: none;
+    background-color: $gray;
+    padding: $base-margin;
+
+    .active & {
+      display: block;
+    }
+  }
+}

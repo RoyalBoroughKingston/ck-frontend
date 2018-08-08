@@ -1,0 +1,211 @@
+/* GRID */
+
+// Import dependencies
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+// Define grid variables
+$total-columns      : 12;
+$gutter-width       : 0px/120px;
+$container-width    : 1440px;
+$base-line-height   : 16px;
+$base-margin        : 16px;
+$border-radius      : 6px;
+
+$break_container     : max-width $container-width;
+$break_standard      : max-width 1320px;
+$break_medium        : max-width 1100px;
+$break_tablet_large  : max-width 1000px;
+$break_tablet_above  : min-width 769px;
+$break_tablet        : max-width 768px;
+$break_mobile        : max-width 600px;
+$break_mobile_small  : max-width 420px;
+
+* {
+  box-sizing: border-box;
+}
+
+// BODY STYLES
+body {
+  background-color: $white;
+  color: $black;
+
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
+// MAIN CONTAINER
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $base-margin*2.5;
+
+  // Remove padding
+  &--no-padding {
+    padding: 0;
+  }
+
+  // Don't wrap elements
+  &--no-wrap {
+    flex-wrap: nowrap;
+  }
+
+  // Display elements in row
+  &--row {
+    flex-direction: row;
+  }
+
+  // Display elements in row in reverse order
+  &--row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  // Display elements in column
+  &--column {
+    flex-direction: column;
+  }
+  
+  // Display elements in column in reverse order
+  &--column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+
+  @include breakpoint($break_mobile) {
+    padding: 0 $base-margin;
+  }
+}
+
+.flex-col {
+  box-sizing: border-box;
+
+  // Column width
+  @for $i from 1 to $total-columns+1 {
+    &--#{$i} {
+      width: percentage($i/$total-columns);
+    }
+  }
+
+  &--clear {
+    clear: left;
+  }
+
+  &--padding-left {
+    padding-left: $base-margin*2;
+  }
+
+  &--padding-right {
+    padding-right: $base-margin*2;
+  }
+
+  @include breakpoint($break_medium) {
+    &--medium {
+      // Column width
+      @for $i from 1 to $total-columns+1 {
+        &--#{$i} {
+          width: percentage($i/$total-columns);
+        }
+      }
+    }
+  }
+
+  @include breakpoint($break_tablet) {
+    &--tablet {
+      // Column width
+      @for $i from 1 to $total-columns+1 {
+        &--#{$i} {
+          width: percentage($i/$total-columns);
+        }
+      }
+    }
+  }
+
+  @include breakpoint($break_mobile) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+    &--mobile {
+      // Column width
+      @for $i from 1 to $total-columns+1 {
+        &--#{$i} {
+          width: percentage($i/$total-columns);
+        }
+      }
+    }
+  }
+}
+
+// Flex order
+.flex-order {
+  @for $i from 1 to 12 {
+    &--#{$i} {
+      order: $i;
+    }
+  }
+
+  @include breakpoint($break_medium) {
+    &--medium {
+      @for $i from 1 to 12 {
+        // Column width
+        &--#{$i} {
+          order: $i;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($break_tablet) {
+    &--tablet {
+      @for $i from 1 to 12 {
+        // Column width
+        &--#{$i} {
+          order: $i;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($break_mobile) {
+    &--mobile {
+      @for $i from 1 to 12 {
+        // Column width
+        &--#{$i} {
+          order: $i;
+        }
+      }
+    }
+  }
+}
+
+// RESPONSIVE
+.mobile-show {
+  display: none !important;
+}
+
+.tablet-show {
+  display: none !important;
+}
+
+@include breakpoint($break_tablet) {
+  .tablet-hide {
+    display: none !important;
+  }
+  .tablet-show {
+    display: block !important;
+  }
+}
+
+@include breakpoint($break_mobile) {
+  .mobile-hide {
+    display: none !important;
+  }
+  .mobile-show {
+    display: block !important;
+  }
+}

@@ -1,0 +1,44 @@
+/* CARD */
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: $white;
+  box-sizing: border-box;
+  border: 1px solid $gray;
+  border-bottom-width: 4px;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  & > * {
+    flex: 1 1 380px;
+  }
+
+  &__image {
+    background-size: cover;
+    background-position: center;
+    min-height: 320px;
+  }
+
+  &__content {
+    padding: $base-margin*2;
+    box-sizing: border-box;
+
+    @include breakpoint($break_tablet) {
+      padding: $base-margin*1.5;
+    }
+
+    @include breakpoint($break_mobile) {
+      padding: $base-margin;
+    }
+  }
+
+  &__title {
+    margin-bottom: $base-margin*2;
+  }
+
+  &__cta {
+    margin-top: $base-margin*2;
+  }
+}

@@ -1,0 +1,30 @@
+/* MEDIA */
+
+img {
+  display: block;
+
+  &.img-responsive {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &.img-rounded {
+    border-radius: 2px;
+  }
+}
+
+.responsive-embed {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+}
+
+.responsive-embed iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

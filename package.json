@@ -1,0 +1,32 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "<strong>Responsive</strong><br /> These classes are based on the breakpoints defined at the top of \"assets/src/base/grid.scss\".<br /><br /> .mobile-show ~ Will show content on a mobile device<br /> .tablet-show ~ Will show content on a tablet device<br /> .mobile-hide ~ Will hide content on a mobile device<br /> .tablet-hide ~ Will hide content on a tablet device<br />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyupDigital/Boilerplate_Dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyupDigital/Boilerplate_Dev/issues"
+  },
+  "homepage": "https://github.com/AyupDigital/Boilerplate_Dev#readme",
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.23.6",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "laravel-mix": "^2.0.0",
+    "reset-css": "^2.2.1",
+    "webpack": "^3.11.0"
+  }
+}

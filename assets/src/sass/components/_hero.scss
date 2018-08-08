@@ -1,0 +1,49 @@
+/* HERO */
+
+.hero {
+  background-color: $black;
+
+  .flex-container {
+    position: relative;
+
+    @include breakpoint($break_mobile) {
+      padding: 0; 
+    }
+  }
+
+  &__image {
+    background-size: cover;
+    min-height: 420px;
+
+    @include breakpoint($break_tablet) {
+      min-height: 360px;
+    }
+
+    @include breakpoint($break_mobile) {
+      min-height: 300px;
+    }
+  }
+
+  &__content {
+    padding: $base-margin*1.5;
+  }
+
+  &__title {
+    color: $white;
+    margin-bottom: $base-margin*1.5;
+  }
+
+  &__sub-title {
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  &__description {
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  &__cta {
+    margin-top: $base-margin*2;
+  }
+}

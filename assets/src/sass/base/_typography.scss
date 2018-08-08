@@ -1,0 +1,227 @@
+/*
+ * -
+ * PARTIALS/TYPOGRAPHY
+ * -
+ */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+/* [1] */
+
+
+/* [2] */
+$font_primary: 'Open Sans', sans-serif;
+
+/* [3] */
+$font_light: 300;
+$font_regular: 400;
+$font_semi_bold: 600;
+$font_bold: 700;
+
+/* [4] */
+$base-font-size: 16px;
+$rhythm-unit: "rem";
+$default-rhythm-border-style: solid $white;
+
+/* [6] */
+html, button, input, select, textarea {
+  font-family: $font_primary;
+  font-weight: $font_regular;
+  -webkit-text-stroke: 1px transparent;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.35rem;
+
+}
+
+/* [7] */
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: $base-margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-weight: $font_bold;
+  }
+}
+
+.xl-copy {
+  font-weight: $font_light;
+  font-size: 1.3125rem;
+  line-height: 1.75rem;
+
+  strong {
+    font-weight: $font_bold;
+  }
+}
+
+.lg-copy {
+  font-weight: $font_light;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+
+  strong {
+    font-weight: $font_bold;
+  }
+}
+
+.sm-copy {
+  font-size: 0.9375rem;
+  line-height: 1.4375rem;
+
+  strong {
+    font-weight: $font_bold;
+  }
+}
+
+.text-left {
+  text-align: left;
+
+  &--tablet {
+    text-align: left !important;
+  }
+
+  &--mobile {
+    text-align: left !important;
+  }
+}
+
+.text-center {
+  text-align: center;
+
+  &--tablet {
+    text-align: center !important;
+  }
+
+  &--mobile {
+    text-align: center !important;
+  }
+}
+
+.text-right {
+  text-align: right;
+
+  &--tablet {
+    text-align: right !important;
+  }
+
+  &--mobile {
+    text-align: right !important;
+  }
+}
+
+/* [8] */
+h1, h2, h3, h4 {
+  color: $black;
+  font-weight: $font_bold;
+
+  &.white {
+    color: $white;
+  }
+}
+
+h1, .h1 {
+  font-size: 2.25rem;
+  line-height: 3.25rem;
+}
+
+h2, .h2 {
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+
+  &--light {
+    font-weight: $font_light;
+  }
+}
+
+h3, .h3 {
+  font-size: 1.3125rem;
+  line-height: 1.75rem;
+
+  &--light {
+    font-weight: $font_light;
+  }
+}
+
+h4, .h4 {
+  font-size: 1rem;
+  line-height: 2.125rem;
+}
+
+h5, .h5 {
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
+
+  &--light {
+    font-weight: $font_light;
+  }
+}
+
+/* [9] */
+a {
+  color: $black;
+  outline: 0;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* [10] */
+.elipsis-overflow {
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* [11] */
+strong, b {
+  font-weight: $font_bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* [12] */
+hr {
+  margin: $base-margin 0;
+  height: 2px;
+  color: $black;
+}
+
+/* [13] */
+main {
+  ul {
+    list-style: none;
+
+    li {
+      position: relative;
+      display: block;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      padding-left: $base-margin;
+      margin-bottom: $base-margin*0.5;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:after {
+        content: '';
+        background-color: $black;
+        position: absolute;
+        top: $base-margin*0.5;
+        left: 0;
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+      }
+    }
+  }
+}

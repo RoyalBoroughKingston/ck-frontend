@@ -1,0 +1,45 @@
+/* CTA */
+
+.cta {
+  display: block;
+  width: 100%;
+  padding: $base-margin*1.5;
+  box-sizing: border-box;
+
+  @include breakpoint($break_tablet) {
+    padding: $base-margin;
+  }
+
+  @include breakpoint($break_mobile) {
+    padding: 0;
+    margin-bottom: $base-margin*1.5;
+  }
+
+  .wrapper {
+    background-color: $white;
+    border-bottom: 3px solid $black;
+    border-radius: $border-radius;
+    padding: $base-margin*2;
+    box-sizing: border-box;
+
+    @include breakpoint($break_tablet) {
+      padding: $base-margin*1.5;
+    }
+
+    @include breakpoint($break_mobile) {
+      padding: $base-margin;
+    }
+  }
+
+  &__title {
+    margin-bottom: $base-margin;
+  }
+
+  &__description {
+    margin-bottom: 0;
+  }
+
+  &__action {
+    margin-top: $base-margin*1.5;
+  }
+}

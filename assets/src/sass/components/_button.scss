@@ -1,0 +1,26 @@
+/* BUTTON */
+
+.btn {
+  display: inline-block;
+  background-color: $black;
+  color: $white;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: $font_bold;
+  border-radius: 3px;
+  padding: $base-margin*0.75 $base-margin*1.25;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.1s all ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: $gray;
+    color: $white;
+  }
+
+  &--secondary {
+    background-color: $white;
+    color: $black;
+  }
+}

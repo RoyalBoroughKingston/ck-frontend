@@ -1,0 +1,39 @@
+/* INPUT */
+
+input, textarea, .input {
+  background: transparent;
+  color: $black;
+  display: table-cell;
+  width: 300px;
+  border: 2px solid $gray;
+  border-radius: 3px;
+  box-sizing: border-box;
+  vertical-align: middle;
+
+  @include breakpoint($break_mobile) {
+    display: block;
+    width: 100%;
+  }
+
+  &--text {
+    color: $black;
+    font-size: 1rem;
+    line-height: 1rem;
+    padding: $base-margin $base-margin*0.75;
+  }
+
+  &:focus {
+    border-color: $gray;
+    padding: $base-margin*1.5 0 $base-margin*0.5;
+    outline: 0;
+    -webkit-text-fill-color: transparent;
+
+    + label {
+      opacity: 0;
+    }
+  }
+}
+
+textarea {
+  height: 300px;
+}

@@ -1,0 +1,101 @@
+/* BASE FORMS */
+
+form,
+.form {
+  padding: $base-margin*3 0;
+
+  // GENERAL FIELD WRAPPER
+  .field {
+    position: relative;
+    display: table;
+    margin-bottom: $base-margin*2.5;
+    overflow: hidden;
+
+    @include breakpoint($break_mobile) {
+      width: 100%;
+    }
+
+    // VALIDATED STATE
+    &.validated,
+    &.error {
+      position: relative;
+
+      &:after {
+        content: '\e804';
+        font-family: "fontello";
+        position: absolute;
+        top: $base-margin*1.125;
+        left: 268px;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+
+        @include breakpoint($break_mobile) {
+          left: auto;
+          right: $base-margin;
+        }
+      }
+    }
+
+    &.validated {
+      input {
+        border-color: $gray;
+      }
+
+      &:after {
+        content: '\e804';
+        color: $gray;
+      }
+    }
+
+    // ERROR STATE
+    &.error {
+      input{
+        background-color: $red;
+        border-color: $red;
+      }
+
+      &:after {
+        content: '\e80a';
+        color: $red;
+      }
+    }
+
+    .error-message {
+      display: table-cell;
+      width: 300px;
+      padding-left: $base-margin;
+      color: $red;
+      font-size: 0.9375rem;
+      line-height: 1.4375rem;
+      vertical-align: middle;
+
+      a {
+        color: $black;
+      }
+
+      @include breakpoint($break_mobile) {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        margin-bottom: $base-margin;
+      }
+    }
+  }
+
+  // LABEL STYLE
+  label {
+    position: absolute;
+    top: 4px;
+    left: $base-margin*0.75;
+    display: block;
+    color: $gray;
+    font-size: 0.8125rem;
+    line-height: 1.4375;
+    opacity: 0;
+
+    @include breakpoint($break_tablet) {
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+    }
+  }
+}

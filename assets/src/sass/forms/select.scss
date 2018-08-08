@@ -1,0 +1,109 @@
+/* SELECT */
+// Custom select box
+.field .select2-container {
+  width: 100% !important;
+  border: 2px solid $black;
+  border-radius: 3px;
+}
+
+.select2-container {
+  cursor: pointer;
+
+  &:focus {
+    outline: 0 !important;
+  }
+
+  .select2-selection--single {
+    height: auto !important;
+
+    &:focus {
+      outline: 0 !important;
+    }
+
+    .select2-selection__rendered {
+      position: relative;
+      padding: 0 $base-line-height*2 0 $base-line-height*0.5 !important;
+      padding: $base-margin*0.5 0;
+      font-size: 1.375rem;
+      line-height: 2.75rem;
+      transition: 0.3s ease-in-out;
+
+      &:after {
+        content: '\e805';
+        font-family: "fontello";
+        color: $black;
+        font-size: 0.5625rem;
+        position: absolute;
+        top: $base-line-height;
+        right: 0;
+        transition: 0.2s ease-in-out;
+      }
+    }
+  }
+
+  &--open {
+    .select2-selection--single {
+      .select2-selection__rendered {
+        &:after {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+}
+
+.form--dark {
+  .input {
+    &--text {
+      input, textarea {
+        border-color: $white;
+        color: $white;
+
+        &:focus {
+          border-color: $black;
+          color: $black;
+          text-shadow: 0px 0px 0px $white;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.select2-dropdown {
+  border: none;
+  padding: 0 $base-line-height;
+  padding: $base-margin*0.25 0;
+  box-sizing: border-box;
+
+  .select2-search--dropdown {
+    padding: 0;
+
+    input {
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid $black;
+      padding: $base-margin*0.5 $base-line-height*1.5 $base-margin*0.5 $base-line-height*0.5;
+      font-size: 1.125rem;
+      lne-height: 1.75rem;
+
+      &:focus {
+        outline: 0 !important;
+      }
+    }
+  }
+
+  .select2-results__option {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    padding: $base-margin*0.25 0;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover,
+    &--highlighted {
+      color: $black;
+      padding-left: $base-line-height*0.75;
+    }
+  }
+}

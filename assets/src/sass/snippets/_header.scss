@@ -1,0 +1,50 @@
+/* HEADER */
+
+.header {
+  background: $white;
+  padding: $base-margin*1.5 0;
+  overflow: hidden;
+
+  .logo {
+    display: block;
+    max-width: 120px;
+    height: auto;
+  }
+
+  .nav-trigger {
+    display: none;
+    float: right;
+    margin: $base-margin*0.35 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    width: auto;
+
+    &:focus {
+      outline: none;
+    }
+
+    .bar {
+      display: block;
+      width: 32px;
+      height: 5px;
+      margin-bottom: 5px;
+      background-color: $black;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .nav--primary {
+    @include breakpoint($break_mobile) {
+      &.active {
+        display: block !important;
+        padding-top: $base-margin*1.25;
+        margin-top: $base-margin;
+        border-top: 2px solid $black;
+      }
+    }
+  }
+}

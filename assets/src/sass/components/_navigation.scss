@@ -1,0 +1,48 @@
+/* NAVIGATION */
+
+.nav {
+  float: right;  
+
+  &__link {
+    display: inline-block;
+    margin-left: $base-margin*2;
+    font-weight: $font_bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--primary {
+    @include breakpoint($break_mobile) {
+      float: none;
+    }
+
+    .nav__link {
+      @include breakpoint($break_mobile) {
+        display: block;
+        margin-left: 0;
+        margin-bottom: $base-margin;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &--footer {
+    float: left;
+
+    .nav__link {
+      display: block;
+      color: $white;
+      margin: 0 0 $base-margin*0.5 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

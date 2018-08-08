@@ -1,0 +1,9 @@
+/* SECTION */
+
+.section {
+  padding: $base-margin*2.5 0;
+
+  &--grey {
+    background-color: $gray;
+  }
+}
