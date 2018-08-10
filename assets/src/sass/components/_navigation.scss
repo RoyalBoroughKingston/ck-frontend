@@ -1,16 +1,41 @@
 /* NAVIGATION */
 
 .nav {
-  float: right;  
+  display: inline-block;
 
   &__link {
+    position: relative;
     display: inline-block;
-    margin-left: $base-margin*2;
-    font-weight: $font_bold;
+    color: $mid_gray;
+    font-size: 0.875rem;
+    line-height: 1.625rem;
+    margin-right: $base-margin*2.5;
     text-decoration: none;
 
+    &:after {
+      content: url('../img/nav-hover.svg');
+      position: absolute;
+      top: -13px;
+      right: 0;
+      bottom: 0;
+      left: -24px;
+      width: 97px;
+      height: 53px;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+      will-change: opacity;
+      z-index: 0;
+    }
+
     &:hover {
-      text-decoration: underline;
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
     }
   }
 

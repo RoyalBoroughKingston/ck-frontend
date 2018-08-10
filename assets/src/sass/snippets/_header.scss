@@ -3,11 +3,12 @@
 .header {
   background: $white;
   padding: $base-margin*1.5 0;
+  text-align: right;
   overflow: hidden;
 
   .logo {
     display: block;
-    max-width: 120px;
+    max-width: 510px;
     height: auto;
   }
 
