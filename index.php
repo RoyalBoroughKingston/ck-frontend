@@ -24,8 +24,10 @@
 
 	<main id="content" class="page" role="main">
 		<section class="section">
-			<div class="container">
-				<?php include('templates/_components/link.html'); ?>
+			<div class="flex-container">
+				<div class="flex-col flex-col--4">
+					<?php include('templates/_components/service.html'); ?>
+				</div>
 			</div>
 		</section>
 	</main>

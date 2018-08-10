@@ -1,0 +1,163 @@
+/* SERVICE */
+
+.service {
+    border-radius: 25px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-out;
+    will-change: box-shadow;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 2px 10px 0 $mine_shaft;
+    }
+
+    &__image {
+        position: relative;
+        background-color: $white;
+        min-height: 80px;
+        box-sizing: border-box;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__add {
+        position: absolute;
+        top: $base-margin;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+
+    &__location {
+        background-color: $jungle_green;
+        color: $white;
+        font-size: 1.1875rem;
+        line-height: 1.625rem;
+        padding: $base-margin*0.75 $base-margin*2;
+        box-sizing: border-box;
+
+        i {
+            margin-right: $base-margin*0.75;
+        }
+
+        @include breakpoint($break_mobile) {
+            padding: $base-margin*0.375 $base-margin*2;
+        }
+    }
+
+    &__meta {
+        display: flex;
+        align-items: center;
+        background-color: $mercury;
+        padding: 0px $base-margin*2;
+
+        &__item {
+            width: 50%;
+            color: $san_juan;
+            padding: $base-margin*0.75 0;
+
+            i {
+                display: inline-block;
+                font-size: 1.1875rem;
+                line-height: 1.5rem;
+                margin-right: $base-margin*1.5;
+                vertical-align: middle;
+            }
+
+            @include breakpoint($break_mobile) {
+                padding: $base-margin*0.25 0;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $white;
+        color: $mid_gray;
+        padding: $base-margin*1.5 $base-margin*2;
+        box-sizing: border-box;
+
+        @include breakpoint($break_mobile) {
+            background-color: $iceberg;
+            padding: $base-margin;
+
+            .service__name {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: $base-margin;
+                margin-bottom: 0;
+            }
+
+            .service__sub-title {
+                display: inline-block !important;
+                color: $san_juan;
+            }
+        }
+
+        > span {
+            &:first-child {
+                padding-right: $base-margin;
+            }
+        }
+
+        i {
+            color: $san_juan;
+            font-size: 1.5rem;
+        }
+    }
+
+    &__details {
+        background-color: $white;
+        color: $mid_gray;
+        padding: $base-margin*1.5 $base-margin*2;
+        box-sizing: border-box;
+    }
+
+    &__name {
+        color: $san_juan;
+        margin-bottom: $base-margin*0.5;
+    }
+
+    &__contact {
+        color: $mid_gray;
+        padding: $base-margin*1.5 $base-margin*2;
+        box-sizing: border-box;
+
+        &--telephone {
+            background-color: $alabaster;
+        }
+
+        &--email {
+            background-color: $white;
+        }
+
+        > span {
+            display: block;
+            margin-bottom: $base-margin*0.25;
+        }
+
+        i {
+            color: $puerto_rico;
+            margin-right: $base-margin*0.75;
+        }
+    }
+
+    &__actions {
+        background-color: $alabaster;
+        padding: $base-margin*1.5 $base-margin*2;
+        box-sizing: border-box;
+
+        .btn {
+            display: inline-block;
+
+            &:first-child {
+                margin-right: $base-margin*0.5;
+            }
+        }
+    }
+}
