@@ -127,4 +127,37 @@
       box-shadow: none;
     }
   }
+
+  // Shortlist button style
+  &--shortlist {
+    border-color: $elm;
+    color: $elm;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
+
+    i {
+      margin-left: 0;
+      margin-right: $base-margin*0.625;
+    }
+
+    &:hover {
+      background-color: $elm;
+      color: $white;
+    }
+
+    &:focus {
+      background-color: $elm;
+      color: $white;
+      border: 4px solid $puerto_rico;
+      box-shadow: none;
+      padding: $base-margin - 11px $base-margin*1.5 - 11px !important;
+    }
+    
+    // Active state for shortlist buttons
+    &.active {
+      background-color: $elm;
+      border-color: $elm;
+      color: $white;
+    }
+  }
 }
