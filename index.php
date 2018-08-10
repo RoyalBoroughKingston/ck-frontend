@@ -25,7 +25,7 @@
 	<main id="content" class="page" role="main">
 		<section class="section">
 			<div class="container">
-				<?php include('templates/_components/button.html'); ?>
+				<?php include('templates/_components/link.html'); ?>
 			</div>
 		</section>
 	</main>

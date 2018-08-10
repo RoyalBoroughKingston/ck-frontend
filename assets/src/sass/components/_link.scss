@@ -1,0 +1,47 @@
+/* LINK */
+
+.link {
+    display: inline-block;
+    color: $elm;
+    font-size: 1.1875rem;
+    line-height: 1.625rem;
+    text-decoration: none;
+
+    i {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.25rem;
+        line-height: 1.625rem;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $elm;
+        margin-top: $base-margin*0.25;
+    }
+
+    &--icon-before {
+        margin-right: $base-margin*0.5;
+    }
+
+    &--icon-after {
+        margin-left: $base-margin*0.5;
+    }
+
+    &--small {
+        font-size: 0.875rem;
+        line-height: 1.625rem;
+
+        &:after {
+            margin-top: 0;
+        }
+
+        i {
+            font-size: 1rem;
+            line-height: 1.625rem;
+        }
+    }
+}
