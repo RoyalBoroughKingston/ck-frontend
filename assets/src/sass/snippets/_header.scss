@@ -6,45 +6,134 @@
   text-align: right;
   overflow: hidden;
 
+  @include breakpoint($break_tablet) {
+    padding: 0;
+  }
+
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+  }
+
+  .flex-container {
+    @include breakpoint($break_tablet) {
+      height: 100%;
+      align-items: baseline;
+    }
+  }
+
+  &__brand {
+    position: relative;
+    padding: $base-margin 0;
+    z-index: 1;
+
+    @include breakpoint($break_tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__navigation {
+    @include breakpoint($break_tablet) {
+      display: flex;
+      text-align: center;
+
+      .active & {
+        display: block !important;
+        z-index: 2;
+      }
+    }
+
+    #google_translate_element {
+      margin-bottom: $base-margin*0.5;
+
+      img {
+        display: inline-block;
+      }
+
+      @include breakpoint($break_tablet) {
+        margin-bottom: $base-margin*4;
+      }
+    }
+  }
+
   .logo {
-    display: block;
+    display: inline-block;
     max-width: 510px;
     height: auto;
+
+    @include breakpoint($break_tablet) {
+      max-width: 360px;
+    }
+
+    @include breakpoint($break_mobile) {
+      float: left;
+      max-width: 250px;
+    }
+
+    @include breakpoint($break_mobile_small) {
+      max-width: 210px;
+    }
   }
 
   .nav-trigger {
     display: none;
     float: right;
-    margin: $base-margin*0.35 0;
+    margin: $base-margin*0.25 0;
     padding: 0;
     border: none;
     background: transparent;
-    width: auto;
+    width: 65px;
+
+    @include breakpoint($break_mobile_small) {
+      width: 52px;
+    }
 
     &:focus {
       outline: none;
     }
 
-    .bar {
-      display: block;
-      width: 32px;
-      height: 5px;
-      margin-bottom: 5px;
-      background-color: $black;
+    label {
+      display: inline-block;
+      max-width: 43px;
+      margin-right: $base-margin*0.5;
+      vertical-align: middle;
+      font-size: 0.875rem;
+      line-height: 0.925rem;
+      color: $mid_gray;
 
-      &:last-child {
-        margin-bottom: 0;
+      &:before {
+        content : 'Menu';
+      }
+
+      @include breakpoint($break_mobile_small) {
+        font-size: 0.625rem;
+        line-height: 0.625rem;
+        max-width: 32px;
       }
     }
-  }
 
-  .nav--primary {
-    @include breakpoint($break_mobile) {
-      &.active {
-        display: block !important;
-        padding-top: $base-margin*1.25;
-        margin-top: $base-margin;
-        border-top: 2px solid $black;
+    i {
+      display: inline-block;
+      vertical-align: middle;
+
+      .active & {
+        
+      }
+    }
+
+    &.active {
+      label:before {
+        content: 'Close menu';
+      }
+
+      i:before {
+        content: "\F00D";
       }
     }
   }
