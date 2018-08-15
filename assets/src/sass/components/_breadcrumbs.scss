@@ -1,0 +1,36 @@
+/* Breadcrumbs */
+
+.breadcrumbs {
+    &__crumb {
+        position: relative;
+        display: inline-block;
+        font-size: 0.875rem;
+        line-height: 1.625rem;
+        padding-right: $base-margin*0.625;
+        margin-right: $base-margin*0.625;
+        text-decoration: none;
+
+        // Right arrow
+        &:before {
+            content: '>';
+            position: absolute;
+            top: 0;
+            right: -$base-margin*0.375;
+            color: $mid_gray;
+        }
+
+        // Underline
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: $jungle_green;
+        }
+
+        &--current:before,
+        &--current:after {
+            display: none;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-	<title>Ayup Development boilerplate</title>
+	<title>Connected Kingston - Making links, connecting communities</title>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<link rel="canonical" href="Boilerplate" />
@@ -25,8 +25,8 @@
 	<main id="content" class="page" role="main">
 		<section class="section">
 			<div class="flex-container">
-				<div class="flex-col flex-col--4">
-					<?php include('templates/_components/service.html'); ?>
+				<div class="flex-col flex-col--12">
+					<?php include('templates/_components/breadcrumbs.html'); ?>
 				</div>
 			</div>
 		</section>
