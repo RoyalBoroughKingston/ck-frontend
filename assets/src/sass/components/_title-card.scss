@@ -1,0 +1,61 @@
+/* Title Card */
+
+.title-card {
+    background-image: url('../img/title-card/bg--01.svg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: $base-margin*4 $base-margin*3.5;
+    box-sizing: border-box;
+
+    &--variant-1 {
+        background-image: url('../img/title-card/bg--02.svg');
+    }
+
+    &--variant-2 {
+        background-image: url('../img/title-card/bg--03.svg');
+    }
+
+    &__title {
+        color: $san_juan;
+        margin-bottom: $base-margin*2.5;
+    }
+
+    &__description {
+        color: $mid_gray;
+    }
+
+    &__share {
+        display: inline-block;
+        background-image: url('../img/title-card/bg--mint.svg');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: $san_juan;
+        padding: $base-margin*1.5;
+        box-sizing: border-box;
+
+        label {
+            margin-right: $base-margin*1.5;
+        }
+
+        a {
+            color: $san_juan;
+            margin-right: $base-margin*0.5;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__action {
+        margin-top: $base-margin*2.5;
+        
+        &__title {
+            display: inline-block;
+            color: $mid_gray;
+            margin-right: $base-margin*1.5;
+        }
+    }
+}

@@ -25,8 +25,8 @@
 	<main id="content" class="page" role="main">
 		<section class="section">
 			<div class="flex-container">
-				<div class="flex-col flex-col--12">
-					<?php include('templates/_components/breadcrumbs.html'); ?>
+				<div class="flex-col flex-col--6">
+					<?php include('templates/_components/title-card.html'); ?>
 				</div>
 			</div>
 		</section>
