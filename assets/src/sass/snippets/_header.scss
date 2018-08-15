@@ -63,7 +63,8 @@
   }
 
   .logo {
-    display: inline-block;
+    display: block;
+    float: left;
     max-width: 510px;
     height: auto;
 
@@ -72,7 +73,6 @@
     }
 
     @include breakpoint($break_mobile) {
-      float: left;
       max-width: 250px;
     }
 

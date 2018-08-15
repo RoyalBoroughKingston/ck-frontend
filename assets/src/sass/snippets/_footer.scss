@@ -1,7 +1,47 @@
 /* FOOTER */
 
 .footer {
-  background-color: $black;
+  position: relative;
   color: $white;
-  padding: $base-margin*2.5 0;
+  background-color: $san_juan;
+  padding: $base-margin*3.75 0;
+  margin-top: $base-margin*3.5;
+
+  &:before {
+    content: '';
+    background-image: url('../img/footer-border.svg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: 110px;
+    position: absolute;
+    top: -$base-margin*3.5;
+    left: 0;
+
+    @include breakpoint($break_mobile) {
+      background-image: url('../img/footer-border--mobile.svg');
+    }
+  }
+
+  &__sponsors {
+    display: block;
+    margin-top: $base-margin*2;
+    text-align: center;
+
+    img {
+      display: inline-block;
+      margin-right: $base-margin*2.25;
+      vertical-align: middle;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include breakpoint($break_mobile) {
+        margin-right: $base-margin*1.625;
+      }
+    }
+  }
 }
