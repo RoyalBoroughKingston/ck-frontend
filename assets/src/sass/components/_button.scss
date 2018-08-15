@@ -23,6 +23,13 @@
     line-height: 1.8125rem;
   }
 
+  &--icon-before {
+    i {
+      margin-left: 0;
+      margin-right: $base-margin*0.625;
+    }
+  }
+
   &:hover {
     box-shadow: 0px 2px 10px 0px $mine-shaft;
   }

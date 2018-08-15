@@ -89,6 +89,7 @@
     border: none;
     background: transparent;
     width: 65px;
+    cursor: pointer;
 
     @include breakpoint($break_mobile_small) {
       width: 52px;

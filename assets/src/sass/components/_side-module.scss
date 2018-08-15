@@ -1,0 +1,53 @@
+/* Side Module */
+
+.side-module {
+    background-image: url('../img/side-module/bg--01.svg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 272px;
+    padding: $base-margin*3.5 $base-margin*2;
+    box-sizing: border-box;
+    text-align: center;
+
+    &__shortlist {
+        margin-bottom: $base-margin*2.5;
+    }
+
+    &__connect {
+        margin-bottom: $base-margin;
+    }
+
+    &__description {
+        color: $san_juan;
+    }
+
+    &__meta {
+        color: $mid_gray;
+
+        i {
+            display: inline-block;
+            color: $san_juan;
+            font-size: 1.6875rem;
+            line-height: 1.6875rem;
+            margin-right: $base-margin;
+            vertical-align: middle;
+        }
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--variant-1 {
+        .side-module__shortlist {
+            margin-bottom: $base-margin;
+        }
+    }
+}
