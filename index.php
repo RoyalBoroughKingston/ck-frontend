@@ -26,7 +26,7 @@
 		<section class="section">
 			<div class="flex-container">
 				<div class="flex-col flex-col--6">
-					<?php include('templates/_components/side-module.html'); ?>
+					<?php include('templates/_components/card.html'); ?>
 				</div>
 			</div>
 		</section>
