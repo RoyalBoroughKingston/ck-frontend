@@ -1,6 +1,11 @@
 /* CARD */
 
 .card {
+  display: flex;
+  flex-wrap: wrap;
+  padding: $base-margin*2.5;
+  box-sizing: border-box;
+  
   &--grey {
     background-color: $alabaster;
     border-radius: 10px;
@@ -33,5 +38,57 @@
 
   &--border-grey {
     border: 2px solid $mid_gray;
+  }
+
+  &__location {
+    &__name {
+      color: $san_juan;
+      margin-bottom: $base-margin*0.25;
+    }
+
+    &__address {
+      color: $san_juan;
+      margin-bottom: $base-margin*0.25;
+    }
+
+    &__distance {
+      color: $mid_gray;
+    }
+  }
+
+  &__hours {
+    &__times {
+      margin-top: $base-margin*1.5;
+      width: 100%;
+      background-image: url('../img/clouds/cloud--blue-darker.svg');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: $mid_gray;
+      padding: $base-margin*2 $base-margin;
+      box-sizing: border-box;
+      text-align: center;
+
+      table {
+        width: 100%;
+        
+        tbody {
+          tr {
+            td {
+              padding: $base-margin*0.25;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__services {
+    margin-top: $base-margin*2;
+
+    img {
+      display: inline-block;
+      margin-right: $base-margin*0.75;
+    }
   }
 }

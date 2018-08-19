@@ -18,9 +18,7 @@
 </head>
 
 <body>
-	<?php include('templates/_components/modal.html'); ?>
 	<?php include('templates/_snippets/header.html'); ?>
-	<?php include('templates/_components/hero.html'); ?>
 
 	<main id="content" class="page" role="main">
 		<section class="section">
