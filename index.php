@@ -26,6 +26,9 @@
 				<div class="flex-col flex-col--6">
 					<?php include('templates/_components/card.html'); ?>
 				</div>
+				<div class="flex-col flex-col--6">
+					<?php include('templates/_components/table.html'); ?>
+				</div>
 			</div>
 		</section>
 	</main>

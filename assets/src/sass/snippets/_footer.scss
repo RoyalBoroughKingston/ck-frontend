@@ -9,7 +9,7 @@
 
   &:before {
     content: '';
-    background-image: url('../img/footer-border.svg');
+    background-image: url('../img/global/footer-border.svg');
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     left: 0;
 
     @include breakpoint($break_mobile) {
-      background-image: url('../img/footer-border--mobile.svg');
+      background-image: url('../img/global/footer-border--mobile.svg');
     }
   }
 
