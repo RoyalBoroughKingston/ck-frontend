@@ -30,6 +30,15 @@
 					<?php include('templates/_components/table.html'); ?>
 				</div>
 			</div>
+
+			<div class="flex-container">
+				<div class="flex-col flex-col--6">
+					<?php include('templates/_components/side-module.html'); ?>
+				</div>
+				<div class="flex-col flex-col--6">
+					<?php include('templates/_components/sidebar.html'); ?>
+				</div>
+			</div>
 		</section>
 	</main>
 

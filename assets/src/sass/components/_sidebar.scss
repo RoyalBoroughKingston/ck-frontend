@@ -1,0 +1,55 @@
+/* Sidebar */
+
+.sidebar {
+    display: block;
+    width: 295px;
+    background-color: $alabaster;
+    color: $san_juan;
+    border-radius: 10px;
+
+    &__row {
+        padding: $base-margin $base-margin*1.5;
+        word-break: break-all;
+
+        &:nth-child(even) {
+            background-color: $white;
+        }
+
+        &:first-child,
+        &:last-child {
+            padding: $base-margin*2 $base-margin*1.5;
+        }
+
+        i {
+            color: $puerto_rico;
+            font-size: 1.1875rem;
+            margin-right: $base-margin;
+        }
+
+        a {
+            color: $san_juan;
+            text-decoration: none;
+        }
+
+        p {
+            margin-bottom: $base-margin*0.25;
+        }
+
+        &--social {
+            text-align: center;
+    
+            a {
+                color: $san_juan;
+                font-size: 1.1875rem;
+
+                i {
+                    color: $san_juan;
+                }
+            }
+        }
+
+        &__header {
+            color: $mid_gray;
+        }
+    }
+}
