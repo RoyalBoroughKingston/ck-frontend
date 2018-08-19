@@ -3,21 +3,27 @@
 .card {
   display: flex;
   flex-wrap: wrap;
+  border-radius: 10px;
   padding: $base-margin*2.5;
   box-sizing: border-box;
   
+  // Card Framing styles
   &--grey {
     background-color: $alabaster;
-    border-radius: 10px;
   }
 
   &--mint {
     background-color: $iceberg;
-    border-radius: 10px;
+    color: $san_juan;
+
+    i {
+      color: $puerto_rico;
+    }
   }
 
   &--light-blue {
     background-color: $hawkes_blue;
+    color: $san_juan;
   }
 
   &--green {
@@ -34,10 +40,38 @@
 
   &--border-blue {
     border: 2px solid $blue_bayoux;
+    padding: $base-margin*3;
   }
 
   &--border-grey {
     border: 2px solid $mid_gray;
+    padding: $base-margin*3;
+  }
+
+  // Card types
+  &--notification {
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: $base-margin*1.5;
+  }
+
+  // Card content styles
+  &__title {
+    color: $san_juan;
+    margin-bottom: $base-margin*2;
+  }
+
+  &__icon {
+    width: 60px;
+    font-size: 2.5rem;
+    padding-right: $base-margin*2.5;
+    box-sizing: border-box;
+  }
+
+  &__content {
+    p {
+      margin-bottom: $base-margin*0.5;
+    }
   }
 
   &__location {
@@ -88,7 +122,7 @@
 
     img {
       display: inline-block;
-      margin-right: $base-margin*0.75;
+      margin-right: $base-margin*0.5;
     }
   }
 }
