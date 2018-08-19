@@ -23,20 +23,8 @@
 	<main id="content" class="page" role="main">
 		<section class="section">
 			<div class="flex-container">
-				<div class="flex-col flex-col--6">
-					<?php include('templates/_components/card.html'); ?>
-				</div>
-				<div class="flex-col flex-col--6">
-					<?php include('templates/_components/table.html'); ?>
-				</div>
-			</div>
-
-			<div class="flex-container">
-				<div class="flex-col flex-col--6">
-					<?php include('templates/_components/side-module.html'); ?>
-				</div>
-				<div class="flex-col flex-col--6">
-					<?php include('templates/_components/sidebar.html'); ?>
+				<div class="flex-col flex-col--12">
+					<?php include('templates/_forms/form.html'); ?>
 				</div>
 			</div>
 		</section>

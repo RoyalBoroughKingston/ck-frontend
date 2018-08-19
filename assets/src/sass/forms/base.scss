@@ -15,6 +15,10 @@ form,
       width: 100%;
     }
 
+    &__description {
+      color: $mid_gray;
+    }
+
     // VALIDATED STATE
     &.validated,
     &.error {
@@ -84,18 +88,10 @@ form,
 
   // LABEL STYLE
   label {
-    position: absolute;
-    top: 4px;
-    left: $base-margin*0.75;
     display: block;
-    color: $gray;
-    font-size: 0.8125rem;
-    line-height: 1.4375;
-    opacity: 0;
-
-    @include breakpoint($break_tablet) {
-      font-size: 0.875rem;
-      line-height: 1.125rem;
-    }
+    color: $san_juan;
+    font-size: 1.1875rem;
+    line-height: 1.4375rem;
+    margin-bottom: $base-margin;
   }
 }

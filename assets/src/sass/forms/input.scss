@@ -1,36 +1,30 @@
 /* INPUT */
 
 input, textarea, .input {
-  background: transparent;
-  color: $black;
-  display: table-cell;
-  width: 300px;
-  border: 2px solid $gray;
-  border-radius: 3px;
+  background: $white;
+  color: $san_juan_75;
+  font-size: 1.1875rem;
+  line-height: 1.4375rem;
+  border: 2px solid $san_juan;
+  border-radius: 0px;
+  padding: $base-margin*0.75 $base-margin;
   box-sizing: border-box;
   vertical-align: middle;
 
-  @include breakpoint($break_mobile) {
-    display: block;
-    width: 100%;
-  }
-
-  &--text {
-    color: $black;
-    font-size: 1rem;
-    line-height: 1rem;
-    padding: $base-margin $base-margin*0.75;
+  &:hover {
+    cursor: pointer;
   }
 
   &:focus {
-    border-color: $gray;
-    padding: $base-margin*1.5 0 $base-margin*0.5;
+    color: $san_juan;
     outline: 0;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: $san_juan;
+  }
 
-    + label {
-      opacity: 0;
-    }
+  &:disabled,
+  &.disabled {
+    border-color: $san_juan_25;
+    cursor: not-allowed;
   }
 }
 
