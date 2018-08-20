@@ -11,14 +11,22 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.setPublicPath(path.resolve('./'));
-mix.sass('assets/src/sass/vendor.scss', 'assets/dist/vendor.css')
-mix.sass('assets/src/sass/app.scss', 'assets/dist/app.css');
-mix.js('assets/src/js/app.js', 'assets/dist').extract(['leaflet']);
-mix.copyDirectory('assets/src/img', 'assets/dist/img');
-mix.copyDirectory('assets/src/fonts/', 'assets/dist/fonts');
-mix.version();
-mix.browserSync({
+mix.setPublicPath(path.resolve('./'))
+.sass('assets/src/sass/vendor.scss', 'assets/dist/vendor.css')
+.sass('assets/src/sass/app.scss', 'assets/dist/app.css')
+.js('assets/src/js/app.js', 'assets/dist').extract(['leaflet'])
+.copy('assets/src/img', 'assets/dist/img').options({
+  fileLoaderDirs: {
+      images: 'assets/dist/img'
+  }
+})
+.copy('assets/src/fonts/', 'assets/dist/fonts').options({
+  fileLoaderDirs: {
+      fonts: 'assets/dist/fonts'
+  }
+})
+.version()
+.browserSync({
   proxy: 'https://connectedkingston.test',
   https: true,
   files: [

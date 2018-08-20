@@ -46,71 +46,7 @@
 		<section class="section section--white">
 			<div class="flex-container">
 				<div class="flex-col flex-col--12">
-					<?php include('templates/_components/breadcrumbs.html'); ?>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="flex-container">
-				<div class="flex-col flex-col--6">
-					<h2>5.0 Buttons</h2>
-					<?php include('templates/_components/button.html'); ?>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="flex-container">
-				<div class="flex-col flex-col--6">
-					<h2>6.0 Forms</h2>
-					<?php include('templates/_forms/form.html'); ?>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="flex-container">
-				<div class="flex-col flex-col--6">
-					<h2>7.0 Cards</h2>
-					<?php include('templates/_components/card.html'); ?>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="flex-container">
-				<div class="flex-col flex-col--4">
-					<h2>8.0 Service Cards</h2>
-					<?php include('templates/_components/service.html'); ?>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="flex-container">
-				<div class="flex-col flex-col--6">
-					<h2>9.0 Header/Footer</h2>
-					<p>9.2 Title Cards</p>
-					<?php include('templates/_components/title-card.html'); ?>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="flex-container">
-				<div class="flex-col flex-col--6">
-					<p>9.3 Side Module</p>
-					<?php include('templates/_components/side-module.html'); ?>
-				</div>
-			</div>
-		</section>
-		
-		<section class="section">
-			<div class="flex-container">
-				<div class="flex-col flex-col--12">
-					<h2>11.0 Search Results</h2>
-					<?php include('templates/_components/map.html'); ?>
+					
 				</div>
 			</div>
 		</section>
