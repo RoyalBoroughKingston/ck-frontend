@@ -27,7 +27,6 @@
     "browser-sync-webpack-plugin": "^2.0.1",
     "laravel-mix": "^2.0.0",
     "leaflet": "^1.3.3",
-    "mobius1-selectr": "^2.4.1",
     "reset-css": "^2.2.1",
     "webpack": "^3.11.0"
   }

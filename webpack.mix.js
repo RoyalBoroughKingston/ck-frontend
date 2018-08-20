@@ -14,7 +14,7 @@ let mix = require('laravel-mix');
 mix.setPublicPath(path.resolve('./'));
 mix.sass('assets/src/sass/vendor.scss', 'assets/dist/vendor.css')
 mix.sass('assets/src/sass/app.scss', 'assets/dist/app.css');
-mix.js('assets/src/js/app.js', 'assets/dist').extract(['leaflet', 'mobius1-selectr']);
+mix.js('assets/src/js/app.js', 'assets/dist').extract(['leaflet']);
 mix.copyDirectory('assets/src/img', 'assets/dist/img');
 mix.copyDirectory('assets/src/fonts/', 'assets/dist/fonts');
 mix.version();

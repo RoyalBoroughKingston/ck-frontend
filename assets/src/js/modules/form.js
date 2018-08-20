@@ -4,11 +4,7 @@ export class Form {
 
   constructor() {
 
-    let selectLists = document.querySelectorAll('.select');
-
-    selectLists.forEach((evt) => {
-      
-    });
+    
 
   }
   
