@@ -42,14 +42,8 @@
 <body>
 	<?php include('templates/_snippets/header.html'); ?>
 
-	<main id="content" class="page" role="main">
-		<section class="section section--white">
-			<div class="flex-container">
-				<div class="flex-col flex-col--12">
-					
-				</div>
-			</div>
-		</section>
+	<main id="app" class="page" role="main">
+		{{ content }}
 	</main>
 
 	<?php include('templates/_snippets/footer.html'); ?>
