@@ -1,6 +1,7 @@
 /* SERVICE */
 
 .service {
+    background-color: $white;
     border-radius: 25px;
     overflow: hidden;
     transition: box-shadow 0.2s ease-out;
@@ -63,7 +64,7 @@
                 display: inline-block;
                 font-size: 1.1875rem;
                 line-height: 1.5rem;
-                margin-right: $base-margin*1.5;
+                margin-right: $base-margin;
                 vertical-align: middle;
             }
 

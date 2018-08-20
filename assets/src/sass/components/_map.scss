@@ -1,0 +1,38 @@
+/* Map */
+
+.map {
+    position: relative;
+    width: 960px;
+    height: 500px;
+    border-radius: 25px;
+    overflow: hidden;
+
+    &__overlay { 
+        position: absolute;
+        top: 0;
+        width: 315px;
+        height: 100%;
+        z-index: 1;
+
+        &--left {
+            left: 0;
+        }
+
+        &--right {
+            right: 0;
+        }
+
+        > div {
+            height: 100%;
+            border-radius: 0;
+            overflow-y: scroll;
+        }
+    }
+
+    #map {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+}

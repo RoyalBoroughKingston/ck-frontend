@@ -1,4 +1,7 @@
 {
-    "/assets/dist/app.js": "/assets/dist/app.js?id=7f3b058e35da965b5e11",
-    "/assets/dist/app.css": "/assets/dist/app.css?id=bd5a51c5739475105941"
+    "/assets/dist/app.js": "/assets/dist/app.js?id=23d8bab588990fe57f2b",
+    "/assets/dist/app.css": "/assets/dist/app.css?id=1e03277b72720b71d90e",
+    "/assets/dist/vendor.js": "/assets/dist/vendor.js?id=45f99d2e2374e2957f99",
+    "/assets/dist/manifest.js": "/assets/dist/manifest.js?id=360cf4a2ac3af2c3da19",
+    "/assets/dist/vendor.css": "/assets/dist/vendor.css?id=994abb5bd2af7fa1bb18"
 }

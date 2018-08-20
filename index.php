@@ -12,9 +12,12 @@
 
 	<!-- Typekit -->
 	<link rel="stylesheet" href="https://use.typekit.net/bjq5bor.css">
-	
+
+	<!-- Vendor styles -->
+	<link href="/assets/dist/vendor.css" media="screen, projection" rel="stylesheet" />
+
 	<!-- Site styles -->
-	<link href="./assets/dist/app.css" media="screen, projection" rel="stylesheet" />
+	<link href="/assets/dist/app.css" media="screen, projection" rel="stylesheet" />
 
 	<!-- Icons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/assets/dist/img/icons/apple-icon-57x57.png">
@@ -43,7 +46,7 @@
 		<section class="section">
 			<div class="flex-container">
 				<div class="flex-col flex-col--12">
-					<?php include('templates/_forms/form.html'); ?>
+					<?php include('templates/_components/map.html'); ?>
 				</div>
 			</div>
 		</section>
@@ -51,7 +54,10 @@
 
 	<?php include('templates/_snippets/footer.html'); ?>
 
-	<script src="./assets/dist/app.js"></script>
+	<!-- SCRIPTS -->
+	<script src="/assets/dist/manifest.js"></script>
+  	<script src="/assets/dist/vendor.js"></script>
+	<script src="/assets/dist/app.js"></script>
 
 	<!-- ~~~~~~~~~~~~ BUILT BY ~~~~~~~~~~~~
 		 AAAAAAA YYY  YYY UU    UU PPPPPPP
