@@ -25,6 +25,36 @@
     }
   }
 
+  > .flex-container {
+    position: relative;
+
+    &:before,
+    &::after {
+      position: absolute;
+    }
+
+    &:before {
+      content: url('../img/trees/tree-green-2--large.svg');
+      top: -$base-margin*11.5;
+      left: $base-margin*4.5;
+
+      @include breakpoint($break_mobile) {
+        top: -$base-margin*8.5;
+        left: $base-margin*2;  
+      }
+    }
+
+    &:after {
+      content: url('../img/trees/tree-blue--large.svg');
+      top: -$base-margin*10.5;
+      right: $base-margin*4.5;
+
+      @include breakpoint($break_mobile) {
+        right: $base-margin*2;  
+      }
+    }
+  }
+
   &__sponsors {
     display: block;
     margin-top: $base-margin*2;
