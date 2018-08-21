@@ -1,6 +1,7 @@
 /* INPUT */
 
 input, textarea, .input {
+  width: 100%;
   background: $white;
   color: $san_juan_75;
   font-size: 1.1875rem;
@@ -10,6 +11,10 @@ input, textarea, .input {
   padding: $base-margin*0.75 $base-margin;
   box-sizing: border-box;
   vertical-align: middle;
+
+  .field--with-button & {
+    width: 50%;
+  }
 
   &:hover {
     cursor: pointer;

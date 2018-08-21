@@ -14,6 +14,7 @@
 // SNIPPETS
 @import "snippets/footer";
 @import "snippets/header";
+@import "snippets/highlight";
 @import "snippets/section";
 
 // COMPONENTS
@@ -28,10 +29,12 @@
 @import "components/media";
 @import "components/modal";
 @import "components/navigation";
+@import "components/pod";
 @import "components/service";
 @import "components/side-module";
 @import "components/sidebar";
 @import "components/table";
+@import "components/tag-cloud";
 @import "components/title-card";
 
 // FORMS

@@ -2,22 +2,43 @@
 
 form,
 .form {
-  padding: $base-margin*3 0;
+  max-width: 490px;
+  padding: 0;
+
+  &--center {
+    margin: 0 auto;
+  }
+
+  &__actions {
+    margin-top: $base-margin*1.5;
+
+    &--center {
+      text-align: center;
+    }
+  }
 
   // GENERAL FIELD WRAPPER
   .field {
     position: relative;
-    display: table;
-    width: 100%;
-    margin-bottom: $base-margin*2.5;
+    margin-bottom: $base-margin;
     overflow: hidden;
 
     @include breakpoint($break_mobile) {
       width: 100%;
     }
 
+    &--with-button {
+      .btn {
+        margin-left: $base-margin*1.375;
+        vertical-align: middle;
+      }
+    }
+
     &__description {
       color: $mid_gray;
+      font-size: 0.875rem;
+      line-height: 1.625rem;
+      margin-bottom: $base-margin*0.5;
     }
 
     // VALIDATED STATE

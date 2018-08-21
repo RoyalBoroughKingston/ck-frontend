@@ -1,9 +1,76 @@
 /* SECTION */
 
 .section {
-  padding: $base-margin*2.5 0;
+  padding: $base-margin*4.5 0;
 
   &--grey {
     background-color: $gray;
+  }
+
+  &--light-blue {
+    background-color: $hawkes_blue;
+  }
+
+  // Header shapes
+  &--header {
+    position: relative;
+    background-size: 110% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: $base-margin*9 0 $base-margin*6 0;
+    margin: $base-margin*2 0;
+
+    &--1 {
+      background-image: url('../img/header-shapes/shape--01.svg');
+    }
+
+    &--2 {
+      background-image: url('../img/header-shapes/shape--02.svg');
+    }
+
+    &--3 {
+      background-image: url('../img/header-shapes/shape--03.svg');
+    }
+
+    &--4 {
+      background-image: url('../img/header-shapes/shape--04.svg');
+    }
+
+    &--5 {
+      background-image: url('../img/header-shapes/shape--05.svg');
+    }
+
+    &--6 {
+      background-image: url('../img/header-shapes/shape--06.svg');
+    }
+
+    &--7 {
+      background-image: url('../img/header-shapes/shape--07.svg');
+    }
+
+    &:before,
+    &::after {
+      position: absolute;
+    }
+
+    &:before {
+      content: url('../img/trees/tree-blue--large.svg');
+      top: $base-margin;
+      right: 40%;
+    }
+
+    &:after {
+      content: url('../img/trees/tree-green-3--large.svg');
+      top: $base-margin*2;
+      right: 37%;
+    }
+  }
+
+  .flex-container {
+    margin-bottom: $base-margin*2;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }

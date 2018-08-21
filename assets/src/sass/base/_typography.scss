@@ -22,6 +22,7 @@ $default-rhythm-border-style: solid $white;
 
 /* [6] */
 html, button, input, select, textarea {
+  color: $san_juan;
   font-family: $font_primary;
   font-weight: $font_regular;
   -webkit-text-stroke: 1px transparent;
@@ -32,6 +33,7 @@ html, button, input, select, textarea {
 
 /* [7] */
 p {
+  color: $san_juan;
   font-size: 1.1875rem;
   line-height: 1.4375;
   margin-bottom: $base-margin;
@@ -92,11 +94,18 @@ p {
 
 /* [8] */
 h1, h2, h3, h4 {
-  color: $black;
+  color: $san_juan;
   font-weight: $font_bold;
+  margin-bottom: $base-margin;
 
   &.white {
     color: $white;
+  }
+
+  i {
+    color: $puerto_rico;
+    margin-left: $base-margin;
+    vertical-align: middle;
   }
 }
 
@@ -118,6 +127,10 @@ h3, .h3 {
 h4, .h4 {
   font-size: 1.5rem;
   line-height: 1.8125rem;
+}
+
+.color-blue {
+  color: $san_juan;
 }
 
 /* [9] */

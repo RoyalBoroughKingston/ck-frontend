@@ -26,7 +26,7 @@ $break_mobile_small  : max-width 320px;
 
 // BODY STYLES
 body {
-  background-color: $wild-sand;
+  background-color: $white;
   color: $black;
 
   &.noscroll {
@@ -72,8 +72,14 @@ body {
     flex-direction: column-reverse;
   }
 
+  // Vertical align center
   &--align-center {
     align-items: center;
+  }
+
+  // Horizontal align center
+  &--justify {
+    justify-content: center;
   }
 
   @include breakpoint($break_mobile) {

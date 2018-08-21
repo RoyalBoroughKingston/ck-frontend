@@ -1,0 +1,17 @@
+/* Highlights */
+
+.highlight {
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: $base-margin*3;
+    box-sizing: border-box;
+
+    &--grey {
+        background-image: url('../img/global/highlight-grey.svg');
+    }
+
+    &--quote {
+        background-image: url('../img/global/highlight-quote.svg');
+    }
+}

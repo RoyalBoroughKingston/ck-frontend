@@ -1,0 +1,24 @@
+/* Pod */
+
+.pod {
+    display: block;
+    margin: $base-margin*2 auto;
+    width: 100%;
+    max-width: 210px;
+    text-align: center;
+
+    &__title {
+        margin-top: $base-margin*2;
+    }
+
+    &__image {
+        text-align: center;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            border: 10px solid $white;
+            border-radius: 50%;
+        }
+    }
+}

@@ -12,15 +12,6 @@
     </div>
 
     <div class="flex-col flex-col--6 flex-col--tablet--12 header__navigation tablet-hide">
-      <div id="google_translate_element"></div>
-
-      <script type="text/javascript">
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-      </script>
-      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="nav nav--primary" role="navigation">
         <a href="/" class="nav__link <?php if ($CURRENT_PAGE == "Index") {?>active<?php }?>" role="menuitem">Search</a>
         <a href="about" class="nav__link <?php if ($CURRENT_PAGE == "About") {?>active<?php }?>" role="menuitem">About</a>
@@ -29,5 +20,14 @@
 
       <a href="#" class="btn btn--small btn--secondary btn--shortlist btn--icon-before"><i class="fa fa-star"></i> View shortlist</a>
     </div>
+
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </div>
 </header>

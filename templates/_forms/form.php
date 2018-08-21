@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div class="actions">
-    <button type="submit" name="submit" class="btn"><span>Submit</span></button>
+  <div class="form__actions form__actions--center">
+      <button type="submit" name="submit" class="btn btn--icon-after">Search <i class="fa fa-search"></i></button>
   </div>
 </form>

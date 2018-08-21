@@ -20,9 +20,25 @@
   }
 
   .flex-container {
+    position: relative;
+
     @include breakpoint($break_tablet) {
       height: 100%;
       align-items: baseline;
+    }
+  }
+
+  #google_translate_element {
+    position: absolute;
+    top: -$base-margin*0.5;
+    right: $base-margin*2.5;
+
+    img {
+      display: inline-block;
+    }
+
+    @include breakpoint($break_tablet) {
+      margin-bottom: $base-margin*4;
     }
   }
 
@@ -46,18 +62,6 @@
       .active & {
         display: block !important;
         z-index: 2;
-      }
-    }
-
-    #google_translate_element {
-      margin-bottom: $base-margin*0.5;
-
-      img {
-        display: inline-block;
-      }
-
-      @include breakpoint($break_tablet) {
-        margin-bottom: $base-margin*4;
       }
     }
   }
