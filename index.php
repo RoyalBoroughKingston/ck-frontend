@@ -1,10 +1,16 @@
+<?php include("includes/config.php");?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-	<title>Connected Kingston - Making links, connecting communities</title>
+	<title>Connected Kingston - <?php print $PAGE_TITLE;?></title>
+	
+	<meta name="description" content="" />
+	<meta name="keywords" content="" /> 
+
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<link rel="canonical" href="Boilerplate" />
+	<link rel="canonical" href="https://connectedkingstong.co.uk" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,17 +46,14 @@
 </head>
 
 <body>
-	<div id="app">
-		
-		<?php include('templates/_snippets/header.html'); ?>
 
-		<main id="content" class="page" role="main">
-			<router-view></router-view>
-		</main>
+	<?php include('templates/_snippets/header.php'); ?>
 
-		<?php include('templates/_snippets/footer.html'); ?>
+	<main id="content" class="page" role="main">
+		<?php include($TEMPLATE_URL); ?>	
+	</main>
 
-	</div>
+	<?php include('templates/_snippets/footer.php'); ?>
 
 	<!-- SCRIPTS -->
 	<script src="/assets/dist/manifest.js"></script>
@@ -64,5 +67,6 @@
 		AA     AA   YY    UU    UU PP
 		AA     AA   YY     UUUUUU  PP
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
 </body>
 </html>

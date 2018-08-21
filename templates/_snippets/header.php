@@ -22,9 +22,9 @@
       <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
       <nav class="nav nav--primary" role="navigation">
-        <a href="/" active-class="active" class="nav__link" role="menuitem">Search</a>
-        <a href="about" active-class="active" class="nav__link" role="menuitem">About</a>
-        <a href="contact" active-class="active" class="nav__link" role="menuitem">Contact</a>
+        <a href="/" class="nav__link <?php if ($CURRENT_PAGE == "Index") {?>active<?php }?>" role="menuitem">Search</a>
+        <a href="about" class="nav__link <?php if ($CURRENT_PAGE == "About") {?>active<?php }?>" role="menuitem">About</a>
+        <a href="contact" class="nav__link <?php if ($CURRENT_PAGE == "Contact") {?>active<?php }?>" role="menuitem">Contact</a>
       </nav>
 
       <a href="#" class="btn btn--small btn--secondary btn--shortlist btn--icon-before"><i class="fa fa-star"></i> View shortlist</a>
