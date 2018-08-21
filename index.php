@@ -40,13 +40,17 @@
 </head>
 
 <body>
-	<?php include('templates/_snippets/header.html'); ?>
+	<div id="app">
+		
+		<?php include('templates/_snippets/header.html'); ?>
 
-	<main id="app" class="page" role="main">
-		{{ content }}
-	</main>
+		<main id="content" class="page" role="main">
+			<router-view></router-view>
+		</main>
 
-	<?php include('templates/_snippets/footer.html'); ?>
+		<?php include('templates/_snippets/footer.html'); ?>
+
+	</div>
 
 	<!-- SCRIPTS -->
 	<script src="/assets/dist/manifest.js"></script>

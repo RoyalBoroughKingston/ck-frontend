@@ -1,9 +1,7 @@
-import Vue from 'vue'
-import { Router } from './vue/router.js';
-
-import { Form } from "./modules/form.js";
-import { Map } from "./modules/map.js";
-import { Navigation } from "./modules/navigation.js";
+import { Init } from "./app/init.js"
+import { Form } from "./modules/form.js"
+import { Map } from "./modules/map.js"
+import { Navigation } from "./modules/navigation.js"
 
 export class App {
   constructor() {
@@ -12,16 +10,8 @@ export class App {
     let map = new Map();
     let navigation = new Navigation();
 
-    // Init Vue
-    let app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
-    });
+    let init = new Init();
 
-    // Init Router
-    let router = new Router();
   }
 
 }

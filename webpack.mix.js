@@ -14,7 +14,7 @@ let mix = require('laravel-mix');
 mix.setPublicPath(path.resolve('./'))
 .sass('assets/src/sass/vendor.scss', 'assets/dist/vendor.css')
 .sass('assets/src/sass/app.scss', 'assets/dist/app.css')
-.js('assets/src/js/app.js', 'assets/dist').extract(['vue', 'vue-router', 'leaflet'])
+.js('assets/src/js/app.js', 'assets/dist').extract(['vue', 'leaflet'])
 .copy('assets/src/img', 'assets/dist/img').options({
   fileLoaderDirs: {
       images: 'assets/dist/img'
