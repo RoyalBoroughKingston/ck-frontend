@@ -32,8 +32,7 @@ mix.setPublicPath(path.resolve('./'))
   files: [
     'assets/dist/app.css',  // Generated .css file
     'assets/dist/app.js',    // Generated .js file
-    'templates/**/*.+(html|twig)',
-    'craft/templates/**/*.+(html|twig)',
+    'templates/**/*.+(html|twig|php)',
     'index.php'
   ]
 });

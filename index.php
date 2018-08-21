@@ -1,4 +1,6 @@
-<?php include("includes/config.php");?>
+<?php
+	include("includes/config.php");
+?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
@@ -50,7 +52,7 @@
 	<?php include('templates/_snippets/header.php'); ?>
 
 	<main id="content" class="page" role="main">
-		<?php include($TEMPLATE_URL); ?>	
+		<?php echo $twig->render($TEMPLATE_URL); ?>	
 	</main>
 
 	<?php include('templates/_snippets/footer.php'); ?>

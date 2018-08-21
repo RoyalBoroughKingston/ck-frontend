@@ -1,1 +1,1 @@
-hello this is a result <?php $_SERVER['REQUEST_URI']; ?>
+hello this is a result
