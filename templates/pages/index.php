@@ -73,3 +73,25 @@
         </div>
     </div>
 </section>
+
+<section class="section section--social-media">
+    <div class="flex-container">
+        <div class="flex-col flex-col--12">
+            <h3>Hear from us</h3>
+        </div>
+    </div>
+
+    <div class="flex-container text-center">
+        <div class="flex-col flex-col--4">
+            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'twitter' } %}
+            {% include('templates/_components/button.php') with { type: 'secondary', action: '#', target: '_blank', text: 'Follow us on twitter' } %}
+        </div>
+
+        <div class="flex-col flex-col--2"></div>
+
+        <div class="flex-col flex-col--4">
+            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'facebook' } %}
+            {% include('templates/_components/button.php') with { type: 'secondary', action: '#', target: '_blank', text: 'Like us on facebook' } %}
+        </div>
+    </div>
+</section>

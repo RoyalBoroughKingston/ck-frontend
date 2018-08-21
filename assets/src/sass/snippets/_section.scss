@@ -2,13 +2,24 @@
 
 .section {
   padding: $base-margin*4.5 0;
+  margin-bottom: $base-margin*4.5;
 
+  // Section colours
   &--grey {
     background-color: $gray;
   }
 
   &--light-blue {
     background-color: $hawkes_blue;
+  }
+
+  // Social media
+  &--social-media {
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/global/social-media-strip.svg');
+    padding: $base-margin*5.5 0 $base-margin*9 0;
   }
 
   // Header shapes

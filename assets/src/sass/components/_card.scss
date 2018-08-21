@@ -8,6 +8,10 @@
   box-sizing: border-box;
   
   // Card Framing styles
+  &--white {
+    background-color: $white;
+  }
+
   &--grey {
     background-color: $alabaster;
   }
@@ -60,7 +64,46 @@
     padding: $base-margin*1.5;
   }
 
+  &--social {
+    padding: $base-margin;
+    margin-bottom: $base-margin*4.5;
+    text-align: left;
+
+    @include breakpoint($break_tablet) {
+      margin-bottom: $base-margin*3;
+    }
+
+    @include breakpoint($break_mobile) {
+      margin-bottom: $base-margin*1.5;
+    }
+  }
+
   // Card content styles
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: $base-margin;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &__meta {
+      p {
+        span {
+          margin-right: $base-margin*2;
+        }
+      }
+    }
+
+    &__icon {
+      color: $silver;
+      font-size: 2.25rem;
+      line-height: 2.25rem;
+    }
+  }
+
   &__title {
     color: $san_juan;
     margin-bottom: $base-margin*2;
@@ -76,6 +119,14 @@
   &__content {
     p {
       margin-bottom: $base-margin*0.5;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .card--social & {
+        color: $mid_gray;
+      }
     }
   }
 

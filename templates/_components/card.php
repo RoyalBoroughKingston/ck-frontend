@@ -1,4 +1,32 @@
-<div class="card card--grey card--location">
+<div class="card{% if frame is defined and frame | length %} card--{{frame}}{% endif %}{% if type is defined and type == 'social' %} card--social{% endif %}">
+  <div class="card__header">
+    <div class="card__header__meta">
+      <p><strong>Connected Kingston</strong></p>
+      
+      <p class="sm-copy">
+        {% if platform is defined and platform == 'twitter' %}
+          <span>@ConnectedKingtson</span>
+        {% endif %}
+
+        <span>21h</span>
+      </p>
+    </div>
+
+    <div class="card__header__icon">
+      {% if platform is defined and platform == 'twitter' %}
+        <i class="fab fa-twitter"></i>
+      {% elseif platform is defined and platform == 'facebook' %}
+        <i class="fab fa-facebook"></i>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card__content">
+    <p class="sm-copy">We're proud to supporting the homeless, refugees and many more in the Kingston area. Find out more about becoming a Community Health Champion here 👉 <a href="#">https://t.co/3BFo2D0S3g</a></p>
+  </div>
+</div>
+
+<!-- <div class="card card--grey card--location">
   <div class="card__location flex-col flex-col--6">
     <p class="card__location__name"><strong>New Malden Library</strong></p>
     <p class="card__location__address">
@@ -109,4 +137,4 @@
     <p>Royal Borough of Kingston</p>
     <p class="sm-copy"><a href="https://www.kingston.gov.uk/">https://www.kingston.gov.uk/</a></p>
   </div>
-</div>
+</div> -->
