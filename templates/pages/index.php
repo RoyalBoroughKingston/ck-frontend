@@ -95,3 +95,22 @@
         </div>
     </div>
 </section>
+
+<section class="section">
+    <div class="flex-container">
+        <div class="flex-col flex-col--7 highlight highlight--grey">
+            <div class="responsive-embed">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/NpEaa2P7qZI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="flex-col flex-col--5">
+            <div class="quote">
+                <p class="quote__icons"><i class="fa fa-quote-left"></i> <i class="fa fa-quote-right"></i></p>
+                <p class="quote__quote"><strong>It's been something I look forward every week, it’s really helped me.</strong></p>
+                <p class="quote__by">Rachel</p>
+                <p class="quote__what sm-copy">Coffee morning regular</p>
+            </div>
+        </div>
+    </div>
+</section>

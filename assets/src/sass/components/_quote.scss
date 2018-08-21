@@ -1,0 +1,30 @@
+/* Quote */
+
+.quote {
+    width: 100%;
+    max-width: 390px;
+    background-image: url('../img/global/highlight-quote.svg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: $base-margin*3 $base-margin*5;
+    margin: $base-margin*2.5 $base-margin;
+    box-sizing: border-box;
+    text-align: center;
+
+    @include breakpoint($break_mobile) {
+        margin: 0;
+    }
+
+    &__quote {
+        margin-bottom: 0.625rem;
+    }
+
+    &__by {
+        margin-bottom: 0;
+    }
+
+    &__what {
+        color: $mid_gray;
+    }
+}
