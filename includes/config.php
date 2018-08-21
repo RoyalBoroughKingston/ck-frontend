@@ -1,19 +1,29 @@
 <?php
 	switch ($_SERVER['REQUEST_URI']) {
-		case "/search":
-			$CURRENT_PAGE = "Search"; 
-			$PAGE_TITLE = "Search";
-			$TEMPLATE_URL = "templates/pages/search.php";
+		case "/results":
+			$CURRENT_PAGE = "Search Results"; 
+			$PAGE_TITLE = "Search results for ";
+			$TEMPLATE_URL = "templates/pages/search/results.php";
+			break;
+		case "/shortlist":
+			$CURRENT_PAGE = "Shortlist"; 
+			$PAGE_TITLE = "Shortlist";
+			$TEMPLATE_URL = "templates/pages/shortlist/index.php";
+			break;
+		case "/referral":
+			$CURRENT_PAGE = "Referral";
+			$PAGE_TITLE = "Referral form";
+			$TEMPLATE_URL = "templates/pages/referral/index.php";
 			break;
 		case "/about":
 			$CURRENT_PAGE = "About"; 
-			$PAGE_TITLE = "About";
-			$TEMPLATE_URL = "templates/pages/about.php";
+			$PAGE_TITLE = "About us";
+			$TEMPLATE_URL = "templates/pages/about/index.php";
 			break;
 		case "/contact":
 			$CURRENT_PAGE = "Contact"; 
 			$PAGE_TITLE = "Contact";
-			$TEMPLATE_URL = "templates/pages/contact.php";
+			$TEMPLATE_URL = "templates/pages/contact/index.php";
 			break;
 		default:
 			$CURRENT_PAGE = "Index";
