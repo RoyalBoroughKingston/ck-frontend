@@ -31,8 +31,33 @@
     padding: $base-margin*9 0 $base-margin*6 0;
     margin: $base-margin*2 0;
 
+    &:before,
+    &::after {
+      position: absolute;
+    }
+
+    &:before {
+      content: url('/assets/dist/img/trees/tree-blue--large.svg');
+      top: $base-margin;
+      right: 40%;
+    }
+
+    &:after {
+      content: url('/assets/dist/img/trees/tree-green-3--large.svg');
+      top: $base-margin*2;
+      right: 37%;
+    }
+
     &--1 {
       background-image: url('/assets/dist/img/header-shapes/shape--01.svg');
+
+      &:before {
+        top: $base-margin;
+      }
+  
+      &:after {
+        top: $base-margin*2;
+      }
     }
 
     &--2 {
@@ -41,6 +66,14 @@
 
     &--3 {
       background-image: url('/assets/dist/img/header-shapes/shape--03.svg');
+
+      &:before {
+        top: -$base-margin*2;
+      }
+  
+      &:after {
+        top: -$base-margin;
+      }
     }
 
     &--4 {
@@ -57,23 +90,6 @@
 
     &--7 {
       background-image: url('/assets/dist/img/header-shapes/shape--07.svg');
-    }
-
-    &:before,
-    &::after {
-      position: absolute;
-    }
-
-    &:before {
-      content: url('/assets/dist/img/trees/tree-blue--large.svg');
-      top: $base-margin;
-      right: 40%;
-    }
-
-    &:after {
-      content: url('/assets/dist/img/trees/tree-green-3--large.svg');
-      top: $base-margin*2;
-      right: 37%;
     }
   }
 

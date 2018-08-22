@@ -18,7 +18,7 @@
         <a href="contact" class="nav__link <?php if ($CURRENT_PAGE == "Contact") {?>active<?php }?>" role="menuitem">Contact</a>
       </nav>
 
-      <a href="#" class="btn btn--small btn--secondary btn--shortlist btn--icon-before"><i class="fa fa-star"></i> View shortlist</a>
+      <a href="/shortlist" class="btn btn--small btn--secondary btn--shortlist btn--icon-before"><i class="fa fa-star"></i> View shortlist</a>
     </div>
 
     <div id="google_translate_element"></div>

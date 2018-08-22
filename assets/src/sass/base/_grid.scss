@@ -82,6 +82,11 @@ body {
     justify-content: center;
   }
 
+  // Fill space
+  &--space {
+    justify-content: space-between;
+  }
+
   @include breakpoint($break_mobile) {
     padding: 0 $base-margin;
   }
@@ -89,6 +94,12 @@ body {
 
 .flex-col {
   box-sizing: border-box;
+
+  // Columns with gutters
+  &--gutter {
+    border: solid $base-margin transparent;
+    box-sizing: border-box;
+  }
 
   // Column width
   @for $i from 1 to $total-columns+1 {

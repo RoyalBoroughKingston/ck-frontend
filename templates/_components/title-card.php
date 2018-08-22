@@ -1,32 +1,33 @@
-<div class="title-card">
-    <h2 class="title-card__title">SPEAR</h2>
-    
-    <div class="title-card__description">
-        <p>SPEAR is a charity for people experiencing homelessness in SW London including Richmond, Merton, Sutton, Kingston and Wandsworth.</p>
-    </div>
-</div>
+<div class="title-card{% if type is defined and type | length %} title-card--{{type}}{% endif %}">
+    {% if title is defined and title | length %}
+        <h2 class="title-card__title">{{ title }}</h2>
+    {% endif %}
 
-<div class="title-card title-card--variant-1">
-    <h2 class="title-card__title">Shortlist</h2>
+    {% if description is defined and description | length %}
+        <div class="title-card__description">
+            {{ description }}
+        </div>
+    {% endif %}
 
-    <div class="title-card__share">
-        <label for="">Share</label>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-link"></i></a>
-        <a href="#"><i class="fa fa-envelope"></i></a>
-    </div>
-</div>
+    {% if action is defined or actionTitle is defined %}
+        <div class="title-card__action">
+            {% if actionTitle is defined and actionTitle | length %}
+                <h4 class="title-card__action__title">Drop in only</h4>
+            {% endif %}
 
-<div class="title-card title-card--variant-2">
-    <h2 class="title-card__title">Job Club</h2>
+            {% if action is defined and action | length %}
+                <a href="{{ action }}" class="btn btn--secondary{% if actionIcon is defined and actionIcon | length %} btn--icon-{{actionIconPosition}}{% endif %}" role="button">{% if actionIcon is defined and actionIcon | length and actionIconPosition == 'before' %}<i class="{{ actionIcon }}"></i> {% endif %}{% if actionText is defined and actionText | length %}{{ actionText }}{% endif %}{% if actionIcon is defined and actionIcon | length and actionIconPosition == 'after' %} <i class="{{ actionIcon }}"></i>{% endif %}</a>
+            {% endif %}
+        </div>
+    {% endif %}
 
-    <div class="title-card__description">
-        <p>We can offer help with CV writing, cover letters, Universal Jobmatch, setting up email and basic IT skills.</p>
-    </div>
-
-    <div class="title-card__action">
-        <h4 class="title-card__action__title">Drop in only</h4>
-        <a href="#" class="btn btn--small btn--green" role="button">Shortlist <i class="fa fa-star"></i></a>
-    </div>
+    {% if enableShare is defined and enableShare == 'true' %}
+        <div class="title-card__share">
+            <label for="">Share</label>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-link"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+        </div>
+    {% endif %}
 </div>
