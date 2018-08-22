@@ -3,9 +3,15 @@
         <h2 class="title-card__title">{{ title }}</h2>
     {% endif %}
 
+    {% if image is defined and image | length %}
+        <div class="title-card__image">
+            <img src="{{ image }}" {% if title is defined and title | length %}alt="{{ title }}"{% endif %}>
+        </div>
+    {% endif %}
+
     {% if description is defined and description | length %}
         <div class="title-card__description">
-            {{ description }}
+            <p>{{ description }}</p>
         </div>
     {% endif %}
 

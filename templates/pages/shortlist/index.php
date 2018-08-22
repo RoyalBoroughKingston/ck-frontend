@@ -19,11 +19,11 @@
 
     <div class="flex-container flex-container--padding flex-container--justify">
         <div class="flex-col flex-col--4 flex-col--gutter">
-            {% include('templates/_components/service.php') with { name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', telephone: '07384 215259', email: 'fsreferrals@spearlondon.org', enableActions: 'true' } %}
+            {% include('templates/_components/service.php') with { type: 'service', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', telephone: '07384 215259', email: 'fsreferrals@spearlondon.org', enableActions: 'true' } %}
         </div>
 
         <div class="flex-col flex-col--4 flex-col--gutter">
-            {% include('templates/_components/service.php') with { name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', telephone: '07384 215259', email: 'fsreferrals@spearlondon.org', enableActions: 'true' } %}
+            {% include('templates/_components/service.php') with { type: 'service', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', telephone: '07384 215259', email: 'fsreferrals@spearlondon.org', enableActions: 'true' } %}
         </div>
     </div>
 

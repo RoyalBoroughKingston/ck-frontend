@@ -105,12 +105,7 @@
         </div>
 
         <div class="flex-col flex-col--5">
-            <div class="quote">
-                <p class="quote__icons"><i class="fa fa-quote-left"></i> <i class="fa fa-quote-right"></i></p>
-                <p class="quote__quote"><strong>It's been something I look forward every week, it’s really helped me.</strong></p>
-                <p class="quote__by">Rachel</p>
-                <p class="quote__what sm-copy">Coffee morning regular</p>
-            </div>
+            {% include('templates/_components/quote.php') with { quote: "It's been something I look forward every week, it's really helped me.", by: 'Rachel', what: 'Coffee morning regular' } %}
         </div>
     </div>
 </section>

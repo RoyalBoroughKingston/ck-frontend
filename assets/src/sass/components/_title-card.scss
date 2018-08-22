@@ -21,8 +21,18 @@
         margin-bottom: $base-margin*2.5;
     }
 
+    &__image {
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    }
+
     &__description {
-        color: $mid_gray;
+        p {
+            color: $mid_gray;
+        }
     }
 
     &__share {

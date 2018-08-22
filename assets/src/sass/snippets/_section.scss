@@ -13,6 +13,11 @@
     background-color: $hawkes_blue;
   }
 
+  // Padding
+  &--no-padding {
+    padding: 0;
+  }
+
   // Social media
   &--social-media {
     background-size: 100% 100%;
@@ -30,6 +35,10 @@
     background-repeat: no-repeat;
     padding: $base-margin*9 0 $base-margin*6 0;
     margin: $base-margin*2 0;
+
+    &--reduce-padding {
+      padding: $base-margin*2.5 0;
+    }
 
     &:before,
     &::after {
