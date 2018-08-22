@@ -9,7 +9,7 @@
 
   &:before {
     content: '';
-    background-image: url('../img/global/footer-border.svg');
+    background-image: url('/assets/dist/img/global/footer-border.svg');
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
     left: 0;
 
     @include breakpoint($break_mobile) {
-      background-image: url('../img/global/footer-border--mobile.svg');
+      background-image: url('/assets/dist/img/global/footer-border--mobile.svg');
     }
   }
 
@@ -34,7 +34,7 @@
     }
 
     &:before {
-      content: url('../img/trees/tree-green-2--large.svg');
+      content: url('/assets/dist/img/trees/tree-green-2--large.svg');
       top: -$base-margin*11.5;
       left: $base-margin*4.5;
 
@@ -45,7 +45,7 @@
     }
 
     &:after {
-      content: url('../img/trees/tree-blue--large.svg');
+      content: url('/assets/dist/img/trees/tree-blue--large.svg');
       top: -$base-margin*10.5;
       right: $base-margin*4.5;
 

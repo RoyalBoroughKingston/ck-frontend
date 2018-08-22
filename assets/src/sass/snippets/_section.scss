@@ -18,7 +18,7 @@
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('../img/global/social-media-strip.svg');
+    background-image: url('/assets/dist/img/global/social-media-strip.svg');
     padding: $base-margin*5.5 0 $base-margin*9 0;
   }
 
@@ -32,31 +32,31 @@
     margin: $base-margin*2 0;
 
     &--1 {
-      background-image: url('../img/header-shapes/shape--01.svg');
+      background-image: url('/assets/dist/img/header-shapes/shape--01.svg');
     }
 
     &--2 {
-      background-image: url('../img/header-shapes/shape--02.svg');
+      background-image: url('/assets/dist/img/header-shapes/shape--02.svg');
     }
 
     &--3 {
-      background-image: url('../img/header-shapes/shape--03.svg');
+      background-image: url('/assets/dist/img/header-shapes/shape--03.svg');
     }
 
     &--4 {
-      background-image: url('../img/header-shapes/shape--04.svg');
+      background-image: url('/assets/dist/img/header-shapes/shape--04.svg');
     }
 
     &--5 {
-      background-image: url('../img/header-shapes/shape--05.svg');
+      background-image: url('/assets/dist/img/header-shapes/shape--05.svg');
     }
 
     &--6 {
-      background-image: url('../img/header-shapes/shape--06.svg');
+      background-image: url('/assets/dist/img/header-shapes/shape--06.svg');
     }
 
     &--7 {
-      background-image: url('../img/header-shapes/shape--07.svg');
+      background-image: url('/assets/dist/img/header-shapes/shape--07.svg');
     }
 
     &:before,
@@ -65,13 +65,13 @@
     }
 
     &:before {
-      content: url('../img/trees/tree-blue--large.svg');
+      content: url('/assets/dist/img/trees/tree-blue--large.svg');
       top: $base-margin;
       right: 40%;
     }
 
     &:after {
-      content: url('../img/trees/tree-green-3--large.svg');
+      content: url('/assets/dist/img/trees/tree-green-3--large.svg');
       top: $base-margin*2;
       right: 37%;
     }

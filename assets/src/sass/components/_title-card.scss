@@ -1,7 +1,7 @@
 /* Title Card */
 
 .title-card {
-    background-image: url('../img/title-card/bg--01.svg');
+    background-image: url('/assets/dist/img/title-card/bg--01.svg');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,11 +9,11 @@
     box-sizing: border-box;
 
     &--variant-1 {
-        background-image: url('../img/title-card/bg--02.svg');
+        background-image: url('/assets/dist/img/title-card/bg--02.svg');
     }
 
     &--variant-2 {
-        background-image: url('../img/title-card/bg--03.svg');
+        background-image: url('/assets/dist/img/title-card/bg--03.svg');
     }
 
     &__title {
@@ -27,7 +27,7 @@
 
     &__share {
         display: inline-block;
-        background-image: url('../img/title-card/bg--mint.svg');
+        background-image: url('/assets/dist/img/title-card/bg--mint.svg');
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;

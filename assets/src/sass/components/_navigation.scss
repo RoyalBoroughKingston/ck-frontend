@@ -26,7 +26,7 @@
 
     .nav__link {
       &:after {
-        content: url('../img/global/nav-hover.svg');
+        content: url('/assets/dist/img/global/nav-hover.svg');
         position: absolute;
         top: -13px;
         right: 0;
