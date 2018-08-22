@@ -12,6 +12,14 @@
         box-shadow: 0 2px 10px 0 $mine_shaft;
     }
 
+    > div {
+        background-color: $white;
+        
+        &:nth-child(odd) {
+            background-color: $alabaster;
+        }
+    }
+
     &__image {
         position: relative;
         background-color: $white;
@@ -78,7 +86,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: $white;
+        background-color: $alabaster;
         color: $mid_gray;
         padding: $base-margin*1.5 $base-margin*2;
         box-sizing: border-box;
@@ -129,10 +137,6 @@
         color: $mid_gray;
         padding: $base-margin*1.5 $base-margin*2;
         box-sizing: border-box;
-
-        &:nth-child(odd) {
-            background-color: $alabaster;
-        }
 
         > span {
             display: block;

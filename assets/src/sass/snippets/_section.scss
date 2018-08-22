@@ -2,7 +2,6 @@
 
 .section {
   padding: $base-margin*4.5 0;
-  margin-bottom: $base-margin*4.5;
 
   // Section colours
   &--grey {
@@ -29,6 +28,7 @@
     background-repeat: no-repeat;
     background-image: url('/assets/dist/img/global/social-media-strip.svg');
     padding: $base-margin*5.5 0 $base-margin*9 0;
+    margin-bottom: $base-margin*4.5;
   }
 
   // Header shapes
@@ -39,6 +39,7 @@
     background-repeat: no-repeat;
     padding: $base-margin*9 0 $base-margin*6 0;
     margin: $base-margin*2 0;
+    margin-bottom: $base-margin*4.5;
 
     &--reduce-padding {
       padding: $base-margin*2.5 0;
@@ -65,11 +66,21 @@
       background-image: url('/assets/dist/img/header-shapes/shape--01.svg');
 
       &:before {
-        top: -$base-margin;
+        top: $base-margin;
       }
   
       &:after {
-        top: -$base-margin*0.5;
+        top: $base-margin*2;
+      }
+
+      &.section--reduce-padding {
+        &:before {
+          top: -$base-margin*2.5;
+        }
+    
+        &:after {
+          top: -$base-margin*2;
+        } 
       }
     }
 
