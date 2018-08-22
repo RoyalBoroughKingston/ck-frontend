@@ -52,6 +52,14 @@
 	<?php include('templates/_snippets/header.php'); ?>
 
 	<main id="content" class="page" role="main">
+		<section class="section section--no-padding">
+			<div class="flex-container">
+				<div class="flex-col flex-col--12">
+					<?php include('templates/_components/breadcrumbs.php'); ?>
+				</div>
+			</div>
+		</section>
+
 		<?php echo $twig->render($TEMPLATE_URL); ?>	
 	</main>
 
