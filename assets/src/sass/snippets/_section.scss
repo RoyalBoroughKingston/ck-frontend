@@ -15,7 +15,11 @@
 
   // Padding
   &--no-padding {
-    padding: 0;
+    padding: 0 !important;
+  }
+
+  &--reduce-padding {
+    padding: $base-margin*2.5 !important;
   }
 
   // Social media
@@ -61,11 +65,11 @@
       background-image: url('/assets/dist/img/header-shapes/shape--01.svg');
 
       &:before {
-        top: $base-margin;
+        top: -$base-margin;
       }
   
       &:after {
-        top: $base-margin*2;
+        top: -$base-margin*0.5;
       }
     }
 
@@ -106,6 +110,14 @@
     margin-bottom: $base-margin*2;
 
     &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__component {
+    margin-bottom: $base-margin*2.75;
+
+    &:last-child {
       margin-bottom: 0;
     }
   }

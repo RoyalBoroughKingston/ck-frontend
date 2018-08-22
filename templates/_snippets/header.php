@@ -14,8 +14,8 @@
     <div class="flex-col flex-col--6 flex-col--tablet--12 header__navigation tablet-hide">
       <nav class="nav nav--primary" role="navigation">
         <a href="/" class="nav__link <?php if ($CURRENT_PAGE == "Index") {?>active<?php }?>" role="menuitem">Search</a>
-        <a href="about" class="nav__link <?php if ($CURRENT_PAGE == "About") {?>active<?php }?>" role="menuitem">About</a>
-        <a href="contact" class="nav__link <?php if ($CURRENT_PAGE == "Contact") {?>active<?php }?>" role="menuitem">Contact</a>
+        <a href="/about" class="nav__link <?php if ($CURRENT_PAGE == "About") {?>active<?php }?>" role="menuitem">About</a>
+        <a href="/contact" class="nav__link <?php if ($CURRENT_PAGE == "Contact") {?>active<?php }?>" role="menuitem">Contact</a>
       </nav>
 
       <a href="/shortlist" class="btn btn--small btn--secondary btn--shortlist btn--icon-before"><i class="fa fa-star"></i> View shortlist</a>

@@ -14,6 +14,18 @@
         line-height: 1.625rem;
     }
 
+    &--icon-before {
+        i {
+            margin-right: $base-margin*0.5;
+        }
+    }
+
+    &--icon-after {
+        i {
+            margin-left: $base-margin*0.5;
+        }
+    }
+
     &:after {
         content: '';
         display: block;
@@ -21,14 +33,6 @@
         height: 1px;
         background-color: $elm;
         margin-top: $base-margin*0.25;
-    }
-
-    &--icon-before {
-        margin-right: $base-margin*0.5;
-    }
-
-    &--icon-after {
-        margin-left: $base-margin*0.5;
     }
 
     &--small {

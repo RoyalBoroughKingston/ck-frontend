@@ -1,15 +1,26 @@
 /* MEDIA */
 
+.media {
+	&--grid {
+		img {
+			display: inline-block;
+			max-width: 280px;
+			height: auto;
+			vertical-align: middle;
+		}
+	}
+}
+
 img {
   display: block;
 
   &.img-responsive {
-    max-width: 100%;
+    width: 100%;
     height: auto;
   }
 
   &.img-rounded {
-    border-radius: 2px;
+    border-radius: 10px;
   }
 }
 

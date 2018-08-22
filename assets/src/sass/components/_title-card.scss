@@ -18,7 +18,7 @@
 
     &__title {
         color: $san_juan;
-        margin-bottom: $base-margin*2.5;
+        margin-bottom: 0;
     }
 
     &__image {
@@ -30,6 +30,8 @@
     }
 
     &__description {
+        margin-top: $base-margin*2.5;
+
         p {
             color: $mid_gray;
         }
