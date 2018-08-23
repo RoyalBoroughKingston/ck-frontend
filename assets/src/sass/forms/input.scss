@@ -2,6 +2,7 @@
 
 input, textarea, .input {
   width: 100%;
+  max-width: 300px;
   background: $white;
   color: $san_juan_75;
   font-size: 1.1875rem;
@@ -12,8 +13,14 @@ input, textarea, .input {
   box-sizing: border-box;
   vertical-align: middle;
 
+  // Styling for a field with a button
   .field--with-button & {
     width: 50%;
+  }
+
+  // Increase max width for homepage search form
+  .form--search & {
+    max-width: 100%;
   }
 
   &:hover {

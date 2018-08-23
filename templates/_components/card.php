@@ -1,29 +1,39 @@
-<div class="card{% if frame is defined and frame | length %} card--{{frame}}{% endif %}{% if type is defined and type == 'social' %} card--social{% endif %}">
-  <div class="card__header">
-    <div class="card__header__meta">
-      <p><strong>Connected Kingston</strong></p>
-      
-      <p class="sm-copy">
+<div class="card{% if frame is defined and frame | length %} card--{{frame}}{% endif %}{% if type is defined and type | length %} card--{{ type }}{% endif %}{% if colour is defined and colour | length %} card--{{ colour }}{% endif %}">
+  {% if type == 'notification' and icon is defined and icon | length %}
+    <div class="card__icon">
+      <i class="{{ icon }}"></i>
+    </div>
+  {% endif %}
+
+  {% if type is defined and type == 'social' %}
+    <div class="card__header">
+      <div class="card__header__meta">
+        <p><strong>Connected Kingston</strong></p>
+        
+        <p class="sm-copy">
+          {% if platform is defined and platform == 'twitter' %}
+            <span>@ConnectedKingtson</span>
+          {% endif %}
+          
+          <span>21h</span>
+        </p>
+      </div>
+
+      <div class="card__header__icon">
         {% if platform is defined and platform == 'twitter' %}
-          <span>@ConnectedKingtson</span>
+          <i class="fab fa-twitter"></i>
+        {% elseif platform is defined and platform == 'facebook' %}
+          <i class="fab fa-facebook"></i>
         {% endif %}
-
-        <span>21h</span>
-      </p>
+      </div>
     </div>
+  {% endif %}
 
-    <div class="card__header__icon">
-      {% if platform is defined and platform == 'twitter' %}
-        <i class="fab fa-twitter"></i>
-      {% elseif platform is defined and platform == 'facebook' %}
-        <i class="fab fa-facebook"></i>
-      {% endif %}
+  {% if content is defined and content | length %}
+    <div class="card__content">
+      <p {% if type is defined and type != 'notification' %}class="sm-copy"{% endif %}>{{ content }}</p>
     </div>
-  </div>
-
-  <div class="card__content">
-    <p class="sm-copy">We're proud to supporting the homeless, refugees and many more in the Kingston area. Find out more about becoming a Community Health Champion here 👉 <a href="#">https://t.co/3BFo2D0S3g</a></p>
-  </div>
+  {% endif %}
 </div>
 
 <!-- <div class="card card--grey card--location">
@@ -122,13 +132,7 @@
 </div>
 
 <div class="card card--notification card--light-blue">
-  <div class="card__icon">
-    <i class="fa fa-info-circle"></i>
-  </div>
-
-  <div class="card__content">
-    <p>‘Myself’ is anyone who is refering themselves or a friend.</p>
-  </div>
+  
 </div>
 
 <div class="card card--reduce-padding card--border-blue text-center">

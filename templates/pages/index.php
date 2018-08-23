@@ -3,7 +3,7 @@
         <div class="title-card flex-col flex-col--8">
             <h3 class="text-center">I'm looking for <i class="fa fa-search"></i></h3>
 
-            <form action="/results" class="form form--center flex-container">
+            <form action="/results" class="form form--search form--center flex-container">
                 <div class="field flex-col flex-col--12">
                     <label class="field__description" for="search_term">Search</label>
                     <input type="text" class="input input--text" name="search_term" placeholder="Activity"/>

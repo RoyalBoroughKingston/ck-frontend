@@ -2,8 +2,15 @@
 
 form,
 .form {
-  max-width: 500px;
   padding: 0;
+
+  &--search {
+    max-width: 500px;
+    
+    .field {
+      margin-bottom: $base-margin !important;
+    }
+  }
 
   &--center {
     margin: 0 auto;
@@ -20,8 +27,20 @@ form,
   // GENERAL FIELD WRAPPER
   .field {
     position: relative;
-    margin-bottom: $base-margin;
+    margin-bottom: $base-margin*4.5;
     overflow: hidden;
+
+    // Reduce margin bottom for homepage search form
+    .form--search & {
+      margin-bottom: $base-margin;
+    }
+
+    // If it has a description reduce label margin bottom
+    &--has-description {
+      label {
+        margin-bottom: $base-margin*0.5;
+      }
+    }
 
     @include breakpoint($break_mobile) {
       width: 100%;
@@ -114,6 +133,6 @@ form,
     color: $san_juan;
     font-size: 1.1875rem;
     line-height: 1.4375rem;
-    margin-bottom: $base-margin;
+    margin-bottom: $base-margin*1.5;
   }
 }

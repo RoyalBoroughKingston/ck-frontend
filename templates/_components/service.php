@@ -1,20 +1,10 @@
 <div class="service">
-    {% if image is defined and image | length %}
-        <div class="service__image">
-            <img src="https://picsum.photos/315/157" alt="Image title">
-            
-            {% if type is defined and type == 'shortlist' %}
-                <div class="service__add">
-                    <a href="#" class="btn btn--small" role="button">Add to shortlist <i class="fa fa-star"></i></a>
-                </div>
-            {% endif %}
-        </div>
-    {% endif %}
-
-    {% if type is defined and type == 'contact' %}
+    {% if type is defined and type == 'contact' or type == 'referral' %}
         <div class="service__header">
             <span>
-                {% if name is defined and name | length %}
+                {% if type == 'referral' and heading is defined and heading | length %}
+                    <p class="service__name"><strong>{{ heading }}</strong></p>
+                {% elseif name is defined and name | length %}
                     <p class="service__name"><strong>{{ name }}</strong></p>
                 {% endif %}
 
@@ -25,6 +15,18 @@
             <span class="mobile-show">
                 <i class="fa fa-angle-down"></i>
             </span>
+        </div>
+    {% endif %}
+
+    {% if image is defined and image | length %}
+        <div class="service__image">
+            <img src="https://picsum.photos/315/157" alt="Image title">
+            
+            {% if type is defined and type == 'shortlist' %}
+                <div class="service__add">
+                    <a href="#" class="btn btn--small" role="button">Add to shortlist <i class="fa fa-star"></i></a>
+                </div>
+            {% endif %}
         </div>
     {% endif %}
 

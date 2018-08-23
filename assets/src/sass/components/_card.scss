@@ -61,6 +61,7 @@
   &--notification {
     flex-wrap: nowrap;
     align-items: center;
+    max-width: 430px;
     padding: $base-margin*1.5;
   }
 

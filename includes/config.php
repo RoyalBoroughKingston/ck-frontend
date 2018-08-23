@@ -29,10 +29,40 @@
 			$PAGE_TITLE = "Shortlist";
 			$TEMPLATE_URL = "templates/pages/shortlist/index.php";
 			break;
-		case "/referral":
+		case "/referral/external":
 			$CURRENT_PAGE = "Referral";
 			$PAGE_TITLE = "Referral form";
-			$TEMPLATE_URL = "templates/pages/referral/index.php";
+			$TEMPLATE_URL = "templates/pages/referral/external.php";
+			break;
+		case "/referral/internal":
+			$CURRENT_PAGE = "Referral";
+			$PAGE_TITLE = "Referral form";
+			$TEMPLATE_URL = "templates/pages/referral/internal.php";
+			break;
+		case "/referral/who":
+			$CURRENT_PAGE = "Referral";
+			$PAGE_TITLE = "Referral form";
+			$TEMPLATE_URL = "templates/pages/referral/who.php";
+			break;
+		case "/referral/you":
+			$CURRENT_PAGE = "Referral";
+			$PAGE_TITLE = "Referral form";
+			$TEMPLATE_URL = "templates/pages/referral/you.php";
+			break;
+		case "/referral/client":
+			$CURRENT_PAGE = "Referral";
+			$PAGE_TITLE = "Referral form";
+			$TEMPLATE_URL = "templates/pages/referral/client.php";
+			break;
+		case "/referral/consent":
+			$CURRENT_PAGE = "Referral";
+			$PAGE_TITLE = "Referral form";
+			$TEMPLATE_URL = "templates/pages/referral/consent.php";
+			break;
+		case "/referral/complete":
+			$CURRENT_PAGE = "Referral";
+			$PAGE_TITLE = "Referral form";
+			$TEMPLATE_URL = "templates/pages/referral/complete.php";
 			break;
 		case "/about":
 			$CURRENT_PAGE = "About"; 

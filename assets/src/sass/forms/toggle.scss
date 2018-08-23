@@ -2,6 +2,26 @@
 
 // RADIO
 .radio {
+  display: inline-block;
+  margin-right: $base-margin*3;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--stack {
+    display: block;
+    margin-right: 0;
+    margin-bottom: $base-margin*2;
+  }
+
+  &__input {
+    display: none;
+    margin-left: $base-margin*3.5;
+    padding-left: $base-margin*1.5;
+    border-left: 4px solid $puerto_rico;
+  }
+
   input[type="radio"] {
     display:none;
   }
@@ -12,6 +32,10 @@
 
   input[type="radio"]:checked + label {
     color: $san_juan;
+  }
+
+  input[type="radio"]:checked + .radio__input {
+    display: block;
   }
 
   input[type="radio"] + label > span {
