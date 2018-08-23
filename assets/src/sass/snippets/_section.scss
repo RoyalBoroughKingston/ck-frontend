@@ -6,10 +6,12 @@
   // Section colours
   &--grey {
     background-color: $gray;
+    margin-bottom: $base-margin*4.5;
   }
 
   &--light-blue {
     background-color: $hawkes_blue;
+    margin-bottom: $base-margin*4.5;
   }
 
   // Padding

@@ -83,14 +83,14 @@
 
     <div class="flex-container text-center">
         <div class="flex-col flex-col--4">
-            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'twitter' } %}
+            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'twitter', content: "We're proud to supporting the homeless, refugees and many more in the Kingston area. Find out more about becoming a Community Health Champion here 👉 <a href='#'>https://t.co/3BFo2D0S3g</a>" } %}
             {% include('templates/_components/button.php') with { type: 'secondary', action: '#', target: '_blank', text: 'Follow us on twitter' } %}
         </div>
 
         <div class="flex-col flex-col--2"></div>
 
         <div class="flex-col flex-col--4">
-            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'facebook' } %}
+            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'facebook', content: "We're proud to supporting the homeless, refugees and many more in the Kingston area. Find out more about becoming a Community Health Champion here 👉 <a href='#'>https://t.co/3BFo2D0S3g</a>" } %}
             {% include('templates/_components/button.php') with { type: 'secondary', action: '#', target: '_blank', text: 'Like us on facebook' } %}
         </div>
     </div>

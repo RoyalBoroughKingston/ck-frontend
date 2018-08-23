@@ -26,7 +26,7 @@
           </nav>
           
           <nav class="nav nav--footer" name="about-nav">
-            <a href="#" class="nav__link">Terms and conditions</a>
+            <a href="#" class="nav__link">Privacy Policy</a>
           </nav>
         </div>
       </div>

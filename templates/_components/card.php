@@ -31,7 +31,7 @@
 
   {% if content is defined and content | length %}
     <div class="card__content">
-      <p {% if type is defined and type != 'notification' %}class="sm-copy"{% endif %}>{{ content }}</p>
+      <p {% if type is defined and type != 'notification' %}class="sm-copy"{% endif %}>{{ content | raw }}</p>
     </div>
   {% endif %}
 </div>
