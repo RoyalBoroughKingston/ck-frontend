@@ -51,17 +51,7 @@
         </div>
     </div>
 
-    <div class="flex-container">
-        <div class="flex-col flex-col--4">
-            {% include('templates/_components/pod.php') with { link: '#', image: 'https://picsum.photos/122/110', title: 'People who are homeless (or at risk of)' } %}
-        </div>
-        <div class="flex-col flex-col--4">
-            {% include('templates/_components/pod.php') with { link: '#', image: 'https://picsum.photos/122/110', title: 'People who are lonely' } %}
-        </div>
-        <div class="flex-col flex-col--4">
-            {% include('templates/_components/pod.php') with { link: '#', image: 'https://picsum.photos/122/110', title: 'People looking to get active' } %}
-        </div>
-    </div>
+    <service-recommendations></service-recommendations>
 </section>
 
 <section class="section section--social-media">

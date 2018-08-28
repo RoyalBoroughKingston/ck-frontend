@@ -4,6 +4,7 @@ Vue.use(axios);
 
 // Vue JS components
 import Categories from './components/Categories'
+import ServiceRecommendations from './components/ServiceRecommendations'
 
 // Site modules,
 import { Form } from "./modules/form.js"
@@ -22,7 +23,10 @@ export class App {
     var app = new Vue({
       el: '#app',
       delimiters: ['${', '}'],
-      components: {Categories}
+      components: {
+        Categories,
+        ServiceRecommendations
+      }
     })
 
   }
