@@ -38,17 +38,7 @@
 
     <div class="flex-container">
         <div class="flex-col flex-col--12 highlight highlight--grey text-center">
-            <div class="tag-cloud">
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Living at home', iconPosition: 'after', icon: 'fa fa-home' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Things to do', iconPosition: 'after', icon: 'fa fa-leaf' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Health matters', iconPosition: 'after', icon: 'fa fa-heart' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Getting around', iconPosition: 'after', icon: 'fa fa-bus' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Housing & Accomodation', iconPosition: 'after', icon: 'fa fa-building' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Money matters', iconPosition: 'after', icon: 'fa fa-pound-sign' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Work & Volunteering', iconPosition: 'after', icon: 'fa fa-bullhorn' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Are you looking after someone?', iconPosition: 'after', icon: 'fa fa-user' } %}
-                {% include('templates/_components/button.php') with { type: 'secondary', action: '#', text: 'Community matters', iconPosition: 'after', icon: 'fa fa-users' } %}
-            </div>
+            <categories></categories>
         </div>
     </div>
 </section>

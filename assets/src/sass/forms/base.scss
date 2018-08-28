@@ -33,10 +33,11 @@ form,
   // LABEL STYLE
   label {
     display: block;
-    color: $san_juan;
-    font-size: 1.1875rem;
-    line-height: 1.4375rem;
-    margin-bottom: $base-margin*1.5;
+    color: $mid_gray;
+    font-size: 0.875rem;
+    line-height: 1.625rem;
+    margin-right: $base-margin;
+    margin-bottom: $base-margin*0.5;
   }
 }
 

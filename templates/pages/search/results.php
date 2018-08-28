@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <!-- <div class="flex-container flex-container--no-padding flex-container--justify">
+    <div class="flex-container flex-container--no-padding flex-container--justify">
         <div class="flex-col flex-col--4 flex-col--gutter">
             {% include('templates/_components/service.php') with { type: 'shortlist', image: 'https://picsum.photos/315/172', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', cost: 'Free', url: '/results/organisation/service', enableActions: 'true' } %}
         </div>
@@ -46,11 +46,11 @@
         <div class="flex-col flex-col--4 flex-col--gutter">
             {% include('templates/_components/service.php') with { type: 'shortlist', added: 'true', image: 'https://picsum.photos/315/172', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', cost: 'Free', duration: 'Up to 1 week', url: '/results/organisation/service', enableActions: 'true' } %}
         </div>
-    </div> -->
+    </div>
 
-    <div class="flex-container">
+    <!-- <div class="flex-container">
         <div class="flex-col flex-col--12">
             {{ include('templates/_components/map.php') }}
         </div>
-    </div>
+    </div> -->
 </section>
