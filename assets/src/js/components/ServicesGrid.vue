@@ -25,14 +25,16 @@
                             <a href="#shortist" v-bind:data-id="service.id" role="button" class="btn btn--small">Add to shortlist <i class="fa fa-star"></i></a>
                         </div>
                     </div>
+                    
                     <div class="service__location">
                         <i class="fa fa-map-marker-alt"></i> <span class="service__location__name">Surbiton,Kingston</span>
                     </div>
+                    
                     <div class="service__meta">
                         <div class="service__meta__item sm-copy" v-if="service.is_free === true"><i class="fa fa-pound-sign"></i> Free</div>
-                        <div class="service__meta__item sm-copy"><i class="fa fa-hourglass"></i> Up to 1 week
-                        </div>
+                        <div class="service__meta__item sm-copy" v-if="service.wait_time"><i class="fa fa-hourglass"></i> {{ service.wait_time }}</div>
                     </div>
+
                     <div class="service__details">
                         <h4 class="service__name">{{ service.name }}</h4>
                         <p class="service__sub-title sm-copy">SPEAR</p>

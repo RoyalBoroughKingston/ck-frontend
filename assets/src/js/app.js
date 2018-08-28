@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Vue from 'vue'
 Vue.use(axios);
+Vue.use(require('vue-moment'));
 
 // Vue JS components
 import Categories from './components/Categories'
@@ -9,6 +10,7 @@ import Recommendations from './components/Recommendations'
 import ServicesGrid from './components/ServicesGrid'
 import ServicesShortlist from './components/ServicesShortlist'
 import ServiceHeader from './components/ServiceHeader'
+import ServiceMain from './components/ServiceMain'
 
 // Site modules,
 import { Form } from "./modules/form.js"
@@ -33,7 +35,8 @@ export class App {
         Recommendations,
         ServicesGrid,
         ServicesShortlist,
-        ServiceHeader
+        ServiceHeader,
+        ServiceMain
       }
     })
 
