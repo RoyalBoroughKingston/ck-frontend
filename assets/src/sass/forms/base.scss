@@ -12,6 +12,12 @@ form,
     }
   }
 
+  &--filter {
+    .field {
+      margin-bottom: $base-margin;
+    }
+  }
+
   &--center {
     margin: 0 auto;
   }
@@ -24,109 +30,6 @@ form,
     }
   }
 
-  // GENERAL FIELD WRAPPER
-  .field {
-    position: relative;
-    margin-bottom: $base-margin*4.5;
-    overflow: hidden;
-
-    // Reduce margin bottom for homepage search form
-    .form--search & {
-      margin-bottom: $base-margin;
-    }
-
-    // If it has a description reduce label margin bottom
-    &--has-description {
-      label {
-        margin-bottom: $base-margin*0.5;
-      }
-    }
-
-    @include breakpoint($break_mobile) {
-      width: 100%;
-    }
-
-    &--with-button {
-      .btn {
-        margin-left: $base-margin*1.375;
-        vertical-align: middle;
-      }
-    }
-
-    &__description {
-      color: $mid_gray;
-      font-size: 0.875rem;
-      line-height: 1.625rem;
-      margin-bottom: $base-margin*0.5;
-    }
-
-    // VALIDATED STATE
-    &.validated,
-    &.error {
-      position: relative;
-
-      &:after {
-        content: '\e804';
-        font-family: "fontello";
-        position: absolute;
-        top: $base-margin*1.125;
-        left: 268px;
-        font-size: 1.25rem;
-        line-height: 1.25rem;
-
-        @include breakpoint($break_mobile) {
-          left: auto;
-          right: $base-margin;
-        }
-      }
-    }
-
-    &.validated {
-      input {
-        border-color: $gray;
-      }
-
-      &:after {
-        content: '\e804';
-        color: $gray;
-      }
-    }
-
-    // ERROR STATE
-    &.error {
-      input{
-        background-color: $red;
-        border-color: $red;
-      }
-
-      &:after {
-        content: '\e80a';
-        color: $red;
-      }
-    }
-
-    .error-message {
-      display: table-cell;
-      width: 300px;
-      padding-left: $base-margin;
-      color: $red;
-      font-size: 0.9375rem;
-      line-height: 1.4375rem;
-      vertical-align: middle;
-
-      a {
-        color: $black;
-      }
-
-      @include breakpoint($break_mobile) {
-        display: block;
-        width: 100%;
-        padding-left: 0;
-        margin-bottom: $base-margin;
-      }
-    }
-  }
-
   // LABEL STYLE
   label {
     display: block;
@@ -134,5 +37,125 @@ form,
     font-size: 1.1875rem;
     line-height: 1.4375rem;
     margin-bottom: $base-margin*1.5;
+  }
+}
+
+// GENERAL FIELD WRAPPER
+.field {
+  position: relative;
+  margin-right: $base-margin*1.5;
+  margin-bottom: $base-margin*4.5;
+  overflow: hidden;
+
+  &--no-margin,
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  // Reduce margin bottom for homepage search form
+  .form--search & {
+    margin-bottom: $base-margin;
+  }
+
+  // If it has a description reduce label margin bottom
+  &--has-description {
+    label {
+      margin-bottom: $base-margin*0.5;
+    }
+  }
+
+  @include breakpoint($break_mobile) {
+    width: 100%;
+  }
+
+  &--with-button {
+    .btn {
+      margin-left: $base-margin*1.375;
+      vertical-align: middle;
+    }
+  }
+
+  &__buttons {
+    .btn {
+      margin-right: $base-margin*0.75;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__description {
+    color: $mid_gray;
+    font-size: 0.875rem;
+    line-height: 1.625rem;
+    margin-right: $base-margin;
+    margin-bottom: $base-margin*0.5;
+  }
+
+  // VALIDATED STATE
+  &.validated,
+  &.error {
+    position: relative;
+
+    &:after {
+      content: '\e804';
+      font-family: "fontello";
+      position: absolute;
+      top: $base-margin*1.125;
+      left: 268px;
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+
+      @include breakpoint($break_mobile) {
+        left: auto;
+        right: $base-margin;
+      }
+    }
+  }
+
+  &.validated {
+    input {
+      border-color: $gray;
+    }
+
+    &:after {
+      content: '\e804';
+      color: $gray;
+    }
+  }
+
+  // ERROR STATE
+  &.error {
+    input{
+      background-color: $red;
+      border-color: $red;
+    }
+
+    &:after {
+      content: '\e80a';
+      color: $red;
+    }
+  }
+
+  .error-message {
+    display: table-cell;
+    width: 300px;
+    padding-left: $base-margin;
+    color: $red;
+    font-size: 0.9375rem;
+    line-height: 1.4375rem;
+    vertical-align: middle;
+
+    a {
+      color: $black;
+    }
+
+    @include breakpoint($break_mobile) {
+      display: block;
+      width: 100%;
+      padding-left: 0;
+      margin-bottom: $base-margin;
+    }
   }
 }

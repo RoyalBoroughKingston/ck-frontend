@@ -24,6 +24,11 @@
 			$PAGE_TITLE = "Organisation ";
 			$TEMPLATE_URL = "templates/pages/search/organisation.php";
 			break;
+		case "/results/organisation/service":
+			$CURRENT_PAGE = "Organisation"; 
+			$PAGE_TITLE = "Organisation ";
+			$TEMPLATE_URL = "templates/pages/search/service.php";
+			break;
 		case "/shortlist":
 			$CURRENT_PAGE = "Shortlist"; 
 			$PAGE_TITLE = "Shortlist";

@@ -77,6 +77,11 @@ body {
     align-items: center;
   }
 
+  // Vertical align bottom
+  &--align-bottom {
+    align-items: flex-end;
+  }
+
   // Horizontal align center
   &--justify {
     justify-content: center;

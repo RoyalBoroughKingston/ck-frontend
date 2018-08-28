@@ -24,7 +24,7 @@
             
             {% if type is defined and type == 'shortlist' %}
                 <div class="service__add">
-                    <a href="#" class="btn btn--small" role="button">Add to shortlist <i class="fa fa-star"></i></a>
+                    <a href="#" class="btn btn--small{% if added == 'true' %} btn--green{% endif %}" role="button">{% if added == 'true' %}In your shortlist{% else %}Add to shortlist{% endif %} <i class="fa fa-star"></i></a>
                 </div>
             {% endif %}
         </div>

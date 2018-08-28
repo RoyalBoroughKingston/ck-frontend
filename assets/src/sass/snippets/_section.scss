@@ -74,16 +74,6 @@
       &:after {
         top: $base-margin*2;
       }
-
-      &.section--reduce-padding {
-        &:before {
-          top: -$base-margin*2.5;
-        }
-    
-        &:after {
-          top: -$base-margin*2;
-        } 
-      }
     }
 
     &--2 {
@@ -123,6 +113,10 @@
     margin-bottom: $base-margin*2;
 
     &:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    &--no-margin {
       margin-bottom: 0;
     }
   }

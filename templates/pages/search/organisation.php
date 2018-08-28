@@ -13,11 +13,11 @@
 <section class="section section--no-padding">
     <div class="flex-container">
         <div class="flex-col flex-col--4 flex-col--gutter">
-            {% include('templates/_components/service.php') with { type: 'shortlist', image: 'https://picsum.photos/315/172', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', cost: 'Free', duration: 'Up to 1 week', url: '#', enableActions: 'true' } %}
+            {% include('templates/_components/service.php') with { type: 'shortlist', image: 'https://picsum.photos/315/172', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', cost: 'Free', duration: 'Up to 1 week', url: '/results/organisation/service', enableActions: 'true' } %}
         </div>
 
         <div class="flex-col flex-col--4 flex-col--gutter">
-            {% include('templates/_components/service.php') with { type: 'shortlist', image: 'https://picsum.photos/315/172', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', cost: 'Free', duration: 'Up to 1 week', url: '#', enableActions: 'true' } %}
+            {% include('templates/_components/service.php') with { type: 'shortlist', image: 'https://picsum.photos/315/172', name: 'Fresh Start', subTitle: 'SPEAR', description: 'Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...', location: 'Surbiton, Kingston', cost: 'Free', duration: 'Up to 1 week', url: '/results/organisation/service', enableActions: 'true' } %}
         </div>
 
         <div class="flex-col flex-col--4 flex-col--gutter">

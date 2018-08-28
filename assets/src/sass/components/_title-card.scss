@@ -8,12 +8,20 @@
     padding: $base-margin*4 $base-margin*3.5;
     box-sizing: border-box;
 
+    &--reduce-padding {
+        padding: $base-margin*2.5 $base-margin*2;
+    }
+
     &--variant-1 {
         background-image: url('/assets/dist/img/title-card/bg--02.svg');
     }
 
     &--variant-2 {
         background-image: url('/assets/dist/img/title-card/bg--03.svg');
+    }
+
+    &--variant-3 {
+        background-image: url('/assets/dist/img/title-card/bg--04.svg');
     }
 
     &__title {
