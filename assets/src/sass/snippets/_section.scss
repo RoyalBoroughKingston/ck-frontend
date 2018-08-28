@@ -33,6 +33,35 @@
     margin-bottom: $base-margin*4.5;
   }
 
+  // Share
+  &--share {
+    position: relative;
+    background-image: url('/assets/dist/img/global/social-background.svg');
+    background-size: 110% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: $base-margin*9 0 $base-margin*6 0;
+    margin-top: $base-margin*4.5;
+    margin-bottom: 0;
+
+    &:before,
+    &::after {
+      position: absolute;
+    }
+
+    &:before {
+      content: url('/assets/dist/img/trees/tree-blue--large.svg');
+      top: -$base-margin;
+      left: $base-margin*4.5;
+    }
+
+    &:after {
+      content: url('/assets/dist/img/trees/tree-green--large.svg');
+      top: -$base-margin*3.5;
+      right: $base-margin*4.5;
+    }
+  }
+
   // Header shapes
   &--header {
     position: relative;

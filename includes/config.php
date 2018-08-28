@@ -10,72 +10,72 @@
 	
 	switch ($request_uri[0]) {
 		case "/":
-			$CURRENT_PAGE = "Index";
+			$CURRENT_PAGE = "index";
 			$PAGE_TITLE = "Making links, connecting communities";
 			$TEMPLATE_URL = "templates/pages/index.php";
 			break;
 		case "/results":
-			$CURRENT_PAGE = "Search Results"; 
+			$CURRENT_PAGE = "search-results"; 
 			$PAGE_TITLE = "Search results for ";
 			$TEMPLATE_URL = "templates/pages/search/results.php";
 			break;
 		case "/results/service":
-			$CURRENT_PAGE = "Organisation"; 
+			$CURRENT_PAGE = "service"; 
+			$PAGE_TITLE = "Service";
+			$TEMPLATE_URL = "templates/pages/search/service.php";
+			break;
+		case "/results/service/organisation":
+			$CURRENT_PAGE = "organisation"; 
 			$PAGE_TITLE = "Organisation ";
 			$TEMPLATE_URL = "templates/pages/search/organisation.php";
 			break;
-		case "/results/service/organisation":
-			$CURRENT_PAGE = "Organisation"; 
-			$PAGE_TITLE = "Organisation ";
-			$TEMPLATE_URL = "templates/pages/search/service.php";
-			break;
 		case "/shortlist":
-			$CURRENT_PAGE = "Shortlist"; 
+			$CURRENT_PAGE = "shortlist"; 
 			$PAGE_TITLE = "Shortlist";
 			$TEMPLATE_URL = "templates/pages/shortlist/index.php";
 			break;
 		case "/referral/external":
-			$CURRENT_PAGE = "Referral";
+			$CURRENT_PAGE = "referral";
 			$PAGE_TITLE = "Referral form";
 			$TEMPLATE_URL = "templates/pages/referral/external.php";
 			break;
 		case "/referral/internal":
-			$CURRENT_PAGE = "Referral";
+			$CURRENT_PAGE = "referral";
 			$PAGE_TITLE = "Referral form";
 			$TEMPLATE_URL = "templates/pages/referral/internal.php";
 			break;
 		case "/referral/who":
-			$CURRENT_PAGE = "Referral";
+			$CURRENT_PAGE = "referral";
 			$PAGE_TITLE = "Referral form";
 			$TEMPLATE_URL = "templates/pages/referral/who.php";
 			break;
 		case "/referral/you":
-			$CURRENT_PAGE = "Referral";
+			$CURRENT_PAGE = "referral";
 			$PAGE_TITLE = "Referral form";
 			$TEMPLATE_URL = "templates/pages/referral/you.php";
 			break;
 		case "/referral/client":
-			$CURRENT_PAGE = "Referral";
+			$CURRENT_PAGE = "referral";
 			$PAGE_TITLE = "Referral form";
 			$TEMPLATE_URL = "templates/pages/referral/client.php";
 			break;
 		case "/referral/consent":
-			$CURRENT_PAGE = "Referral";
+			$CURRENT_PAGE = "referral";
 			$PAGE_TITLE = "Referral form";
 			$TEMPLATE_URL = "templates/pages/referral/consent.php";
 			break;
 		case "/referral/complete":
-			$CURRENT_PAGE = "Referral";
+			$CURRENT_PAGE = "referral";
 			$PAGE_TITLE = "Referral form";
 			$TEMPLATE_URL = "templates/pages/referral/complete.php";
 			break;
 		case "/about":
-			$CURRENT_PAGE = "About"; 
+			$CURRENT_PAGE = "about"; 
 			$PAGE_TITLE = "About us";
 			$TEMPLATE_URL = "templates/pages/about/index.php";
 			break;
 		case "/contact":
-			$CURRENT_PAGE = "Contact"; 
+			$CURRENT_PAGE = "contact"; 
 			$PAGE_TITLE = "Contact";
 			$TEMPLATE_URL = "templates/pages/contact/index.php";
 			break;

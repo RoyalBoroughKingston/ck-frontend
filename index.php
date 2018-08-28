@@ -51,7 +51,7 @@
 
 	<?php include('templates/_snippets/header.php'); ?>
 
-	<main id="app" class="page" role="main">
+	<main id="app" class="page page--<?php echo $CURRENT_PAGE; ?>" role="main">
 		<div class="flex-container">
 			<div class="flex-col flex-col--12">
 				<?php include('templates/_components/breadcrumbs.php'); ?>

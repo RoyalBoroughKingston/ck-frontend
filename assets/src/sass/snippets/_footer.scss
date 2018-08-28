@@ -7,6 +7,17 @@
   padding: $base-margin*3.75 0;
   margin-top: $base-margin*10;
 
+  &--service {
+    margin-top: 0;
+
+    > .flex-container {
+      &:before,
+      &:after {
+        display: none !important;
+      }
+    }
+  }
+
   &:before {
     content: '';
     background-image: url('/assets/dist/img/global/footer-border.svg');

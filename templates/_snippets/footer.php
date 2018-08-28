@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer footer--<?php echo $CURRENT_PAGE; ?>">
   <div class="flex-container">
     <div class="flex-col flex-col--6 flex-col--tablet--12">
       <div class="flex-container">

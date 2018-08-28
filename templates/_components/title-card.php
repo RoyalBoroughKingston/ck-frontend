@@ -1,4 +1,4 @@
-<div class="title-card{% if type is defined and type | length %} title-card--{{type}}{% endif %}{% if reducePadding is defined and reducePadding == 'true' %} title-card--reduce-padding{% endif %}{% if type is defined and type == 'service' %} text-center{% endif %}">
+<div class="title-card{% if type is defined and type | length %} title-card--{{type}}{% endif %}{% if reducePadding is defined and reducePadding == 'true' %} title-card--reduce-padding{% endif %}{% if type is defined and type == 'service' or type == 'share' %} text-center{% endif %}">
     {% if title is defined and title | length %}
         <h2 class="title-card__title">{{ title }}</h2>
     {% elseif enableSearch is defined and enableSearch == 'true' %}
