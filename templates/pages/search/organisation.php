@@ -1,13 +1,5 @@
 <section class="section section--header section--header--reduce-padding section--header--3">
-    <div class="flex-container flex-container--space">
-        <div class="flex-col flex-col--8 flex-col--gutter">
-            {% include('templates/_components/title-card.php') with { type: 'variant-0', title: 'Job Club', description: 'We can offer help with CV writing, cover letters, Universal Jobmatch, setting up email and basic IT skills.' } %}
-        </div>
-
-        <div class="flex-col flex-col--4 flex-col--gutter">
-            {% include('templates/_components/title-card.php') with { type: 'service' } %}
-        </div>
-    </div>
+    <service-header></service-header>
 </section>
 
 <section class="section section--no-padding">

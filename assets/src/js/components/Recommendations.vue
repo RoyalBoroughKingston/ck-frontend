@@ -20,7 +20,7 @@
     import axios from 'axios'
     
     export default {
-        name: "service-recommendations",
+        name: "recommendations",
         data () {
             return {
                 services: null

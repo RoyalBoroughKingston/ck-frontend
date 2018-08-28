@@ -5,9 +5,10 @@ Vue.use(axios);
 // Vue JS components
 import Categories from './components/Categories'
 import SearchHome from './components/SearchHome'
-import ServiceRecommendations from './components/ServiceRecommendations'
+import Recommendations from './components/Recommendations'
 import ServicesGrid from './components/ServicesGrid'
 import ServicesShortlist from './components/ServicesShortlist'
+import ServiceHeader from './components/ServiceHeader'
 
 // Site modules,
 import { Form } from "./modules/form.js"
@@ -29,9 +30,10 @@ export class App {
       components: {
         Categories,
         SearchHome,
-        ServiceRecommendations,
+        Recommendations,
         ServicesGrid,
-        ServicesShortlist
+        ServicesShortlist,
+        ServiceHeader
       }
     })
 
