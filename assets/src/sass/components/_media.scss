@@ -1,6 +1,11 @@
 /* MEDIA */
 
 .media {
+	padding: 0 $base-margin*2;
+	box-sizing: border-box;
+	border-radius: 16px;
+	overflow: hidden;
+
 	&--grid {
 		img {
 			display: inline-block;

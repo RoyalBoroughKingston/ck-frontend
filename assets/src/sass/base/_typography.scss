@@ -96,7 +96,7 @@ p {
 h1, h2, h3, h4 {
   color: $san_juan;
   font-weight: $font_bold;
-  margin-bottom: $base-margin;
+  margin-bottom: $base-margin*2;
 
   &.white {
     color: $white;

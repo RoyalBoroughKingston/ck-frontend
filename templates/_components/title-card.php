@@ -1,4 +1,4 @@
-<div class="title-card{% if type is defined and type | length %} title-card--{{type}}{% endif %}{% if reducePadding is defined and reducePadding == 'true' %} title-card--reduce-padding{% endif %}">
+<div class="title-card{% if type is defined and type | length %} title-card--{{type}}{% endif %}{% if reducePadding is defined and reducePadding == 'true' %} title-card--reduce-padding{% endif %}{% if type is defined and type == 'service' %} text-center{% endif %}">
     {% if title is defined and title | length %}
         <h2 class="title-card__title">{{ title }}</h2>
     {% elseif enableSearch is defined and enableSearch == 'true' %}
@@ -30,6 +30,15 @@
             {% if secondaryAction is defined and secondaryAction | length %}
                 <a href="{{ secondaryAction }}" class="btn{% if secondaryActionIcon is defined and secondaryActionIcon | length %} btn--icon-{{secondaryActionIconPosition}}{% endif %}" role="button">{% if secondaryActionIcon is defined and secondaryActionIcon | length and secondaryActionIconPosition == 'before' %}<i class="{{ secondaryActionIcon }}"></i> {% endif %}{% if secondaryActionText is defined and secondaryActionText | length %}{{ secondaryActionText }}{% endif %}{% if secondaryActionIcon is defined and secondaryActionIcon | length and secondaryActionIconPosition == 'after' %} <i class="{{ secondaryActionIcon }}"></i>{% endif %}</a>
             {% endif %}
+        </div>
+    {% endif %}
+
+    {% if type is defined and type == 'service' %}
+        <div class="title-card__action">
+            <p><a href="#" class="btn btn--green btn--small btn--icon-after">Shortlist <i class="fa fa-star"></i></a></p>
+            <p><a href="#" class="btn btn--icon-after">Connect <i class="fa fa-arrow-right"></i></a></p>
+
+            <p><strong>Please contact the service directly</strong></p>
         </div>
     {% endif %}
 

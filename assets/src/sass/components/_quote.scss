@@ -2,12 +2,12 @@
 
 .quote {
     width: 100%;
-    max-width: 390px;
+    max-width: 430px;
     background-image: url('/assets/dist/img/global/highlight-quote.svg');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    padding: $base-margin*3 $base-margin*5;
+    padding: $base-margin*3 $base-margin*2;
     margin: $base-margin*2.5 $base-margin;
     box-sizing: border-box;
     text-align: center;

@@ -5,7 +5,12 @@
   flex-wrap: wrap;
   border-radius: 10px;
   padding: $base-margin*2.5;
+  margin-bottom: $base-margin*2;
   box-sizing: border-box;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
   
   // Card Framing styles
   &--white {
@@ -118,6 +123,10 @@
   }
 
   &__content {
+    width: 100%;
+    color: $mid_gray;
+    word-break: break-all;
+
     p {
       margin-bottom: $base-margin*0.5;
 
@@ -128,7 +137,16 @@
       .card--social & {
         color: $mid_gray;
       }
+
+      &.sm-copy {
+        color: $mid_gray;
+      }
     }
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto $base-margin;
   }
 
   &__location {

@@ -2,6 +2,8 @@
 
 table,
 .table {
+    width: 100%;
+
     // Who this is for tables
     &--who-for {
         tbody {
@@ -17,6 +19,10 @@ table,
                 td {
                     padding: $base-margin*1.5 $base-margin;
                     vertical-align: middle;
+
+                    &:first-child {
+                        width: 1px;
+                    }
 
                     &:nth-child(1) {
                         padding: $base-margin*1.5 $base-margin*3.5;

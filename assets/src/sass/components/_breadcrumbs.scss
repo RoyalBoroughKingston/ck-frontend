@@ -1,6 +1,9 @@
 /* Breadcrumbs */
 
 .breadcrumbs {
+    font-size: 0.875rem;
+    line-height: 1.625rem;
+
     &__crumb {
         position: relative;
         display: inline-block;
@@ -26,11 +29,6 @@
             width: 100%;
             height: 1px;
             background-color: $jungle_green;
-        }
-
-        &--current:before,
-        &--current:after {
-            display: none;
         }
     }
 }
