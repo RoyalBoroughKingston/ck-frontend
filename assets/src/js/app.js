@@ -4,6 +4,7 @@ Vue.use(axios);
 
 // Vue JS components
 import Categories from './components/Categories'
+import SearchHome from './components/SearchHome'
 import ServiceRecommendations from './components/ServiceRecommendations'
 import ServicesGrid from './components/ServicesGrid'
 
@@ -26,6 +27,7 @@ export class App {
       delimiters: ['${', '}'],
       components: {
         Categories,
+        SearchHome,
         ServiceRecommendations,
         ServicesGrid
       }
@@ -37,32 +39,3 @@ export class App {
 
 // bootstrap
 document.addEventListener("DOMContentLoaded", (e) => new App());
-
-// export class Init {
-    
-//     constructor() {
-
-//         // Add Categories component
-//         Vue.component('category-cloud', {
-//             data () {
-//                 return {
-//                     categories: null
-//                 }
-//             },
-//             mounted () {
-//                 axios
-//                 .get('https://ck-api-staging.cloudapps.digital/core/v1/collections/categories?page=1')
-//                 .then(response => (this.categories = response.data))
-//                 .catch(error => console.log(error))
-//             }
-//         })
-
-//         // Init the vue app
-//         var app = new Vue({
-//             el: '#app',
-//             delimiters: ['${', '}']
-//         })
-
-//     }
-
-// }
