@@ -19,12 +19,12 @@
 			$PAGE_TITLE = "Search results for ";
 			$TEMPLATE_URL = "templates/pages/search/results.php";
 			break;
-		case "/results/organisation":
+		case "/results/service":
 			$CURRENT_PAGE = "Organisation"; 
 			$PAGE_TITLE = "Organisation ";
 			$TEMPLATE_URL = "templates/pages/search/organisation.php";
 			break;
-		case "/results/organisation/service":
+		case "/results/service/organisation":
 			$CURRENT_PAGE = "Organisation"; 
 			$PAGE_TITLE = "Organisation ";
 			$TEMPLATE_URL = "templates/pages/search/service.php";
