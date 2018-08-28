@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="form__actions form__actions--center flex-col flex-col--12">
-                    <button type="submit" name="submit" class="btn btn--icon-after">Search <i class="fa fa-search"></i></button>
+                    <button type="submit" class="btn btn--icon-after">Search <i class="fa fa-search"></i></button>
                 </div>
             </form>
         </div>

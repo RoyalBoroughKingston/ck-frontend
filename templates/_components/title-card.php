@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form__actions flex-col">
-                        <button type="submit" name="submit" class="btn btn--small btn--icon-after">Search <i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn btn--small btn--icon-after">Search <i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>
