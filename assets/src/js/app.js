@@ -7,6 +7,7 @@ import Categories from './components/Categories'
 import SearchHome from './components/SearchHome'
 import ServiceRecommendations from './components/ServiceRecommendations'
 import ServicesGrid from './components/ServicesGrid'
+import ServicesShortlist from './components/ServicesShortlist'
 
 // Site modules,
 import { Form } from "./modules/form.js"
@@ -29,7 +30,8 @@ export class App {
         Categories,
         SearchHome,
         ServiceRecommendations,
-        ServicesGrid
+        ServicesGrid,
+        ServicesShortlist
       }
     })
 

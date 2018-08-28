@@ -1,21 +1,12 @@
 <template>
-    <section class="section section--no-padding">
-        <div class="flex-container flex-container--align-center flex-container--space">
-            <div class="flex-col">
-                <p class="sm-copy color-grey">{{ services.data.length }} service(s) found</p>
-            </div>
-
-            <div class="flex-col">
-                <div class="field field--select">
-                    <label class="field__description">Sort results by:</label>
-                    <select class="select">
-                        <option>Distance</option>
-                    </select>
-                </div>
+    <section class="section">
+        <div class="flex-container">
+            <div class="flex-col flex-col--12">
+                <p class="sm-copy color-grey text-center">{{ services.data.length }} service(s) shortlisted</p>
             </div>
         </div>
-        
-        <div class="flex-container flex-container--no-padding flex-container--justify">
+
+        <div class="flex-container flex-container--justify">
             <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services.data" :key="service.id">
                 <div class="service">
                     <div class="service__image">
@@ -49,7 +40,7 @@
     import axios from 'axios'
     
     export default {
-        name: "services-grid",
+        name: "services-shortlist",
         data () {
             return {
                 services: null
