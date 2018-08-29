@@ -39,7 +39,7 @@
                         <h4 class="service__name">{{ service.name }}</h4>
                         <p class="service__sub-title sm-copy">SPEAR</p>
                         <p class="service__description sm-copy">{{ service.description }}</p>
-                        <a v-bind:href="['services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
+                        <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>

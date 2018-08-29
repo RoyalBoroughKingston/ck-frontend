@@ -6,7 +6,7 @@
                     <div class="flex-col flex-col--6 flex-col--gutter" v-for="service in services" :key="service.id">
                         <div class="service">
                             <div class="service__image">
-                                <img src="https://picsum.photos/315/157" alt="Image title">
+                                <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`">
                                 
                                 <div class="service__add">
                                     <a href="#" role="button" class="btn btn--small">Add to shortlist <i class="fa fa-star"></i></a>
@@ -31,7 +31,7 @@
                                 <h4 class="service__name">{{ service.name }}</h4>
                                 <p class="service__sub-title sm-copy">{{ organisation.name }}</p>
                                 <p class="service__description sm-copy">{{ service.intro }}</p>
-                                <a v-bind:href="service.url" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
+                                <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>

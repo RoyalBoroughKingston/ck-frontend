@@ -11,12 +11,12 @@
                 </div>
             </div>
 
-            <div class="flex-col flex-col--4 flex-col--gutter" v-if="organisationLogo">
+            <div class="flex-col flex-col--4 flex-col--gutter">
                 <div class="title-card">
                     <div class="title-card__image">
-                        <img src="https://picsum.photos/240/80">
-                        </div>
+                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo`">
                     </div>
+                </div>
             </div>
         </div>
     </section>
@@ -46,16 +46,9 @@
                 .then(response => (this.organisation = response.data.data))
                 .catch(error => console.log(error))
             },
-            getOrganisationLogo() {
-                axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug() + '/logo')
-                .then(response => (this.organisation = response.data.data))
-                .catch(error => console.log(error))
-            }
         },
         mounted () {
             this.getOrganisation();
-            this.getOrganisationLogo();
         }
     }
 </script>
