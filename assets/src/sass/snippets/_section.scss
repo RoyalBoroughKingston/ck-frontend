@@ -150,6 +150,24 @@
     }
   }
 
+  // Anchor trigger styling
+  &__anchor {
+    position: absolute;
+    bottom: -$base-margin*3;
+    width: 100%;
+    opacity: 0.8;
+
+    > a {
+      text-decoration: none;
+    }
+
+    i {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  // Component styling
   &__component {
     margin-bottom: $base-margin*3.5;
 

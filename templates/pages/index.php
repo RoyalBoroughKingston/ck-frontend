@@ -12,9 +12,18 @@
             <p class="text-center color-blue">You can search by keyword, category or by groups</p>
         </div>
     </div>
+
+    <div class="section__anchor text-center">
+        <a href="#categories" class="scroll-to-anchor">
+            <p>
+                <strong>More options</strong><br>
+                <i class="fa fa-angle-down"></i>
+            </p>
+        </a>
+    </div>
 </section>
 
-<section class="section">
+<section id="categories" class="section">
     <div class="flex-container">
         <div class="flex-col flex-col--12 text-center">
             <h3>Browse by category <i class="fa fa-columns"></i></h3>
