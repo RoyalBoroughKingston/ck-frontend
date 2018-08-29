@@ -177,11 +177,13 @@
                 
                 <div class="section__component">
                     <div class="card card--border-blue card--reduce-padding">
-                        <div class="card__content text-center"><img src="/assets/dist/img/global/royal-borough-of-kingston.jpg"
-                                class="card__image">
-                            <p class="sm-copy">Royal Borough of Kingston</p>
-                            <p class="sm-copy"><a href="https://www.kingston.gov.uk/" target="_blank">https://www.kingston.gov.uk/</a></p>
-                        </div>
+                        <a v-bind:href="['/organisations/' + service.organisation.slug]">
+                            <div class="card__content text-center">
+                                <img src="/assets/dist/img/global/royal-borough-of-kingston.jpg" class="card__image">
+                                <p class="sm-copy">{{ service.organisation.name }}</p>
+                                <p class="sm-copy">{{ service.organisation.url }}</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -202,8 +204,7 @@
         data () {
             return {
                 service: null,
-                serviceLocations: null,
-                organisation: null
+                serviceLocations: null
             }
         },
         methods: {
@@ -215,7 +216,7 @@
             },
             getService() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getSlug())
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getSlug() + '?include=organisation')
                 .then(response => (this.service = response.data.data))
                 .catch(error => console.log(error))
             },

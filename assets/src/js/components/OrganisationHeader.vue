@@ -39,16 +39,23 @@
                 let slug = pathArray[2]
 
                 return slug
+            },
+            getOrganisation() {
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug())
+                .then(response => (this.organisation = response.data.data))
+                .catch(error => console.log(error))
+            },
+            getOrganisationLogo() {
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug() + '/logo')
+                .then(response => (this.organisation = response.data.data))
+                .catch(error => console.log(error))
             }
         },
         mounted () {
-            axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug())
-            .then(response => (this.organisation = response.data.data))
-            .catch(error => console.log(error))
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug() + '/logo')
-            .then(response => (this.organisation = response.data.data))
-            .catch(error => console.log(error))
+            this.getOrganisation();
+            this.getOrganisationLogo();
         }
     }
 </script>

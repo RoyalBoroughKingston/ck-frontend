@@ -112,19 +112,21 @@
             getOrganisation() {
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug())
-                .then(response => (this.organisation = response.data.data))
+                .then(response => (
+                    this.organisation = response.data.data,
+                    this.getServices()
+                ))
                 .catch(error => console.log(error))
             },
             getServices() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=' + this.getSlug() + '&include=location')
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=' + this.$data.organisation.id + '&include=location')
                 .then(response => (this.services = response.data.data))
                 .catch(error => console.log(error))
             }
         },
         mounted () {
             this.getOrganisation();
-            this.getServices();
         }
     }
 </script>
