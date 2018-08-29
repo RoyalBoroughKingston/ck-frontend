@@ -203,6 +203,7 @@
             return {
                 service: null,
                 serviceLocations: null,
+                organisation: null
             }
         },
         methods: {
@@ -219,8 +220,9 @@
                 .catch(error => console.log(error))
             },
             getServiceLocation() {
+                console.log(this.$data);
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.getSlug() +'&include=location')
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.$data.service.id +'&include=location')
                 .then(response => (this.serviceLocations = response.data.data))
                 .catch(error => console.log(error))
             }

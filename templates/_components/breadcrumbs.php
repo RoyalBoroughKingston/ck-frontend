@@ -27,7 +27,7 @@
                     $breadcrumbs[] = "<a href=\"$base$crumb\" class=\"breadcrumbs__crumb\">$title</a>";
                 // Otherwise, just display the title (minus)
                 else
-                    $breadcrumbs[] = $title;
+                    $breadcrumbs[] = ucwords(str_replace("-"," ",$title));
             }
         
             // Build our temporary array (pieces of bread) into one big string :)
