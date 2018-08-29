@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <service-recommendations></service-recommendations>
+    <recommendations></recommendations>
 </section>
 
 <section class="section section--social-media">
