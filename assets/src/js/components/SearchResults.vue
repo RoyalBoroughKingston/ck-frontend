@@ -22,10 +22,11 @@
                 <p class="field__description">Average wait time</p>
                 
                 <select class="select" name="wait_time">
-                    <option value="up-to-1-day">Up to 1 day</option>
-                    <option value="up-to-2-days">Up to 2 day</option>
-                    <option value="up-to-1-week">Up to 1 week</option>
-                    <option value="up-to-1-month">Up to 1 month</option>
+                    <option value="one_week">Up to 1 week</option>
+                    <option value="two_weeks">Up to 2 weeks</option>
+                    <option value="three_weeks">Up to 3 weeks</option>
+                    <option value="month">Up to 1 month</option>
+                    <option value="longer">Longer</option>
                 </select>
             </div>
             <div class="form__actions flex-col">

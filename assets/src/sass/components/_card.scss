@@ -147,6 +147,8 @@
   &__image {
     display: block;
     margin: 0 auto $base-margin;
+    max-width: 100%;
+    height: auto;
   }
 
   &__location {

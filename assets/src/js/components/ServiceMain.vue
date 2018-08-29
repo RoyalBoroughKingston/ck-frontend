@@ -13,10 +13,10 @@
                         <div class="card__location flex-col flex-col--6">
                             <p class="card__location__name"><strong>{{ location.name }}</strong></p>
                             <p class="card__location__address">
-                                {{ location.address_line_2 }}<br>
-                                {{ location.address_line_3 }}<br>
-                                {{ location.county }}<br>
-                                {{ location.postcode }}
+                                {{ location.location.address_line_2 }}<br>
+                                {{ location.location.address_line_3 }}<br>
+                                {{ location.location.county }}<br>
+                                {{ location.location.postcode }}
                             </p>
                             <p class="card__location__distance sm-copy">0.3 miles away</p>
                         </div>
@@ -33,7 +33,9 @@
                             </div>
                         </div>
                         <div class="card__services flex-col flex-col--12">
-                            <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt=""> <img src="/assets/dist/img/access-icons/access-by-ramps-slopes-manual-doors.png" alt=""> <img src="/assets/dist/img/access-icons/mobility-impaired-walker.png" alt="">
+                            <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt="">
+                            <img src="/assets/dist/img/access-icons/access-by-ramps-slopes-manual-doors.png" alt="Access by ramps and slopes with manual doors">
+                            <img src="/assets/dist/img/access-icons/mobility-impaired-walker.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -212,9 +214,25 @@
             },
             getServiceLocation() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]=ee73a9ae-b503-408f-92bf-9eb71a2b99de?include=location')
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]=ee73a9ae-b503-408f-92bf-9eb71a2b99de&include=location')
                 .then(response => (this.serviceLocations = response.data.data))
                 .catch(error => console.log(error))
+            },
+            getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+                var R = 6371; // Radius of the earth in km
+                var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+                var dLon = this.deg2rad(lon2-lon1); 
+                var a = 
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2)
+                    ; 
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                var d = R * c; // Distance in km
+                return d;
+            },
+            deg2rad(deg) {
+                return deg * (Math.PI/180)
             }
         },
         mounted () {
