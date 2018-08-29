@@ -11,6 +11,8 @@ import ServicesGrid from './components/ServicesGrid'
 import ServicesShortlist from './components/ServicesShortlist'
 import ServiceHeader from './components/ServiceHeader'
 import ServiceMain from './components/ServiceMain'
+import OrganisationHeader from './components/OrganisationHeader'
+import OrganisationMain from './components/OrganisationMain'
 
 // Site modules,
 import { Form } from "./modules/form.js"
@@ -36,7 +38,9 @@ export class App {
         ServicesGrid,
         ServicesShortlist,
         ServiceHeader,
-        ServiceMain
+        ServiceMain,
+        OrganisationHeader,
+        OrganisationMain
       }
     })
 
