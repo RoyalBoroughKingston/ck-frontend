@@ -111,7 +111,7 @@
             },
             getServices() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=7d35a4d6-8886-4060-8354-a3c94bc8615c')
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=7d35a4d6-8886-4060-8354-a3c94bc8615c?include=location')
                 .then(response => (this.services = response.data.data))
                 .catch(error => console.log(error))
             }

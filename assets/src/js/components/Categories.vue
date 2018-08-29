@@ -1,7 +1,7 @@
 <template>
    <div class="tag-cloud">
         <a v-for="category in categories.data" :key="category.id" href="" role="button" class="btn btn--secondary btn--icon-after">
-            {{category.name}} <i class="fa fa-home"></i>
+            {{category.name}} <i v-bind:class="['fa fa-' + category.icon]"></i>
         </a>
     </div>
 </template>

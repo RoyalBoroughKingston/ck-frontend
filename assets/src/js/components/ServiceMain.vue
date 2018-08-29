@@ -212,7 +212,7 @@
             },
             getServiceLocation() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]=ee73a9ae-b503-408f-92bf-9eb71a2b99de')
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]=ee73a9ae-b503-408f-92bf-9eb71a2b99de?include=location')
                 .then(response => (this.serviceLocations = response.data.data))
                 .catch(error => console.log(error))
             }

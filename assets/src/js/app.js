@@ -5,8 +5,9 @@ Vue.use(require('vue-moment'));
 
 // Vue JS components
 import Categories from './components/Categories'
-import SearchHome from './components/SearchHome'
 import Recommendations from './components/Recommendations'
+import SearchHome from './components/SearchHome'
+import SearchResults from './components/SearchResults'
 import ServicesGrid from './components/ServicesGrid'
 import ServicesShortlist from './components/ServicesShortlist'
 import ServiceHeader from './components/ServiceHeader'
@@ -33,8 +34,9 @@ export class App {
       delimiters: ['${', '}'],
       components: {
         Categories,
-        SearchHome,
         Recommendations,
+        SearchHome,
+        SearchResults,
         ServicesGrid,
         ServicesShortlist,
         ServiceHeader,

@@ -54,40 +54,7 @@
 
     {% if enableSearch is defined and enableSearch == 'true' %}
         <div class="title-card__form">
-            <form action="/results" class="form form--filter">
-                <div class="flex-container flex-container--no-margin flex-container--no-padding">
-                    <div class="field flex-col">
-                        <p class="field__description" for="search_term">Search</p>
-                        <input type="text" class="input input--text" name="search_term" placeholder="Job application"/>
-                    </div>
-
-                    <div class="field flex-col">
-                        <p class="field__description" for="location">Location</p>
-                        <input type="text" class="input input--text" name="location" placeholder="Postcode / area"/>
-                    </div>
-                </div>
-
-                <div class="flex-container flex-container--no-padding flex-container--align-bottom">
-                    <div class="field field--no-margin field--checkbox flex-col">
-                        <p class="field__description">Cost</p>
-                        <div class="checkbox">
-                            <input type="checkbox" id="cost-free" class="input input--checkbox" name="cost" checked/>
-                            <label for="cost-free"><span><span></span></span> Free</label>
-                        </div>
-                    </div>
-
-                    <div class="field field--no-margin field--select flex-col">
-                        <p class="field__description">Average wait time</p>
-                        <select class="select">
-                            <option>Up to 1 week</option>
-                        </select>
-                    </div>
-
-                    <div class="form__actions flex-col">
-                        <button type="submit" class="btn btn--small btn--icon-after">Search <i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
+            <search-results></search-results>
         </div>
     {% endif %}
 

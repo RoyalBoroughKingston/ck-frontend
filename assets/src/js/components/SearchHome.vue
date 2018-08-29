@@ -7,7 +7,7 @@
 
         <div class="field field--with-button flex-col flex-col--12">
             <label class="field__description" for="location">Location</label>
-            <input type="text" class="input input--text" name="location" placeholder="Postcode / area"/>
+            <input type="text" class="input input--text" name="location" placeholder="Postcode / area" v-bind:value="postcode"/>
             <a href="#" class="btn btn--secondary btn--icon-after" role="button" v-on:click="findLocation">Find my location <i class="fa fa-map-marker-alt"></i></a>
         </div>
 
@@ -21,7 +21,28 @@
     import axios from 'axios'
     
     export default {
-        name: "search-home"
+        name: "search-home",
+        data() {
+            return {
+                postcode: null
+            }
+        },
+        methods: {
+            findLocation() {
+                let button = event.target;
+                button.classList.add('disabled');
+
+                navigator.geolocation.getCurrentPosition((location) => {
+                    axios
+                    .get('https://api.postcodes.io/postcodes?lon=' + location.coords.latitude + '&lat=' + location.coords.longitude)
+                    .then(response => (
+                        this.postcode = response.data.result,
+                        button.classList.remove('disabled')
+                    ))
+                    .catch(error => console.log(error))
+                });
+            }
+        }
     }
 </script>
  
