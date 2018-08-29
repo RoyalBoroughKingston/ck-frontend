@@ -103,15 +103,21 @@
             }
         },
         methods: {
+            getSlug() {
+                let pathArray = window.location.pathname.split('/');
+                let slug = pathArray[2]
+
+                return slug
+            },
             getOrganisation() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/7d35a4d6-8886-4060-8354-a3c94bc8615c')
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug())
                 .then(response => (this.organisation = response.data.data))
                 .catch(error => console.log(error))
             },
             getServices() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=7d35a4d6-8886-4060-8354-a3c94bc8615c?include=location')
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=' + this.getSlug() + '&include=location')
                 .then(response => (this.services = response.data.data))
                 .catch(error => console.log(error))
             }

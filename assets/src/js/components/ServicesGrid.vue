@@ -22,7 +22,7 @@
                         <img src="https://picsum.photos/315/157" alt="Image title">
                         
                         <div class="service__add">
-                            <a href="#shortist" v-bind:data-id="service.id" role="button" class="btn btn--small">Add to shortlist <i class="fa fa-star"></i></a>
+                            <a v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" class="btn btn--small">Add to shortlist <i class="fa fa-star"></i></a>
                         </div>
                     </div>
                     
@@ -39,7 +39,7 @@
                         <h4 class="service__name">{{ service.name }}</h4>
                         <p class="service__sub-title sm-copy">SPEAR</p>
                         <p class="service__description sm-copy">{{ service.description }}</p>
-                        <a v-bind:href="service.url" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
+                        <a v-bind:href="['services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -54,14 +54,30 @@
         name: "services-grid",
         data () {
             return {
-                services: null
+                services: null,
+                shortlist: null
+            }
+        },
+        methods: {
+            addToShortlist(e) {
+                console.log(e.currentTarget.getAttribute('data-id'), this.$cookies.get("ck_shortlist"))
+
+                // Set shortlist cookie
+                this.$cookies.set("ck_shortlist", this.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id'))
             }
         },
         mounted () {
             axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/services?page=1')
+            .get('https://ck-api-staging.cloudapps.digital/core/v1/services')
             .then(response => (this.services = response.data))
             .catch(error => console.log(error))
+
+            this.shortlist = this.$cookies.get("ck_shortlist")
+        },
+        computed: {
+            isInShortlist(id) {
+                return this.shortlist
+            }
         }
     }
 </script>

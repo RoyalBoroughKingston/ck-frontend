@@ -1,7 +1,10 @@
 import axios from 'axios'
 import Vue from 'vue'
+import VueCookies from 'vue-cookies'
+
 Vue.use(axios);
-Vue.use(require('vue-moment'));
+Vue.use(VueCookies)
+Vue.use(require('vue-moment'))
 
 // Vue JS components
 import Categories from './components/Categories'

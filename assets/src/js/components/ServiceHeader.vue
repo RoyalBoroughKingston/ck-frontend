@@ -32,9 +32,17 @@
                 service: null
             }
         },
+        methods: {
+            getSlug() {
+                let pathArray = window.location.pathname.split('/');
+                let slug = pathArray[2]
+
+                return slug
+            }
+        },
         mounted () {
             axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/services/136f3d48-7a00-4383-81eb-d1ffdfe0c151')
+            .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getSlug())
             .then(response => (this.service = response.data.data))
             .catch(error => console.log(error))
         }
