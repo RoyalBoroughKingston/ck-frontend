@@ -10,12 +10,4 @@
     </div>
 </section>
 
-
-
-<services-grid></services-grid>
-
-<!-- <div class="flex-container">
-    <div class="flex-col flex-col--12">
-        {{ include('templates/_components/map.php') }}
-    </div>
-</div> -->
+<services></services>

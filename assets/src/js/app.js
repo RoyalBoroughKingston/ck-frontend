@@ -11,7 +11,7 @@ import Categories from './components/Categories'
 import Recommendations from './components/Recommendations'
 import SearchHome from './components/SearchHome'
 import SearchResults from './components/SearchResults'
-import ServicesGrid from './components/ServicesGrid'
+import Services from './components/Services'
 import ServicesShortlist from './components/ServicesShortlist'
 import ServiceHeader from './components/ServiceHeader'
 import ServiceMain from './components/ServiceMain'
@@ -40,7 +40,7 @@ export class App {
         Recommendations,
         SearchHome,
         SearchResults,
-        ServicesGrid,
+        Services,
         ServicesShortlist,
         ServiceHeader,
         ServiceMain,
