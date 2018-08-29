@@ -9,11 +9,14 @@
 
                 <div class="section__component">
                     <h4>Where I can access this service</h4>
-                    <div class="card card--grey card--location">
+                    <div class="card card--grey card--location" v-for="location in serviceLocations" :key="location.id">
                         <div class="card__location flex-col flex-col--6">
-                            <p class="card__location__name"><strong>New Malden Library</strong></p>
+                            <p class="card__location__name"><strong>{{ location.name }}</strong></p>
                             <p class="card__location__address">
-                                Kingston Rd<br>New Malden<br>Surrey<br>KT3 3LY
+                                {{ location.address_line_2 }}<br>
+                                {{ location.address_line_3 }}<br>
+                                {{ location.county }}<br>
+                                {{ location.postcode }}
                             </p>
                             <p class="card__location__distance sm-copy">0.3 miles away</p>
                         </div>
@@ -21,11 +24,9 @@
                             <div class="card__hours__times">
                                 <table>
                                     <tbody>
-                                        <tr>
-                                            <td class="sm-copy">Wednesday</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10:30am-12pm</td>
+                                        <tr v-for="time in location.regular_opening_hours" :key="time.index">
+                                            <td class="sm-copy">{{ time.weekday }}</td>
+                                            <td>{{ time.opens_at | moment("ha") }}-{{ time.closes_at | moment("ha") }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -33,37 +34,6 @@
                         </div>
                         <div class="card__services flex-col flex-col--12">
                             <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt=""> <img src="/assets/dist/img/access-icons/access-by-ramps-slopes-manual-doors.png" alt=""> <img src="/assets/dist/img/access-icons/mobility-impaired-walker.png" alt="">
-                        </div>
-                    </div>
-                    
-                    <div class="card card--grey card--location">
-                        <div class="card__location flex-col flex-col--6">
-                            <p class="card__location__name"><strong>New Malden Library</strong></p>
-                            <p class="card__location__address">
-                                Kingston Rd<br>New Malden<br>Surrey<br>KT3 3LY
-                            </p>
-                            <p class="card__location__distance sm-copy">0.3 miles away</p>
-                        </div>
-
-                        <div class="card__hours flex-col flex-col--6">
-                            <div class="card__hours__times">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="sm-copy">Wednesday</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10:30am-12pm</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="card__services flex-col flex-col--12">
-                            <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt="">
-                            <img src="/assets/dist/img/access-icons/access-by-ramps-slopes-manual-doors.png" alt="">
-                            <img src="/assets/dist/img/access-icons/mobility-impaired-walker.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -94,12 +64,12 @@
                             </tr>
                             <tr v-if="service.criteria.housing">
                                 <td><img src="/assets/dist/img/whos-this-for-icons/housing.svg" alt="Housing"></td>
-                                <td class="text-center">Text</td>
+                                <td class="text-center">Housing</td>
                                 <td class="sm-copy">{{ service.criteria.housing }}</td>
                             </tr>
                             <tr v-if="service.criteria.income">
                                 <td><img src="/assets/dist/img/whos-this-for-icons/income.svg" alt="Income"></td>
-                                <td class="text-center">Text</td>
+                                <td class="text-center">Income</td>
                                 <td class="sm-copy">{{ service.criteria.income }}</td>
                             </tr>
                             <tr v-if="service.criteria.language">
@@ -121,8 +91,8 @@
                         <h4 class="card__title">Useful infos</h4>
                         <div class="flex-col flex-col--12">
                             <blockquote v-for="info in service.useful_infos" :key="info.id">
-                                <p>How to apply</p>
-                                <p class="sm-copy">{{ info.text }}</p>
+                                <p v-if="info.title">{{ info.title }}</p>
+                                <p class="sm-copy" v-if="info.description">{{ info.description }}</p>
                             </blockquote>
                         </div>
                     </div>
@@ -130,27 +100,23 @@
 
                 <div class="section__component" v-if="service.video_embed">
                     <div class="media">
-                        <div class="responsive-embed">
-                            {{ service.video_embed }}
-                        </div>
+                        <div class="responsive-embed" v-html="service.video_embed"></div>
                     </div>
                 </div>
 
                 <div class="section__component" v-if="service.testimonial">
                     <div class="quote">
                         <p class="quote__icons"><i class="fa fa-quote-left"></i> <i class="fa fa-quote-right"></i></p>
-                        <p class="quote__quote"><strong>I'm a regular user and I find the support extremely helpful
-                                especially for those going through a transient period in their life. Really useful to know
-                                that people are out there to offer support. I've had help to draw up a plan, the staff
-                                really know their stuff.</strong></p>
-                        <p class="quote__by">Rachel</p>
-                        <p class="quote__what sm-copy">Coffee morning regular</p>
+                        <p class="quote__quote"><strong>{{ service.testimonial }}</strong></p>
                     </div>
                 </div>
             </div>
 
             <div class="flex-col flex-col--4 flex-col--gutter">
-                <div class="section__component text-center"><a href="#print" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print"></i></a></div>
+                <div class="section__component text-center">
+                    <a href="#print" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print"></i></a>
+                </div>
+                
                 <div class="section__component">
                     <div class="card card--notification card--mint" v-if="service.is_free === true">
                         <div class="card__icon"><i class="fa fa-pound-sign"></i></div>
@@ -189,12 +155,12 @@
                             <p>{{ service.contact_email }}</p>
                         </div>
                         
-                        <div class="service__contact service__contact--website" v-if="service.contact_website">
+                        <div class="service__contact service__contact--website" v-if="service.url">
                             <span class="sm-copy">
                                 <i class="fa fa-globe"></i>
                                 Website
                             </span>
-                            <p>{{ service.contact_website }}</p>
+                            <p>{{ service.url }}</p>
                         </div>
                         
                         <div class="service__social">
@@ -233,14 +199,27 @@
         name: "service-main",
         data () {
             return {
-                service: null
+                service: null,
+                serviceLocations: null
+            }
+        },
+        methods: {
+            getService() {
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/services/ee73a9ae-b503-408f-92bf-9eb71a2b99de')
+                .then(response => (this.service = response.data.data))
+                .catch(error => console.log(error))
+            },
+            getServiceLocation() {
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]=ee73a9ae-b503-408f-92bf-9eb71a2b99de')
+                .then(response => (this.serviceLocations = response.data.data))
+                .catch(error => console.log(error))
             }
         },
         mounted () {
-            axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/services/136f3d48-7a00-4383-81eb-d1ffdfe0c151')
-            .then(response => (this.service = response.data.data))
-            .catch(error => console.log(error))
+            this.getService();
+            this.getServiceLocation();
         }
     }
 </script>

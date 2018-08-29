@@ -3,26 +3,35 @@
         <div class="flex-container">
             <div class="flex-col flex-col--8">
                 <div class="flex-container flex-container--no-padding">
-                    <div class="flex-col flex-col--6 flex-col--gutter">
-                        <div class="organisation">
-                            <div class="service__image"><img src="https://picsum.photos/315/157" alt="Image title">
-                                <div class="service__add"><a href="#" role="button" class="btn btn--small">Add to shortlist <i
-                                            class="fa fa-star"></i></a></div>
+                    <div class="flex-col flex-col--6 flex-col--gutter" v-for="service in services" :key="service.id">
+                        <div class="service">
+                            <div class="service__image">
+                                <img src="https://picsum.photos/315/157" alt="Image title">
+                                
+                                <div class="service__add">
+                                    <a href="#" role="button" class="btn btn--small">Add to shortlist <i class="fa fa-star"></i></a>
+                                </div>
                             </div>
-                            <div class="service__location"><i class="fa fa-map-marker-alt"></i> <span class="service__location__name">Surbiton,
-                                    Kingston</span></div>
+
+                            <div class="service__location">
+                                <i class="fa fa-map-marker-alt"></i> <span class="service__location__name">Surbiton, Kingston</span>
+                            </div>
+                            
                             <div class="service__meta">
-                                <div class="service__meta__item sm-copy"><i class="fa fa-pound-sign"></i> Free
+                                <div class="service__meta__item sm-copy">
+                                    <i class="fa fa-pound-sign"></i> Free
                                 </div>
-                                <div class="service__meta__item sm-copy"><i class="fa fa-hourglass"></i> Up to 1 week
+                                
+                                <div class="service__meta__item sm-copy">
+                                    <i class="fa fa-hourglass"></i> Up to 1 week
                                 </div>
                             </div>
+
                             <div class="service__details">
-                                <h4 class="service__name">Fresh Start</h4>
-                                <p class="service__sub-title sm-copy">SPEAR</p>
-                                <p class="service__description sm-copy">Fresh Start is an early intervention, homelessness
-                                    prevention programme which is outreach and community...</p> <a href="/results/organisation/organisation"
-                                    role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
+                                <h4 class="service__name">{{ service.name }}</h4>
+                                <p class="service__sub-title sm-copy">{{ organisation.name }}</p>
+                                <p class="service__description sm-copy">{{ service.intro }}</p>
+                                <a v-bind:href="service.url" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -89,14 +98,27 @@
         name: "organisation-main",
         data () {
             return {
-                organisation: null
+                organisation: null,
+                services: null
+            }
+        },
+        methods: {
+            getOrganisation() {
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/7d35a4d6-8886-4060-8354-a3c94bc8615c')
+                .then(response => (this.organisation = response.data.data))
+                .catch(error => console.log(error))
+            },
+            getServices() {
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=7d35a4d6-8886-4060-8354-a3c94bc8615c')
+                .then(response => (this.services = response.data.data))
+                .catch(error => console.log(error))
             }
         },
         mounted () {
-            axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/7d35a4d6-8886-4060-8354-a3c94bc8615c')
-            .then(response => (this.organisation = response.data.data))
-            .catch(error => console.log(error))
+            this.getOrganisation();
+            this.getServices();
         }
     }
 </script>
