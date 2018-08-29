@@ -19,7 +19,7 @@
             <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services.data" :key="service.id">
                 <div class="service">
                     <div class="service__image">
-                        <img src="https://picsum.photos/315/157" alt="Image title">
+                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`">
                         
                         <div class="service__add">
                             <a v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" class="btn btn--small">Add to shortlist <i class="fa fa-star"></i></a>
