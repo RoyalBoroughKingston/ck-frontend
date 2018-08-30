@@ -55,10 +55,9 @@
         },
         computed: {
             filterServices() {
+                // create a filtered array for filtering
                 let filtered = this.services.data;
-                console.log(filtered)
-
-                console.log(this.cost, this.wait_time)
+                console.log(filtered);
 
                 // Store the filters in an array
                 let filters = {
@@ -73,15 +72,13 @@
                     return filterKeys.every(key => !!~filters[key].indexOf(item[key]));
                 })
 
-                console.log(filtered)
-
                 // Changes services to filtered services
                 this.services = filtered;
             }
         },
         mounted () {
             axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[name]='+this.search_term)
+            .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[name]='+this.search_term+'&include=organisation')
             .then(response => (
                 this.services = response.data,
                 this.filterServices()
