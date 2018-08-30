@@ -9,14 +9,16 @@ Vue.use(require('vue-moment'))
 // Vue JS components
 import Categories from './components/Categories'
 import Recommendations from './components/Recommendations'
-import SearchHome from './components/SearchHome'
-import SearchResults from './components/SearchResults'
 import Services from './components/Services'
 import ServicesShortlist from './components/ServicesShortlist'
 import ServiceHeader from './components/ServiceHeader'
 import ServiceMain from './components/ServiceMain'
 import OrganisationHeader from './components/OrganisationHeader'
 import OrganisationMain from './components/OrganisationMain'
+
+// Vue JS Components - Search
+import SearchHome from './components/SearchHome'
+import Search from './components/Search'
 
 // Site modules,
 import { Form } from "./modules/form.js"
@@ -38,14 +40,14 @@ export class App {
       components: {
         Categories,
         Recommendations,
-        SearchHome,
-        SearchResults,
         Services,
         ServicesShortlist,
         ServiceHeader,
         ServiceMain,
         OrganisationHeader,
-        OrganisationMain
+        OrganisationMain,
+        SearchHome,
+        Search
       }
     })
 

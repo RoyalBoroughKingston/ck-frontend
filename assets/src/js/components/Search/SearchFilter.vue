@@ -40,7 +40,7 @@
     import axios from 'axios'
     
     export default {
-        name: "search-results",
+        name: "search-filter",
         data () {
             return {
                 search_term: null,

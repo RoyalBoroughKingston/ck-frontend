@@ -51,23 +51,4 @@
             <a href="#"><i class="fa fa-envelope"></i></a>
         </div>
     {% endif %}
-
-    {% if enableSearch is defined and enableSearch == 'true' %}
-        <div class="title-card__form">
-            <search-results></search-results>
-        </div>
-    {% endif %}
-
-    {% if enableSearchFilter is defined and enableSearchFilter == 'true' %}
-        <div class="title-card__form">
-            <p class="sm-copy color-grey">View as</p>
-
-            <div class="field field--buttons">
-                <div class="field__buttons">
-                    {% include('templates/_components/button.php') with { type: 'toggle', active: 'true', action: '#', text: 'Grid', icon: 'fa fa-th-large', iconPosition: 'after' } %}
-                    {% include('templates/_components/button.php') with { type: 'toggle', action: '#', text: 'Map', icon: 'fa fa-map', iconPosition: 'after' } %}
-                </div>
-            </div>
-        </div>
-    {% endif %}
 </div>
