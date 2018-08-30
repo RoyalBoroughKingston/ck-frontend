@@ -1,10 +1,13 @@
 import axios from 'axios'
 import Vue from 'vue'
 import VueCookies from 'vue-cookies'
+import Paginate from 'vuejs-paginate'
 
 Vue.use(axios);
 Vue.use(VueCookies)
 Vue.use(require('vue-moment'))
+
+Vue.component('paginate', Paginate)
 
 // Vue JS components
 import Categories from './components/Categories'

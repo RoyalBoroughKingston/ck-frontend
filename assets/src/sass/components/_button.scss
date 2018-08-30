@@ -25,8 +25,15 @@
 
   &--icon-before {
     i {
-      margin-left: 0;
+      margin-left: 0 !important;
       margin-right: $base-margin*0.625;
+    }
+  }
+
+  &--icon-after {
+    i {
+      margin-right: 0 !important;
+      margin-left: $base-margin*0.625;
     }
   }
 
