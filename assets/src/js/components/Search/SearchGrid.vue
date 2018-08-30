@@ -1,6 +1,6 @@
 <template>
     <div id="grid" class="flex-container flex-container--no-padding flex-container--justify">
-        <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services.data" :key="service.id">
+        <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services" :key="service.id">
             <div class="service">
                 <div class="service__image">
                     <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`">

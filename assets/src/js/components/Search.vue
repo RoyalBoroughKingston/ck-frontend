@@ -45,7 +45,7 @@
                 view: 'grid',
                 search_term: null,
                 location: null,
-                cost: null,
+                cost: true,
                 wait_time: null,
                 sort_by: null
             }
@@ -53,13 +53,40 @@
         methods: {
             
         },
+        computed: {
+            filterServices() {
+                let filtered = this.services.data;
+                console.log(filtered)
+
+                console.log(this.cost, this.wait_time)
+
+                // Store the filters in an array
+                let filters = {
+                    is_free: this.cost,
+                    wait_time: this.wait_time
+                };
+                
+                const filterKeys = Object.keys(filters);
+
+                // Run the filter function on the services array and return filtered items
+                filtered = this.services.data.filter((item) => {
+                    return filterKeys.every(key => !!~filters[key].indexOf(item[key]));
+                })
+
+                console.log(filtered)
+
+                // Changes services to filtered services
+                this.services = filtered;
+            }
+        },
         mounted () {
             axios
             .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[name]='+this.search_term)
-            .then(response => (this.services = response.data))
+            .then(response => (
+                this.services = response.data,
+                this.filterServices()
+            ))
             .catch(error => console.log(error))
-
-            this.shortlist = this.$cookies.get("ck_shortlist")
         }
     }
 </script>

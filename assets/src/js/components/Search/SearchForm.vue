@@ -17,19 +17,20 @@
                     <div class="field field--no-margin field--checkbox flex-col">
                         <p class="field__description">Cost</p>
                         <div class="checkbox">
-                            <input type="checkbox" id="cost-free" name="cost" checked="checked" class="input input--checkbox">
+                            <input type="checkbox" id="cost-free" name="cost" class="input input--checkbox" v-bind:value="'true'" v-model="this.$parent.cost" :checked="this.$parent.cost">
                             <label for="cost-free"><span><span></span></span> Free</label>
                         </div>
                     </div>
                     <div class="field field--no-margin field--select flex-col">
                         <p class="field__description">Average wait time</p>
                         
-                        <select class="select" name="wait_time">
-                            <option value="one_week">Up to 1 week</option>
-                            <option value="two_weeks">Up to 2 weeks</option>
-                            <option value="three_weeks">Up to 3 weeks</option>
-                            <option value="month">Up to 1 month</option>
-                            <option value="longer">Longer</option>
+                        <select class="select" name="wait_time" v-model="this.$parent.wait_time">
+                            <option v-bind:value="'null'">Show all</option>
+                            <option v-bind:value="'one_week'">Up to 1 week</option>
+                            <option v-bind:value="'two_weeks'">Up to 2 weeks</option>
+                            <option v-bind:value="'three_weeks'">Up to 3 weeks</option>
+                            <option v-bind:value="'month'">Up to 1 month</option>
+                            <option v-bind:value="'longer'">Longer</option>
                         </select>
                     </div>
                     <div class="form__actions flex-col">
@@ -58,8 +59,21 @@
             }
         },
         mounted() {
+            // Set search parameters
             this.$parent.search_term = this.getParameterByName('search_term')
             this.$parent.location = this.getParameterByName('location')
+            
+            if(this.getParameterByName('cost') !== null) {
+                this.$parent.cost = this.getParameterByName('cost')
+            } else {
+                this.$parent.cost = false
+            }
+            
+            if(this.getParameterByName('wait_time') !== "") {
+                this.$parent.wait_time = this.getParameterByName('wait_time')
+            } else {
+                this.$parent.wait_time = null
+            }
         }
     }
 </script>
