@@ -4,7 +4,7 @@
             <p class="sm-copy color-grey">{{ this.$parent.services_meta.total }} service<span v-if="this.$parent.services_meta.total > 1 || this.$parent.services_meta.total === 0">s</span> found</p>
         </div>
 
-        <div class="flex-col">
+        <div class="flex-col" v-if="location">
             <div class="field field--select">
                 <label class="field__description">Sort results by:</label>
                 <select class="select" @change="doSort">
@@ -21,6 +21,7 @@
     
     export default {
         name: "search-sort",
+        props: ['location'],
         methods: {
             doSort(e) {
                 this.$parent.sort_by = e.target.value,

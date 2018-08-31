@@ -13,7 +13,7 @@
         </section>
         
         <section id="results" class="section section--no-padding">
-            <search-sort></search-sort>
+            <search-sort v-bind:location="location"></search-sort>
             <search-grid v-if="view === 'grid'" v-bind:services="services"></search-grid>
             <search-map v-if="view === 'map'" v-bind:services="services"></search-map>
             
