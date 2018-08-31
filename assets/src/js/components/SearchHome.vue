@@ -1,8 +1,8 @@
 <template>
     <form action="/results" class="form form--search form--center flex-container">
         <div class="field flex-col flex-col--12">
-            <label class="field__description" for="search_term">Search</label>
-            <input type="text" class="input input--text" name="search_term" placeholder="Activity"/>
+            <label class="field__description" for="search_term">Search *</label>
+            <input type="text" class="input input--text" name="search_term" placeholder="Activity" minlength="3" required/>
         </div>
 
         <div class="field field--with-button flex-col flex-col--12">

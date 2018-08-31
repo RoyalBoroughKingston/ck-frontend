@@ -17,7 +17,7 @@
                     <div class="field field--no-margin field--checkbox flex-col">
                         <p class="field__description">Cost</p>
                         <div class="checkbox">
-                            <input type="checkbox" id="cost-free" name="cost" class="input input--checkbox" v-bind:value="'true'" v-model="this.$parent.cost" :checked="this.$parent.cost">
+                            <input type="checkbox" id="cost-free" name="is_free" class="input input--checkbox" v-bind:value="'true'" v-model="this.$parent.is_free" :checked="this.$parent.is_free">
                             <label for="cost-free"><span><span></span></span> Free</label>
                         </div>
                     </div>
@@ -60,13 +60,16 @@
         },
         mounted() {
             // Set search parameters
-            this.$parent.search_term = this.getParameterByName('search_term')
+            if(this.getParameterByName('search_term') !== "") {
+                this.$parent.search_term = this.getParameterByName('search_term')
+            }
+            
             this.$parent.location = this.getParameterByName('location')
             
-            if(this.getParameterByName('cost') !== null) {
-                this.$parent.cost = this.getParameterByName('cost')
+            if(this.getParameterByName('is_free') !== null) {
+                this.$parent.is_free = this.getParameterByName('is_free')
             } else {
-                this.$parent.cost = false
+                this.$parent.is_free = false
             }
             
             if(this.getParameterByName('wait_time') !== "") {

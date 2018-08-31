@@ -21,7 +21,7 @@
 
                 <div class="service__details">
                     <h4 class="service__name">{{ service.name }}</h4>
-                    <p class="service__sub-title sm-copy">{{ service.organisation.name }}</p>
+                    <p class="service__sub-title sm-copy">Organisation name</p>
                     <p class="service__description sm-copy">{{ service.description }}</p>
                     <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
                 </div>
@@ -38,8 +38,6 @@
         props: ['services'],
         methods: {
             addToShortlist(e) {
-                console.log(e.currentTarget.getAttribute('data-id'), this.$cookies.get("ck_shortlist"))
-
                 // Set shortlist cookie
                 this.$cookies.set("ck_shortlist", this.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id'))
             }

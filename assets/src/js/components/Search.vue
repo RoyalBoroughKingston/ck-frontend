@@ -62,9 +62,9 @@
                 view: 'grid',
                 search_term: null,
                 location: null,
-                cost: true,
+                is_free: true,
                 wait_time: null,
-                sort_by: null
+                sort_by: 'relevance'
             }
         },
         methods: {
@@ -77,8 +77,15 @@
                 });
             },
             updateServices() {
+                // Set the search parameters
+                let params = {
+                    query: this.search_term,
+                    is_free: Boolean(this.is_free),
+                    order: this.sort_by
+                };
+
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[name]='+this.search_term+'&include=organisation&page='+this.current_page)
+                .post('https://ck-api-staging.cloudapps.digital/core/v1/search', params)
                 .then(response => (
                     // Set the services
                     this.services = response.data.data,
@@ -87,9 +94,7 @@
                     // Set the current page so we can use it later
                     this.current_page = response.data.meta.current_page,
                     // Set the last page so we can use it later
-                    this.last_page = response.data.meta.last_page,
-                    // Call the filter services function
-                    this.filterServices()
+                    this.last_page = response.data.meta.last_page
                 ))
                 .catch(error => console.log(error))
             },
@@ -102,28 +107,6 @@
                     el = el.offsetParent;
                 }
                 return { top: _y, left: _x };
-            }
-        },
-        computed: {
-            filterServices() {
-                // create a filtered array for filtering
-                let filtered = this.services;
-
-                // Store the filters in an array
-                let filters = {
-                    is_free: this.cost,
-                    wait_time: this.wait_time
-                };
-                
-                const filterKeys = Object.keys(filters);
-
-                // Run the filter function on the services array and return filtered items
-                filtered = this.services.filter((item) => {
-                    return filterKeys.every(key => !!~filters[key].indexOf(item[key]));
-                })
-
-                // Changes services to filtered services
-                this.services = filtered;
             }
         },
         mounted () {
