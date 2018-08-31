@@ -64,7 +64,9 @@
                 this.$parent.search_term = this.getParameterByName('search_term')
             }
             
-            this.$parent.location = this.getParameterByName('location')
+            if(this.getParameterByName('location') !== "") {
+                this.$parent.location = this.getParameterByName('location')
+            }
             
             if(this.getParameterByName('is_free') !== null) {
                 this.$parent.is_free = this.getParameterByName('is_free')

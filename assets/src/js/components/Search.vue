@@ -62,6 +62,7 @@
                 view: 'grid',
                 search_term: null,
                 location: null,
+                location_coords: null,
                 is_free: true,
                 wait_time: null,
                 sort_by: 'relevance'
@@ -76,7 +77,21 @@
                     behavior: "smooth"
                 });
             },
+            getLocation() {
+                console.log('we are getting location')
+
+                axios
+                .get('https://api.postcodes.io/postcodes/'+this.location)
+                .then((response) => (
+                    console.log(response),
+                    this.location_coords = { "lat": response.data.result.latitude, "lon": response.data.result.longitude },
+                    this.updateServices()
+                ))
+                .catch(error => console.log(error))
+            },
             updateServices() {
+                console.log('we are now here');
+
                 // Set params
                 let params = {};
 
@@ -85,6 +100,9 @@
                 if(this.is_free !== null) params["is_free"] = Boolean(this.is_free)
                 if(this.sort_by !== null) params["order"] = this.sort_by
                 if(this.wait_time !== null) params["wait_time"] = this.wait_time
+                if(this.location_coords !== null) params["location"] = this.location_coords
+
+                console.log(params)
 
                 // Call the search endpoint with the params set
                 axios
@@ -113,8 +131,14 @@
             }
         },
         mounted () {
-            // Get the services
-            this.updateServices()
+            // Check if location needs to be found
+            if(this.location !== null) {
+                // Then get the location
+                this.getLocation()
+            } else {
+                // Get the services
+                this.updateServices()
+            }
         }
     }
 </script>
