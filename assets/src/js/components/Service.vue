@@ -121,7 +121,7 @@
             this.getShortlist()
 
             // Get the organisation
-            // this.getOrganisation()
+            this.getOrganisation()
         }
     }
 </script>

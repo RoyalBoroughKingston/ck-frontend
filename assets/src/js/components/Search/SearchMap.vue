@@ -2,13 +2,13 @@
     <div class="flex-container">
         <div class="flex-col flex-col--12">
             <div class="map">
-                <div class="map__overlay map__overlay--left" v-if="selected">
-                    <service v-bind:service="selectedService"></service>
+                <div class="map__overlay map__overlay--left" v-if="selected_panel_left">
+                    <service v-if="selected_service" :type="'service'" :service="selected_service"></service>
                 </div>
 
                 <div id="map-container" class="map__container"></div>
 
-                <div class="map__overlay map__overlay--right"></div>
+                <div class="map__overlay map__overlay--right" v-if="selected_panel_right"></div>
             </div>
         </div>
     </div>
@@ -36,20 +36,21 @@
                         features: [],
                     },
                 ],
-                greenIcon: L.icon({
+                green_icon: L.icon({
                     iconUrl: '/assets/dist/img/map/map-marker.svg',
                     iconSize:     [30, 40],
                     iconAnchor:   [15, 40],
                     popupAnchor:  [-3, -76]
                 }),
-                blueIcon: L.icon({
+                blue_icon: L.icon({
                     iconUrl: '/assets/dist/img/map/map-marker--selected.svg',
                     iconSize:     [30, 40],
                     iconAnchor:   [15, 40],
                     popupAnchor:  [-3, -76]
                 }),
-                selected: false,
-                selectedService: null
+                selected_panel_left: false,
+                selected_panel_right: false,
+                selected_service: null
             }
         },
         methods: {
@@ -61,7 +62,7 @@
                         // Loop through the service locations
                         service.service_locations.forEach((location) => {
                             // Push each service location to features array
-                            this.layers[0].features.push({id: 0, name: service.name, type: 'marker', coords: [location.location.lat, location.location.lon]});
+                            this.layers[0].features.push({id: service.id, name: service.name, type: 'marker', coords: [location.location.lat, location.location.lon]});
                         })
                     }
                 });
@@ -81,16 +82,34 @@
                     const markerFeatures = layer.features.filter(feature => feature.type === 'marker');
 
                     markerFeatures.forEach((feature) => {
-                        feature.leafletObject = L.marker(feature.coords, {icon: this.greenIcon}).bindPopup(feature.name).addTo(this.map);
+                        feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
+                            .addTo(this.map)
+                            .on('click', this.showService);
                     });
                 });
             },
+            showService(e) {
+                // Query the selected service
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/services/'+e.target.options.id)
+                .then(response => (
+                    // Set the selected service
+                    this.selected_service = response.data.data,
+                    // Show the service panel
+                    this.selected_panel_left = true
+                ))
+                .catch(error => console.log(error))
+            }
         },
         mounted() {
             this.findLayers();
             this.initMap();
             this.initLayers();
         },
+        watch: {
+            // You can also set up a watcher for name here if you like
+            service() {}
+        }
     }
 </script>
  
