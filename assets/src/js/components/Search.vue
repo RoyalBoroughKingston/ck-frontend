@@ -15,9 +15,9 @@
         <section id="results" class="section section--no-padding">
             <search-sort v-bind:location="location"></search-sort>
             <search-grid v-if="view === 'grid'" v-bind:services="services"></search-grid>
-            <search-map v-if="view === 'map'" v-bind:services="services"></search-map>
+            <search-map v-if="view === 'map' && services" v-bind:services="services"></search-map>
             
-            <div class="pagination" v-if="last_page > 1">
+            <div class="pagination" v-if="last_page > 1 && view === 'grid'">
                 <div class="flex-container">
                     <paginate
                         v-model="current_page"
@@ -59,7 +59,7 @@
                 last_page: null,
                 services: null,
                 services_meta: null,
-                view: 'grid',
+                view: 'map',
                 search_term: null,
                 location: null,
                 location_coords: null,
@@ -78,20 +78,15 @@
                 });
             },
             getLocation() {
-                console.log('we are getting location')
-
                 axios
                 .get('https://api.postcodes.io/postcodes/'+this.location)
                 .then((response) => (
-                    console.log(response),
                     this.location_coords = { "lat": response.data.result.latitude, "lon": response.data.result.longitude },
                     this.updateServices()
                 ))
                 .catch(error => console.log(error))
             },
             updateServices() {
-                console.log('we are now here');
-
                 // Set params
                 let params = {};
 
@@ -101,8 +96,6 @@
                 if(this.sort_by !== null) params["order"] = this.sort_by
                 if(this.wait_time !== null) params["wait_time"] = this.wait_time
                 if(this.location_coords !== null) params["location"] = this.location_coords
-
-                console.log(params)
 
                 // Call the search endpoint with the params set
                 axios

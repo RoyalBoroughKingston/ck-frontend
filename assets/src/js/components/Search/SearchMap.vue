@@ -1,38 +1,9 @@
 <template>
-    <div id="map" class="flex-container">
+    <div class="flex-container">
         <div class="flex-col flex-col--12">
             <div class="map">
-                <div class="map__overlay map__overlay--left">
-                    <div class="service">
-                        <div class="service__image">
-                            <img src="https://picsum.photos/315/157" alt="Image title">
-                            
-                            <div class="service__add">
-                                <a href="#" class="btn btn--small" role="button">Add to shortlist <i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                    
-                        <div class="service__location">
-                            <i class="fa fa-map-marker-alt"></i>
-                            <span class="service__location__name">Surbiton, Kingston</span>
-                        </div>
-                    
-                        <div class="service__meta">
-                            <div class="service__meta__item sm-copy">
-                                <i class="fa fa-pound-sign"></i> Free
-                            </div>
-                            <div class="service__meta__item sm-copy">
-                                <i class="fa fa-hourglass"></i> Up to 1 week
-                            </div>
-                        </div>
-                    
-                        <div class="service__details">
-                            <h4 class="service__name">Fresh Start</h4>
-                            <p class="service__sub-title sm-copy">SPEAR</p>
-                            <p class="service__description sm-copy">Fresh Start is an early intervention, homelessness prevention programme which is outreach and community...</p>
-                            <a href="#" class="btn btn--small" role="button">View more <i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
+                <div class="map__overlay map__overlay--left" v-if="selected">
+                    <service v-bind:service="selectedService"></service>
                 </div>
 
                 <div id="map-container" class="map__container"></div>
@@ -45,13 +16,81 @@
  
 <script>
     import axios from 'axios'
+    import Service from '../Service'
     
     export default {
         name: "search-map",
         props: ['services'],
-        mounted () {
+        components: {
+            Service
+        },
+        data() {
+            return {
+                map: null,
+                tileLayer: null,
+                layers: [
+                    {
+                        id: 0,
+                        name: 'Services',
+                        active: true,
+                        features: [],
+                    },
+                ],
+                greenIcon: L.icon({
+                    iconUrl: '/assets/dist/img/map/map-marker.svg',
+                    iconSize:     [30, 40],
+                    iconAnchor:   [15, 40],
+                    popupAnchor:  [-3, -76]
+                }),
+                blueIcon: L.icon({
+                    iconUrl: '/assets/dist/img/map/map-marker--selected.svg',
+                    iconSize:     [30, 40],
+                    iconAnchor:   [15, 40],
+                    popupAnchor:  [-3, -76]
+                }),
+                selected: false,
+                selectedService: null
+            }
+        },
+        methods: {
+            findLayers() {
+                // Loop through the services
+                this.services.forEach((service) => {
+                    // Check if the service has locations
+                    if(service.service_locations) {
+                        // Loop through the service locations
+                        service.service_locations.forEach((location) => {
+                            // Push each service location to features array
+                            this.layers[0].features.push({id: 0, name: service.name, type: 'marker', coords: [location.location.lat, location.location.lon]});
+                        })
+                    }
+                });
+            },
+            initMap() {
+                this.map = L.map('map-container').setView([51.41233, -0.300689], 2);
+                this.tileLayer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png',
+                    {
+                        maxZoom: 18,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>',
+                    }
+                );
+                this.tileLayer.addTo(this.map);
+            },
+            initLayers() {
+                this.layers.forEach((layer) => {
+                    const markerFeatures = layer.features.filter(feature => feature.type === 'marker');
 
-        }
+                    markerFeatures.forEach((feature) => {
+                        feature.leafletObject = L.marker(feature.coords, {icon: this.greenIcon}).bindPopup(feature.name).addTo(this.map);
+                    });
+                });
+            },
+        },
+        mounted() {
+            this.findLayers();
+            this.initMap();
+            this.initLayers();
+        },
     }
 </script>
  

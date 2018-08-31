@@ -15,7 +15,7 @@
             </div>
         </div>
         
-        <div class="service__location">
+        <div class="service__location" v-if="location">
             <i class="fa fa-map-marker-alt"></i> <span class="service__location__name">Surbiton,Kingston</span>
         </div>
 
@@ -40,7 +40,7 @@
 
         <div class="service__details" v-if="type === 'service'">
             <h4 class="service__name" v-if="service.name">{{ service.name }}</h4>
-            <p class="service__sub-title sm-copy" v-if="organisation.name">{{ organisation.name }}</p>
+            <!-- <p class="service__sub-title sm-copy" v-if="organisation.name">{{ organisation.name }}</p> -->
             <p class="service__description sm-copy" v-if="service.description">{{ service.description }}</p>
             <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
         </div>
@@ -61,7 +61,8 @@
         data () {
             return {
                 organisation: null,
-                location: null
+                location: null,
+                shortlist: null
             }
         },
         methods: {
@@ -79,7 +80,7 @@
             },
             getShortlist() {
                 // Get the shortlist and store it in the data parameter
-                this.$parent.shortlist = this.$cookies.get("ck_shortlist");
+                this.shortlist = this.$cookies.get("ck_shortlist");
             },
             isInShortlist(id) {
                 // Check if shortlist exists
@@ -117,10 +118,10 @@
         },
         mounted () {
             // Get the shortlist
-            this.shortlist = this.$cookies.get("ck_shortlist")
+            this.getShortlist()
 
             // Get the organisation
-            this.getOrganisation()
+            // this.getOrganisation()
         }
     }
 </script>
