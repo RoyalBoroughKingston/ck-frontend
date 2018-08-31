@@ -81,7 +81,8 @@
                 let params = {
                     query: this.search_term,
                     is_free: Boolean(this.is_free),
-                    order: this.sort_by
+                    order: this.sort_by,
+                    wait_time: this.wait_time
                 };
 
                 axios

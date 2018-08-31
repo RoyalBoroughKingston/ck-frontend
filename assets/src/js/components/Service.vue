@@ -10,11 +10,8 @@
             <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`">
             
             <div class="service__add">
-                <a v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" v-bind:class="{'btn btn--small': !isInShortlist(service.id),  'btn btn--small btn--green': isInShortlist(service.id)}">
-                    <span v-if="!isInShortlist(service.id)">Add to </span>
-                    <span v-if="isInShortlist(service.id)">In your </span>
-                    shortlist <i class="fa fa-star"></i>
-                </a>
+                <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                <a v-if="isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
             </div>
         </div>
         
@@ -70,7 +67,6 @@
         },
         methods: {
             getOrganisation() {
-                console.log(this.service.organisation_id);
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.service.organisation_id)
                 .then(response => (
@@ -80,21 +76,28 @@
                 .catch(error => console.log(error))
             },
             getLocation() {
-
+                // Get location for each service
             },
             getShortlist() {
+                // Get the shortlist and store it in the data parameter
                 this.shortlist = this.$cookies.get("ck_shortlist");
             },
             isInShortlist(id) {
-                return this.shortlist.includes(id);
+                // Check if shortlist exists
+                if(this.shortlist !== null) {
+                    return this.shortlist.includes(id);
+                } else {
+                    return false;
+                }
+                
             },
             addToShortlist(e) {
                 // Set shortlist cookie
-                this.$cookies.set("ck_shortlist", this.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id'))
+                this.$cookies.set("ck_shortlist", this.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id')),
+                e.currentTarget.classList.add('btn--green'),
+                e.currentTarget.innerHTML = 'In your shortlist <i class="fa fa-star"></i>'
             },
             removeFromShortlist(e) {
-                console.log(e.currentTarget.getAttribute('data-id'), this.$cookies.get("ck_shortlist"))
-
                 // Set shortlist data
                 this.shortlist = this.shortlist.replace(e.currentTarget.getAttribute('data-id'), '')
 
@@ -105,6 +108,7 @@
                 this.$parent.updateShortlist()
             },
             returnWaitTime(value) {
+                // Simple statement to format text for wait_time
                 if (value === 'one_week') return "Up to one week"
                 if (value === 'two_weeks') return "Up to two weeks"
                 if (value === 'three_weeks') return "Up to three weeks"
