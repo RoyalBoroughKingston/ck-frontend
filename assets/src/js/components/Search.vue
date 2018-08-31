@@ -77,14 +77,16 @@
                 });
             },
             updateServices() {
-                // Set the search parameters
-                let params = {
-                    query: this.search_term,
-                    is_free: Boolean(this.is_free),
-                    order: this.sort_by,
-                    wait_time: this.wait_time
-                };
+                // Set params
+                let params = {};
 
+                // Store params
+                if(this.search_term !== null) params["query"] = this.search_term
+                if(this.is_free !== null) params["is_free"] = Boolean(this.is_free)
+                if(this.sort_by !== null) params["order"] = this.sort_by
+                if(this.wait_time !== null) params["wait_time"] = this.wait_time
+
+                // Call the search endpoint with the params set
                 axios
                 .post('https://ck-api-staging.cloudapps.digital/core/v1/search', params)
                 .then(response => (
