@@ -18,7 +18,7 @@
         
         <div class="service__meta">
             <div class="service__meta__item sm-copy" v-if="service.is_free === true"><i class="fa fa-pound-sign"></i> Free</div>
-            <div class="service__meta__item sm-copy" v-if="service.wait_time"><i class="fa fa-hourglass"></i> {{ service.wait_time }}</div>
+            <div class="service__meta__item sm-copy" v-if="service.wait_time"><i class="fa fa-hourglass"></i> {{ returnWaitTime(service.wait_time) }}</div>
         </div>
 
         <div class="service__details">
@@ -70,6 +70,13 @@
                 console.log(id);
                 let shortlist = this.$cookies.set("ck_shortlist");
                 return shortlist.includes(id);
+            },
+            returnWaitTime(value) {
+                if (value === 'one_week') return "Up to one week"
+                if (value === 'two_weeks') return "Up to two weeks"
+                if (value === 'three_weeks') return "Up to three weeks"
+                if (value === 'month') return "Up to one month"
+                if (value === 'longer') return "May take longer"
             }
         }
     }
