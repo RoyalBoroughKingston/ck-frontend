@@ -10,8 +10,8 @@
             <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`">
             
             <div class="service__add">
-                <a v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" v-bind:class="{'btn btn--small': isInShortlist(service.id),  'btn btn--small btn--green': !isInShortlist(service.id)}">
-                    <span v-if="isInShortlist(service.id)">Add to </span>
+                <a v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" v-bind:class="{'btn btn--small': !isInShortlist(service.id),  'btn btn--small btn--green': isInShortlist(service.id)}">
+                    <span v-if="!isInShortlist(service.id)">Add to </span>
                     <span v-if="isInShortlist(service.id)">In your </span>
                     shortlist <i class="fa fa-star"></i>
                 </a>
@@ -82,6 +82,12 @@
             getLocation() {
 
             },
+            getShortlist() {
+                this.shortlist = this.$cookies.get("ck_shortlist");
+            },
+            isInShortlist(id) {
+                return this.shortlist.includes(id);
+            },
             addToShortlist(e) {
                 // Set shortlist cookie
                 this.$cookies.set("ck_shortlist", this.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id'))
@@ -97,20 +103,6 @@
                 
                 // retrieve new shortlist
                 this.$parent.updateShortlist()
-            }
-        },
-        mounted () {
-            // Get the shortlist
-            this.shortlist = this.$cookies.get("ck_shortlist")
-
-            // Get the organisation
-            this.getOrganisation()
-        },
-        computed: {
-            isInShortlist(id) {
-                console.log(id);
-                let shortlist = this.$cookies.set("ck_shortlist");
-                return shortlist.includes(id);
             },
             returnWaitTime(value) {
                 if (value === 'one_week') return "Up to one week"
@@ -119,6 +111,13 @@
                 if (value === 'month') return "Up to one month"
                 if (value === 'longer') return "May take longer"
             }
+        },
+        mounted () {
+            // Get the shortlist
+            this.shortlist = this.$cookies.get("ck_shortlist")
+
+            // Get the organisation
+            this.getOrganisation()
         }
     }
 </script>

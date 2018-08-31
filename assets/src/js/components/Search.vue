@@ -17,7 +17,7 @@
             <search-grid v-if="view === 'grid'" v-bind:services="services"></search-grid>
             <search-map v-if="view === 'map'" v-bind:services="services"></search-map>
             
-            <div class="pagination">
+            <div class="pagination" v-if="last_page > 1">
                 <div class="flex-container">
                     <paginate
                         v-model="current_page"
