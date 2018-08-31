@@ -10,8 +10,6 @@
                 <select class="select" @change="doSort">
                     <option v-bind:value="'relevance'">Relevance</option>
                     <option v-bind:value="'distance'">Distance</option>
-                    <option v-bind:value="'a-z-services'">A-Z (services)</option>
-                    <option v-bind:value="'a-z-organisations'">A-Z (organisations)</option>
                 </select>
             </div>
         </div>
