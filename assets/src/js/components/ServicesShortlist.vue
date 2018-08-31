@@ -2,13 +2,13 @@
     <section class="section">
         <div class="flex-container">
             <div class="flex-col flex-col--12">
-                <p class="sm-copy color-grey text-center">{{ services.data.length }} service<span v-if="services.data.length > 1 || services.data.length === 0">s</span> shortlisted</p>
+                <p class="sm-copy color-grey text-center">{{ services.length }} service<span v-if="services.length > 1 || services.length === 0">s</span> shortlisted</p>
             </div>
         </div>
 
         <div class="flex-container flex-container--justify">
-            <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services.data" :key="service.id">
-                <service v-bind:type="'shortlist'" v-bind:service="service"></service>
+            <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services" :key="service.id">
+                <service :type="'shortlist'" :service.sync="service"></service>
             </div>
         </div>
     </section>
@@ -35,7 +35,7 @@
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[id]=' + this.shortlist)
                 .then(response => (
-                    this.services = response.data
+                    this.services = response.data.data
                 ))
                 .catch(error => console.log(error))
             }

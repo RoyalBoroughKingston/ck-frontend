@@ -61,8 +61,7 @@
         data () {
             return {
                 organisation: null,
-                location: null,
-                shortlist: null
+                location: null
             }
         },
         methods: {
@@ -80,7 +79,7 @@
             },
             getShortlist() {
                 // Get the shortlist and store it in the data parameter
-                this.shortlist = this.$cookies.get("ck_shortlist");
+                this.$parent.shortlist = this.$cookies.get("ck_shortlist");
             },
             isInShortlist(id) {
                 // Check if shortlist exists
@@ -99,10 +98,10 @@
             },
             removeFromShortlist(e) {
                 // Set shortlist data
-                this.shortlist = this.shortlist.replace(e.currentTarget.getAttribute('data-id'), '')
+                this.$parent.shortlist = this.$parent.shortlist.replace(e.currentTarget.getAttribute('data-id'), '')
 
                 // Set shortlist cookie
-                this.$cookies.set("ck_shortlist", this.shortlist)
+                this.$cookies.set("ck_shortlist", this.$parent.shortlist)
                 
                 // retrieve new shortlist
                 this.$parent.updateShortlist()
