@@ -7,8 +7,6 @@
                 </div>
 
                 <div id="map-container" class="map__container"></div>
-
-                <div class="map__overlay map__overlay--right" v-if="selected_panel_right"></div>
             </div>
         </div>
     </div>
@@ -28,6 +26,7 @@
             return {
                 map: null,
                 tileLayer: null,
+                markers: [],
                 layers: [
                     {
                         id: 0,
@@ -49,7 +48,6 @@
                     popupAnchor:  [-3, -76]
                 }),
                 selected_panel_left: false,
-                selected_panel_right: false,
                 selected_service: null
             }
         },
@@ -82,15 +80,28 @@
                     const markerFeatures = layer.features.filter(feature => feature.type === 'marker');
 
                     markerFeatures.forEach((feature) => {
+                        // Create marker
                         feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
                             .addTo(this.map)
-                            .on('click', this.showService);
+                            .on('click', this.showService)
+                        
+                        // Push markers to array for use later
+                        this.markers.push(feature.leafletObject)
                     });
                 });
             },
             showService(e) {
-                let layer = e.target;
-                layer.setIcon(this.blue_icon);
+                // Unset previous marker icon
+                document.querySelectorAll('.leaflet-marker-icon').forEach((marker) => {
+                    marker.src="/assets/dist/img/map/map-marker.svg"
+                })
+
+                // Set selected marker icon
+                let layer = e.target
+                layer.setIcon(this.blue_icon)
+
+                // Center the map view to marker
+                this.setViewToMarker(e.target);
 
                 // Query the selected service
                 axios
@@ -102,6 +113,19 @@
                     this.selected_panel_left = true
                 ))
                 .catch(error => console.log(error))
+            },
+            setViewToMarker(marker) {
+                // Convert latlng to pixels
+                let px = this.map.project(marker.getLatLng());
+
+                // Add pixel height offset to converted pixels (screen origin is top left) - (height of box / 2)
+                px.x -= 180;
+
+                // Convert back to coordinates
+                let latlng = this.map.unproject(px);
+
+                // Update view
+                this.map.setView(latlng);
             }
         },
         mounted() {
