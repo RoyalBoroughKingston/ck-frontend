@@ -137,6 +137,9 @@
                 // Get the services
                 this.updateServices()
             }
+
+            // Set the search view
+            if(this.$cookies.get("ck_search_view")) this.view = this.$cookies.get("ck_search_view")
         }
     }
 </script>

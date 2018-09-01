@@ -89,6 +89,9 @@
                 });
             },
             showService(e) {
+                let layer = e.target;
+                layer.setIcon(this.blue_icon);
+
                 // Query the selected service
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/services/'+e.target.options.id)

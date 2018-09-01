@@ -20,7 +20,8 @@
         props: ['view'],
         methods: {
             updateView: function (value) {                
-                this.$parent.view = value;
+                this.$parent.view = value
+                this.$cookies.set("ck_search_view", value)
             }
         }
     }

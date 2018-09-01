@@ -59,14 +59,16 @@ export class App {
       return { top: _y, left: _x };
     }
 
-    document.querySelector('.scroll-to-anchor').addEventListener('click', function(event) {
-      window.scrollTo({
-        top: getOffset(document.getElementById(document.querySelector('.scroll-to-anchor').getAttribute("href").replace('#',''))).top - 32,
-        behavior: "smooth"
-      });
-
-      event.preventDefault()
-    }, false);
+    if(document.querySelector('.scroll-to-anchor')) {
+      document.querySelector('.scroll-to-anchor').addEventListener('click', function(event) {
+        window.scrollTo({
+          top: getOffset(document.getElementById(document.querySelector('.scroll-to-anchor').getAttribute("href").replace('#',''))).top - 32,
+          behavior: "smooth"
+        });
+  
+        event.preventDefault()
+      }, false);
+    }
 
   }
 

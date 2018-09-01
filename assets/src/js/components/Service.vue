@@ -70,8 +70,7 @@
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.service.organisation_id)
                 .then(response => (
-                    this.organisation = response.data.data,
-                    this.getServices()
+                    this.organisation = response.data.data
                 ))
                 .catch(error => console.log(error))
             },

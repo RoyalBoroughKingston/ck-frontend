@@ -18,15 +18,18 @@
                                 {{ location.location.county }}<br>
                                 {{ location.location.postcode }}
                             </p>
-                            <p class="card__location__distance sm-copy">0.3 miles away</p>
+                            <p class="card__location__distance sm-copy">{{ calculateDistance(location.location.postcode) }} miles away</p>
                         </div>
                         <div class="card__hours flex-col flex-col--6">
                             <div class="card__hours__times">
                                 <table>
                                     <tbody>
-                                        <tr v-for="time in location.regular_opening_hours" :key="time.index">
-                                            <td class="sm-copy">{{ time.weekday }}</td>
-                                            <td>{{ time.opens_at | moment("ha") }}-{{ time.closes_at | moment("ha") }}</td>
+                                        <tr
+                                            v-for="(regularOpeningHour, index) in location.regular_opening_hours"
+                                            :key="index"
+                                            v-text="humanReadableRegularOpeningHour(regularOpeningHour)">
+                                            <!-- <td class="sm-copy">{{ time.weekday }}</td>
+                                            <td>{{ time.opens_at | moment("ha") }}-{{ time.closes_at | moment("ha") }}</td> -->
                                         </tr>
                                     </tbody>
                                 </table>
@@ -221,11 +224,47 @@
                 .catch(error => console.log(error))
             },
             getServiceLocation() {
-                console.log(this.$data);
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.$data.service.id +'&include=location')
                 .then(response => (this.serviceLocations = response.data.data))
                 .catch(error => console.log(error))
+            },
+            formatTime(time) {
+                return moment(time, moment.HTML5_FMT.TIME_SECONDS).format(
+                    moment.HTML5_FMT.TIME
+                );
+            },
+            humanReadableRegularOpeningHour(openingHour) {
+                switch (openingHour.frequency) {
+                    case "weekly":
+                    return `${this.weekday(openingHour.weekday)} - ${this.timePeriod(openingHour)}`;
+                    case "monthly":
+                    return `${this.dayOfMonth(openingHour.day_of_month)} of each month - ${this.timePeriod(openingHour)}`;
+                    case "fortnightly":
+                    return `Every other ${this.weekdayFromDate(openingHour.starts_at)} (${this.fortnightWeek(openingHour.starts_at)}) - ${this.timePeriod(openingHour)}`;
+                    case "nth_occurrence_of_month":
+                    return `${this.dayOfMonth(openingHour.occurrence_of_month)} ${this.weekday(openingHour.weekday)} of each month`;
+                }
+            },
+            timePeriod(openingHour) {
+                return `${this.formatTime(openingHour.opens_at)} to ${this.formatTime(openingHour.closes_at)}`;
+            },
+            weekday(weekday) {
+                return moment(weekday, "E").format("dddd");
+            },
+            weekdayFromDate(date) {
+                return moment(date, moment.HTML5_FMT.DATE).format("dddd");
+            },
+            dayOfMonth(dayOfMonth) {
+                return moment(dayOfMonth, "D").format("Do");
+            },
+            fortnightWeek(date) {
+                const daysInFortnight = 14;
+                const thisSunday = moment().day(7);
+                const diffInDays = moment(date, moment.HTML5_FMT.DATE).diff(thisSunday, "days");
+                const remainingDays = Math.abs(diffInDays % daysInFortnight);
+
+                return remainingDays > 6 ? "next calendar week" : "this calendar week";
             }
         },
         mounted () {
