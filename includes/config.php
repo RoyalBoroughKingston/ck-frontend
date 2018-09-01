@@ -15,7 +15,7 @@
 		$TEMPLATE_URL = "templates/pages/index.php";
 	elseif($request_uri === "/results"):
 		$CURRENT_PAGE = "search-results"; 
-		$PAGE_TITLE = "Search results for ";
+		$PAGE_TITLE = "Search results";
 		$TEMPLATE_URL = "templates/pages/search/results.php";
 	elseif($request_uri === "/services"):
 		header('Location: /');

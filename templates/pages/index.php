@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <recommendations></recommendations>
+    <persona></persona>
 </section>
 
 <section class="section section--social-media">

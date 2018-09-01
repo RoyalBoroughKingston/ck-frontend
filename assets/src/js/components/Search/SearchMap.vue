@@ -66,14 +66,20 @@
                 });
             },
             initMap() {
-                this.map = L.map('map-container').setView([51.41233, -0.300689], 2);
+                this.map = L.map('map-container', {zoomControl: false}).setView([51.41233, -0.300689], 2)
+                
                 this.tileLayer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png',
                     {
                         maxZoom: 18,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>',
                     }
-                );
-                this.tileLayer.addTo(this.map);
+                )
+                this.tileLayer.addTo(this.map)
+
+                // Add zoom position
+                L.control.zoom({
+                    position:'bottomright'
+                }).addTo(this.map);
             },
             initLayers() {
                 this.layers.forEach((layer) => {

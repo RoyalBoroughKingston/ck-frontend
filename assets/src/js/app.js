@@ -11,7 +11,7 @@ Vue.component('paginate', Paginate)
 
 // Vue JS components
 import Categories from './components/Categories'
-import Recommendations from './components/Recommendations'
+import Persona from './components/Persona'
 import ServicesShortlist from './components/ServicesShortlist'
 import ServiceHeader from './components/ServiceHeader'
 import ServiceMain from './components/ServiceMain'
@@ -37,7 +37,7 @@ export class App {
       delimiters: ['${', '}'],
       components: {
         Categories,
-        Recommendations,
+        Persona,
         ServicesShortlist,
         ServiceHeader,
         ServiceMain,

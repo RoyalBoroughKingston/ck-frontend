@@ -131,6 +131,13 @@
     &__name {
         color: $san_juan;
         margin-bottom: $base-margin*0.5;
+
+        i {
+            color: $puerto_rico;
+            font-size: 1.1875rem;
+            line-height: 1.1875rem;
+            margin-right: $base-margin*0.5;
+        }
     }
 
     &__contact {
@@ -148,6 +155,11 @@
             color: $puerto_rico;
             margin-right: $base-margin*0.75;
         }
+    }
+
+    &__filter {
+        padding: $base-margin*1.5 $base-margin*2;
+        box-sizing: border-box;
     }
 
     &__actions {
