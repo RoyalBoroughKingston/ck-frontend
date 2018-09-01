@@ -3,8 +3,8 @@
         <div class="flex-container flex-container--space">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <intro v-bind:type="type" v-bind:service="service" v-if="step === 1"></intro>
-                <who v-bind:type="type" v-bind:service="service" v-if="step === 2" v-bind:who_for="who_for"></who>
-                {{who_for}}
+                <who v-bind:type="type" v-bind:service="service" v-bind:who_for="who_for" v-if="step === 2"></who>
+                <you v-bind:steps="internal_steps" v-if="checkWhoFor"></you>
             </div>
 
             <div class="flex-col flex-col--3">
@@ -35,18 +35,21 @@
     import axios from 'axios'
     import Intro from './Referral/Intro'
     import Who from './Referral/Who'
+    import You from './Referral/You'
     
     export default {
         name: "referral",
         components: {
             Intro,
-            Who
+            Who,
+            You
         },
         data() {
             return {
                 type: null,
                 service: null,
-                step: 2,
+                step: 1,
+                internal_steps: 3,
                 who_for: null,
                 referral: {
                     name: null,
@@ -55,8 +58,8 @@
                     other_contact: null,
                     postcode_outward_code: null,
                     comments: null,
-                    referral_consented: true,
-                    feedback_consented: false,
+                    referral_consented: null,
+                    feedback_consented: null,
                     referee_name: null,
                     referee_email: null,
                     referee_phone: null,
@@ -86,7 +89,15 @@
             },
             setStep(step) {
                 this.step = step
-                console.log(this.who_for, this.referral)
+            }
+        },
+        computed: {
+            checkWhoFor() {
+                if(this.step === 3 && this.who_for === 'myself') {
+                    return true
+                } else {
+                    return false
+                }
             }
         },
         mounted() {

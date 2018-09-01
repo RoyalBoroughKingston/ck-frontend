@@ -9,7 +9,7 @@
         <p class="sm-copy color-grey" v-if="type === 'internal'">This form should take you <strong>no longer than 5 minutes</strong> to complete.</p>
 
         <a v-bind:href="service.referral_url" role="button" class="btn btn--icon-after" target="_blank" v-if="type === 'external'">Continue <i class="fa fa-angle-right"></i></a>
-        <a v-on:click="updateStep(2)" role="button" class="btn btn--icon-after" target="_blank" v-if="type === 'internal'">Continue <i class="fa fa-angle-right"></i></a>
+        <a v-on:click="setConsent" role="button" class="btn btn--icon-after" target="_blank" v-if="type === 'internal'">Continue <i class="fa fa-angle-right"></i></a>
     </div>
 </template>
  
@@ -20,6 +20,10 @@
         name: "intro",
         props: ['type', 'service'],
         methods: {
+            setConsent() {
+                this.$parent.referral_consented = true
+                this.updateStep(2)
+            },
             updateStep(step) {
                 this.$parent.setStep(step);
             }

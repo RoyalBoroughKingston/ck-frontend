@@ -19,7 +19,7 @@
         </div>
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
-                <form class="form">
+                <form class="form" v-on:submit="setWhoFor">
                     <div class="field field--radio">
                         <div class="radio">
                             <input type="radio" id="myself" value="myself" name="who_for" class="input input--radio" checked="checked">
@@ -35,7 +35,7 @@
                     <p>&nbsp;</p>
                     
                     <div class="form__actions">
-                        <a v-on:click="setWhoFor" type="submit" name="submit" class="btn btn--icon-after">Continue <i class="fa fa-angle-right"></i></a>
+                        <button class="btn btn--icon-after" role="button">Continue <i class="fa fa-angle-right"></i></button>
                     </div>
                 </form>
             </div>
@@ -48,18 +48,26 @@
     
     export default {
         name: "who",
-        props: ['service', 'who_for'],
+        props: ['who_for'],
         methods: {
-            setWhoFor() {
+            setWhoFor(e) {
+                e.preventDefault()
+                
+                // Get the checked radio
                 let radios = document.getElementsByName('who_for');
 
                 for (var i = 0, length = radios.length; i < length; i++) {
                     if (radios[i].checked) {
+                        // Set who for in parent
                         this.$parent.who_for = radios[i].value
                         break;
                     }
                 }
 
+                // Set internal_steps in parent
+                if(this.$parent.who_for === 'someone else') this.$parent.internal_steps = 2
+
+                // Updatee the step
                 this.updateStep(3)
             },
             updateStep(step) {
