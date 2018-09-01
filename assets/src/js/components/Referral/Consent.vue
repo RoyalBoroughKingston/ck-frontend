@@ -77,7 +77,7 @@
                 .post('https://ck-api-staging.cloudapps.digital/core/v1/referrals', params)
                 .then(response => (
                     console.log(response),
-                    this.updateStep(6)
+                    this.updateStep('complete')
                 ))
                 .catch(error => console.log(error))
             },

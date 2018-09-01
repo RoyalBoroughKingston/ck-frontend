@@ -1,15 +1,16 @@
 <template>
     <section id="referral" class="section">
         <div class="flex-container flex-container--space">
-            <div class="flex-col flex-col--7 flex-col--gutter">
+            <div :class="layoutClass">
                 <intro v-bind:type="type" v-bind:service="service" v-if="step === 1"></intro>
                 <who v-bind:type="type" v-bind:service="service" v-bind:who_for="who_for" v-if="step === 2"></who>
                 <you v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkYou"></you>
                 <client v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkClient"></client>
                 <consent v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkConsent"></consent>
+                <complete v-bind:service="service" v-if="step === 'complete'"></complete>
             </div>
 
-            <div class="flex-col flex-col--3">
+            <div class="flex-col flex-col--3" v-if="step !== 'complete'">
                 <div class="service">
                     <div class="service__header">
                         <span>
@@ -40,6 +41,7 @@
     import You from './Referral/You'
     import Client from './Referral/Client'
     import Consent from './Referral/Consent'
+    import Complete from './Referral/Complete'
     
     export default {
         name: "referral",
@@ -48,7 +50,8 @@
             Who,
             You,
             Client,
-            Consent
+            Consent,
+            Complete
         },
         data() {
             return {
@@ -67,7 +70,7 @@
                     postcode_outward_code: null,
                     comments: null,
                     referral_consented: false,
-                    feedback_consented: null,
+                    feedback_consented: false,
                     referee_name: null,
                     referee_email: null,
                     referee_phone: null,
@@ -157,7 +160,14 @@
                 } else {
                     return false
                 }
-            }
+            },
+            layoutClass() {
+                if(this.step === 'complete') {
+                    return 'flex-col flex-col--12 flex-col--gutter'
+                } else {
+                    return 'flex-col flex-col--7 flex-col--gutter'
+                }
+            },
         },
         mounted() {
             // Set the referral type
