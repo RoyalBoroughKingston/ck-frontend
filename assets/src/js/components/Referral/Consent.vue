@@ -60,8 +60,8 @@
                 for (var i = 0, length = radios.length; i < length; i++) {
                     if (radios[i].checked) {
                         // Set referral_consented in parent
-                        this.$parent.referral.referral_consented = radios[i].value
-                        this.$parent.referral.referral_consented = (this.$parent.referral.referral_consented === 'true')
+                        this.$parent.referral.feedback_consented = radios[i].value
+                        this.$parent.referral.feedback_consented = (this.$parent.referral.referral_consented === 'true')
                         break;
                     }
                 }
@@ -69,7 +69,17 @@
             completeReferral(e) {
                 e.preventDefault()
 
-                this.updateStep(6)
+                // Set the referral params
+                let params = this.$parent.referral
+
+                // Call the referral endpoint with the params set
+                axios
+                .post('https://ck-api-staging.cloudapps.digital/core/v1/referrals', params)
+                .then(response => (
+                    console.log(response),
+                    this.updateStep(6)
+                ))
+                .catch(error => console.log(error))
             },
             showOther() {
                 this.show_other = true

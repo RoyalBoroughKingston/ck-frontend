@@ -21,6 +21,7 @@
         props: ['type', 'service'],
         methods: {
             setConsent() {
+                this.$parent.referral.referral_consented = true
                 this.updateStep(2)
             },
             updateStep(step) {
