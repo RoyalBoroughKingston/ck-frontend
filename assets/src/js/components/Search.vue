@@ -59,7 +59,7 @@
                 last_page: null,
                 services: null,
                 services_meta: null,
-                view: 'map',
+                view: 'grid',
                 search_term: null,
                 location: null,
                 location_coords: null,
@@ -70,8 +70,13 @@
         },
         methods: {
             doPagination(pageNum) {
+                // Update the current page
                 this.current_page = pageNum
+                
+                // Update the services
                 this.updateServices()
+                
+                // Scroll to top of search results
                 window.scrollTo({
                     top: this.getOffset(document.getElementById('results')).top - 32,
                     behavior: "smooth"

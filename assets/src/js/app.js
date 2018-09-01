@@ -22,15 +22,13 @@ import OrganisationMain from './components/OrganisationMain'
 import SearchHome from './components/SearchHome'
 import Search from './components/Search'
 
-// Site modules,
-import { Form } from "./modules/form.js"
+// Site modules
 import { Navigation } from "./modules/navigation.js"
 
 export class App {
 
   constructor() {
 
-    let form = new Form();
     let navigation = new Navigation();
 
     // Init the vue app
@@ -49,6 +47,26 @@ export class App {
         Search
       }
     })
+
+    function getOffset(el) {
+      var _x = 0;
+      var _y = 0;
+      while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+        _x += el.offsetLeft - el.scrollLeft;
+        _y += el.offsetTop - el.scrollTop;
+        el = el.offsetParent;
+      }
+      return { top: _y, left: _x };
+    }
+
+    document.querySelector('.scroll-to-anchor').addEventListener('click', function(event) {
+      window.scrollTo({
+        top: getOffset(document.getElementById(document.querySelector('.scroll-to-anchor').getAttribute("href").replace('#',''))).top - 32,
+        behavior: "smooth"
+      });
+
+      event.preventDefault()
+    }, false);
 
   }
 
