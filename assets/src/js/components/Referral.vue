@@ -1,10 +1,11 @@
 <template>
-    <section class="section">
+    <section id="referral" class="section">
         <div class="flex-container flex-container--space">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <intro v-bind:type="type" v-bind:service="service" v-if="step === 1"></intro>
                 <who v-bind:type="type" v-bind:service="service" v-bind:who_for="who_for" v-if="step === 2"></who>
-                <you v-bind:steps="internal_steps" v-if="checkWhoFor"></you>
+                <you v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkYou"></you>
+                <client v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkClient"></client>
             </div>
 
             <div class="flex-col flex-col--3">
@@ -36,20 +37,23 @@
     import Intro from './Referral/Intro'
     import Who from './Referral/Who'
     import You from './Referral/You'
+    import Client from './Referral/Client'
     
     export default {
         name: "referral",
         components: {
             Intro,
             Who,
-            You
+            You,
+            Client
         },
         data() {
             return {
                 type: null,
                 service: null,
                 step: 1,
-                internal_steps: 3,
+                internal_step: 1,
+                internal_steps: null,
                 who_for: null,
                 referral: {
                     name: null,
@@ -89,11 +93,46 @@
             },
             setStep(step) {
                 this.step = step
+
+                console.log(this.referral)
+
+                // Scroll to top of form
+                window.scrollTo({
+                    top: this.getOffset(document.getElementById('referral')).top - 32,
+                    behavior: "smooth"
+                });
+            },
+            getOffset(el) {
+                var _x = 0;
+                var _y = 0;
+                while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+                    _x += el.offsetLeft - el.scrollLeft;
+                    _y += el.offsetTop - el.scrollTop;
+                    el = el.offsetParent;
+                }
+                return { top: _y, left: _x };
             }
         },
         computed: {
-            checkWhoFor() {
+            checkYou() {
+                // Check what step and who its for
                 if(this.step === 3 && this.who_for === 'myself') {
+                    this.internal_steps = 3
+                    return true
+                } else {
+                    return false
+                }
+            },
+            checkClient() {
+                // Check what step and assign internal_step
+                if(this.step === 4) this.internal_step = 2
+                else if(this.step === 3) this.internal_step = 1
+
+                if((this.step === 4 && this.who_for === 'myself')) this.internal_steps = 3
+                else if((this.step === 3 && this.who_for === 'someone_else')) this.internal_steps = 2
+
+                // Check what step and who its for
+                if((this.step === 4 && this.who_for === 'myself') || (this.step === 3 && this.who_for === 'someone_else')) {
                     return true
                 } else {
                     return false
@@ -103,6 +142,8 @@
         mounted() {
             // Set the referral type
             this.type = this.getParameterByName('type')
+
+            if(!this.getParameterByName('service')) window.location.href = '/'
 
             // Get the service for referral
             this.getService()
