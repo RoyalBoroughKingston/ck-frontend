@@ -6,6 +6,7 @@
                 <who v-bind:type="type" v-bind:service="service" v-bind:who_for="who_for" v-if="step === 2"></who>
                 <you v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkYou"></you>
                 <client v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkClient"></client>
+                <consent v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkConsent"></consent>
             </div>
 
             <div class="flex-col flex-col--3">
@@ -38,6 +39,7 @@
     import Who from './Referral/Who'
     import You from './Referral/You'
     import Client from './Referral/Client'
+    import Consent from './Referral/Consent'
     
     export default {
         name: "referral",
@@ -45,7 +47,8 @@
             Intro,
             Who,
             You,
-            Client
+            Client,
+            Consent
         },
         data() {
             return {
@@ -62,7 +65,7 @@
                     other_contact: null,
                     postcode_outward_code: null,
                     comments: null,
-                    referral_consented: null,
+                    referral_consented: false,
                     feedback_consented: null,
                     referee_name: null,
                     referee_email: null,
@@ -78,7 +81,8 @@
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getParameterByName('service') + '?include=organisation')
                 .then(response => (
                     this.service = response.data.data,
-                    this.type = response.data.data.referral_method
+                    this.type = response.data.data.referral_method,
+                    this.referral.organisation = response.data.data.organisation.name
                 ))
                 .catch(error => console.log(error))
             },
@@ -133,6 +137,21 @@
 
                 // Check what step and who its for
                 if((this.step === 4 && this.who_for === 'myself') || (this.step === 3 && this.who_for === 'someone_else')) {
+                    return true
+                } else {
+                    return false
+                }
+            },
+            checkConsent() {
+                // Check what step and assign internal_step
+                if(this.step === 5 && this.who_for === 'someone_else') this.internal_step = 2
+                else if(this.step === 5) this.internal_step = 3
+
+                if((this.step === 6 && this.who_for === 'myself')) this.internal_steps = 3
+                else if((this.step === 5 && this.who_for === 'someone_else')) this.internal_steps = 2
+
+                // Check what step and who its for
+                if((this.step === 5 && this.who_for === 'myself') || (this.step === 5 && this.who_for === 'someone_else')) {
                     return true
                 } else {
                     return false
