@@ -33,6 +33,10 @@
 		$CURRENT_PAGE = "shortlist"; 
 		$PAGE_TITLE = "Shortlist";
 		$TEMPLATE_URL = "templates/pages/shortlist/index.php";
+	elseif($request_uri === "/referral"):
+		$CURRENT_PAGE = "referral";
+		$PAGE_TITLE = "Referral form";
+		$TEMPLATE_URL = "templates/pages/referral/index.php";
 	elseif($request_uri === "/referral/external"):
 		$CURRENT_PAGE = "referral";
 		$PAGE_TITLE = "Referral form";

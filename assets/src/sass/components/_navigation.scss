@@ -3,6 +3,10 @@
 .nav {
   display: inline-block;
 
+  label {
+    color: $white;
+  }
+
   &__link {
     position: relative;
     display: inline-block;

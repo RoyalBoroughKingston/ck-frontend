@@ -7,7 +7,7 @@
         </div>
 
         <div class="service__image" v-if="type === 'service'">
-            <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`">
+            <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`" v-bind:title="service.name">
             
             <div class="service__add">
                 <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>

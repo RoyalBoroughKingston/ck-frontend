@@ -17,6 +17,7 @@ import ServiceHeader from './components/ServiceHeader'
 import ServiceMain from './components/ServiceMain'
 import OrganisationHeader from './components/OrganisationHeader'
 import OrganisationMain from './components/OrganisationMain'
+import Referral from './components/Referral'
 
 // Vue JS Components - Search
 import SearchHome from './components/SearchHome'
@@ -44,7 +45,8 @@ export class App {
         OrganisationHeader,
         OrganisationMain,
         SearchHome,
-        Search
+        Search,
+        Referral
       }
     })
 
