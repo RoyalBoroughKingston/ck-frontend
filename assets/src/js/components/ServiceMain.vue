@@ -192,22 +192,29 @@
 
                 <div class="section__component text-center">
                     <p class="sm-copy"><span class="color-grey">Page last updated</span> <em>{{ service.updated_at | moment("Do MMMM YYYY") }}</em></p>
-                    <p class="sm-copy"><a href="#">Give us feedback</a></p>
+                    <p class="sm-copy"><a v-on:click="giveFeedback">Give us feedback</a></p>
                 </div>
             </div>
         </div>
+
+        <feedback v-if="showFeedback" :service="service"></feedback>
     </section>
 </template>
  
 <script>
     import axios from 'axios'
+    import Feedback from './Feedback'
     
     export default {
         name: "service-main",
+        components: {
+            Feedback
+        },
         data () {
             return {
                 service: null,
-                serviceLocations: null
+                serviceLocations: null,
+                showFeedback: false
             }
         },
         methods: {
@@ -228,6 +235,9 @@
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.$data.service.id +'&include=location')
                 .then(response => (this.serviceLocations = response.data.data))
                 .catch(error => console.log(error))
+            },
+            giveFeedback() {
+                this.showFeedback = true
             },
             formatTime(time) {
                 return moment(time, moment.HTML5_FMT.TIME_SECONDS).format(

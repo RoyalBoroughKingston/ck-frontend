@@ -41,5 +41,6 @@ input, textarea, .input {
 }
 
 textarea {
-  height: 300px;
+  height: 260px;
+  max-width: 100% !important;
 }

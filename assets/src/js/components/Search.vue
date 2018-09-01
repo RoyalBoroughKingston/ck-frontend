@@ -4,7 +4,7 @@
             <div class="flex-container flex-container--space flex-container--align-bottom">
                 <div class="flex-col flex-col--7">
                     <search-filter v-bind:type="'full'" v-bind:search_term="search_term" v-bind:is_free="is_free" v-bind:wait_time="wait_time" v-if="!displayOption"></search-filter>
-                    <search-header v-bind:header="category" v-if="displayOption"></search-header>
+                    <search-header v-bind:header="returnHeader" v-if="displayOption"></search-header>
                 </div>
 
                 <div class="flex-col">
@@ -181,7 +181,7 @@
                     this.is_free = false
                 }
                 this.is_free = (this.is_free === 'true')
-                
+
                 if(this.getParameterByName('wait_time') !== "") {
                     this.wait_time = this.getParameterByName('wait_time')
                 } else {
@@ -219,6 +219,13 @@
                     return 'flex-col flex-col--9'
                 } else {
                     return 'flex-col flex-col--12'
+                }
+            },
+            returnHeader() {
+                if(this.category) {
+                    return this.category
+                } else if(this.persona) {
+                    return this.persona
                 }
             }
         },

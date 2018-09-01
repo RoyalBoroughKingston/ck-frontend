@@ -142,6 +142,7 @@ h4, .h4 {
 a {
   color: $elm;
   outline: 0;
+  cursor: pointer;
 
   &:hover {
     text-decoration: none;

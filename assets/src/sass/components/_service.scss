@@ -35,8 +35,8 @@
     &__add {
         position: absolute;
         top: $base-margin;
-        left: 0;
-        right: 0;
+        left: $base-margin;
+        right: $base-margin;
         text-align: center;
     }
 
