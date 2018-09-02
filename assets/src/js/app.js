@@ -34,6 +34,7 @@ import Search from './components/Search'
 // Site modules
 import { Accordion } from "./modules/accordion.js"
 import { Navigation } from "./modules/navigation.js"
+import { ScrollToAnchor } from "./modules/scrollToAnchor.js"
 
 export class App {
 
@@ -41,6 +42,7 @@ export class App {
 
     let accordion = new Accordion();
     let navigation = new Navigation();
+    let scrollToAnchor = new ScrollToAnchor();
 
     // Init the vue app
     var app = new Vue({
@@ -59,28 +61,6 @@ export class App {
         Referral
       }
     })
-
-    function getOffset(el) {
-      var _x = 0;
-      var _y = 0;
-      while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-        _x += el.offsetLeft - el.scrollLeft;
-        _y += el.offsetTop - el.scrollTop;
-        el = el.offsetParent;
-      }
-      return { top: _y, left: _x };
-    }
-
-    if(document.querySelector('.scroll-to-anchor')) {
-      document.querySelector('.scroll-to-anchor').addEventListener('click', function(event) {
-        window.scrollTo({
-          top: getOffset(document.getElementById(document.querySelector('.scroll-to-anchor').getAttribute("href").replace('#',''))).top - 32,
-          behavior: "smooth"
-        });
-  
-        event.preventDefault()
-      }, false);
-    }
 
   }
 

@@ -84,13 +84,11 @@
 
                 this.$parent.referral.name = document.getElementsByName('name')[0].value
 
-                if(document.getElementsByName('email')[0]) {
+                if(document.getElementsByName('email')[0] && document.getElementsByName('email')[0].value) {
                     this.$parent.referral.email = document.getElementsByName('email')[0].value
                 }
-
-                console.log(this.$parent.referral.email)
                 
-                if(document.getElementsByName('phone')[0]) {
+                if(document.getElementsByName('phone')[0] && document.getElementsByName('email')[0].value) {
                     this.$parent.referral.phone = document.getElementsByName('phone')[0].value
                 }
                 
@@ -99,10 +97,10 @@
                 }
 
                 // Updatee the step
-                if(this.$parent.referral.email !== '' || this.$parent.referral.phone !== '' || this.$parent.referral.other_contact !== '') {
+                if(this.$parent.referral.email || this.$parent.referral.phone || this.$parent.referral.other_contact) {
                     this.updateStep(5)
                 } else {
-                    window.alert('You must enter one form of contact information')
+                    window.alert('You must enter one form of contact information e.g email, phone or other contact information')
                 }
             },
             setContact(e) {

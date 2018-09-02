@@ -99,7 +99,7 @@
                 this.$parent.referral.referee_phone = document.getElementsByName('referee_phone')[0].value
 
                 // Updatee the step
-                if(this.$parent.referral.referee_email !== '' || this.$parent.referral.referee_phone !== '') {
+                if(this.$parent.referral.referee_email || this.$parent.referral.referee_phone) {
                     this.updateStep(4)
                 } else {
                     window.alert('You must enter at least a phone number or email')
