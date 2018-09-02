@@ -38,11 +38,24 @@
                     this.services = response.data.data
                 ))
                 .catch(error => console.log(error))
+            },
+            getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, '\\$&');
+                var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
         },
         mounted () {
-            // Get the shortlist
-            this.shortlist = this.$cookies.get("ck_shortlist")
+            // Check if shortlist id's exist from sharing otherwise get cookie
+            if(this.getParameterByName('ids')) {
+                this.shortlist = this.getParameterByName('ids')
+            } else {
+                this.shortlist = this.$cookies.get("ck_shortlist")
+            }
             
             this.updateShortlist()
         }

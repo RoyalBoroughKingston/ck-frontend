@@ -36,10 +36,8 @@
     {% if enableShare is defined and enableShare == 'true' %}
         <div class="title-card__share">
             <label for="">Share</label>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-link"></i></a>
-            <a href="#"><i class="fa fa-envelope"></i></a>
+            
+            <social-share></social-share>
         </div>
     {% endif %}
 </div>

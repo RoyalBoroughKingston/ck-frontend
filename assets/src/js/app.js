@@ -3,6 +3,7 @@ import Vue from 'vue'
 import VueCookies from 'vue-cookies'
 import Paginate from 'vuejs-paginate'
 import VueMq from 'vue-mq'
+import SocialSharing from 'vue-social-sharing'
 
 Vue.use(axios);
 Vue.use(VueCookies)
@@ -14,6 +15,7 @@ Vue.use(VueMq, {
     desktop: Infinity,
   }
 })
+Vue.use(SocialSharing)
 
 Vue.component('paginate', Paginate)
 
@@ -26,6 +28,7 @@ import ServiceMain from './components/ServiceMain'
 import OrganisationHeader from './components/OrganisationHeader'
 import OrganisationMain from './components/OrganisationMain'
 import Referral from './components/Referral'
+import SocialShare from './components/SocialShare'
 
 // Vue JS Components - Search
 import SearchHome from './components/SearchHome'
@@ -56,9 +59,10 @@ export class App {
         ServiceMain,
         OrganisationHeader,
         OrganisationMain,
+        Referral,
         SearchHome,
         Search,
-        Referral
+        SocialShare
       }
     })
 

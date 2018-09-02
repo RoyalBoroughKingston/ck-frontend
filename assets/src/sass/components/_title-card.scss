@@ -65,6 +65,11 @@
             margin-bottom: 0;
         }
 
+        > div {
+            display: inline-block;
+        }
+
+        span,
         a {
             color: $san_juan;
             margin-right: $base-margin*0.5;
@@ -76,7 +81,7 @@
     }
 
     &__action {
-        // margin-top: $base-margin*2.5;
+        margin-bottom: $base-margin*1.5;
         
         &__title {
             display: inline-block;
