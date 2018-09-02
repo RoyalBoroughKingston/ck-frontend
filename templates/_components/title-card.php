@@ -33,15 +33,6 @@
         </div>
     {% endif %}
 
-    {% if type is defined and type == 'service' %}
-        <div class="title-card__action">
-            <p><a href="#" class="btn btn--green btn--small btn--icon-after">Shortlist <i class="fa fa-star"></i></a></p>
-            <p><a href="#" class="btn btn--icon-after">Connect <i class="fa fa-arrow-right"></i></a></p>
-
-            <p><strong>Please contact the service directly</strong></p>
-        </div>
-    {% endif %}
-
     {% if enableShare is defined and enableShare == 'true' %}
         <div class="title-card__share">
             <label for="">Share</label>

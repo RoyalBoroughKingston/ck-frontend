@@ -10,8 +10,8 @@
             <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`" v-bind:title="service.name">
             
             <div class="service__add">
-                <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                <a v-if="isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" v:if.string.contains haystack="shortlist" needle="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                <a v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" v-bind:data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
             </div>
         </div>
         
@@ -95,9 +95,11 @@
                 
             },
             addToShortlist(e) {
+                console.log(window.location.protocol + "//" + window.location.host)
                 // Set shortlist cookie
-                this.$cookies.set("ck_shortlist", this.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id')),
-                e.currentTarget.classList.add('btn--green'),
+                let shortlist = window.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id')
+                this.$cookies.set("ck_shortlist", shortlist)
+                e.currentTarget.classList.add('btn--green')
                 e.currentTarget.innerHTML = 'In your shortlist <i class="fa fa-star"></i>'
             },
             removeFromShortlist(e) {
@@ -105,7 +107,7 @@
                 this.$parent.shortlist = this.$parent.shortlist.replace(e.currentTarget.getAttribute('data-id'), '')
 
                 // Set shortlist cookie
-                this.$cookies.set("ck_shortlist", this.$parent.shortlist)
+                window.$cookies.set("ck_shortlist", this.$parent.shortlist)
                 
                 // retrieve new shortlist
                 this.$parent.updateShortlist()

@@ -139,39 +139,41 @@
                             <span class="mobile-show"><i class="fa fa-angle-down"></i></span>
                         </div>
                         
-                        <div class="service__contact service__contact--telephone" v-if="service.contact_name">
-                            <span class="sm-copy">
-                                <i class="fa fa-user"></i> Name
-                            </span>
-                            <p>{{ service.contact_name }}</p>
-                        </div>
+                        <div class="service__content ">
+                            <div class="service__contact service__contact--telephone" v-if="service.contact_name">
+                                <span class="sm-copy">
+                                    <i class="fa fa-user"></i> Name
+                                </span>
+                                <p>{{ service.contact_name }}</p>
+                            </div>
 
-                        <div class="service__contact service__contact--telephone" v-if="service.contact_phone">
-                            <span class="sm-copy">
-                                <i class="fa fa-phone"></i> Telephone
-                            </span>
-                            <p>{{ service.contact_phone }}</p>
-                        </div>
-                        
-                        <div class="service__contact service__contact--email" v-if="service.contact_email">
-                            <span class="sm-copy">
-                                <i class="fa fa-envelope"></i> Email
-                            </span>
-                            <p>{{ service.contact_email }}</p>
-                        </div>
-                        
-                        <div class="service__contact service__contact--website" v-if="service.url">
-                            <span class="sm-copy">
-                                <i class="fa fa-globe"></i>
-                                Website
-                            </span>
-                            <p>{{ service.url }}</p>
-                        </div>
-                        
-                        <div class="service__social">
-                            <a v-bind:href="social_media.url" v-for="social_media in service.social_medias"  :key="social_media.type">
-                                <i v-bind:class="['fab fa-' + social_media.type]"></i>
-                            </a>
+                            <div class="service__contact service__contact--telephone" v-if="service.contact_phone">
+                                <span class="sm-copy">
+                                    <i class="fa fa-phone"></i> Telephone
+                                </span>
+                                <p>{{ service.contact_phone }}</p>
+                            </div>
+                            
+                            <div class="service__contact service__contact--email" v-if="service.contact_email">
+                                <span class="sm-copy">
+                                    <i class="fa fa-envelope"></i> Email
+                                </span>
+                                <p>{{ service.contact_email }}</p>
+                            </div>
+                            
+                            <div class="service__contact service__contact--website" v-if="service.url">
+                                <span class="sm-copy">
+                                    <i class="fa fa-globe"></i>
+                                    Website
+                                </span>
+                                <p>{{ service.url }}</p>
+                            </div>
+                            
+                            <div class="service__social">
+                                <a v-bind:href="social_media.url" v-for="social_media in service.social_medias"  :key="social_media.type">
+                                    <i v-bind:class="['fab fa-' + social_media.type]"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     

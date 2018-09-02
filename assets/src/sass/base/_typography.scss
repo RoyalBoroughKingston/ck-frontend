@@ -147,6 +147,13 @@ a {
   &:hover {
     text-decoration: none;
   }
+
+  // Hide all print triggers on devices
+  &[href="#print"] {
+    @include breakpoint($break_tablet) {
+      display: none;
+    }
+  }
 }
 
 /* [10] */

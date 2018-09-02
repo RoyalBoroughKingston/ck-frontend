@@ -32,12 +32,14 @@ import SearchHome from './components/SearchHome'
 import Search from './components/Search'
 
 // Site modules
+import { Accordion } from "./modules/accordion.js"
 import { Navigation } from "./modules/navigation.js"
 
 export class App {
 
   constructor() {
 
+    let accordion = new Accordion();
     let navigation = new Navigation();
 
     // Init the vue app

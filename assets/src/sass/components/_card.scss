@@ -90,6 +90,10 @@
     }
   }
 
+  @include breakpoint($break_mobile) {
+    padding: $base-margin*1.5;
+  }
+
   // Card content styles
   &__header {
     display: flex;
