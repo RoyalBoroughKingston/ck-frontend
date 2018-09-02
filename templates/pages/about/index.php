@@ -1,5 +1,5 @@
 <section class="section section--header section--header--1 section--reduce-padding">
-    <div class="flex-container flex-container--space">
+    <div class="flex-container flex-container--space flex-container--mobile-no-padding">
         <div class="flex-col flex-col--5">
             {% include('templates/_components/title-card.php') with { title: 'About us' } %}
         </div>

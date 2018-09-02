@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-container flex-container--align-center flex-container--space">
+    <div class="search__sort flex-container flex-container--align-center flex-container--space">
         <div class="flex-col">
             <p class="sm-copy color-grey">{{ this.$parent.services_meta.total }} service<span v-if="this.$parent.services_meta.total > 1 || this.$parent.services_meta.total === 0">s</span> found</p>
         </div>

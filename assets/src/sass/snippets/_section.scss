@@ -78,7 +78,7 @@
 
     @include breakpoint($break_mobile) {
       padding: $base-margin*4.5 0 $base-margin*3 0;
-      margin-bottom: 0;
+      margin-bottom: $base-margin*2;
     }
 
     &--reduce-padding {
@@ -147,6 +147,20 @@
   
       &:after {
         top: -$base-margin;
+      }
+
+      @include breakpoint($break_mobile) {
+        background-image: url('/assets/dist/img/header-shapes/shape--06.svg');
+
+        &:before {
+          top: -$base-margin*2;
+          right: 16%;
+        }
+    
+        &:after {
+          top: -$base-margin;
+          right: 5%;
+        }
       }
     }
 

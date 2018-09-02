@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-container flex-container--space">
+    <div class="flex-container flex-container--space flex-container--mobile-no-padding">
         <div class="flex-col flex-col--8 flex-col--gutter">
             <div class="title-card title-card--variant-0">
                 <h2 class="title-card__title">{{ service.name }}</h2>

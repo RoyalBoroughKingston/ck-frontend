@@ -33,6 +33,7 @@
     "vue": "^2.5.17",
     "vue-cookies": "^1.5.6",
     "vue-moment": "^4.0.0",
+    "vue-mq": "^0.2.1",
     "vuejs-paginate": "^2.0.1",
     "webpack": "^3.11.0"
   }

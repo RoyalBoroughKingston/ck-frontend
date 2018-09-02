@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="section section--header section--header--reduce-padding section--header--1">
-            <div class="flex-container flex-container--space flex-container--align-bottom">
+            <div class="flex-container flex-container--space flex-container--align-bottom flex-container--mobile-no-padding">
                 <div class="flex-col flex-col--7">
                     <search-filter v-bind:type="'full'" v-bind:search_term="search_term" v-bind:is_free="is_free" v-bind:wait_time="wait_time" v-if="!displayOption"></search-filter>
                     <search-header v-bind:header="returnHeader" v-if="displayOption"></search-header>
@@ -14,7 +14,7 @@
         </section>
         
         <section id="results" class="section section--no-padding">
-            <div class="flex-container">
+            <div class="flex-container flex-container--mobile-no-padding">
                 <div :class="layoutClass">
                     <search-sort v-bind:location="location"></search-sort>
                     <search-grid v-if="view === 'grid'" v-bind:services="services"></search-grid>

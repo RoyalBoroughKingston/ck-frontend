@@ -7,6 +7,11 @@
     border-radius: 25px;
     overflow: hidden;
 
+    @include breakpoint($break_mobile) {
+        border-radius: 0;
+        height: 290px;
+    }
+
     &__overlay { 
         position: absolute;
         top: 0;

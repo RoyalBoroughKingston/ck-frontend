@@ -1,0 +1,13 @@
+/* Search */
+
+.search {
+    &__sort {
+        margin-bottom: $base-margin;
+    }
+
+    &__filter {
+        @include breakpoint($break_mobile) {
+            padding: 0 $base-margin;
+        }
+    }
+}

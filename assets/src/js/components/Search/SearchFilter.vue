@@ -1,5 +1,5 @@
 <template>
-    <div class="search-filter">
+    <div class="search__filter">
         <div class="title-card title-card--variant-3" v-if="type === 'full'">
             <h4 class="title-card__title">Results for</h4>
             <div class="title-card__form">

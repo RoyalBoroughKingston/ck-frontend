@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-container">
+    <div class="flex-container flex-container--mobile-no-padding">
         <div class="flex-col flex-col--12">
             <div class="map">
                 <div class="map__overlay map__overlay--left" v-if="selected_panel_left">

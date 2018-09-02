@@ -1,6 +1,6 @@
 <template>
     <section class="section section--no-padding">
-        <div class="flex-container flex-container--space">
+        <div class="flex-container flex-container--space flex-container--mobile-no-padding">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <div class="section__component" v-if="service.description">
                     <h4>About</h4>
@@ -118,7 +118,7 @@
             </div>
 
             <div class="flex-col flex-col--4 flex-col--gutter">
-                <div class="section__component text-center">
+                <div class="section__component text-center tablet-hide">
                     <a href="#print" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print"></i></a>
                 </div>
                 
