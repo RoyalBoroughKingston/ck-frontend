@@ -48,6 +48,10 @@ label {
   margin-bottom: $base-margin*4.5;
   overflow: hidden;
 
+  @include breakpoint($break_mobile) {
+    margin-right: 0;
+  }
+
   &--no-margin,
   &:last-of-type {
     margin-bottom: 0 !important;
@@ -73,6 +77,10 @@ label {
     .btn {
       margin-left: $base-margin*1.375;
       vertical-align: middle;
+
+      @include breakpoint($break_mobile) {
+        margin-left: $base-margin*0.625;
+      }
     }
   }
 

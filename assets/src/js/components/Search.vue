@@ -115,8 +115,6 @@
                 if(this.sort_by !== null) params["order"] = this.sort_by
                 if(this.wait_time !== null) params["wait_time"] = this.wait_time
                 if(this.location_coords !== null) params["location"] = this.location_coords
-
-                console.log(params)
                 
                 // Call the search endpoint with the params set
                 axios

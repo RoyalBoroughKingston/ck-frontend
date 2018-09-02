@@ -6,14 +6,29 @@
     width: 100%;
     max-width: 210px;
     text-align: center;
+
+    @include breakpoint($break_mobile) {
+        margin: 0;
+        padding: 0 $base-margin*2;
+        max-width: 100%;
+    }
     
     > a {
         display: block;
         text-decoration: none;
+
+        @include breakpoint($break_mobile) {
+            display: flex;
+            align-items: center;
+        }
     }
 
     &__title {
         margin-top: $base-margin*2;
+
+        @include breakpoint($break_mobile) {
+            margin-top: 0;
+        }
     }
 
     &__image {
@@ -26,6 +41,15 @@
             margin: 0 auto;
             border: 10px solid $white;
             border-radius: 50%;
+
+            @include breakpoint($break_mobile) {
+                width: 57px;
+                border-width: 4px;
+            }
+        }
+
+        @include breakpoint($break_mobile) {
+            margin-right: $base-margin;
         }
     }
 }

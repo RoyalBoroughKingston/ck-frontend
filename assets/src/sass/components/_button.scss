@@ -16,11 +16,21 @@
   box-sizing: border-box;
   cursor: pointer;
 
+  @include breakpoint($break_mobile) {
+    font-size: 1.1875rem;
+    line-height: 1.4375rem;
+  }
+
   i {
     display: inline-block;
     margin-left: $base-margin*0.625;
     font-size: 1.3125rem;
     line-height: 1.8125rem;
+
+    @include breakpoint($break_mobile) {
+      font-size: 1.1875rem;
+      line-height: 1.1875rem;
+    }
   }
 
   &--icon-before {

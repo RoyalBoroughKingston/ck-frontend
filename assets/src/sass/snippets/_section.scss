@@ -3,6 +3,10 @@
 .section {
   padding: $base-margin*4.5 0;
 
+  @include breakpoint($break_mobile) {
+    padding: $base-margin*3.5 0;
+  }
+
   // Section colours
   &--grey {
     background-color: $gray;
@@ -72,8 +76,19 @@
     margin: $base-margin*2 0;
     margin-bottom: $base-margin*4.5;
 
+    @include breakpoint($break_mobile) {
+      padding: $base-margin*4.5 0 $base-margin*3 0;
+      margin-bottom: 0;
+    }
+
     &--reduce-padding {
       padding: $base-margin*2.5 0;
+    }
+
+    > .flex-container--mobile-no-padding {
+      @include breakpoint($break_mobile) {
+        margin: 0 -$base-margin;
+      }
     }
 
     &:before,
@@ -102,6 +117,20 @@
   
       &:after {
         top: $base-margin*2;
+      }
+
+      @include breakpoint($break_mobile) {
+        background-image: url('/assets/dist/img/header-shapes/shape--05.svg');
+
+        &:before {
+          top: -$base-margin*3;
+          right: 30%;
+        }
+    
+        &:after {
+          top: -$base-margin*2;
+          right: 18%;
+        }
       }
     }
 
@@ -138,10 +167,10 @@
     }
   }
 
-  .flex-container {
+  > .flex-container {
     margin-bottom: $base-margin*2;
 
-    &:last-of-type {
+    &:last-child {
       margin-bottom: 0;
     }
     
@@ -164,6 +193,10 @@
     i {
       font-size: 1.5rem;
       line-height: 1.5rem;
+    }
+
+    @include breakpoint($break_mobile) {
+      display: none;
     }
   }
 

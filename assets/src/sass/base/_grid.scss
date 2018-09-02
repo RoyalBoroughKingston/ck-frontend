@@ -28,6 +28,7 @@ $break_mobile_small  : max-width 320px;
 body {
   background-color: $white;
   color: $black;
+  overflow-x: hidden;
 
   &.noscroll {
     overflow: hidden;
@@ -41,6 +42,21 @@ body {
   max-width: $container-width;
   margin: 0 auto;
   padding: 0 $base-margin*2.5;
+
+  @include breakpoint($break_tablet) {
+    padding: 0 $base-margin*2;
+  }
+
+  @include breakpoint($break_mobile) {
+    padding: 0 $base-margin*1.5;
+  }
+
+  // Mobile no padding 
+  &--mobile-no-padding {
+    @include breakpoint($break_mobile) {
+      padding: 0;
+    }
+  }
 
   // Remove padding
   &--no-padding {
@@ -90,10 +106,6 @@ body {
   // Fill space
   &--space {
     justify-content: space-between;
-  }
-
-  @include breakpoint($break_mobile) {
-    padding: 0 $base-margin;
   }
 }
 
@@ -152,6 +164,10 @@ body {
     padding-left: 0;
     padding-right: 0;
     margin-bottom: $base-margin*2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     &--mobile {
       // Column width

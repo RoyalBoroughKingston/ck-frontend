@@ -14,4 +14,9 @@
     &--green {
         background-image: url('/assets/dist/img/global/highlight-green.svg');
     }
+
+    @include breakpoint($break_mobile) {
+        padding: 0;
+        background: none;
+    }
 }

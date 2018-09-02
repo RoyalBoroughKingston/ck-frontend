@@ -8,6 +8,10 @@
     padding: $base-margin*4 $base-margin*3.5;
     box-sizing: border-box;
 
+    @include breakpoint($break_mobile) {
+        padding: $base-margin*2.5 $base-margin*2.5 $base-margin*2 $base-margin*2.5;
+    }
+
     &--reduce-padding {
         padding: $base-margin*2.5 $base-margin*2;
     }

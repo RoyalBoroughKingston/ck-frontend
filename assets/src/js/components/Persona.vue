@@ -5,10 +5,10 @@
                 <a v-bind:href="['/results?is_free=true&wait_time=null&persona=' + persona.id]">
                     <div class="pod__image">
                         <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/collections/personas/${persona.id}/image`" v-bind:alt="persona.name">
+                    </div>
 
-                        <div class="pod__content">
-                            <p class="pod__title"><strong>{{ persona.name }}</strong></p>
-                        </div>
+                    <div class="pod__content">
+                        <p class="pod__title"><strong>{{ persona.name }}</strong></p>
                     </div>
                 </a>
             </div>

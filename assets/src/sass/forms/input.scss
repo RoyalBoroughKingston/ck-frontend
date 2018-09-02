@@ -16,6 +16,10 @@ input, textarea, .input {
   // Styling for a field with a button
   .field--with-button & {
     width: 50%;
+
+    @include breakpoint($break_mobile) {
+      width: 61%;
+    }
   }
 
   // Increase max width for homepage search form

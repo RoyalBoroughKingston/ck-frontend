@@ -3,5 +3,9 @@
 .tag-cloud {
     .btn {
         margin: $base-margin $base-margin*0.75;
+
+        @include breakpoint($break_mobile) {
+            margin: $base-margin*0.5 0;
+        }
     }
 }
