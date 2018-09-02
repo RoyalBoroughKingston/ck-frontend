@@ -84,12 +84,12 @@
 
                 this.$parent.referral.name = document.getElementsByName('name')[0].value
 
-                if(document.getElementsByName('email')[0] && document.getElementsByName('email')[0].value) {
-                    this.$parent.referral.email = document.getElementsByName('email')[0].value
+                if(document.getElementsByName('email')[0]) {
+                    if(document.getElementsByName('email')[0].value) this.$parent.referral.email = document.getElementsByName('email')[0].value
                 }
                 
-                if(document.getElementsByName('phone')[0] && document.getElementsByName('email')[0].value) {
-                    this.$parent.referral.phone = document.getElementsByName('phone')[0].value
+                if(document.getElementsByName('phone')[0]) {
+                    if(document.getElementsByName('phone')[0].value) this.$parent.referral.phone = document.getElementsByName('phone')[0].value
                 }
                 
                 if(this.show_other) {

@@ -1,6 +1,6 @@
 <template>
     <section id="referral" class="section">
-        <div class="flex-container flex-container--space">
+        <div class="referral flex-container flex-container--space">
             <div :class="layoutClass">
                 <intro v-bind:type="type" v-bind:service="service" v-if="step === 1"></intro>
                 <who v-bind:type="type" v-bind:service="service" v-bind:who_for="who_for" v-if="step === 2"></who>
@@ -10,7 +10,7 @@
                 <complete v-bind:service="service" v-if="step === 'complete'"></complete>
             </div>
 
-            <div class="flex-col flex-col--3" v-if="step !== 'complete'">
+            <div class="referral__service flex-col flex-col--3 flex-col--medium--4 flex-col--tablet--6" v-if="step !== 'complete'">
                 <div class="service">
                     <div class="service__header">
                         <span>
@@ -163,9 +163,9 @@
             },
             layoutClass() {
                 if(this.step === 'complete') {
-                    return 'flex-col flex-col--12 flex-col--gutter'
+                    return 'referral__form flex-col flex-col--12 flex-col--gutter'
                 } else {
-                    return 'flex-col flex-col--7 flex-col--gutter'
+                    return 'referral__form flex-col flex-col--7 flex-col--tablet--12 flex-col--gutter'
                 }
             },
         },

@@ -48,6 +48,8 @@
                         </div>
                     </div>
 
+                    <p>&nbsp;</p>
+
                     <div class="flex-container flex-container--no-padding">
                         <div class="field flex-col flex-col--8">
                             <label for="email">Email</label>

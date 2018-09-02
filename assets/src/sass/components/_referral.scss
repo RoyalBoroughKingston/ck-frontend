@@ -1,0 +1,9 @@
+/* Referral */
+
+.referral {
+    &__form {
+        @include breakpoint($break_tablet) {
+            margin-bottom: $base-margin*2.5;
+        }
+    }
+}
