@@ -111,7 +111,13 @@
                 this.$parent.updateShortlist()
             },
             closeService() {
+                // Set the selected_panel_left property
                 this.$parent.selected_panel_left = false
+
+                // Unset previous marker icon
+                document.querySelectorAll('.leaflet-marker-icon').forEach((marker) => {
+                    marker.src="/assets/dist/img/map/map-marker.svg"
+                })
             },
             returnWaitTime(value) {
                 // Simple statement to format text for wait_time
