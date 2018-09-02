@@ -1,7 +1,7 @@
 <template>
     <div id="grid" class="flex-container flex-container--no-padding flex-container--justify">
         <div class="flex-col flex-col--4 flex-col--tablet--6 flex-col--gutter" v-for="service in services" :key="service.id">
-            <service v-bind:type="'service'" v-bind:service="service"></service>
+            <service :type="'service'" :view="'grid'" :service="service"></service>
         </div>
     </div>
 </template>

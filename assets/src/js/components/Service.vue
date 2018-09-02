@@ -42,7 +42,11 @@
             <h4 class="service__name" v-if="service.name">{{ service.name }}</h4>
             <p class="service__sub-title sm-copy" v-if="organisation.name">{{ organisation.name }}</p>
             <p class="service__description sm-copy" v-if="service.description">{{ service.description }}</p>
-            <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
+            
+            <div class="service__details__actions">
+                <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
+                <a v-on:click="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map'">Close <i class="fa fa-times"></i></a>
+            </div>
         </div>
 
         <div class="service__actions" v-if="type === 'shortlist'">
@@ -57,7 +61,7 @@
     
     export default {
         name: "service",
-        props: ['type', 'service'],
+        props: ['type', 'view', 'service'],
         data () {
             return {
                 organisation: null,
@@ -105,6 +109,9 @@
                 
                 // retrieve new shortlist
                 this.$parent.updateShortlist()
+            },
+            closeService() {
+                this.$parent.selected_panel_left = false
             },
             returnWaitTime(value) {
                 // Simple statement to format text for wait_time

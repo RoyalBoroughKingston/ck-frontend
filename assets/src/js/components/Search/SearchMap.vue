@@ -3,7 +3,7 @@
         <div class="flex-col flex-col--12">
             <div class="map">
                 <div class="map__overlay map__overlay--left" v-if="selected_panel_left">
-                    <service v-if="selected_service" :type="'service'" :service="selected_service"></service>
+                    <service v-if="selected_service" :type="'service'" :view="'map'" :service="selected_service"></service>
                 </div>
 
                 <div id="map-container" class="map__container"></div>
