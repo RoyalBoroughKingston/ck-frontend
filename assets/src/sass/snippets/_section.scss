@@ -73,8 +73,7 @@
     background-position: center;
     background-repeat: no-repeat;
     padding: $base-margin*9 0 $base-margin*6 0;
-    margin: $base-margin*2 0;
-    margin-bottom: $base-margin*4.5;
+    margin: $base-margin*2 0 $base-margin*4.5;
 
     @include breakpoint($break_mobile) {
       padding: $base-margin*4.5 0 $base-margin*3 0;

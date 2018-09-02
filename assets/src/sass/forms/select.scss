@@ -19,6 +19,7 @@ select,
   @include breakpoint($break_mobile) {
     font-size: 0.875rem;
     line-height: 0.875rem;
+    background-size: 8px;
   }
 
   &:focus {
