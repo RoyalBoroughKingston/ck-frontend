@@ -61,23 +61,14 @@
     
     export default {
         name: "service",
-        props: ['type', 'view', 'service'],
+        props: ['type', 'view', 'service', 'organisation'],
         data () {
             return {
-                organisation: null,
                 location: null,
                 shortlist: null
             }
         },
         methods: {
-            getOrganisation() {
-                axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.service.organisation_id)
-                .then(response => (
-                    this.organisation = response.data.data
-                ))
-                .catch(error => console.log(error))
-            },
             getLocation() {
                 // Get location for each service
             },
@@ -95,7 +86,6 @@
                 
             },
             addToShortlist(e) {
-                console.log(window.location.protocol + "//" + window.location.host)
                 // Set shortlist cookie
                 let shortlist = window.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id')
                 this.$cookies.set("ck_shortlist", shortlist)
@@ -133,9 +123,6 @@
         mounted () {
             // Get the shortlist
             this.getShortlist()
-
-            // Get the organisation
-            this.getOrganisation()
         }
     }
 </script>

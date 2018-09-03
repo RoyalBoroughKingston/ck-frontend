@@ -4,7 +4,7 @@
             <div class="flex-col flex-col--8">
                 <div class="flex-container flex-container--no-padding">
                     <div class="flex-col flex-col--6 flex-col--gutter" v-for="service in services" :key="service.id">
-                        <service v-bind:type="'service'" v-bind:service="service"></service>
+                        <service v-bind:type="'service'" :service="service" :organisation="organisation"></service>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,10 @@
             getServices() {
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=' + this.$data.organisation.id)
-                .then(response => (this.services = response.data.data))
+                .then(response => (
+                    // Store the organisations services
+                    this.services = response.data.data
+                ))
                 .catch(error => console.log(error))
             }
         },

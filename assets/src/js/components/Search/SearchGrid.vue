@@ -1,7 +1,7 @@
 <template>
     <div id="grid" class="flex-container flex-container--no-padding flex-container--justify">
         <div class="flex-col flex-col--4 flex-col--tablet--6 flex-col--gutter" v-for="service in services" :key="service.id">
-            <service :type="'service'" :view="'grid'" :service="service"></service>
+            <service :type="'service'" :view="'grid'" :service="service" :organisation="getOrganisation(service.organisation_id)"></service>
         </div>
     </div>
 </template>
@@ -12,9 +12,19 @@
 
     export default {
         name: "search-grid",
-        props: ['services'],
+        props: ['services', 'organisations'],
         components: {
             Service
+        },
+        methods: {
+            getOrganisation(organisation_id) {
+                for (var i = 0; i < this.organisations.length; i++) {
+                    if (this.organisations[i]['id'] === organisation_id) {
+                        return this.organisations[i];
+                    }
+                }
+                return null;
+            }
         }
     }
 </script>

@@ -8,7 +8,7 @@
 
         <div class="flex-container flex-container--justify">
             <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services" :key="service.id">
-                <service :type="'shortlist'" :service.sync="service"></service>
+                <service :type="'shortlist'" :service.sync="service" :organisation="getOrganisation(service.organisation_id)"></service>
             </div>
         </div>
     </section>
@@ -26,6 +26,7 @@
         data () {
             return {
                 services: null,
+                organisations: [],
                 shortlist: null
             }
         },
@@ -35,9 +36,36 @@
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[id]=' + this.shortlist)
                 .then(response => (
-                    this.services = response.data.data
+                    // Set the shortlist services
+                    this.services = response.data.data,
+                    // Store the organisation ids
+                    this.getOrganisations()
                 ))
                 .catch(error => console.log(error))
+            },
+            getOrganisations() {
+                // Store organisation ids
+                this.services.forEach(service => {
+                   // Push organisation id to organisations array
+                   this.organisations.push(service.organisation_id) 
+                });
+
+                // Do a request for organisations
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations?filter[id]=' + this.organisations)
+                .then(response => (
+                    // Overwrite the organisations data model
+                    this.organisations = response.data.data
+                ))
+                .catch(error => console.log(error))
+            },
+            getOrganisation(organisation_id) {
+                for (var i = 0; i < this.organisations.length; i++) {
+                    if (this.organisations[i]['id'] === organisation_id) {
+                        return this.organisations[i];
+                    }
+                }
+                return null;
             },
             getParameterByName(name, url) {
                 if (!url) url = window.location.href;
@@ -57,6 +85,7 @@
                 this.shortlist = this.$cookies.get("ck_shortlist")
             }
             
+            // Updated the shortlist
             this.updateShortlist()
         }
     }

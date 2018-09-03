@@ -17,8 +17,8 @@
             <div class="flex-container flex-container--mobile-no-padding">
                 <div :class="layoutClass">
                     <search-sort v-bind:location="location"></search-sort>
-                    <search-grid v-if="view === 'grid'" v-bind:services="services"></search-grid>
-                    <search-map v-if="view === 'map' && services" v-bind:services="services"></search-map>
+                    <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations"></search-grid>
+                    <search-map v-if="view === 'map' && services" :services="services" :organisations="organisations"></search-map>
                 </div>
 
                 <div class="flex-col flex-col--3" v-if="displayOption">
@@ -68,6 +68,7 @@
                 last_page: null,
                 services: null,
                 services_meta: null,
+                organisations: [],
                 view: 'grid',
                 search_term: null,
                 location: null,
@@ -124,10 +125,28 @@
                     this.services = response.data.data,
                     // Set the services meta
                     this.services_meta = response.data.meta,
+                    // Store the organisation ids
+                    this.getOrganisations(),
                     // Set the current page so we can use it later
                     this.current_page = response.data.meta.current_page,
                     // Set the last page so we can use it later
                     this.last_page = response.data.meta.last_page
+                ))
+                .catch(error => console.log(error))
+            },
+            getOrganisations() {
+                // Store organisation ids
+                this.services.forEach(service => {
+                   // Push organisation id to organisations array
+                   this.organisations.push(service.organisation_id) 
+                });
+
+                // Do a request for organisations
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations?filter[id]=' + this.organisations)
+                .then(response => (
+                    // Overwrite the organisations data model
+                    this.organisations = response.data.data
                 ))
                 .catch(error => console.log(error))
             },

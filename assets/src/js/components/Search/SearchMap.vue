@@ -3,7 +3,7 @@
         <div class="flex-col flex-col--12">
             <div class="map">
                 <div class="map__overlay map__overlay--left" v-if="selected_panel_left">
-                    <service v-if="selected_service" :type="'service'" :view="'map'" :service="selected_service"></service>
+                    <service v-if="selected_service" :type="'service'" :view="'map'" :service="selected_service" :organisation="getOrganisation(selected_service.organisation_id)"></service>
                 </div>
 
                 <div id="map-container" class="map__container"></div>
@@ -18,7 +18,7 @@
     
     export default {
         name: "search-map",
-        props: ['services'],
+        props: ['services', 'organisations'],
         components: {
             Service
         },
@@ -118,6 +118,14 @@
                     this.selected_panel_left = true
                 ))
                 .catch(error => console.log(error))
+            },
+            getOrganisation(organisation_id) {
+                for (var i = 0; i < this.organisations.length; i++) {
+                    if (this.organisations[i]['id'] === organisation_id) {
+                        return this.organisations[i];
+                    }
+                }
+                return null;
             },
             setViewToMarker(marker) {
                 // Convert latlng to pixels
