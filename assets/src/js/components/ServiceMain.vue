@@ -18,18 +18,15 @@
                                 {{ location.location.county }}<br>
                                 {{ location.location.postcode }}
                             </p>
-                            <p class="card__location__distance sm-copy">{{ calculateDistance(location.location.postcode) }} miles away</p>
+                            <p class="card__location__distance sm-copy">0.3 miles away</p>
                         </div>
                         <div class="card__hours flex-col flex-col--6">
                             <div class="card__hours__times">
                                 <table>
                                     <tbody>
-                                        <tr
-                                            v-for="(regularOpeningHour, index) in location.regular_opening_hours"
+                                        <tr v-for="(regularOpeningHour, index) in location.regular_opening_hours"
                                             :key="index"
-                                            v-text="humanReadableRegularOpeningHour(regularOpeningHour)">
-                                            <!-- <td class="sm-copy">{{ time.weekday }}</td>
-                                            <td>{{ time.opens_at | moment("ha") }}-{{ time.closes_at | moment("ha") }}</td> -->
+                                            v-html="humanReadableRegularOpeningHour(regularOpeningHour)">
                                         </tr>
                                     </tbody>
                                 </table>
@@ -205,6 +202,7 @@
  
 <script>
     import axios from 'axios'
+    import moment from 'moment'
     import Feedback from './Feedback'
     
     export default {
@@ -229,13 +227,22 @@
             getService() {
                 axios
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getSlug() + '?include=organisation')
-                .then(response => (this.service = response.data.data))
+                .then(response => (
+                    // Store the service
+                    this.service = response.data.data,
+
+                    // Get the services locations
+                    this.getServiceLocations()
+                ))
                 .catch(error => console.log(error))
             },
-            getServiceLocation() {
+            getServiceLocations() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.$data.service.id +'&include=location')
-                .then(response => (this.serviceLocations = response.data.data))
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
+                .then(response => (
+                    // Store the services locations
+                    this.serviceLocations = response.data.data
+                ))
                 .catch(error => console.log(error))
             },
             giveFeedback() {
@@ -249,13 +256,13 @@
             humanReadableRegularOpeningHour(openingHour) {
                 switch (openingHour.frequency) {
                     case "weekly":
-                    return `${this.weekday(openingHour.weekday)} - ${this.timePeriod(openingHour)}`;
+                    return `<td class="sm-copy">${this.weekday(openingHour.weekday)}</td><td>${this.timePeriod(openingHour)}</td>`;
                     case "monthly":
-                    return `${this.dayOfMonth(openingHour.day_of_month)} of each month - ${this.timePeriod(openingHour)}`;
+                    return `<td class="sm-copy">${this.dayOfMonth(openingHour.day_of_month)} of each month</td><td>${this.timePeriod(openingHour)}</td>`;
                     case "fortnightly":
-                    return `Every other ${this.weekdayFromDate(openingHour.starts_at)} (${this.fortnightWeek(openingHour.starts_at)}) - ${this.timePeriod(openingHour)}`;
+                    return `<td class="sm-copy">Every other ${this.weekdayFromDate(openingHour.starts_at)}</td><td>${this.fortnightWeek(openingHour.starts_at)}) - ${this.timePeriod(openingHour)}</td>`;
                     case "nth_occurrence_of_month":
-                    return `${this.dayOfMonth(openingHour.occurrence_of_month)} ${this.weekday(openingHour.weekday)} of each month`;
+                    return `<td class="sm-copy">${this.dayOfMonth(openingHour.occurrence_of_month)}</td><td>${this.weekday(openingHour.weekday)} of each month</td>`;
                 }
             },
             timePeriod(openingHour) {
@@ -280,8 +287,7 @@
             }
         },
         mounted () {
-            this.getService();
-            this.getServiceLocation();
+            this.getService()
         }
     }
 </script>
