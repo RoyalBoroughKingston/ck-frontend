@@ -68,6 +68,15 @@
   	<script src="/assets/dist/vendor.js"></script>
 	<script src="/assets/dist/app.js"></script>
 
+	<script type='text/javascript'>
+		window.__lo_site_id = 123958;
+		(function() {
+			var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+			wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+		})();
+	</script>
+
 	<!-- ~~~~~~~~~~~~ BUILT BY ~~~~~~~~~~~~
 		 AAAAAAA YYY  YYY UU    UU PPPPPPP
 		AA     AA YY  YY  UU    UU PP   PP
