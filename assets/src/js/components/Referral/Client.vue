@@ -42,7 +42,7 @@
                                 <label for="telephone"><span><span></span></span> Telephone</label>
 
                                 <div class="radio__input" v-if="contact === 'phone'">
-                                    <input type="tel" class="input input--text" name="phone" placeholder="Enter here"/>
+                                    <input type="tel" class="input input--text" name="phone" pattern="^\s*\(?(020[7,8]{1}\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\s*$" title="Please enter a valid UK phone number in the format '01234567890'." placeholder="Enter here"/>
                                 </div>
                             </div>
 

@@ -58,7 +58,7 @@
 
                         <div class="field flex-col flex-col--8">
                             <label for="telephone">Telephone</label>
-                            <input type="tel" class="input input--text" name="referee_phone" placeholder="Enter here"/>
+                            <input type="tel" class="input input--text" pattern="^\s*\(?(020[7,8]{1}\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\s*$" title="Please enter a valid UK phone number in the format '01234567890'." name="referee_phone" placeholder="Enter here"/>
                         </div>
                     </div>
 
