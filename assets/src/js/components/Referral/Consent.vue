@@ -3,7 +3,8 @@
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
                 <p>Step {{ step }} of {{ steps }}</p>
-                <h2>Does the client give consent?</h2>
+                <h2 v-if="who_for === 'someone_else'">Does the client give consent?</h2>
+                <h2 v-if="who_for === 'myself'">Do you give consent?</h2>
             </div>
         </div>
 
@@ -46,7 +47,7 @@
     
     export default {
         name: "consent",
-        props: ['step', 'steps'],
+        props: ['step', 'steps', 'who_for'],
         data() {
             return {
                 

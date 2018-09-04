@@ -65,7 +65,7 @@
                 }
 
                 // Set internal_steps in parent
-                if(this.$parent.who_for === 'someone else') this.$parent.internal_steps = 2
+                if(this.$parent.who_for === 'someone_else') this.$parent.internal_steps = 2
 
                 // Updatee the step
                 this.updateStep(3)

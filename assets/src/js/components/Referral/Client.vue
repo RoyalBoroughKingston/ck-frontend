@@ -3,7 +3,8 @@
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
                 <p>Step {{ step }} of {{ steps }}</p>
-                <h2>About the client</h2>
+                <h2 v-if="who_for === 'someone_else'">About the client</h2>
+                <h2 v-if="who_for === 'myself'">About you</h2>
             </div>
         </div>
 
@@ -71,7 +72,7 @@
     
     export default {
         name: "client",
-        props: ['step', 'steps'],
+        props: ['step', 'steps', 'who_for'],
         data() {
             return {
                 show_other: false,

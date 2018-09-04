@@ -5,8 +5,8 @@
                 <intro v-bind:type="type" v-bind:service="service" v-if="step === 1"></intro>
                 <who v-bind:type="type" v-bind:service="service" v-bind:who_for="who_for" v-if="step === 2"></who>
                 <you v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkYou"></you>
-                <client v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkClient"></client>
-                <consent v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkConsent"></consent>
+                <client v-bind:step="internal_step" v-bind:steps="internal_steps" v-bind:who_for="who_for" v-if="checkClient"></client>
+                <consent v-bind:step="internal_step" v-bind:steps="internal_steps" v-bind:who_for="who_for" v-if="checkConsent"></consent>
                 <complete v-bind:service="service" v-if="step === 'complete'"></complete>
             </div>
 
@@ -122,7 +122,7 @@
         computed: {
             checkYou() {
                 // Check what step and who its for
-                if(this.step === 3 && this.who_for === 'myself') {
+                if(this.step === 3 && this.who_for === 'someone_else') {
                     this.internal_steps = 3
                     return true
                 } else {
@@ -134,11 +134,11 @@
                 if(this.step === 4) this.internal_step = 2
                 else if(this.step === 3) this.internal_step = 1
 
-                if((this.step === 4 && this.who_for === 'myself')) this.internal_steps = 3
-                else if((this.step === 3 && this.who_for === 'someone_else')) this.internal_steps = 2
+                if((this.step === 4 && this.who_for === 'someone_else')) this.internal_steps = 3
+                else if((this.step === 3 && this.who_for === 'myself')) this.internal_steps = 2
 
                 // Check what step and who its for
-                if((this.step === 4 && this.who_for === 'myself') || (this.step === 3 && this.who_for === 'someone_else')) {
+                if((this.step === 4 && this.who_for === 'someone_else') || (this.step === 3 && this.who_for === 'myself')) {
                     return true
                 } else {
                     return false
@@ -146,14 +146,14 @@
             },
             checkConsent() {
                 // Check what step and assign internal_step
-                if(this.step === 5 && this.who_for === 'someone_else') this.internal_step = 2
+                if(this.step === 5 && this.who_for === 'myself') this.internal_step = 2
                 else if(this.step === 5) this.internal_step = 3
 
-                if((this.step === 6 && this.who_for === 'myself')) this.internal_steps = 3
-                else if((this.step === 5 && this.who_for === 'someone_else')) this.internal_steps = 2
+                if((this.step === 6 && this.who_for === 'someone_else')) this.internal_steps = 3
+                else if((this.step === 5 && this.who_for === 'myself')) this.internal_steps = 2
 
                 // Check what step and who its for
-                if((this.step === 5 && this.who_for === 'myself') || (this.step === 5 && this.who_for === 'someone_else')) {
+                if((this.step === 5 && this.who_for === 'someone_else') || (this.step === 5 && this.who_for === 'myself')) {
                     return true
                 } else {
                     return false
