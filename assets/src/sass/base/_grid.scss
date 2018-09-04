@@ -39,6 +39,7 @@ body {
 .flex-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   max-width: $container-width;
   margin: 0 auto;
   padding: 0 $base-margin*2.5;
@@ -110,18 +111,15 @@ body {
 }
 
 .flex-col {
-  box-sizing: border-box;
-
-  // Columns with gutters
-  &--gutter {
-    border: solid $base-margin transparent;
-    box-sizing: border-box;
-  }
-
   // Column width
   @for $i from 1 to $total-columns+1 {
     &--#{$i} {
       width: percentage($i/$total-columns);
+
+      // Columns with gutters
+      &.flex-col--gutter {
+        width: percentage($i/$total-columns) - 2;
+      }
     }
   }
 
@@ -143,6 +141,11 @@ body {
       @for $i from 1 to $total-columns+1 {
         &--#{$i} {
           width: percentage($i/$total-columns);
+
+          // Columns with gutters
+          &.flex-col--gutter {
+            width: percentage($i/$total-columns) - 2;
+          }
         }
       }
     }
@@ -154,6 +157,11 @@ body {
       @for $i from 1 to $total-columns+1 {
         &--#{$i} {
           width: percentage($i/$total-columns);
+
+          // Columns with gutters
+          &.flex-col--gutter {
+            width: percentage($i/$total-columns) - 1.5;
+          }
         }
       }
     }
@@ -174,6 +182,11 @@ body {
       @for $i from 1 to $total-columns+1 {
         &--#{$i} {
           width: percentage($i/$total-columns);
+
+          // Columns with gutters
+          &.flex-col--guter {
+            width: percentage($i/$total-columns) - 1;
+          }
         }
       }
     }
