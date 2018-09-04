@@ -125,7 +125,7 @@
                 </div>
             </div>
 
-            <div class="flex-col flex-col--4 flex-col--gutter">
+            <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter">
                 <div class="section__component text-center tablet-hide">
                     <a href="#print" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print"></i></a>
                 </div>

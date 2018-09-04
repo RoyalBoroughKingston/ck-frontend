@@ -48,6 +48,14 @@
     margin-top: $base-margin*4.5;
     margin-bottom: 0;
 
+    @include breakpoint($break_tablet) {
+      padding: $base-margin*4.5 0 $base-margin*4 0;
+    }
+
+    @include breakpoint($break_mobile) {
+      padding: $base-margin*3 0 $base-margin*2 0;
+    }
+
     &:before,
     &::after {
       position: absolute;
@@ -64,6 +72,12 @@
       top: -$base-margin*3.5;
       right: $base-margin*4.5;
     }
+
+    .title-card {
+      @include breakpoint($break_tablet) {
+        padding: $base-margin;
+      }
+    }
   }
 
   // Header shapes
@@ -75,6 +89,11 @@
     padding: $base-margin*9 0 $base-margin*6 0;
     margin: $base-margin*2 0 $base-margin*4.5;
 
+    @include breakpoint($break_tablet) {
+      padding: $base-margin*6.5 0 $base-margin*4.5 0;
+      margin-bottom: $base-margin*3.5;
+    }
+
     @include breakpoint($break_mobile) {
       padding: $base-margin*4.5 0 $base-margin*3 0;
       margin-bottom: $base-margin*2;
@@ -82,6 +101,14 @@
 
     &--reduce-padding {
       padding: $base-margin*2.5 0;
+
+      @include breakpoint($break_tablet) {
+        padding: $base-margin 0;
+      }
+  
+      @include breakpoint($break_mobile) {
+        padding: $base-margin 0;
+      }
     }
 
     > .flex-container--mobile-no-padding {

@@ -44,11 +44,11 @@ body {
   padding: 0 $base-margin*2.5;
 
   @include breakpoint($break_tablet) {
-    padding: 0 $base-margin*2;
+    padding: 0 $base-margin*1.5;
   }
 
   @include breakpoint($break_mobile) {
-    padding: 0 $base-margin*1.5;
+    padding: 0 $base-margin;
   }
 
   // Mobile no padding 

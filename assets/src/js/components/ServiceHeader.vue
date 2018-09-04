@@ -1,7 +1,7 @@
 <template>
     <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading">
         <div class="flex-container flex-container--space flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
-            <div class="flex-col flex-col--8 flex-col--gutter">
+            <div class="flex-col flex-col--8 flex-col--tablet--7 flex-col--gutter">
                 <div class="title-card title-card--variant-0">
                     <h2 class="title-card__title" v-if="service">{{ service.name }}</h2>
 
@@ -11,14 +11,13 @@
                 </div>
             </div>
 
-            <div class="flex-col flex-col--4 flex-col--gutter">
+            <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter">
                 <div class="title-card title-card--reduce-padding title-card--service text-center">
                     <div class="title-card__action">
-                        <p>
-                            <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                            <a v-if="service && isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
-                        </p>
-                        <p v-if="service && service.referral_method !== 'none'"><a :href="['/referral?service=' + service.id]" class="btn btn--icon-after">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a></p>
+                        <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+
+                        <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a>
                         <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
                     </div>
                 </div>
