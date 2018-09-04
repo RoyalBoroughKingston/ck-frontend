@@ -10,7 +10,7 @@
                 <div class="card card--notification card--light-blue">
                     <div class="card__icon"><i class="fa fa-info-circle"></i></div>
                     <div class="card__content">
-                        <p>'Myself' is anyone who is refering themselves or a friend.</p>
+                        <p>'Myself' is anyone who is referring themselves or a friend.</p>
                     </div>
                 </div>
                 <p>&nbsp;</p>

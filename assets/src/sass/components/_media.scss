@@ -18,7 +18,11 @@
 }
 
 img {
-  display: block;
+	display: block;
+	
+	&.display-inline {
+		display: inline;
+	}
 
   &.img-responsive {
     width: 100%;

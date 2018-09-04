@@ -41,7 +41,7 @@
     <div class="flex-container">
         <div class="flex-col flex-col--12 text-center">
             <h3>Services for people</h3>
-            <p>View services and information for people with specific needs:</p>
+            <p>Sometimes it's hard to know where to start with a problem - here are some suggestions</p>
         </div>
     </div>
 
@@ -77,7 +77,7 @@
         </div>
 
         <div class="flex-col flex-col--5">
-            {% include('templates/_components/quote.php') with { quote: "It's been something I look forward every week, it's really helped me.", by: 'Rachel', what: 'Coffee morning regular' } %}
+            {% include('templates/_components/quote.php') with { quote: "We don't want people to start a journey they are not yet ready for!", by: 'Lisa Blackman', what: 'Manager Alfriston Day Centre, Surbiton' } %}
         </div>
     </div>
 </section>

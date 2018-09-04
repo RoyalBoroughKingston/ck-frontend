@@ -79,7 +79,7 @@
     
     export default {
         name: "you",
-        props: ['step', 'steps'],
+        props: ['service', 'step', 'steps'],
         data() {
             return {
                 show_other: false

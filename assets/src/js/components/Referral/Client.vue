@@ -3,6 +3,7 @@
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
                 <p>Step {{ step }} of {{ steps }}</p>
+                
                 <h2 v-if="who_for === 'someone_else'">About the client</h2>
                 <h2 v-if="who_for === 'myself'">About you</h2>
             </div>
@@ -21,11 +22,20 @@
                     <p>&nbsp;</p>
 
                     <div class="flex-container flex-container--no-padding">
-                        <div class="flex-col flex-col--12">
-                            <h4>How can we contact the client?</h4>
-                            <p class="color-grey">You have to input at least one contact information to continue</p>
+                        <div class="flex-col flex-col--12" v-if="who_for === 'someone_else'">
+                            <h2>How can we contact the client?</h2>
+                            <p>Please provide an email address or phone number for us to contact the client. We will send an email or SMS confirmation once your connection has been made to the service.</p>
+                            <p>{{service.name }} will contact the client using these details.</p>
+                        </div>
+
+                        <div class="flex-col flex-col--12" v-if="who_for === 'myself'">
+                            <h4>How can we contact you?</h4>
+                            <p>Please provide an email address or phone number for us to contact you. We will send an email or SMS confirmation once your connection has been made to the service.</p>
+                            <p>{{service.name }} will contact you using these details.</p>
                         </div>
                     </div>
+
+                    <p>&nbsp;</p>
 
                     <div class="flex-container flex-container--no-padding">
                         <div class="field field--radio">
@@ -72,7 +82,7 @@
     
     export default {
         name: "client",
-        props: ['step', 'steps', 'who_for'],
+        props: ['service', 'step', 'steps', 'who_for'],
         data() {
             return {
                 show_other: false,

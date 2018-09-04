@@ -37,7 +37,7 @@ p {
   font-size: 1.1875rem;
   line-height: 1.4375;
   margin-bottom: $base-margin;
-  word-break: break-all;
+  word-break: break-word;
 
   &:last-child {
     margin-bottom: 0;

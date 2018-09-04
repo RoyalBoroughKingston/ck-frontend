@@ -2,12 +2,12 @@
     <section id="referral" class="section">
         <div class="referral flex-container flex-container--space">
             <div :class="layoutClass">
-                <intro v-bind:type="type" v-bind:service="service" v-if="step === 1"></intro>
-                <who v-bind:type="type" v-bind:service="service" v-bind:who_for="who_for" v-if="step === 2"></who>
-                <you v-bind:step="internal_step" v-bind:steps="internal_steps" v-if="checkYou"></you>
-                <client v-bind:step="internal_step" v-bind:steps="internal_steps" v-bind:who_for="who_for" v-if="checkClient"></client>
-                <consent v-bind:step="internal_step" v-bind:steps="internal_steps" v-bind:who_for="who_for" v-if="checkConsent"></consent>
-                <complete v-bind:service="service" v-if="step === 'complete'"></complete>
+                <intro :type="type" :service="service" v-if="step === 1"></intro>
+                <who :type="type" :who_for="who_for" v-if="step === 2"></who>
+                <you :step="internal_step" :service="service" :steps="internal_steps" v-if="checkYou"></you>
+                <client :step="internal_step" :service="service" :steps="internal_steps" :who_for="who_for" v-if="checkClient"></client>
+                <consent :service="service" :step="internal_step" :steps="internal_steps" :who_for="who_for" v-if="checkConsent"></consent>
+                <complete :service="service" :referral="referral_callback" v-if="step === 'complete'"></complete>
             </div>
 
             <div class="referral__service flex-col flex-col--3 flex-col--medium--4 flex-col--tablet--6" v-if="step !== 'complete'">
@@ -20,7 +20,7 @@
                         <span class="mobile-show"><i class="fa fa-angle-down"></i></span>
                     </div>
                     <div class="service__image">
-                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`" v-bind:title="service.name">
+                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`" :title="service.name">
                     </div>
 
                     <div class="service__details">
@@ -76,7 +76,8 @@
                     referee_phone: null,
                     organisation_taxonomy_id: null,
                     organisation: null
-                }
+                },
+                referral_callback: null
             }
         },
         methods: {

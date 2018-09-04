@@ -3,13 +3,17 @@
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
                 <p>Step {{ step }} of {{ steps }}</p>
-                <h2 v-if="who_for === 'someone_else'">Does the client give consent?</h2>
-                <h2 v-if="who_for === 'myself'">Do you give consent?</h2>
+                <h2>How we will use this information</h2>
             </div>
         </div>
 
         <div class="flex-container flex-container--no-padding">
-            <p>The details that you have entered in the previous steps will be shared with SPEAR who will directly contact you to lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in odio massa.</p>
+            <p>If you click ‘I agree’ below, you are consenting to the following:</p>
+            <ul>
+                <li>To have the information shared with <strong>{{ service.name }}</strong></li>
+                <li>For [Service Name] or the Connected Kingston admin team to make contact regarding the connection</li>
+            </ul>
+            <p>For further information, please view our <a href="/privacy-policy">privacy policy</a>.</p>
         </div>
 
         <div class="flex-container flex-container--no-padding">
@@ -23,12 +27,12 @@
                         <div class="field field--radio">
                             <div class="radio radio--stack">
                                 <input type="radio" id="yes" class="input input--radio" name="referral_consented" v-on:click="setConsent" value="true"/>
-                                <label for="yes"><span><span></span></span> I give consent</label>
+                                <label for="yes"><span><span></span></span> I agree, please proceed with the connection to <strong>{{ service.name }}</strong></label>
                             </div>
 
                             <div class="radio radio--stack">
                                 <input type="radio" id="no" class="input input--radio" name="referral_consented" v-on:click="setConsent" value="false" checked="checked"/>
-                                <label for="no"><span><span></span></span> I do not give consent</label>
+                                <label for="no"><span><span></span></span> I do not agree, please take me back</label>
                             </div>
                         </div>
                     </div>
@@ -47,7 +51,7 @@
     
     export default {
         name: "consent",
-        props: ['step', 'steps', 'who_for'],
+        props: ['service', 'step', 'steps', 'who_for'],
         data() {
             return {
                 
@@ -77,7 +81,10 @@
                 axios
                 .post('https://ck-api-staging.cloudapps.digital/core/v1/referrals', params)
                 .then(response => (
-                    console.log(response),
+                    // Store the referral callback
+                    this.$parent.referral_callback = response.data.data,
+                    
+                    // Complete the referral
                     this.updateStep('complete')
                 ))
                 .catch(error => console.log(error))
