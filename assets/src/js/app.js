@@ -4,6 +4,16 @@ import VueCookies from 'vue-cookies'
 import Paginate from 'vuejs-paginate'
 import VueMq from 'vue-mq'
 import SocialSharing from 'vue-social-sharing'
+import VueMediaEmbed from 'vue-media-embed'
+import Vuex from 'vuex'
+import * as VueGoogleMaps from 'vue2-google-maps'
+ 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'YOUR_API_TOKEN',
+    libraries: 'places',
+  },
+})
 
 Vue.use(axios);
 Vue.use(VueCookies)
@@ -16,6 +26,10 @@ Vue.use(VueMq, {
   }
 })
 Vue.use(SocialSharing)
+Vue.use(Vuex)
+const store = new Vuex.Store({})
+
+Vue.use(VueMediaEmbed, { store })
 
 Vue.component('paginate', Paginate)
 

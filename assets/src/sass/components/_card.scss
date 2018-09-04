@@ -170,6 +170,10 @@
     &__address {
       color: $san_juan;
       margin-bottom: $base-margin*0.25;
+
+      span {
+        display: block;
+      }
     }
 
     &__distance {

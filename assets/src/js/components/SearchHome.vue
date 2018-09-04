@@ -29,18 +29,31 @@
             }
         },
         methods: {
-            findLocation() {
+            findLocation(event) {
+                // Get the button
                 let button = event.target;
+                
+                // Add disabled class to button
                 button.classList.add('disabled');
 
                 navigator.geolocation.getCurrentPosition((location) => {
                     axios
                     .get('https://api.postcodes.io/postcodes?lon=' + location.coords.latitude + '&lat=' + location.coords.longitude)
                     .then(response => (
+                        // Set local storage for use later
+                        localStorage['authorizedGeoLocation'] = 1,
+                        
+                        // Store the postcode
                         this.postcode = response.data.result,
+                        
+                        // Remove the disabled class on the button
                         button.classList.remove('disabled')
                     ))
-                    .catch(error => console.log(error))
+                    .catch(error => {
+                        // Set local storage for use later
+                        localStorage['authorizedGeoLocation'] = 0
+                        console.log(error)
+                    })
                 });
             }
         }

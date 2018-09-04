@@ -66,7 +66,7 @@
                 });
             },
             initMap() {
-                this.map = L.map('map-container', {zoomControl: false}).setView([51.41233, -0.300689], 2)
+                this.map = L.map('map-container', {zoomControl: false}).setView([51.41233, -0.300689], 12)
                 
                 this.tileLayer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png',
                     {

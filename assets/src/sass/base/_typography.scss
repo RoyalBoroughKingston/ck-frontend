@@ -183,6 +183,8 @@ hr {
 /* [13] */
 main {
   ul {
+    margin-left: $base-margin*1.5;
+    margin-bottom: $base-margin*1.5;
     list-style: none;
 
     li {
@@ -190,8 +192,8 @@ main {
       display: block;
       font-size: 1rem;
       line-height: 1.5rem;
-      padding-left: $base-margin;
-      margin-bottom: $base-margin*0.5;
+      padding-left: $base-margin*1.5;
+      margin-bottom: $base-margin;
 
       &:last-child {
         margin-bottom: 0;
@@ -199,7 +201,7 @@ main {
 
       &:after {
         content: '';
-        background-color: $black;
+        background-color: $puerto_rico;
         position: absolute;
         top: $base-margin*0.5;
         left: 0;

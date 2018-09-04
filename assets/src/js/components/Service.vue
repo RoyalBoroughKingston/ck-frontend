@@ -41,7 +41,7 @@
         <div class="service__details" v-if="type === 'service'">
             <h4 class="service__name" v-if="service.name">{{ service.name }}</h4>
             <p class="service__sub-title sm-copy" v-if="organisation.name">{{ organisation.name }}</p>
-            <p class="service__description sm-copy" v-if="service.description">{{ service.description }}</p>
+            <p class="service__description sm-copy" v-if="service.description">{{ service.intro }}</p>
             
             <div class="service__details__actions">
                 <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>

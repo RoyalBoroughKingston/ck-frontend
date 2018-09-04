@@ -5,7 +5,7 @@
                 <div class="section__component" v-if="service.description">
                     <h4 class="section__component__header">About</h4>
                     
-                    <p class="sm-copy color-grey">{{ service.description }}</p>
+                    <div class="color-grey" v-html="toHtml(service.description)"></div>
                 </div>
 
                 <div class="section__component" v-if="serviceLocations.length > 0">
@@ -13,17 +13,22 @@
 
                     <div class="card card--grey card--location" v-for="location in serviceLocations" :key="location.id">
                         <div class="card__location flex-col flex-col--6">
-                            <p class="card__location__name"><strong>{{ location.name }}</strong></p>
+                            <p class="card__location__name" v-if="location.name"><strong>{{ location.name }}</strong></p>
+                            
                             <p class="card__location__address">
-                                {{ location.location.address_line_2 }}<br>
-                                {{ location.location.address_line_3 }}<br>
-                                {{ location.location.county }}<br>
-                                {{ location.location.postcode }}
+                                <span v-if="location.location.address_line_1">{{ location.location.address_line_1 }}</span>
+                                <span v-if="location.location.address_line_2">{{ location.location.address_line_2 }}</span>
+                                <span v-if="location.location.address_line_3">{{ location.location.address_line_3 }}</span>
+                                <span v-if="location.location.county">{{ location.location.county }}</span>
+                                <span v-if="location.location.postcode">{{ location.location.postcode }}</span>
                             </p>
-                            <p class="card__location__distance sm-copy">0.3 miles away</p>
+                            
+                            <p class="card__location__distance sm-copy" v-if="showDistance()">{{calculateDistance(location.location.lat, location.location.lon)}} miles away</p>
                         </div>
-                        <div class="card__hours flex-col flex-col--6">
+
+                        <div class="card__hours flex-col flex-col--6" v-if="location.regular_opening_hours.length > 0">
                             <div class="card__hours__times">
+                                {{location.regular_opening_hours}}
                                 <table>
                                     <tbody>
                                         <tr v-for="(regularOpeningHour, index) in location.regular_opening_hours"
@@ -34,10 +39,11 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="card__services flex-col flex-col--12">
-                            <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt="">
-                            <img src="/assets/dist/img/access-icons/access-by-ramps-slopes-manual-doors.png" alt="Access by ramps and slopes with manual doors">
-                            <img src="/assets/dist/img/access-icons/mobility-impaired-walker.png" alt="">
+                        
+                        <div class="card__services flex-col flex-col--12" v-if="service.has_induction_loop || service.has_wheelchair_access">
+                            <img src="/assets/dist/img/access-icons/hearing-system.png" alt="Hearing System" v-if="service.has_induction_loop">
+                            <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt="Level Access and Automatic Doors" v-if="service.has_wheelchair_access">
+                            <img src="/assets/dist/img/access-icons/access-by-ramps-slopes-manual-doors.png" alt="Access by ramps, slopes and/or manual doors" v-if="service.has_wheelchair_access">
                         </div>
                     </div>
                 </div>
@@ -105,7 +111,9 @@
 
                 <div class="section__component" v-if="service.video_embed">
                     <div class="media">
-                        <div class="responsive-embed" v-html="service.video_embed"></div>
+                        <div class="responsive-embed">
+                            <vue-media-embed :source="service.video_embed" :auto-play="0" :allow-fullscreen="0" />
+                        </div>
                     </div>
                 </div>
 
@@ -204,8 +212,12 @@
 </template>
  
 <script>
+    // Import libraries
     import axios from 'axios'
     import moment from 'moment'
+    import Showdown from 'showdown'
+
+    // Import components
     import Feedback from './Feedback'
     
     export default {
@@ -248,6 +260,37 @@
                 ))
                 .catch(error => console.log(error))
             },
+            showDistance() {
+                // Check local storage for geoloation authorization
+                if(typeof localStorage['authorizedGeoLocation'] == "undefined" || localStorage['authorizedGeoLocation'] == "0" ) 
+                    return false;
+                else 
+                    return true;
+            },
+            calculateDistance(lat, lon) {
+                navigator.geolocation.getCurrentPosition((location) => {
+                    let origin = location.coords.latitude + ', ' + location.coords.longitude;
+                    let destination = lat + ', ' + lon;
+
+                    let directionsService = new google.maps.DirectionsService();
+
+                    let request = {
+                        origin      : origin,
+                        destination : destination,
+                        travelMode  : google.maps.DirectionsTravelMode.DRIVING
+                    };
+
+                    directionsService.route(request, function(response, status) {
+                        if ( status == google.maps.DirectionsStatus.OK ) {
+                            return response.routes[0].legs[0].distance.value // the distance in metres
+                        }
+                        else {
+                            return false
+                        }
+                    });
+                })
+                // return '0.3'
+            },
             giveFeedback() {
                 this.showFeedback = true
             },
@@ -287,6 +330,27 @@
                 const remainingDays = Math.abs(diffInDays % daysInFortnight);
 
                 return remainingDays > 6 ? "next calendar week" : "this calendar week";
+            },
+            toHtml(markdown) {
+                const classMap = {
+                    p: "color-grey",
+                    a: "link",
+                    h2: "h2",
+                    h3: "h3"
+                };
+
+                const bindings = Object.keys(classMap).map(key => ({
+                    type: "output",
+                    regex: new RegExp(`<${key}>`, "g"),
+                    replace: `<${key} class="${classMap[key]}">`
+                }));
+
+                const markdownToHtmlConverter = new Showdown.Converter({
+                    extensions: [...bindings],
+                    noHeaderId: true
+                });
+
+                return markdownToHtmlConverter.makeHtml(markdown);
             }
         },
         mounted () {
@@ -294,7 +358,7 @@
         }
     }
 </script>
- 
+
 <style scoped>
  
 </style>

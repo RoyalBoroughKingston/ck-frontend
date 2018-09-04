@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-container flex-container--space flex-container--mobile-no-padding">
+    <div class="flex-container flex-container--space flex-container--align-center flex-container--mobile-no-padding">
         <div class="flex-col flex-col--8 flex-col--gutter">
             <div class="title-card title-card--variant-0">
                 <h2 class="title-card__title">{{ service.name }}</h2>
@@ -11,7 +11,7 @@
         </div>
 
         <div class="flex-col flex-col--4 flex-col--gutter">
-            <div class="title-card title-card--service text-center">
+            <div class="title-card title-card--reduce-padding title-card--service text-center">
                 <div class="title-card__action">
                     <p>
                         <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
