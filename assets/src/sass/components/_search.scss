@@ -3,6 +3,19 @@
 .search {
     &__sort {
         margin-bottom: $base-margin;
+
+        .field {
+            margin-right: 0;
+        }
+
+        label {
+            display: inline-block;
+            margin: $base-margin*0.5;
+        }
+
+        select {
+            max-width: 180px;
+        }
     }
 
     &__filter {

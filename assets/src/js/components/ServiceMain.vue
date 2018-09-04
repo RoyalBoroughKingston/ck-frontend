@@ -1,5 +1,5 @@
 <template>
-    <section class="section section--no-padding">
+    <section class="section section--no-padding" v-if="service">
         <div class="flex-container flex-container--space flex-container--mobile-no-padding">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <div class="section__component" v-if="service.description">
@@ -8,7 +8,7 @@
                     <div class="color-grey" v-html="toHtml(service.description)"></div>
                 </div>
 
-                <div class="section__component" v-if="serviceLocations.length > 0">
+                <div class="section__component" v-if="serviceLocations && serviceLocations.length > 0">
                     <h4 class="section__component__header">Where I can access this service</h4>
 
                     <div class="card card--grey card--location" v-for="location in serviceLocations" :key="location.id">
@@ -26,7 +26,7 @@
                             <p class="card__location__distance sm-copy" v-if="showDistance()">{{calculateDistance(location.location.lat, location.location.lon)}} miles away</p>
                         </div>
 
-                        <div class="card__hours flex-col flex-col--6" v-if="location.regular_opening_hours.length > 0">
+                        <div class="card__hours flex-col flex-col--6" v-if="location && location.regular_opening_hours.length > 0">
                             <div class="card__hours__times">
                                 {{location.regular_opening_hours}}
                                 <table>

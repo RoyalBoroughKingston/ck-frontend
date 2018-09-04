@@ -1,10 +1,10 @@
 <template>
     <div class="search__sort flex-container flex-container--align-center flex-container--space">
-        <div class="flex-col">
-            <p class="sm-copy color-grey">{{ this.$parent.services_meta.total }} service<span v-if="this.$parent.services_meta.total > 1 || this.$parent.services_meta.total === 0">s</span> found</p>
+        <div class="flex-col flex-col--4">
+            <p class="sm-copy color-grey" v-if="services_meta">{{ services_meta.total }} service<span v-if="services_meta.total > 1 || services_meta.total === 0">s</span> found</p>
         </div>
 
-        <div class="flex-col" v-if="location">
+        <div class="flex-col flex-col--8 text-right" v-if="showSort">
             <div class="field field--select">
                 <label class="field__description">Sort results by:</label>
                 <select class="select" @change="doSort">
@@ -21,11 +21,18 @@
     
     export default {
         name: "search-sort",
-        props: ['location'],
+        props: ['services_meta', 'location'],
         methods: {
             doSort(e) {
                 this.$parent.sort_by = e.target.value,
                 this.$parent.updateServices()
+            },
+            showSort() {
+                // Check local storage for geoloation authorization
+                if(typeof localStorage['authorizedGeoLocation'] == "undefined" || localStorage['authorizedGeoLocation'] == "0" ) 
+                    return false;
+                else 
+                    return true;
             }
         }
     }

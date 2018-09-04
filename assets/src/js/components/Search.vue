@@ -16,13 +16,13 @@
         <section id="results" class="section section--no-padding">
             <div class="flex-container flex-container--mobile-no-padding">
                 <div :class="layoutClass">
-                    <search-sort v-bind:location="location"></search-sort>
+                    <search-sort :location="location" :services_meta="services_meta"></search-sort>
                     <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :persona="persona" :category="category"></search-grid>
                     <search-map v-if="view === 'map' && services" :services="services" :organisations="organisations"></search-map>
                 </div>
 
                 <div class="flex-col flex-col--3" v-if="displayOption">
-                    <search-filter v-bind:type="'sidebar'"></search-filter>
+                    <search-filter :type="'sidebar'"></search-filter>
                 </div>
             </div>
             

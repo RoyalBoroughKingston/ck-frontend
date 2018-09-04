@@ -9,7 +9,7 @@
                 </div>
             </div>
 
-            <div class="flex-col flex-col--4">
+            <div class="flex-col flex-col--4" v-if="organisation">
                 <div class="flex-container flex-container--no-padding">
                     <div class="flex-col flex-col--12 flex-col--gutter">
                         <div class="service">

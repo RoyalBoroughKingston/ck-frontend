@@ -1,6 +1,6 @@
 <template>
     <div class="flex-container">
-        <div class="flex-col flex-col--4" v-for="persona in personas.data" :key="persona.id">
+        <div class="flex-col flex-col--4" v-for="persona in personas" :key="persona.id">
             <div class="pod">
                 <a v-bind:href="['/results?is_free=true&wait_time=null&persona=' + persona.id]">
                     <div class="pod__image">
@@ -29,7 +29,7 @@
         mounted () {
             axios
             .get('https://ck-api-staging.cloudapps.digital/core/v1/collections/personas')
-            .then(response => (this.personas = response.data))
+            .then(response => (this.personas = response.data.data))
             .catch(error => console.log(error))
         }
     }

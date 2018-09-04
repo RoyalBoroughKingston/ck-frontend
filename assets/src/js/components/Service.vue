@@ -1,17 +1,17 @@
 <template>
     <div class="service">
         <div class="service__details" v-if="type === 'shortlist'">
-            <h4 class="service__name">{{ service.name }}</h4>
-            <p class="service__sub-title sm-copy">{{ organisation.name }}</p>
-            <p class="service__description sm-copy">{{ service.description }}</p>
+            <h4 class="service__name" v-if="service.name">{{ service.name }}</h4>
+            <p class="service__sub-title sm-copy" v-if="organisation">{{ organisation.name }}</p>
+            <p class="service__description sm-copy" v-if="service.description">{{ service.description }}</p>
         </div>
 
         <div class="service__image" v-if="type === 'service'">
-            <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`" v-bind:title="service.name">
+            <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`" :title="service.name">
             
             <div class="service__add">
-                <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                <a v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" v-bind:data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                <a v-if="isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
             </div>
         </div>
         
@@ -40,18 +40,18 @@
 
         <div class="service__details" v-if="type === 'service'">
             <h4 class="service__name" v-if="service.name">{{ service.name }}</h4>
-            <p class="service__sub-title sm-copy" v-if="organisation.name">{{ organisation.name }}</p>
+            <p class="service__sub-title sm-copy" v-if="organisation">{{ organisation.name }}</p>
             <p class="service__description sm-copy" v-if="service.description">{{ service.intro }}</p>
             
             <div class="service__details__actions">
-                <a v-bind:href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
+                <a :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right"></i></a>
                 <a v-on:click="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map'">Close <i class="fa fa-times"></i></a>
             </div>
         </div>
 
         <div class="service__actions" v-if="type === 'shortlist'">
-            <a v-bind:href="['services/' + service.slug]" class="btn btn--small" role="button">View more <i class="fa fa-angle-right"></i></a>
-            <a v-on:click="removeFromShortlist" v-bind:data-id="service.id" class="btn btn--small btn--green" role="button">Remove <i class="fa fa-ban"></i></a>
+            <a :href="['services/' + service.slug]" class="btn btn--small" role="button">View more <i class="fa fa-angle-right"></i></a>
+            <a v-on:click="removeFromShortlist" :data-id="service.id" class="btn btn--small btn--green" role="button">Remove <i class="fa fa-ban"></i></a>
         </div>
     </div>
 </template>

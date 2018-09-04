@@ -1,5 +1,5 @@
 <template>
-    <section class="section section--header section--header--reduce-padding section--header--3">
+    <section class="section section--header section--header--reduce-padding section--header--3" v-if="organisation">
         <div class="flex-container flex-container--space">
             <div class="flex-col flex-col--8 flex-col--gutter">
                 <div class="title-card title-card--variant-0">
