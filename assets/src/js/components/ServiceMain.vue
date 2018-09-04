@@ -3,12 +3,14 @@
         <div class="flex-container flex-container--space flex-container--mobile-no-padding">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <div class="section__component" v-if="service.description">
-                    <h4>About</h4>
+                    <h4 class="section__component__header">About</h4>
+                    
                     <p class="sm-copy color-grey">{{ service.description }}</p>
                 </div>
 
-                <div class="section__component">
-                    <h4>Where I can access this service</h4>
+                <div class="section__component" v-if="serviceLocations.length > 0">
+                    <h4 class="section__component__header">Where I can access this service</h4>
+
                     <div class="card card--grey card--location" v-for="location in serviceLocations" :key="location.id">
                         <div class="card__location flex-col flex-col--6">
                             <p class="card__location__name"><strong>{{ location.name }}</strong></p>
@@ -40,8 +42,9 @@
                     </div>
                 </div>
 
-                <div class="section__component">
-                    <h4>Who is this service for</h4>
+                <div class="section__component" v-if="Object.keys(service.criteria).length === 0">
+                    <h4 class="section__component__header">Who is this service for</h4>
+
                     <table class="table table--who-for">
                         <tbody>
                             <tr v-if="service.criteria.age_group">
@@ -88,7 +91,7 @@
                     </table>
                 </div>
 
-                <div class="section__component" v-if="service.useful_infos">
+                <div class="section__component" v-if="service.useful_infos.length > 0">
                     <div class="card card--border-blue">
                         <h4 class="card__title">Useful infos</h4>
                         <div class="flex-col flex-col--12">
@@ -166,7 +169,7 @@
                                 <p>{{ service.url }}</p>
                             </div>
                             
-                            <div class="service__social">
+                            <div class="service__social" v-if="service.social_medias.length > 0">
                                 <a v-bind:href="social_media.url" v-for="social_media in service.social_medias"  :key="social_media.type">
                                     <i v-bind:class="['fab fa-' + social_media.type]"></i>
                                 </a>
