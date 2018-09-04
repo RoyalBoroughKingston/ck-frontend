@@ -17,8 +17,8 @@
                         <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" v-bind:data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
                         <a v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" v-bind:data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
                     </p>
-                    <p v-if="service.referral_method !== 'interal'"><a v-bind:href="['/referral?service=' + service.id]" class="btn btn--icon-after">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a></p>
-                    <p v-if="service.referral_method === 'interal'"><strong>Please contact the service directly</strong></p>
+                    <p v-if="service.referral_method !== 'none'"><a v-bind:href="['/referral?service=' + service.id]" class="btn btn--icon-after">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a></p>
+                    <p v-if="service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
                 </div>
             </div>
         </div>

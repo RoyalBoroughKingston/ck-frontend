@@ -3,8 +3,8 @@
         <section class="section section--header section--header--reduce-padding section--header--1">
             <div class="flex-container flex-container--space flex-container--align-bottom flex-container--mobile-no-padding">
                 <div class="flex-col flex-col--7">
-                    <search-filter v-bind:type="'full'" v-bind:search_term="search_term" v-bind:is_free="is_free" v-bind:wait_time="wait_time" v-if="!displayOption"></search-filter>
-                    <search-header v-bind:header="returnHeader" v-if="displayOption"></search-header>
+                    <search-filter :type="'full'" :search_term="search_term" :location="location" :is_free="is_free" :wait_time="wait_time" v-if="!displayOption"></search-filter>
+                    <search-header :header="returnHeader" v-if="displayOption"></search-header>
                 </div>
 
                 <div class="flex-col">

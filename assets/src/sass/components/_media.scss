@@ -1,7 +1,8 @@
 /* MEDIA */
 
 .media {
-	margin: 0 $base-margin*2;
+	margin-left: $base-margin*2;
+	margin-right: $base-margin*2;
 	box-sizing: border-box;
 	border-radius: 16px;
 	overflow: hidden;

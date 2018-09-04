@@ -89,11 +89,11 @@
                 if(e.target.name === 'is_free') {
                     history.pushState({
                         id: 'results'
-                    }, 'Connected Kingstong | Search Results', this.updateQueryStringParameter(e.target.name, e.target.checked));
+                    }, 'Connected Kingston | Search Results', this.updateQueryStringParameter(e.target.name, e.target.checked));
                 } else {
                     history.pushState({
                         id: 'results'
-                    }, 'Connected Kingstong | Search Results', this.updateQueryStringParameter(e.target.name, e.target.value));
+                    }, 'Connected Kingston | Search Results', this.updateQueryStringParameter(e.target.name, e.target.value));
                 }
                 
                 // Reset the search parameters
