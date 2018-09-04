@@ -2,7 +2,7 @@
     <section id="main" class="section section--no-padding" v-if="service">
         <div class="flex-container flex-container--mobile-no-padding">
             <div class="flex-col flex-col--7 flex-col--gutter">
-                <div class="section__component" v-if="service.description">
+                <div class="section__component section__component--mobile-padding" v-if="service.description">
                     <h4 class="section__component__header">About</h4>
                     
                     <div class="color-grey" v-html="toHtml(service.description)"></div>
@@ -215,9 +215,11 @@
                     </div>
                 </div>
 
-                <div class="section__component text-center">
-                    <p class="sm-copy"><span class="color-grey">Page last updated</span> <em>{{ service.updated_at | moment("Do MMMM YYYY") }}</em></p>
-                    <p class="sm-copy"><a v-on:click="giveFeedback">Give us feedback</a></p>
+                <div class="section__component section__component--mobile-padding text-center">
+                    <div class="page-meta">
+                        <p class="sm-copy"><span class="color-grey">Page last updated</span> <em>{{ service.updated_at | moment("Do MMMM YYYY") }}</em></p>
+                        <p class="sm-copy"><a v-on:click="giveFeedback">Give us feedback</a></p>
+                    </div>
                 </div>
             </div>
         </div>

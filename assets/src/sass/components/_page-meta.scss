@@ -1,0 +1,10 @@
+/* Page meta */
+
+.page-meta {
+    @include breakpoint($break_mobile) {
+        background-color: $alabaster;
+        padding: $base-margin;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+}

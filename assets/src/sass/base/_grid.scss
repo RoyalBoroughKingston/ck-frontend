@@ -173,6 +173,10 @@ body {
     padding-right: 0;
     margin-bottom: $base-margin;
 
+    &.flex-col--gutter {
+      width: 100%;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }

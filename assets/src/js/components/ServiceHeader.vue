@@ -8,10 +8,18 @@
                     <div class="title-card__description" v-if="service"> 
                         <p>{{ service.intro }}</p>
                     </div>
+
+                    <div class="title-card__action text-center" v-if="$mq === 'mobile'">
+                        <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+
+                        <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a>
+                        <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
+                    </div>
                 </div>
             </div>
 
-            <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter">
+            <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter" v-if="$mq !== 'mobile'">
                 <div class="title-card title-card--reduce-padding title-card--service text-center">
                     <div class="title-card__action">
                         <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>

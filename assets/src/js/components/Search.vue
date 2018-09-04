@@ -14,7 +14,7 @@
         </section>
         
         <section id="results" class="section section--no-padding">
-            <div class="flex-container flex-container--mobile-no-padding">
+            <div class="flex-container">
                 <div :class="layoutClass">
                     <search-sort :location="location" :services_meta="services_meta"></search-sort>
                     <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :persona="persona" :category="category"></search-grid>
