@@ -1,5 +1,5 @@
 <template>
-    <section class="section section--no-padding" v-if="service">
+    <section id="main" class="section section--no-padding" v-if="service">
         <div class="flex-container flex-container--space flex-container--mobile-no-padding">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <div class="section__component" v-if="service.description">
@@ -244,7 +244,8 @@
             return {
                 service: null,
                 serviceLocations: null,
-                showFeedback: false
+                showFeedback: false,
+                finished_loading: false
             }
         },
         methods: {
@@ -271,7 +272,10 @@
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
                 .then(response => (
                     // Store the services locations
-                    this.serviceLocations = response.data.data
+                    this.serviceLocations = response.data.data,
+
+                    // Set finish loading
+                    this.finished_loading = true
                 ))
                 .catch(error => console.log(error))
             },
@@ -369,6 +373,7 @@
             }
         },
         mounted () {
+            // Get the service
             this.getService()
         }
     }

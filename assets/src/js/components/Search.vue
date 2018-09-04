@@ -19,6 +19,8 @@
                     <search-sort :location="location" :services_meta="services_meta"></search-sort>
                     <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :persona="persona" :category="category"></search-grid>
                     <search-map v-if="view === 'map' && services" :services="services" :organisations="organisations"></search-map>
+
+                    <div class="loading-icon" v-if="!finished_loading"><div></div><div></div><div></div><div></div></div>
                 </div>
 
                 <div class="flex-col flex-col--3" v-if="displayOption">
@@ -64,6 +66,7 @@
         },
         data () {
             return {
+                finished_loading: false,
                 current_page: 1,
                 last_page: null,
                 services: null,
@@ -146,7 +149,10 @@
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations?filter[id]=' + this.organisations)
                 .then(response => (
                     // Overwrite the organisations data model
-                    this.organisations = response.data.data
+                    this.organisations = response.data.data,
+
+                    // Set finish loading
+                    this.finished_loading = true
                 ))
                 .catch(error => console.log(error))
             },

@@ -1,28 +1,39 @@
 <template>
-    <div class="flex-container flex-container--space flex-container--align-center flex-container--mobile-no-padding">
-        <div class="flex-col flex-col--8 flex-col--gutter">
-            <div class="title-card title-card--variant-0">
-                <h2 class="title-card__title" v-if="service">{{ service.name }}</h2>
+    <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading">
+        <div class="flex-container flex-container--space flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
+            <div class="flex-col flex-col--8 flex-col--gutter">
+                <div class="title-card title-card--variant-0">
+                    <h2 class="title-card__title" v-if="service">{{ service.name }}</h2>
 
-                <div class="title-card__description" v-if="service"> 
-                    <p>{{ service.intro }}</p>
+                    <div class="title-card__description" v-if="service"> 
+                        <p>{{ service.intro }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col flex-col--4 flex-col--gutter">
+                <div class="title-card title-card--reduce-padding title-card--service text-center">
+                    <div class="title-card__action">
+                        <p>
+                            <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                            <a v-if="service && isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                        </p>
+                        <p v-if="service && service.referral_method !== 'none'"><a :href="['/referral?service=' + service.id]" class="btn btn--icon-after">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a></p>
+                        <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="flex-col flex-col--4 flex-col--gutter">
-            <div class="title-card title-card--reduce-padding title-card--service text-center">
-                <div class="title-card__action">
-                    <p>
-                        <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                        <a v-if="service && isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
-                    </p>
-                    <p v-if="service && service.referral_method !== 'none'"><a :href="['/referral?service=' + service.id]" class="btn btn--icon-after">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a></p>
-                    <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
-                </div>
-            </div>
+        <div class="section__anchor text-center">
+            <a href="#main" class="scroll-to-anchor">
+                <p>
+                    <strong>Find out more</strong><br>
+                    <i class="fa fa-angle-down"></i>
+                </p>
+            </a>
         </div>
-    </div>
+    </section>
 </template>
  
 <script>
@@ -33,7 +44,8 @@
         data () {
             return {
                 service: null,
-                shortlist: null
+                shortlist: null,
+                finished_loading: false
             }
         },
         methods: {
@@ -77,7 +89,13 @@
         mounted () {
             axios
             .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getSlug())
-            .then(response => (this.service = response.data.data))
+            .then(response => (
+                // Set the service
+                this.service = response.data.data,
+
+                // Set finish loading
+                this.finished_loading = true
+            ))
             .catch(error => console.log(error))
 
             // Get the shortlist

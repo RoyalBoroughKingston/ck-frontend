@@ -1,19 +1,5 @@
-<section class="section section--header section--header--reduce-padding section--header--3">
-    <service-header></service-header>
-
-    <div class="section__anchor text-center">
-        <a href="#main" class="scroll-to-anchor">
-            <p>
-                <strong>Find out more</strong><br>
-                <i class="fa fa-angle-down"></i>
-            </p>
-        </a>
-    </div>
-</section>
-
-<section id="main" class="section section--no-padding">
-    <service-main></service-main>
-</section>
+<service-header></service-header>
+<service-main></service-main>
 
 <section class="section section--share">
     <div class="flex-container flex-container--justify">
