@@ -104,9 +104,9 @@ body {
     justify-content: center;
   }
 
-  // Fill space
-  &--space {
-    justify-content: space-between;
+  // Don't fill space
+  &--no-space {
+    justify-content: flex-start;
   }
 }
 

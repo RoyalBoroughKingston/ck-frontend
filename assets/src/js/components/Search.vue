@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class="section section--header section--header--reduce-padding section--header--1">
-            <div class="flex-container flex-container--space flex-container--align-bottom flex-container--mobile-no-padding">
+            <div class="flex-container flex-container--align-bottom flex-container--mobile-no-padding">
                 <div class="flex-col flex-col--7">
                     <search-filter :type="'full'" :search_term="search_term" :location="location" :is_free="is_free" :wait_time="wait_time" v-if="!displayOption"></search-filter>
                     <search-header :header="returnHeader" v-if="displayOption"></search-header>

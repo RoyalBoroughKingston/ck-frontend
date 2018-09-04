@@ -1,6 +1,6 @@
 <template>
     <section id="main" class="section section--no-padding" v-if="service">
-        <div class="flex-container flex-container--space flex-container--mobile-no-padding">
+        <div class="flex-container flex-container--mobile-no-padding">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <div class="section__component" v-if="service.description">
                     <h4 class="section__component__header">About</h4>

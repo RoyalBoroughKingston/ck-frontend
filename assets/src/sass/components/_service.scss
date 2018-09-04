@@ -3,6 +3,7 @@
 .service {
     background-color: $white;
     border-radius: 25px;
+    margin-bottom: $base-margin*2.5;
     overflow: hidden;
     transition: box-shadow 0.2s ease-out;
     will-change: box-shadow;

@@ -1,5 +1,5 @@
 <template>
-    <div id="grid" class="flex-container flex-container--no-padding flex-container--justify">
+    <div id="grid" class="flex-container flex-container--no-padding">
         <div :class="layoutClass" v-for="service in services" :key="service.id">
             <service :type="'service'" :view="'grid'" :service="service" :organisation="getOrganisation(service.organisation_id)"></service>
         </div>

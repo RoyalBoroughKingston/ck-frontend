@@ -1,6 +1,6 @@
 <template>
     <section id="referral" class="section">
-        <div class="referral flex-container flex-container--space">
+        <div class="referral flex-container">
             <div :class="layoutClass">
                 <intro :type="type" :service="service" v-if="step === 1"></intro>
                 <who :type="type" :who_for="who_for" v-if="step === 2"></who>

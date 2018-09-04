@@ -1,6 +1,6 @@
 <template>
     <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading">
-        <div class="flex-container flex-container--space flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
+        <div class="flex-container flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
             <div class="flex-col flex-col--8 flex-col--tablet--7 flex-col--gutter">
                 <div class="title-card title-card--variant-0">
                     <h2 class="title-card__title" v-if="service">{{ service.name }}</h2>

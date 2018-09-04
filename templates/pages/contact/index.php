@@ -1,5 +1,5 @@
 <section class="section section--header section--header--1 section--reduce-padding">
-    <div class="flex-container flex-container--space flex-container--mobile-no-padding">
+    <div class="flex-container flex-container--mobile-no-padding">
         <div class="flex-col flex-col--5">
             {% include('templates/_components/title-card.php') with { title: 'Contact us' } %}
         </div>
@@ -7,7 +7,7 @@
 </section>
 
 <section class="section">
-    <div class="flex-container flex-container--space">
+    <div class="flex-container">
         <div class="flex-col flex-col--7">
             <div class="section__component">
                 <p>Connected Kingston online support is currently provided by Kingston Voluntary Action. Please contact them using the telephone no. or email address opposite:</p>
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="flex-container text-center">
+    <div class="flex-container flex-container--no-space text-center">
         <div class="flex-col flex-col--4">
             {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'twitter', content: "We're proud to supporting the homeless, refugees and many more in the Kingston area. Find out more about becoming a Community Health Champion here 👉 <a href='#'>https://t.co/3BFo2D0S3g</a>" } %}
             {% include('templates/_components/button.php') with { type: 'secondary', action: '#', target: '_blank', text: 'Follow us on twitter' } %}
