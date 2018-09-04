@@ -102,8 +102,6 @@
             setStep(step) {
                 this.step = step
 
-                console.log(this.referral)
-
                 // Scroll to top of form
                 window.scrollTo({
                     top: this.getOffset(document.getElementById('referral')).top - 32,
