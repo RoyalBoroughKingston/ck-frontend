@@ -8,7 +8,7 @@
     text-align: center;
 
     @include breakpoint($break_mobile) {
-        margin: 0;
+        margin: $base-margin 0;
         padding: 0 $base-margin*2;
         max-width: 100%;
     }

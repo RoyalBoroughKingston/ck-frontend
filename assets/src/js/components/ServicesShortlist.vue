@@ -7,8 +7,8 @@
         </div>
 
         <div class="flex-container flex-container--justify">
-            <div class="flex-col flex-col--4 flex-col--gutter" v-for="service in services" :key="service.id">
-                <service :type="'shortlist'" :service.sync="service" :organisation="getOrganisation(service.organisation_id)"></service>
+            <div class="flex-col flex-col--4 flex-col--tablet--6 flex-col--gutter" v-for="service in services" :key="service.id">
+                <service :type="'shortlist'" :service="service" :organisation="getOrganisation(service.organisation_id)"></service>
             </div>
         </div>
     </section>

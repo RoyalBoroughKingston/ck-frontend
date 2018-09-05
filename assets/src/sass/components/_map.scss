@@ -61,6 +61,10 @@
     padding: $base-margin*0.625 $base-margin $base-margin*0.625 $base-margin*2.5;
     box-sizing: border-box;
 
+    @include breakpoint($break_mobile) {
+        margin: 0 0 $base-margin*0.75 !important;
+    }
+
     &:before {
         content: 'Zoom';
         display: inline-block;

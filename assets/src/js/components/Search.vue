@@ -7,7 +7,7 @@
                     <search-header :header="returnHeader" v-if="displayOption"></search-header>
                 </div>
 
-                <div class="flex-col">
+                <div class="flex-col" v-if="$mq !== 'mobile'">
                     <search-view v-model="view"></search-view>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <div class="loading-icon" v-if="!finished_loading"><div></div><div></div><div></div><div></div></div>
                 </div>
 
-                <div class="flex-col flex-col--3" v-if="displayOption">
+                <div class="flex-col flex-col--3" v-if="displayOption && $mq !== 'mobile'">
                     <search-filter :type="'sidebar'"></search-filter>
                 </div>
             </div>

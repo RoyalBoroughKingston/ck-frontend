@@ -1,5 +1,5 @@
 <section class="section section--reduce-padding section--header section--header--3">
-    <div class="flex-container flex-container--mobile-no-padding">
+    <div class="flex-container flex-container--mobile-no-padding flex-container--align-center">
         <div class="flex-col">
             {% include('templates/_components/title-card.php') with { title: 'Shortlist', enableShare:'true' } %}
         </div>

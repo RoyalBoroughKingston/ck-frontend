@@ -7,6 +7,10 @@
 	border-radius: 16px;
 	overflow: hidden;
 
+	@include breakpoint($break_mobile) {
+		margin: 0;
+	}
+
 	&--grid {
 		img {
 			display: inline-block;

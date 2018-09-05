@@ -111,15 +111,17 @@ body {
 }
 
 .flex-col {
+  // Columns with gutters
+  &--gutter {
+    border: solid $base-margin transparent;
+    box-sizing: border-box;
+  }
+  
+  
   // Column width
   @for $i from 1 to $total-columns+1 {
     &--#{$i} {
       width: percentage($i/$total-columns);
-
-      // Columns with gutters
-      &.flex-col--gutter {
-        width: percentage($i/$total-columns) - 2;
-      }
     }
   }
 
@@ -141,11 +143,6 @@ body {
       @for $i from 1 to $total-columns+1 {
         &--#{$i} {
           width: percentage($i/$total-columns);
-
-          // Columns with gutters
-          &.flex-col--gutter {
-            width: percentage($i/$total-columns) - 2;
-          }
         }
       }
     }
@@ -157,11 +154,6 @@ body {
       @for $i from 1 to $total-columns+1 {
         &--#{$i} {
           width: percentage($i/$total-columns);
-
-          // Columns with gutters
-          &.flex-col--gutter {
-            width: percentage($i/$total-columns) - 1.5;
-          }
         }
       }
     }
@@ -175,6 +167,7 @@ body {
 
     &.flex-col--gutter {
       width: 100%;
+      border: none;
     }
 
     &:last-child {
@@ -186,10 +179,11 @@ body {
       @for $i from 1 to $total-columns+1 {
         &--#{$i} {
           width: percentage($i/$total-columns);
+          border: solid $base-margin transparent;
+          margin-bottom: 0;
 
-          // Columns with gutters
-          &.flex-col--guter {
-            width: percentage($i/$total-columns) - 1;
+          &:last-child {
+            border-bottom: 0;
           }
         }
       }

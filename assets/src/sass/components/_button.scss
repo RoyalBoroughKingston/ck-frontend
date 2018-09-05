@@ -26,6 +26,7 @@
     margin-left: $base-margin*0.625;
     font-size: 1.3125rem;
     line-height: 1.8125rem;
+    vertical-align: middle;
 
     @include breakpoint($break_mobile) {
       font-size: 1.1875rem;

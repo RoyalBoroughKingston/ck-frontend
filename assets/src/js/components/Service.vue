@@ -3,7 +3,7 @@
         <div class="service__details" v-if="type === 'shortlist'">
             <h4 class="service__name" v-if="service.name">{{ service.name }}</h4>
             <p class="service__sub-title sm-copy" v-if="organisation">{{ organisation.name }}</p>
-            <p class="service__description sm-copy" v-if="service.description">{{ service.description }}</p>
+            <p class="service__description sm-copy" v-if="service.description">{{ service.intro }}</p>
         </div>
 
         <div class="service__image" v-if="type === 'service'">

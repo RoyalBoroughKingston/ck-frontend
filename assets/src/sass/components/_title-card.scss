@@ -58,17 +58,23 @@
         background-position: center;
         background-repeat: no-repeat;
         color: $san_juan;
-        padding: $base-margin*1.5;
+        padding: $base-margin*1.5 $base-margin*2;
         box-sizing: border-box;
 
-        @include breakpoint($break_tablet) {
-            background: transparent;
+        .section--share & {
+            @include breakpoint($break_tablet) {
+                background: transparent;
+            }
         }
 
         label {
             display: inline-block;
             margin-right: $base-margin*1.5;
             margin-bottom: 0;
+            font-size: 1.1875rem;
+            line-height: 1.4375rem;
+            color: $san_juan;
+            vertical-align: middle;
         }
 
         > div {
@@ -77,8 +83,12 @@
 
         span,
         a {
+            display: inline-block;
             color: $san_juan;
-            margin-right: $base-margin*0.5;
+            font-size: 1.1875rem;
+            line-height: 1.1875rem;
+            margin-right: $base-margin;
+            vertical-align: middle;
 
             &:last-child {
                 margin-right: 0;
@@ -87,8 +97,16 @@
     }
 
     &__action {
+        .page--shortlist & {
+            margin-top: 0;
+        }
+
         .btn {
-            margin-bottom: $base-margin*1.5;
+            margin: $base-margin*0.75 $base-margin*1.5;
+
+            .page--shortlist & {
+                margin-bottom: 0;
+            }
         }
 
         p {

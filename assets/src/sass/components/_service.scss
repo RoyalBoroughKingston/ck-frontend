@@ -191,12 +191,16 @@
 
     &__actions {
         background-color: $alabaster;
-        padding: $base-margin*2 $base-margin*2;
+        padding: $base-margin*2 $base-margin*2 $base-margin $base-margin*2;
         box-sizing: border-box;
 
         .btn {
             display: inline-block;
-            margin: 0 $base-margin*0.25;
+            margin-bottom: $base-margin*0.5;
+
+            &:first-child {
+                margin-right: $base-margin*0.5;
+            }
         }
     }
 

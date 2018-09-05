@@ -2,10 +2,116 @@
     <section id="main" class="section section--no-padding" v-if="service">
         <div class="flex-container">
             <div class="flex-col flex-col--7 flex-col--gutter">
+                <div class="section__component">
+                    <div class="card card--notification card--mint" v-if="service.is_free === true && $mq === 'mobile'">
+                        <div class="card__icon"><i class="fa fa-pound-sign"></i></div>
+                        <div class="card__content">
+                            <p>Free</p>
+                            <p class="sm-copy">This service costs no money.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section__component" v-if="Object.keys(service.criteria).length === 0 && $mq === 'mobile'">
+                    <h4 class="section__component__header">Who is this service for</h4>
+
+                    <table class="table table--who-for">
+                        <tbody>
+                            <tr v-if="service.criteria.age_group">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/age-group.svg" alt="Age group"></td>
+                                <td class="text-center">Age group</td>
+                                <td class="sm-copy">{{ service.criteria.age_group }}</td>
+                            </tr>
+                            <tr v-if="service.criteria.disability">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/disability.svg" alt="Disability"></td>
+                                <td class="text-center">Disability</td>
+                                <td class="sm-copy">{{ service.criteria.disability }}</td>
+                            </tr>
+                            <tr v-if="service.criteria.employment">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/employment.svg" alt="Employment"></td>
+                                <td class="text-center">Text</td>
+                                <td class="sm-copy">{{ service.criteria.employment }}</td>
+                            </tr>
+                            <tr v-if="service.criteria.gender">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/gender.svg" alt="Gender"></td>
+                                <td class="text-center">Gender</td>
+                                <td class="sm-copy">{{ service.criteria.gender }}</td>
+                            </tr>
+                            <tr v-if="service.criteria.housing">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/housing.svg" alt="Housing"></td>
+                                <td class="text-center">Housing</td>
+                                <td class="sm-copy">{{ service.criteria.housing }}</td>
+                            </tr>
+                            <tr v-if="service.criteria.income">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/income.svg" alt="Income"></td>
+                                <td class="text-center">Income</td>
+                                <td class="sm-copy">{{ service.criteria.income }}</td>
+                            </tr>
+                            <tr v-if="service.criteria.language">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/language.svg" alt="Language"></td>
+                                <td class="text-center">Language</td>
+                                <td class="sm-copy">{{ service.criteria.language }}</td>
+                            </tr>
+                            <tr v-if="service.criteria.other">
+                                <td><img src="/assets/dist/img/whos-this-for-icons/other.svg" alt="Other"></td>
+                                <td class="text-center">Other</td>
+                                <td class="sm-copy">{{ service.criteria.other }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="section__component" v-if="service.description">
                     <h4 class="section__component__header">About</h4>
                     
                     <div class="color-grey" v-html="toHtml(service.description)"></div>
+                </div>
+
+                <div class="section__component" v-if="$mq === 'mobile'">
+                    <div class="service">
+                        <div class="service__header">
+                            <span>
+                                <p class="service__name"><strong>Contact</strong></p>
+                            </span>
+                        </div>
+                        
+                        <div class="service__content">
+                            <div class="service__contact service__contact--telephone" v-if="service.contact_name">
+                                <span class="sm-copy">
+                                    <i class="fa fa-user"></i> Name
+                                </span>
+                                <p>{{ service.contact_name }}</p>
+                            </div>
+
+                            <div class="service__contact service__contact--telephone" v-if="service.contact_phone">
+                                <span class="sm-copy">
+                                    <i class="fa fa-phone"></i> Telephone
+                                </span>
+                                <p>{{ service.contact_phone }}</p>
+                            </div>
+                            
+                            <div class="service__contact service__contact--email" v-if="service.contact_email">
+                                <span class="sm-copy">
+                                    <i class="fa fa-envelope"></i> Email
+                                </span>
+                                <p>{{ service.contact_email }}</p>
+                            </div>
+                            
+                            <div class="service__contact service__contact--website" v-if="service.url">
+                                <span class="sm-copy">
+                                    <i class="fa fa-globe"></i>
+                                    Website
+                                </span>
+                                <p>{{ service.url }}</p>
+                            </div>
+                            
+                            <div class="service__social" v-if="service.social_medias.length > 0">
+                                <a v-bind:href="social_media.url" v-for="social_media in service.social_medias"  :key="social_media.type">
+                                    <i v-bind:class="['fab fa-' + social_media.type]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="section__component" v-if="service_locations && service_locations.length > 0">
@@ -48,7 +154,21 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="Object.keys(service.criteria).length === 0">
+                <div class="section__component" v-if="$mq === 'mobile'">
+                    <div class="service">
+                        <div class="service__image map map--service">
+                            <div id="map-container"></div>
+                        </div>
+                        
+                        <div class="service__content text-center">
+                            <div class="service__actions">
+                                <a :href="google_map_link" class="btn btn--secondary">Open Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section__component" v-if="Object.keys(service.criteria).length === 0 && $mq !== 'mobile'">
                     <h4 class="section__component__header">Who is this service for</h4>
 
                     <table class="table table--who-for">
@@ -131,7 +251,7 @@
                 </div>
                 
                 <div class="section__component">
-                    <div class="card card--notification card--mint" v-if="service.is_free === true">
+                    <div class="card card--notification card--mint" v-if="service.is_free === true && $mq !== 'mobile'">
                         <div class="card__icon"><i class="fa fa-pound-sign"></i></div>
                         <div class="card__content">
                             <p>Free</p>
@@ -139,12 +259,11 @@
                         </div>
                     </div>
 
-                    <div class="service">
+                    <div class="service" v-if="$mq !== 'mobile'">
                         <div class="service__header">
                             <span>
                                 <p class="service__name"><strong>Contact</strong></p>
                             </span>
-                            <!-- <span><i class="fa fa-angle-down"></i></span> -->
                         </div>
                         
                         <div class="service__content">
@@ -186,7 +305,7 @@
                     </div>
                 </div>
 
-                <div class="section__component">
+                <div class="section__component" v-if="$mq !== 'mobile'">
                     <div class="service">
                         <div class="service__image map map--service">
                             <div id="map-container"></div>
