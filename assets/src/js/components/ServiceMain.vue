@@ -8,10 +8,10 @@
                     <div class="color-grey" v-html="toHtml(service.description)"></div>
                 </div>
 
-                <div class="section__component" v-if="serviceLocations && serviceLocations.length > 0">
+                <div class="section__component" v-if="service_locations && service_locations.length > 0">
                     <h4 class="section__component__header">Where I can access this service</h4>
 
-                    <div class="card card--grey card--location" v-for="location in serviceLocations" :key="location.id">
+                    <div class="card card--grey card--location" v-for="location in service_locations" :key="location.id">
                         <div class="card__location flex-col flex-col--6">
                             <p class="card__location__name" v-if="location.name"><strong>{{ location.name }}</strong></p>
                             
@@ -23,7 +23,7 @@
                                 <span v-if="location.location.postcode">{{ location.location.postcode }}</span>
                             </p>
                             
-                            <p class="card__location__distance sm-copy" v-if="showDistance()">{{calculateDistance(location.location.lat, location.location.lon)}} miles away</p>
+                            <p class="card__location__distance sm-copy" v-if="showDistance()" v-text="calculateDistance(location.location.lat, location.location.lon)"></p>
                         </div>
 
                         <div class="card__hours flex-col flex-col--6" v-if="location && location.regular_opening_hours.length > 0">
@@ -188,16 +188,13 @@
 
                 <div class="section__component">
                     <div class="service">
-                        <div class="service__image">
-                            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
-                            &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-                            &markers=color:red%7Clabel:C%7C40.718217,-73.998284
-                            &key=YOUR_API_KEY" alt="Service Locations">
+                        <div class="service__image map map--service">
+                            <div id="map-container"></div>
                         </div>
                         
                         <div class="service__content text-center">
                             <div class="service__actions">
-                                <a href="#" class="btn btn--secondary">Open Google Maps</a>
+                                <a :href="google_map_link" class="btn btn--secondary">Open Google Maps</a>
                             </div>
                         </div>
                     </div>
@@ -244,10 +241,30 @@
         },
         data () {
             return {
+                finished: false,
+                distance: null,
                 service: null,
-                serviceLocations: null,
+                service_locations: null,
+                google_map_link: null,
                 showFeedback: false,
-                finished_loading: false
+                finished_loading: false,
+                map: null,
+                tileLayer: null,
+                markers: [],
+                layers: [
+                    {
+                        id: 0,
+                        name: 'Services',
+                        active: true,
+                        features: [],
+                    },
+                ],
+                green_icon: L.icon({
+                    iconUrl: '/assets/dist/img/map/map-marker.svg',
+                    iconSize:     [30, 40],
+                    iconAnchor:   [15, 40],
+                    popupAnchor:  [-3, -76]
+                })
             }
         },
         methods: {
@@ -274,12 +291,61 @@
                 .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
                 .then(response => (
                     // Store the services locations
-                    this.serviceLocations = response.data.data,
+                    this.service_locations = response.data.data,
 
                     // Set finish loading
-                    this.finished_loading = true
+                    this.finished_loading = true,
+
+                    // Find the leaflet layers
+                    this.findLayers(),
+
+                    // Create the leaflet map
+                    this.initMap(),
+
+                    // Create the leaflet layers
+                    this.initLayers()
                 ))
                 .catch(error => console.log(error))
+            },
+            findLayers() {
+                // Loop through the service locations
+                this.service_locations.forEach((location) => {
+                    // Push each service location to features array
+                    this.layers[0].features.push({id: this.service.id, name: this.service.name, type: 'marker', coords: [location.location.lat, location.location.lon]});
+                })
+            },
+            initMap() {
+                this.map = L.map('map-container', {zoomControl: false}).setView([51.41233, -0.300689], 10)
+                
+                this.tileLayer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png',
+                    {
+                        maxZoom: 18
+                    }
+                )
+                this.tileLayer.addTo(this.map)
+
+                this.map.dragging.disable();
+                this.map.touchZoom.disable();
+                this.map.doubleClickZoom.disable();
+                this.map.scrollWheelZoom.disable();
+            },
+            initLayers() {
+                this.layers.forEach((layer) => {
+                    const markerFeatures = layer.features.filter(feature => feature.type === 'marker');
+
+                    markerFeatures.forEach((feature) => {
+                        // Create marker
+                        feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
+                            .addTo(this.map)
+                        
+                        // Push markers to array for use later
+                        this.markers.push(feature.leafletObject)
+                    });
+                });
+
+                let group = new L.featureGroup([this.markers]);
+
+                this.map.fitBounds(group.getBounds());
             },
             showDistance() {
                 // Check local storage for geoloation authorization
@@ -288,29 +354,33 @@
                 else 
                     return true;
             },
-            calculateDistance(lat, lon) {
+            calculateDistance(lat2, lon2) {
                 navigator.geolocation.getCurrentPosition((location) => {
-                    let origin = location.coords.latitude + ', ' + location.coords.longitude;
-                    let destination = lat + ', ' + lon;
+                    let lat1 = location.coords.latitude;
+                    let lon1 = location.coords.longitude;
 
-                    let directionsService = new google.maps.DirectionsService();
+                    let R = 6371; // km 
+                    //has a problem with the .toRad() method below.
+                    let x1 = lat2-lat1;
+                    let dLat = this.toRad(x1);  
+                    let x2 = lon2-lon1;
+                    let dLon = this.toRad(x1);  
+                    let a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                                    Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) * 
+                                    Math.sin(dLon/2) * Math.sin(dLon/2);  
+                    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                    let d = R * c;
+                    
+                    // Convert to miles
+                    d /= 1.60934
 
-                    let request = {
-                        origin      : origin,
-                        destination : destination,
-                        travelMode  : google.maps.DirectionsTravelMode.DRIVING
-                    };
-
-                    directionsService.route(request, function(response, status) {
-                        if ( status == google.maps.DirectionsStatus.OK ) {
-                            return response.routes[0].legs[0].distance.value // the distance in metres
-                        }
-                        else {
-                            return false
-                        }
-                    });
-                })
-                // return '0.3'
+                    let rounded = Math.round( d * 10 ) / 10
+                    console.log(rounded + ' miles away')
+                    return rounded + ' miles away'
+                });
+            },
+            toRad(item) {
+                return item * Math.PI / 180;
             },
             giveFeedback() {
                 this.showFeedback = true

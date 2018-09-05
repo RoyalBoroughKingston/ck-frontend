@@ -6,14 +6,6 @@ import VueMq from 'vue-mq'
 import SocialSharing from 'vue-social-sharing'
 import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
-import * as VueGoogleMaps from 'vue2-google-maps'
- 
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: 'YOUR_API_TOKEN',
-    libraries: 'places',
-  },
-})
 
 Vue.use(axios);
 Vue.use(VueCookies)
