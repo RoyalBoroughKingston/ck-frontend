@@ -97,6 +97,11 @@
       @include breakpoint($break_tablet) {
         margin-bottom: $base-margin*2.5;
       }
+
+
+      @include breakpoint($break_mobile) {
+        margin-bottom: 0;
+      }
     }
 
     label {

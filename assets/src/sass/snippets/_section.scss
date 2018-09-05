@@ -256,6 +256,10 @@
   &__component {
     margin-bottom: $base-margin*3.5;
 
+    @include breakpoint($break_mobile) {
+      margin-bottom: $base-margin*2;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }

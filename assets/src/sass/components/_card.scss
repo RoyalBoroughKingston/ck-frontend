@@ -8,11 +8,6 @@
   margin-bottom: $base-margin*2;
   box-sizing: border-box;
 
-  @include breakpoint($break_mobile) {
-    border-radius: 0;
-    margin-bottom: 0;
-  }
-
   &:last-child {
     margin-bottom: 0;
   }

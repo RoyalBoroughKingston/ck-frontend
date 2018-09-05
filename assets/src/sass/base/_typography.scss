@@ -35,9 +35,14 @@ html, button, input, select, textarea {
 p {
   color: $san_juan;
   font-size: 1.1875rem;
-  line-height: 1.4375;
+  line-height: 1.4375rem;
   margin-bottom: $base-margin;
   word-break: break-word;
+
+  @include breakpoint($break_mobile) {
+    font-size: 1.0625rem;
+    line-height: 1.4375rem;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -99,6 +104,14 @@ h1, h2, h3, h4 {
   font-weight: $font_bold;
   margin-bottom: $base-margin*2;
 
+  @include breakpoint($break_tablet) {
+    margin-bottom: $base-margin*1.5;
+  }
+
+  @include breakpoint($break_mobile) {
+    margin-bottom: $base-margin;
+  }
+
   &.white {
     color: $white;
   }
@@ -114,21 +127,41 @@ h1, h2, h3, h4 {
 h1, .h1 {
   font-size: 3rem;
   line-height: 3.5625rem;
+
+  @include breakpoint($break_mobile) {
+    font-size: 2.5rem;
+    line-height: 2.875rem;
+  }
 }
 
 h2, .h2 {
   font-size: 2.25rem;
   line-height: 2.6875rem;
+
+  @include breakpoint($break_mobile) {
+    font-size: 2rem;
+    line-height: 2.365rem;
+  }
 }
 
 h3, .h3 {
   font-size: 1.6875rem;
   line-height: 2rem;
+
+  @include breakpoint($break_mobile) {
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+  }
 }
 
 h4, .h4 {
   font-size: 1.5rem;
   line-height: 1.8125rem;
+
+  @include breakpoint($break_mobile) {
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+  }
 }
 
 .color-blue {

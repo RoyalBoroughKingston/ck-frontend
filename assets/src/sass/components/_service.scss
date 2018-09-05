@@ -15,7 +15,6 @@
 
     @include breakpoint($break_mobile) {
         margin-bottom: 0;
-        border-radius: 0;
     }
 
     &:hover {
@@ -103,8 +102,8 @@
         box-sizing: border-box;
 
         @include breakpoint($break_mobile) {
-            background-color: $iceberg !important;
-            padding: $base-margin;
+            background-color: $iceberg;
+            padding: $base-margin $base-margin*2;
 
             .service__name {
                 display: inline-block;
@@ -132,9 +131,9 @@
     }
 
     &__content {
-        @include breakpoint($break_mobile) {
-            display: none;
-        }
+        // @include breakpoint($break_mobile) {
+        //     display: none;
+        // }
     }
 
     &__details {

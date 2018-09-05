@@ -1,8 +1,8 @@
 <template>
     <section id="main" class="section section--no-padding" v-if="service">
-        <div class="flex-container flex-container--mobile-no-padding">
+        <div class="flex-container">
             <div class="flex-col flex-col--7 flex-col--gutter">
-                <div class="section__component section__component--mobile-padding" v-if="service.description">
+                <div class="section__component" v-if="service.description">
                     <h4 class="section__component__header">About</h4>
                     
                     <div class="color-grey" v-html="toHtml(service.description)"></div>
@@ -144,10 +144,10 @@
                             <span>
                                 <p class="service__name"><strong>Contact</strong></p>
                             </span>
-                            <span class="mobile-show"><i class="fa fa-angle-down"></i></span>
+                            <!-- <span><i class="fa fa-angle-down"></i></span> -->
                         </div>
                         
-                        <div class="service__content ">
+                        <div class="service__content">
                             <div class="service__contact service__contact--telephone" v-if="service.contact_name">
                                 <span class="sm-copy">
                                     <i class="fa fa-user"></i> Name
@@ -375,7 +375,6 @@
                     d /= 1.60934
 
                     let rounded = Math.round( d * 10 ) / 10
-                    console.log(rounded + ' miles away')
                     return rounded + ' miles away'
                 });
             },
