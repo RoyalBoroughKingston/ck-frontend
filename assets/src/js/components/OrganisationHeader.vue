@@ -1,8 +1,8 @@
 <template>
     <section class="section section--header section--header--reduce-padding section--header--3" v-if="organisation">
-        <div class="flex-container">
+        <div class="flex-container flex-container--mobile-no-padding flex-container--align-center">
             <div class="flex-col flex-col--8 flex-col--gutter">
-                <div class="title-card title-card--variant-0">
+                <div class="title-card title-card--variant-1">
                     <h2 class="title-card__title">{{ organisation.name }}</h2>
 
                     <div class="title-card__description"> 
@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <div class="flex-col flex-col--4 flex-col--gutter">
+            <div class="flex-col flex-col--4 flex-col--gutter" v-if="$mq !== 'mobile'">
                 <div class="title-card">
                     <div class="title-card__image">
                         <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo`">

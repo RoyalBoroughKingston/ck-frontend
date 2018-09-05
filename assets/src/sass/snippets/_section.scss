@@ -117,7 +117,11 @@
       padding: $base-margin*4.5 $base-margin*3;
 
       @include breakpoint($break_mobile) {
-        padding: $base-margin*4.5 $base-margin*3 $base-margin*2 $base-margin*3;
+        padding: $base-margin*3 $base-margin*2;
+
+        .page--service & {
+          padding: $base-margin*4.5 $base-margin*2 $base-margin*2.5 $base-margin*2;
+        }
       }
 
       &__action {
@@ -181,10 +185,18 @@
 
       &:before {
         top: -$base-margin*2;
+
+        .page--organisation & {
+          top: -$base-margin*3;
+        }
       }
   
       &:after {
         top: -$base-margin;
+
+        .page--organisation & {
+          top: -$base-margin*2;
+        }
       }
 
       @include breakpoint($break_mobile) {
