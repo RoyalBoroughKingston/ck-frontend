@@ -114,7 +114,7 @@
     }
 
     .title-card {
-      padding: $base-margin*4.5 $base-margin*2;
+      padding: $base-margin*4.5 $base-margin*3;
 
       @include breakpoint($break_mobile) {
         padding: $base-margin*4.5 $base-margin*3 $base-margin*2 $base-margin*3;
@@ -122,6 +122,10 @@
 
       &__action {
         margin-top: $base-margin*2.5;
+      }
+
+      &--reduce-padding {
+        padding: $base-margin*2.5 $base-margin*2;
       }
     }
 
