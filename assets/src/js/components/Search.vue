@@ -210,6 +210,10 @@
                 } else {
                     this.wait_time = null
                 }
+                // Make sure null is not a string
+                if(this.wait_time === 'null') {
+                    this.wait_time = null
+                }
 
                 if(this.getParameterByName('category')) {
                     this.category = this.getParameterByName('category')

@@ -4,7 +4,7 @@
             <h4 class="title-card__title">Results for</h4>
             <div class="title-card__form">
                 <form action="/results" class="form form--filter">
-                    <div class="flex-container flex-container--no-margin flex-container--no-padding">
+                    <div class="flex-container flex-container--no-margin flex-container--no-padding flex-container--no-space">
                         <div class="field flex-col">
                             <p for="search_term" class="field__description">Search</p>
                             <input type="text" name="search_term" placeholder="Job application" class="input input--text" v-bind:value="search_term">
@@ -14,7 +14,7 @@
                             <input type="text" name="location" placeholder="Postcode / area" class="input input--text" v-bind:value="location">
                         </div>
                     </div>
-                    <div class="flex-container flex-container--no-padding flex-container--align-bottom">
+                    <div class="flex-container flex-container--no-padding flex-container--align-bottom flex-container--no-space">
                         <div class="field field--no-margin field--checkbox flex-col">
                             <p class="field__description">Cost</p>
                             <div class="checkbox">
