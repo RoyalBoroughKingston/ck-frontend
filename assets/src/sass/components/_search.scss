@@ -4,6 +4,21 @@
     &__sort {
         margin-bottom: $base-margin;
 
+        label,
+        p {
+            font-size: 1rem;
+            line-height: 1rem;
+            color: $mid_gray;
+        
+            @include breakpoint($break_mobile) {
+                margin-bottom: $base-margin*0.5;
+            }
+        }
+
+        p {
+            margin-bottom: $base-margin;
+        }
+
         .field {
             margin-right: 0;
             margin-bottom: 0;
@@ -11,11 +26,34 @@
 
         label {
             display: inline-block;
-            margin: $base-margin*0.5;
+            margin-right: $base-margin*0.5;
+
+            @include breakpoint($break_tablet) {
+                display: block;
+                margin-bottom: $base-margin;
+            }
         }
 
         select {
-            max-width: 180px;
+            max-width: 145px;
+        }
+
+        .btn {
+            padding: $base-margin*0.25 $base-margin*0.75;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            i {
+                font-size: 1rem;
+                line-height: 1rem;
+            }
+        }
+
+        .title-card {
+            padding: 0;
+            background: transparent;
         }
     }
 
@@ -46,6 +84,7 @@
                 transform: translateX(-100%);
                 transition: 0.3s transform ease-out;
                 will-change: transform;
+                overflow-y: auto;
 
                 &.active {
                     transform: translateX(0);

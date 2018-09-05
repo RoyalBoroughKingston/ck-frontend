@@ -1,11 +1,12 @@
 <template>
     <div class="title-card title-card--reduce-padding">
         <div class="title-card__form">
-            <p class="sm-copy color-grey">View as</p>
+            <p class="sm-copy">View as</p>
+            
             <div class="field field--buttons">
                 <div class="field__buttons">
-                    <a v-on:click="updateView('grid')" v-bind:class="{'active':(this.$parent.view === 'grid')}" role="button" class="btn btn--toggle btn--icon-after view-toggle">Grid <i class="fa fa-th-large"></i></a>
-                    <a v-on:click="updateView('map')" v-bind:class="{'active':(this.$parent.view === 'map')}"  role="button" class="btn btn--toggle btn--icon-after view-toggle">Map <i class="fa fa-map"></i></a>
+                    <a v-on:click="updateView('grid')" v-bind:class="{'active':(this.view === 'grid')}" role="button" class="btn btn--toggle btn--icon-after view-toggle">Grid <i class="fa fa-th-large"></i></a>
+                    <a v-on:click="updateView('map')" v-bind:class="{'active':(this.view === 'map')}"  role="button" class="btn btn--toggle btn--icon-after view-toggle">Map <i class="fa fa-map"></i></a>
                 </div>
             </div>
         </div>
@@ -19,8 +20,8 @@
         name: "search-view",
         props: ['view'],
         methods: {
-            updateView: function (value) {                
-                this.$parent.view = value
+            updateView: function (value) {
+                this.$emit('setView', value)
                 this.$cookies.set("ck_search_view", value)
             }
         }

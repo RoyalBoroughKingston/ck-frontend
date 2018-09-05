@@ -5,8 +5,14 @@
                 <div class="flex-col flex-col--12 flex-col--tablet--6 flex-col--mobile--6">
                     <h4 class="title-card__title">Results for</h4>
 
-                    <p v-if="$mq !== 'desktop' && (search_term || location)">
-                        {{search_term}} <span v-if="location">in {{location}}</span>
+                    <p v-if="$mq !== 'desktop'">
+                        <span v-if="search_term || location">
+                            {{search_term}} <span v-if="location">in {{location}}</span>
+                        </span>
+
+                        <span v-if="!search_term || !location">
+                            All services
+                        </span>
                     </p>
                 </div>
 
@@ -137,10 +143,11 @@
                 }
             },
             showFilter() {
-                console.log('clicked');
+                document.getElementsByTagName("body")[0].classList.add('noscroll')
                 document.querySelector('.title-card__form').classList.add('active')
             },
             hideFilter() {
+                document.getElementsByTagName("body")[0].classList.remove('noscroll')
                 document.querySelector('.title-card__form').classList.remove('active')
             }
         },

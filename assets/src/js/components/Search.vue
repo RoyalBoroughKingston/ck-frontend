@@ -8,15 +8,16 @@
                 </div>
 
                 <div class="flex-col" v-if="$mq === 'desktop'">
-                    <search-view v-model="view"></search-view>
+                    <search-view :view="view" @setView="setViewParameter"></search-view>
                 </div>
             </div>
         </section>
         
         <section id="results" class="section section--no-padding">
-            <div class="flex-container">
+            <div class="flex-container flex-container--mobile-no-padding">
                 <div :class="layoutClass">
-                    <search-sort :location="location" :services_meta="services_meta"></search-sort>
+                    <search-sort :location="location" :services_meta="services_meta" :view="view" @setView="setViewParameter"></search-sort>
+
                     <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :persona="persona" :category="category"></search-grid>
                     <search-map v-if="view === 'map' && services" :services="services" :organisations="organisations"></search-map>
 
@@ -236,6 +237,9 @@
                 if (!results) return null;
                 if (!results[2]) return '';
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            },
+            setViewParameter(view) {
+                this.view = view
             }
         },
         computed: {

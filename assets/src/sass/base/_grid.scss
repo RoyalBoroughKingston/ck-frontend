@@ -28,8 +28,10 @@ body {
   background-color: $white;
   color: $black;
 
-  &.noscroll {
-    overflow: hidden;
+  @include breakpoint($break_tablet) {
+    &.noscroll {
+      overflow: hidden;
+    }
   }
 }
 
@@ -60,6 +62,13 @@ body {
   // Remove padding
   &--no-padding {
     padding: 0;
+  }
+
+  // Mobile padding - if --no-padding is used
+  &--mobile-padding {
+    @include breakpoint($break_mobile) {
+      padding: $base-margin;
+    }
   }
 
   // Don't wrap elements
