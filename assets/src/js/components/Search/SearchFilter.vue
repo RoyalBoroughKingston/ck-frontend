@@ -6,13 +6,7 @@
                     <h4 class="title-card__title">Results for</h4>
 
                     <p v-if="$mq !== 'desktop'">
-                        <span v-if="search_term || location">
-                            {{search_term}} <span v-if="location">in {{location}}</span>
-                        </span>
-
-                        <span v-if="!search_term || !location">
-                            All services
-                        </span>
+                        <span v-if="!search_term">All services </span><span v-if="search_term">{{search_term}} </span><span v-if="location">in {{location}}</span>
                     </p>
                 </div>
 
