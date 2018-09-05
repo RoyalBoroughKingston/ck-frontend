@@ -6,6 +6,7 @@
 
         .field {
             margin-right: 0;
+            margin-bottom: 0;
         }
 
         label {
@@ -19,8 +20,47 @@
     }
 
     &__filter {
-        @include breakpoint($break_mobile) {
-            padding: 0 $base-margin;
+        .field {
+            margin-bottom: $base-margin !important;
+        }
+
+        .btn {
+            margin-bottom: $base-margin;
+
+            @include breakpoint($break_mobile) {
+                margin-bottom: 0;
+            }
+        }
+
+        .title-card__form {
+            @include breakpoint($break_tablet) {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $white;
+                padding: $base-margin*7.5 $base-margin*2 $base-margin*2;
+                box-sizing: border-box;
+                z-index: 998;
+                transform: translateX(-100%);
+                transition: 0.3s transform ease-out;
+                will-change: transform;
+
+                &.active {
+                    transform: translateX(0);
+                }
+
+                &__header {
+                    .link {
+                        margin-bottom: $base-margin;
+                    }
+                }
+            }
+
+            @include breakpoint($break_mobile) {
+                padding: $base-margin*5 $base-margin*2 $base-margin*2;
+            }
         }
     }
 }

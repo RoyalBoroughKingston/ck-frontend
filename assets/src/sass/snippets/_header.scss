@@ -1,13 +1,19 @@
 /* HEADER */
 
 .header {
+  position: relative;
   background: $white;
   padding: $base-margin*1.5 0;
   text-align: right;
   overflow: hidden;
+  z-index: 999;
 
   @include breakpoint($break_tablet) {
     padding: 0;
+
+    .flex-col {
+      margin-bottom: 0;
+    }
   }
 
   &.active {

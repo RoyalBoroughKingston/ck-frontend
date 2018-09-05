@@ -154,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="$mq === 'mobile'">
+                <!-- <div class="section__component" v-if="$mq === 'mobile'">
                     <div class="service">
                         <div class="service__image map map--service">
                             <div id="map-container"></div>
@@ -162,11 +162,11 @@
                         
                         <div class="service__content text-center">
                             <div class="service__actions">
-                                <a :href="google_map_link" class="btn btn--secondary">Open Google Maps</a>
+                                <a :href="google_map_link" class="btn btn--secondary" target="_blank">Open Google Maps</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="section__component" v-if="Object.keys(service.criteria).length === 0 && $mq !== 'mobile'">
                     <h4 class="section__component__header">Who is this service for</h4>
@@ -305,7 +305,7 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="$mq !== 'mobile'">
+                <!-- <div class="section__component" v-if="$mq !== 'mobile'">
                     <div class="service">
                         <div class="service__image map map--service">
                             <div id="map-container"></div>
@@ -313,11 +313,11 @@
                         
                         <div class="service__content text-center">
                             <div class="service__actions">
-                                <a :href="google_map_link" class="btn btn--secondary">Open Google Maps</a>
+                                <a :href="google_map_link" class="btn btn--secondary" target="_blank">Open Google Maps</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
                 <div class="section__component">
                     <div class="card card--border-blue card--reduce-padding">
@@ -411,18 +411,21 @@
                 .then(response => (
                     // Store the services locations
                     this.service_locations = response.data.data,
+            
+                    // // Build the google map link
+                    // this.buildGoogleMapUrl(),
+
+                    // // Find the leaflet layers
+                    // this.findLayers(),
+
+                    // // Create the leaflet map
+                    // this.initMap(),
+
+                    // // Create the leaflet layers
+                    // this.initLayers(),
 
                     // Set finish loading
-                    this.finished_loading = true,
-
-                    // Find the leaflet layers
-                    this.findLayers(),
-
-                    // Create the leaflet map
-                    this.initMap(),
-
-                    // Create the leaflet layers
-                    this.initLayers()
+                    this.finished_loading = true
                 ))
                 .catch(error => console.log(error))
             },
@@ -465,6 +468,21 @@
                 let group = new L.featureGroup([this.markers]);
 
                 this.map.fitBounds(group.getBounds());
+            },
+            buildGoogleMapUrl() {
+
+                let locations = '';
+
+                // Loop through the service locations
+                this.service_locations.forEach((location) => {
+                    // Push each service location to features array
+                    locations += location.location.lon + ', ' + location.location.lat
+                })
+
+                console.log(locations)
+
+                // Set the google map link
+                this.google_map_link = 'https://www.google.com/maps/search/?api=1&query=' + locations
             },
             showDistance() {
                 // Check local storage for geoloation authorization

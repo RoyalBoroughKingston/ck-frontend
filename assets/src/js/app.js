@@ -13,7 +13,7 @@ Vue.use(require('vue-moment'))
 Vue.use(VueMq, {
   breakpoints: {
     mobile: 600,
-    tablet: 768,
+    tablet: 860,
     desktop: Infinity,
   }
 })

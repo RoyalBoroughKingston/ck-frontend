@@ -1,8 +1,27 @@
 <template>
     <div class="search__filter">
         <div class="title-card title-card--variant-3" v-if="type === 'full'">
-            <h4 class="title-card__title">Results for</h4>
+            <div class="flex-container flex-container--no-padding flex-container--align-bottom flex-container--justify">
+                <div class="flex-col flex-col--12 flex-col--tablet--6 flex-col--mobile--6">
+                    <h4 class="title-card__title">Results for</h4>
+
+                    <p v-if="$mq !== 'desktop' && (search_term || location)">
+                        {{search_term}} <span v-if="location">in {{location}}</span>
+                    </p>
+                </div>
+
+                <div class="flex-col flex-col--tablet--6 flex-col--mobile--6 text-right" v-if="$mq !== 'desktop'">
+                    <a v-on:click="showFilter()" class="btn btn--small">Edit search</a>
+                </div>
+            </div>
+            
             <div class="title-card__form">
+                <div class="title-card__form__header" v-if="$mq !== 'desktop'">
+                    <a v-on:click="hideFilter()" class="link link--icon-before"><i class="fa fa-angle-left"></i> Back</a>
+                
+                    <h4>I'm looking for</h4>
+                </div>
+
                 <form action="/results" class="form form--filter">
                     <div class="flex-container flex-container--no-margin flex-container--no-padding flex-container--no-space">
                         <div class="field flex-col">
@@ -11,7 +30,7 @@
                         </div>
                         <div class="field flex-col">
                             <p for="location" class="field__description">Location</p>
-                            <input type="text" name="location" placeholder="Postcode / area" class="input input--text" v-bind:value="location">
+                            <input type="text" name="location" placeholder="Postcode" class="input input--text" v-bind:value="location">
                         </div>
                     </div>
                     <div class="flex-container flex-container--no-padding flex-container--align-bottom flex-container--no-space">
@@ -116,6 +135,13 @@
                 else {
                     return uri + separator + key + "=" + value
                 }
+            },
+            showFilter() {
+                console.log('clicked');
+                document.querySelector('.title-card__form').classList.add('active')
+            },
+            hideFilter() {
+                document.querySelector('.title-card__form').classList.remove('active')
             }
         },
         mounted() {

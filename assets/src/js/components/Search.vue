@@ -1,13 +1,13 @@
 <template>
     <div>
-        <section class="section section--header section--header--reduce-padding section--header--1">
+        <section class="section section--header section--reduce-padding section--header--1">
             <div class="flex-container flex-container--align-bottom flex-container--mobile-no-padding">
-                <div class="flex-col flex-col--7">
+                <div class="flex-col flex-col--7 flex-col--tablet--9">
                     <search-filter :type="'full'" :search_term="search_term" :location="location" :is_free="is_free" :wait_time="wait_time" v-if="!displayOption"></search-filter>
                     <search-header :header="returnHeader" v-if="displayOption"></search-header>
                 </div>
 
-                <div class="flex-col" v-if="$mq !== 'mobile'">
+                <div class="flex-col" v-if="$mq === 'desktop'">
                     <search-view v-model="view"></search-view>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <div class="loading-icon" v-if="!finished_loading"><div></div><div></div><div></div><div></div></div>
                 </div>
 
-                <div class="flex-col flex-col--3" v-if="displayOption && $mq !== 'mobile'">
+                <div class="flex-col flex-col--3" v-if="displayOption && ($mq !== 'mobile' || $mq !== 'tablet')">
                     <search-filter :type="'sidebar'"></search-filter>
                 </div>
             </div>
@@ -105,7 +105,12 @@
                     this.location_coords = { "lat": response.data.result.latitude, "lon": response.data.result.longitude },
                     this.updateServices()
                 ))
-                .catch(error => console.log(error))
+                .catch((error) => {
+                    window.alert(error.response.data.error + ': Please enter a different postcode and try again')
+
+                    // Set finish loading
+                    this.finished_loading = true
+                })
             },
             updateServices() {
                 // Set params
