@@ -107,14 +107,9 @@
       padding: $base-margin*2.5 0;
     }
 
-    > .flex-container--mobile-no-padding {
-      @include breakpoint($break_mobile) {
-        margin: 0 -$base-margin;
-      }
-    }
-
     .title-card {
-      padding: $base-margin*4.5 $base-margin*3;
+      padding: $base-margin*4.5 $base-margin*1.5;
+      background-size: 110% 100%;
 
       @include breakpoint($break_mobile) {
         padding: $base-margin*3 $base-margin*2;

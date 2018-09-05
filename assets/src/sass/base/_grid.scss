@@ -28,7 +28,6 @@ $break_mobile_small  : max-width 320px;
 body {
   background-color: $white;
   color: $black;
-  overflow-x: hidden;
 
   &.noscroll {
     overflow: hidden;

@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div class="flex-container flex-container--justify flex-container--no-margin">
+    <div class="flex-container flex-container--justify flex-container--no-margin mobile-hide">
         <div class="flex-col flex-col--10">
             <p class="text-center color-blue">You can search by keyword, category or by groups</p>
         </div>
@@ -22,6 +22,12 @@
         </a>
     </div>
 </section>
+
+<div class="flex-container">
+    <div class="flex-col flex-col--12 mobile-show">
+        <p class="sm-copy text-center color-blue">You can search by keyword, category or by groups</p>
+    </div>
+</div>
 
 <section id="categories" class="section">
     <div class="flex-container">
