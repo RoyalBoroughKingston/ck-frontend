@@ -128,7 +128,7 @@
                 
                 // Call the search endpoint with the params set
                 axios
-                .post('https://ck-api-staging.cloudapps.digital/core/v1/search', params)
+                .post('https://ck-api-staging.cloudapps.digital/core/v1/search?page='+this.current_page, params)
                 .then(response => (
                     // Set the services
                     this.services = response.data.data,

@@ -16,7 +16,7 @@
         </div>
         
         <div class="service__location" v-if="location">
-            <i class="fa fa-map-marker-alt"></i> <span class="service__location__name">Surbiton,Kingston</span>
+            <i class="fa fa-map-marker-alt"></i> <span class="service__location__name" v-html="location"></span>
         </div>
 
         <div class="service__contact service__contact--telephone" v-if="type === 'shortlist' && service.contact_phone">
@@ -65,12 +65,32 @@
         data () {
             return {
                 location: null,
+                location_length: null,
                 shortlist: null
             }
         },
         methods: {
             getLocation() {
-                // Get location for each service
+                // Get locations for the service
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
+                .then(response => (
+                    // Store the first service location
+                    this.location = response.data.data[0],
+
+                    // Store the amount of locations
+                    this.location_length = response.data.data.length,
+
+                    // Now build the location string
+                    this.buildLocation()
+                ))
+                .catch(error => console.log(error))
+            },
+            buildLocation() {
+                this.location = this.location.location.address_line_1 + ', ' + this.location.location.address_line_2
+
+                if(this.location_length > 1)
+                    this.location += '<br><span class="sm-copy">and '+this.location_length+' other location(s)</span>'
             },
             getShortlist() {
                 // Get the shortlist and store it in the data parameter
@@ -123,6 +143,9 @@
         mounted () {
             // Get the shortlist
             this.getShortlist()
+
+            // Get the location
+            this.getLocation()
         }
     }
 </script>

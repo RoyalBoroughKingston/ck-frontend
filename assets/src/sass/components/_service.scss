@@ -41,6 +41,8 @@
     }
 
     &__location {
+        display: flex;
+        align-items: center;
         background-color: $jungle_green !important;
         color: $white;
         font-size: 1.1875rem;
@@ -49,7 +51,7 @@
         box-sizing: border-box;
 
         i {
-            margin-right: $base-margin*0.75;
+            margin-right: $base-margin;
         }
 
         @include breakpoint($break_mobile) {
