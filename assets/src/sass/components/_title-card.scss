@@ -51,6 +51,14 @@
         }
     }
 
+    &__form {
+        .field {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
     &__share {
         display: inline-block;
         background-image: url('/assets/dist/img/title-card/bg--mint.svg');

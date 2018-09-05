@@ -103,7 +103,7 @@
       margin-bottom: $base-margin*2;
     }
 
-    &--reduce-padding {
+    &.section--reduce-padding {
       padding: $base-margin*2.5 0;
     }
 
@@ -169,11 +169,19 @@
         &:before {
           top: -$base-margin*3;
           right: 30%;
+
+          .page--referral &, {
+            top: -$base-margin*4;
+          }
         }
     
         &:after {
           top: -$base-margin*2;
           right: 18%;
+
+          .page--referral &, {
+            top: -$base-margin*3.5;
+          }
         }
       }
     }
@@ -196,7 +204,7 @@
       &:after {
         top: -$base-margin;
 
-        .page--organisation & {
+        .page--organisation &, {
           top: -$base-margin*2;
         }
       }

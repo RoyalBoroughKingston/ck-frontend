@@ -17,7 +17,6 @@
                             <p class="service__name"><strong>Referring to</strong></p>
                             <p class="service__sub-title sm-copy mobile-show">{{ service.organisation.name }}</p>
                         </span>
-                        <span class="mobile-show"><i class="fa fa-angle-down"></i></span>
                     </div>
                     <div class="service__image">
                         <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`" :title="service.name">
@@ -25,7 +24,7 @@
 
                     <div class="service__details">
                         <h4 class="service__name">{{ service.name }}</h4>
-                        <p class="service__sub-title sm-copy">{{ service.organisation.name }}</p>
+                        <p class="service__sub-title sm-copy mobile-hide">{{ service.organisation.name }}</p>
                         <p class="service__description sm-copy">{{ service.intro }}</p>
                     </div>
                 </div>

@@ -34,7 +34,7 @@
 
     <div class="flex-col flex-col--6 flex-col--tablet--12">
       <div class="flex-container flex-container--no-padding">
-        <div class="flex-col flex-col--6 flex-col--mobile--6">
+        <div class="flex-col flex-col--6">
           <nav class="nav nav--footer nav--social" name="social-nav">
             <label for="social-nav">Get in touch</label>
 
@@ -44,7 +44,7 @@
           </nav>
         </div>
 
-        <div class="flex-col flex-col--6 flex-col--mobile--6 text-right">
+        <div class="flex-col flex-col--6 text-right text-left--mobile">
           <a href="#" class="btn btn--secondary btn--dark">Member area</a>
         </div>
 

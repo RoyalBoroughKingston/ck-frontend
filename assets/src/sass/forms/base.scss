@@ -48,8 +48,13 @@ label {
   margin-bottom: $base-margin*4.5;
   overflow: hidden;
 
+  @include breakpoint($break_tablet) {
+    margin-bottom: $base-margin*3;
+  }
+
   @include breakpoint($break_mobile) {
     margin-right: 0;
+    margin-bottom: $base-margin*2;
   }
 
   &--no-margin {

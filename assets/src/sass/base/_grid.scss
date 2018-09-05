@@ -179,7 +179,6 @@ body {
       @for $i from 1 to $total-columns+1 {
         &--#{$i} {
           width: percentage($i/$total-columns);
-          border: solid $base-margin transparent;
           margin-bottom: 0;
 
           &:last-child {
