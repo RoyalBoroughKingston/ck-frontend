@@ -88,16 +88,22 @@
         methods: {
             doPagination(pageNum) {
                 // Update the current page
-                this.current_page = pageNum
-                
-                // Update the services
-                this.updateServices()
-                
+                this.current_page = pageNum,
+
+                // Set finish loading
+                this.services = null
+
                 // Scroll to top of search results
                 window.scrollTo({
                     top: this.getOffset(document.getElementById('results')).top - 32,
                     behavior: "smooth"
-                });
+                }),
+
+                // Set finish loading
+                this.finished_loading = false,
+
+                // Update the services
+                this.updateServices()
             },
             getLocation() {
                 axios
