@@ -128,11 +128,15 @@
                 return null;
             },
             setViewToMarker(marker) {
+                // Set media queries
+                const mq = window.matchMedia( "(min-width: 768px)" )
+
                 // Convert latlng to pixels
                 let px = this.map.project(marker.getLatLng());
 
-                // Add pixel height offset to converted pixels (screen origin is top left) - (height of box / 2)
-                px.x -= 180;
+                // Add pixel width offset to converted pixels
+                if(mq.matches)
+                    px.x -= 180
 
                 // Convert back to coordinates
                 let latlng = this.map.unproject(px);

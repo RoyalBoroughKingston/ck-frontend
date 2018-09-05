@@ -39,15 +39,23 @@
         }
 
         .btn {
-            padding: $base-margin*0.25 $base-margin*0.75;
+            float: left;
+            padding: $base-margin*0.25 $base-margin*0.5;
 
             &:last-child {
                 margin-right: 0;
             }
 
             i {
+                font-size: 0.8rem;
+                line-height: 0.8rem;
+                margin-left: $base-margin*0.25;
+            }
+
+            @include breakpoint($break_mobile) {
                 font-size: 1rem;
-                line-height: 1rem;
+                line-break: 1rem;
+                margin-right: $base-margin*0.25;
             }
         }
 

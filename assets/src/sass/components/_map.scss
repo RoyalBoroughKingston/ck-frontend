@@ -8,6 +8,7 @@
     overflow: hidden;
 
     @include breakpoint($break_mobile) {
+        position: inherit;
         border-radius: 0;
         height: 420px;
     }
@@ -17,19 +18,19 @@
         border-radius: 0;
     }
 
-    &__overlay { 
+    &__overlay {
+        background-color: $alabaster;
         position: absolute;
         top: 0;
         width: 360px;
         height: 100%;
-        z-index: 1;
+        z-index: 999;
 
         &--left {
             left: 0;
         }
 
         > div {
-            height: 100%;
             border-radius: 0;
             overflow-y: scroll;
         }
@@ -40,6 +41,7 @@
 
         @include breakpoint($break_mobile) {
             width: 100%;
+            position: fixed;
         }
     }
 
