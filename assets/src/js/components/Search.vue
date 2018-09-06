@@ -18,7 +18,7 @@
                 <div :class="layoutClass">
                     <search-sort :location="location" :services_meta="services_meta" :view="view" @setView="setViewParameter"></search-sort>
 
-                    <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :persona="persona" :category="category"></search-grid>
+                    <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :locations="service_locations" :persona="persona" :category="category"></search-grid>
                     <search-map v-if="view === 'map' && services" :services="services" :organisations="organisations"></search-map>
 
                     <div class="loading-icon" v-if="!finished_loading"><div></div><div></div><div></div><div></div></div>
@@ -73,6 +73,7 @@
                 services: null,
                 services_meta: null,
                 organisations: [],
+                service_locations: [],
                 view: 'grid',
                 search_term: null,
                 location: null,
@@ -162,6 +163,26 @@
                 .then(response => (
                     // Overwrite the organisations data model
                     this.organisations = response.data.data,
+
+                    // Now get the service locations
+                    this.getServiceLocations()
+                ))
+                .catch(error => console.log(error))
+            },
+            getServiceLocations() {
+                // Store organisation ids
+                this.services.forEach(service => {
+                   service.service_locations.forEach(location => {
+                       this.service_locations.push(location.id)
+                   })
+                });
+
+                // Do a request for organisations
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[id]=' + this.service_locations + '&include=location')
+                .then(response => (
+                    // Overwrite the organisations data model
+                    this.service_locations = response.data.data,
 
                     // Set finish loading
                     this.finished_loading = true

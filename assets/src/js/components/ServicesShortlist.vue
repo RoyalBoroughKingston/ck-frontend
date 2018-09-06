@@ -9,6 +9,7 @@
         <div class="flex-container flex-container--justify">
             <div class="flex-col flex-col--4 flex-col--tablet--6 flex-col--gutter" v-for="service in services" :key="service.id">
                 <service :type="'shortlist'" :service="service" :organisation="getOrganisation(service.organisation_id)"></service>
+                <!-- :location="getServiceLocation(service)" -->
             </div>
         </div>
     </section>
@@ -26,7 +27,9 @@
         data () {
             return {
                 services: null,
+                service_ids: [],
                 organisations: [],
+                service_locations: [],
                 shortlist: null
             }
         },
@@ -39,7 +42,9 @@
                     // Set the shortlist services
                     this.services = response.data.data,
                     // Store the organisation ids
-                    this.getOrganisations()
+                    this.getOrganisations(),
+                    // Get service locations
+                    this.getServiceLocations()
                 ))
                 .catch(error => console.log(error))
             },
@@ -66,6 +71,45 @@
                     }
                 }
                 return null;
+            },
+            getServiceLocations() {
+                // Store organisation ids
+                this.services.forEach((service) => {
+                    this.service_ids.push(service.id)
+                });
+
+                // Do a request for organisations
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]=' + this.service_ids + '&include=location')
+                .then(response => (
+                    // Overwrite the organisations data model
+                    this.service_locations = response.data.data,
+
+                    // Set finish loading
+                    this.finished_loading = true
+                ))
+                .catch(error => console.log(error))
+            },
+            getServiceLocation(service) {
+                if(this.locations.length > 0)
+                    for (var i = 0; i < this.locations.length; i++)
+                        if(service.service_locations.length && service.service_locations[0].location_id !== undefined && this.locations[i].location_id !== undefined)
+                            if (this.locations[i].location_id === service.service_locations[0].location_id)
+                                var location = this.locations[i].location.address_line_1 + ', ' + this.locations[i].location.address_line_2
+                                
+                                if(service.service_locations.length > 1) {
+                                    var locations_length = service.service_locations.length - 1
+
+                                    if(service.service_locations.length > 2) {
+                                        location += '<br><span class="sm-copy">and ' + locations_length + ' other location(s)</span>'
+                                    } else {
+                                        location += '<br><span class="sm-copy">and ' + locations_length + ' other location</span>'
+                                    }
+                                }
+
+                                return location;
+                            
+                                return null;
             },
             getParameterByName(name, url) {
                 if (!url) url = window.location.href;

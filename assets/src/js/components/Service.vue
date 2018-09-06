@@ -61,37 +61,30 @@
     
     export default {
         name: "service",
-        props: ['type', 'view', 'service', 'organisation'],
+        props: ['type', 'view', 'service', 'location', 'organisation'],
         data () {
             return {
-                location: null,
                 location_length: null,
                 shortlist: null
             }
         },
         methods: {
-            getLocation() {
-                // Get locations for the service
-                axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
-                .then(response => (
-                    // Store the first service location
-                    this.location = response.data.data[0],
+            // getLocation() {
+            //     // Get locations for the service
+            //     axios
+            //     .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
+            //     .then(response => (
+            //         // Store the first service location
+            //         this.location = response.data.data[0],
 
-                    // Store the amount of locations
-                    this.location_length = response.data.data.length,
+            //         // Store the amount of locations
+            //         this.location_length = response.data.data.length,
 
-                    // Now build the location string
-                    this.buildLocation()
-                ))
-                .catch(error => console.log(error))
-            },
-            buildLocation() {
-                this.location = this.location.location.address_line_1 + ', ' + this.location.location.address_line_2
-
-                if(this.location_length > 1)
-                    this.location += '<br><span class="sm-copy">and '+this.location_length+' other location(s)</span>'
-            },
+            //         // Now build the location string
+            //         this.buildLocation()
+            //     ))
+            //     .catch(error => console.log(error))
+            // },
             getShortlist() {
                 // Get the shortlist and store it in the data parameter
                 this.shortlist = this.$cookies.get("ck_shortlist");
@@ -126,6 +119,9 @@
                 // Set the selected_panel_left property
                 this.$parent.selected_panel_left = false
 
+                // Add noscroll class to body
+                document.getElementsByTagName("body")[0].classList.remove('noscroll--mobile')
+
                 // Unset previous marker icon
                 document.querySelectorAll('.leaflet-marker-icon').forEach((marker) => {
                     marker.src="/assets/dist/img/map/map-marker.svg"
@@ -143,9 +139,6 @@
         mounted () {
             // Get the shortlist
             this.getShortlist()
-
-            // Get the location
-            this.getLocation()
         }
     }
 </script>

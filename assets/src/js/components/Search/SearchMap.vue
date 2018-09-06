@@ -115,7 +115,9 @@
                     // Set the selected service
                     this.selected_service = response.data.data,
                     // Show the service panel
-                    this.selected_panel_left = true
+                    this.selected_panel_left = true,
+                    // Add noscroll class to body
+                    document.getElementsByTagName("body")[0].classList.add('noscroll--mobile')
                 ))
                 .catch(error => console.log(error))
             },

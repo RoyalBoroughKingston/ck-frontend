@@ -33,6 +33,16 @@ body {
       overflow: hidden;
     }
   }
+
+  &.noscroll--mobile {
+    @include breakpoint($break_tablet) {
+      overflow: auto;
+    }
+
+    @include breakpoint($break_mobile) {
+      overflow: hidden;
+    }
+  }
 }
 
 // MAIN CONTAINER
