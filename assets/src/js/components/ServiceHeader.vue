@@ -1,5 +1,11 @@
 <template>
     <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading">
+        <vue-headful
+            :title="`Connected Kingston - ` + service.seo_title"
+            :description="service.seo_description"
+            :image="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`"
+        />
+        
         <div class="flex-container flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
             <div class="flex-col flex-col--8 flex-col--tablet--7 flex-col--gutter">
                 <div class="title-card title-card--variant-1">

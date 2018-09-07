@@ -23,14 +23,14 @@
 		header('Location: /results?is_free=true&search_term=&location=');
 	elseif(preg_match('/services/', $request_uri)):
 		$CURRENT_PAGE = "service"; 
-		$PAGE_TITLE = "Service";
+		$PAGE_TITLE = "";
 		$DESCRIPTION = "";
 		$TEMPLATE_URL = "templates/pages/search/service.php";
 	elseif($request_uri === "/organisations"):
 		header('Location: /');
 	elseif(preg_match('/organisations/', $request_uri)):
 		$CURRENT_PAGE = "organisation"; 
-		$PAGE_TITLE = "Organisation ";
+		$PAGE_TITLE = "";
 		$DESCRIPTION = "";
 		$TEMPLATE_URL = "templates/pages/search/organisation.php";
 	elseif($request_uri === "/shortlist"):

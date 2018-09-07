@@ -1,5 +1,5 @@
 <template>
-    <section id="main" class="section section--no-padding" v-if="service">
+    <section id="main" class="section section--no-padding" v-if="service">        
         <div class="flex-container">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <div class="section__component">

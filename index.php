@@ -11,7 +11,7 @@
 
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<link rel="canonical" href="https://connectedkingstong.co.uk" />
+	<link rel="canonical" href="https://connectedkingston.co.uk" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />

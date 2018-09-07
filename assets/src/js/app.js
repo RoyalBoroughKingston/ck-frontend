@@ -6,6 +6,7 @@ import VueCookies from 'vue-cookies'
 import SocialSharing from 'vue-social-sharing'
 import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
+import vueHeadful from 'vue-headful';
 
 Vue.use(axios)
 Vue.use(VueCookies)
@@ -23,7 +24,9 @@ const store = new Vuex.Store({})
 
 Vue.use(VueMediaEmbed, { store })
 
+// Vue Components
 Vue.component('paginate', Paginate)
+Vue.component('vue-headful', vueHeadful);
 
 // Vue JS components
 import Categories from './components/Categories'
