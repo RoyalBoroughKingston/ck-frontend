@@ -10,8 +10,8 @@
                     </div>
 
                     <div class="title-card__action text-center" v-if="$mq === 'mobile'">
-                        <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                        <a v-if="service && isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
 
                         <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a>
                         <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
@@ -22,8 +22,8 @@
             <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter" v-if="$mq !== 'mobile'">
                 <div class="title-card title-card--reduce-padding title-card--service text-center">
                     <div class="title-card__action">
-                        <a v-if="service && !isInShortlist(service.id)" :click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                        <a v-if="service && isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
 
                         <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a>
                         <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
@@ -51,7 +51,7 @@
         data () {
             return {
                 service: null,
-                shortlist: null,
+                shortlist: window.$cookies.get("ck_shortlist"),
                 finished_loading: false
             }
         },
@@ -61,10 +61,6 @@
                 let slug = pathArray[2]
 
                 return slug
-            },
-            getShortlist() {
-                // Get the shortlist and store it in the data parameter
-                this.shortlist = this.$cookies.get("ck_shortlist");
             },
             isInShortlist(id) {
                 // Check if shortlist exists
@@ -78,19 +74,9 @@
             addToShortlist(e) {
                 // Set shortlist cookie
                 let shortlist = window.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id')
-                this.$cookies.set("ck_shortlist", shortlist,null, null, window.location.protocol + "//" + window.location.host)
+                window.$cookies.set("ck_shortlist", shortlist, null, '/')
                 e.currentTarget.classList.add('btn--green')
                 e.currentTarget.innerHTML = 'In your shortlist <i class="fa fa-star"></i>'
-            },
-            removeFromShortlist(e) {
-                // Set shortlist data
-                this.$parent.shortlist = this.$parent.shortlist.replace(e.currentTarget.getAttribute('data-id'), '')
-
-                // Set shortlist cookie
-                window.$cookies.set("ck_shortlist", this.$parent.shortlist)
-                
-                // retrieve new shortlist
-                this.$parent.updateShortlist()
             }
         },
         mounted () {
@@ -104,9 +90,6 @@
                 this.finished_loading = true
             ))
             .catch(error => console.log(error))
-
-            // Get the shortlist
-            this.getShortlist()
         }
     }
 </script>

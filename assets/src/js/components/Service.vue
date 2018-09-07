@@ -11,7 +11,7 @@
             
             <div class="service__add">
                 <a v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                <a v-if="isInShortlist(service.id)" :href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                <a v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
             </div>
         </div>
         
@@ -69,25 +69,9 @@
             }
         },
         methods: {
-            // getLocation() {
-            //     // Get locations for the service
-            //     axios
-            //     .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
-            //     .then(response => (
-            //         // Store the first service location
-            //         this.location = response.data.data[0],
-
-            //         // Store the amount of locations
-            //         this.location_length = response.data.data.length,
-
-            //         // Now build the location string
-            //         this.buildLocation()
-            //     ))
-            //     .catch(error => console.log(error))
-            // },
             getShortlist() {
                 // Get the shortlist and store it in the data parameter
-                this.shortlist = this.$cookies.get("ck_shortlist");
+                this.shortlist = window.$cookies.get("ck_shortlist");
             },
             isInShortlist(id) {
                 // Check if shortlist exists
@@ -101,7 +85,7 @@
             addToShortlist(e) {
                 // Set shortlist cookie
                 let shortlist = window.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id')
-                this.$cookies.set("ck_shortlist", shortlist)
+                window.$cookies.set("ck_shortlist", shortlist, null, '/')
                 e.currentTarget.classList.add('btn--green')
                 e.currentTarget.innerHTML = 'In your shortlist <i class="fa fa-star"></i>'
             },

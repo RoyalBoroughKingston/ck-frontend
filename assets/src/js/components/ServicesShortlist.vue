@@ -9,7 +9,6 @@
         <div class="flex-container flex-container--justify">
             <div class="flex-col flex-col--4 flex-col--tablet--6 flex-col--gutter" v-for="service in services" :key="service.id">
                 <service :type="'shortlist'" :service="service" :organisation="getOrganisation(service.organisation_id)" :location="getServiceLocation(service)"></service>
-                <!-- :location="getServiceLocation(service)" -->
             </div>
         </div>
     </section>
@@ -117,7 +116,7 @@
             if(this.getParameterByName('ids')) {
                 this.shortlist = this.getParameterByName('ids')
             } else {
-                this.shortlist = this.$cookies.get("ck_shortlist")
+                this.shortlist = window.$cookies.get("ck_shortlist")
             }
             
             // Updated the shortlist

@@ -1,13 +1,13 @@
 import axios from 'axios'
 import Vue from 'vue'
-import VueCookies from 'vue-cookies'
 import Paginate from 'vuejs-paginate'
 import VueMq from 'vue-mq'
+import VueCookies from 'vue-cookies'
 import SocialSharing from 'vue-social-sharing'
 import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
 
-Vue.use(axios);
+Vue.use(axios)
 Vue.use(VueCookies)
 Vue.use(require('vue-moment'))
 Vue.use(VueMq, {
