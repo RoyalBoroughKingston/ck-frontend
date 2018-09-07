@@ -479,8 +479,6 @@
                     locations += location.location.lon + ', ' + location.location.lat
                 })
 
-                console.log(locations)
-
                 // Set the google map link
                 this.google_map_link = 'https://www.google.com/maps/search/?api=1&query=' + locations
             },

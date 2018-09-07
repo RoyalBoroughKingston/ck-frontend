@@ -26,8 +26,6 @@
                 return null;
             },
             getLocation(service) {
-                console.log(this.locations)
-                console.log(service)
                 if(this.locations.length > 0)
                     for (var i = 0; i < this.locations.length; i++)
                         if(service.service_locations.length && service.service_locations[0].location_id !== undefined && this.locations[i].location_id !== undefined)

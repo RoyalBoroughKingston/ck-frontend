@@ -6,7 +6,6 @@ export class Navigation {
     let navTrigger = document.querySelector('.nav-trigger');
 
     navTrigger.addEventListener('click', evt => {
-      console.log('trigger');
       navTrigger.classList.toggle('active');
       navContainer.classList.toggle('active');
     });
