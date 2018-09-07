@@ -54,27 +54,7 @@
     <persona></persona>
 </section>
 
-<section class="section section--social-media mobile-hide">
-    <div class="flex-container">
-        <div class="flex-col flex-col--12">
-            <h3>Hear from us</h3>
-        </div>
-    </div>
-
-    <div class="flex-container flex-container--no-space text-center">
-        <div class="flex-col flex-col--4">
-            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'twitter', content: "We're proud to supporting the homeless, refugees and many more in the Kingston area. Find out more about becoming a Community Health Champion here 👉 <a href='#'>https://t.co/3BFo2D0S3g</a>" } %}
-            {% include('templates/_components/button.php') with { type: 'secondary', action: '#', target: '_blank', text: 'Follow us on twitter' } %}
-        </div>
-
-        <div class="flex-col flex-col--2"></div>
-
-        <div class="flex-col flex-col--4">
-            {% include('templates/_components/card.php') with { type: 'social', frame: 'white', platform: 'facebook', content: "We're proud to supporting the homeless, refugees and many more in the Kingston area. Find out more about becoming a Community Health Champion here 👉 <a href='#'>https://t.co/3BFo2D0S3g</a>" } %}
-            {% include('templates/_components/button.php') with { type: 'secondary', action: '#', target: '_blank', text: 'Like us on facebook' } %}
-        </div>
-    </div>
-</section>
+<social-feed></social-feed>
 
 <section class="section mobile-hide">
     <div class="flex-container">
