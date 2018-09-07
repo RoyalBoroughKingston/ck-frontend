@@ -7,8 +7,7 @@
 <head>
 	<title>Connected Kingston - <?php print $PAGE_TITLE;?></title>
 	
-	<meta name="description" content="" />
-	<meta name="keywords" content="" /> 
+	<meta name="description" content="<?php print $DESCRIPTION; ?>" />
 
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
