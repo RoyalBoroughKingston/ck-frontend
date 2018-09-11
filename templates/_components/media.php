@@ -1,9 +1,13 @@
 <div class="media">
-    <div class="responsive-embed">
-        {% if type is defined and type | length %}
-            {% if type == 'video' and embedCode is defined and embedCode | length %}
+    {% if type is defined and type | length %}
+        {% if type == 'video' and embedCode is defined and embedCode | length %}
+            <div class="responsive-embed">
                 {{ embedCode | raw }}
-            {% endif %}
+            </div>
         {% endif %}
-    </div>
+
+        {% if type == 'image' and imageUrl is defined and imageUrl | length %}
+            <img src="{{ imageUrl }}" {% if imageTitle is defined and imageTitle | length %}alt="{{ imageTitle }}"{% endif %} class="img-responsive">
+        {% endif %}
+    {% endif %}
 </div>
