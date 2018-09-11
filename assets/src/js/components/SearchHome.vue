@@ -45,16 +45,20 @@
                 navigator.geolocation.getCurrentPosition((location) => {
                     axios
                     .get('https://api.postcodes.io/postcodes?lon=' + location.coords.longitude + '&lat=' + location.coords.latitude)
-                    .then(response => (
+                    .then(response => {
                         // Set local storage for use later
-                        localStorage['authorizedGeoLocation'] = 1,
+                        localStorage['authorizedGeoLocation'] = 1
                         
                         // Store the postcode
-                        this.postcode = response.result[0].postcode,
+                        if(response.data.result) {
+                            this.postcode = response.data.result[0].postcode
+                        } else {
+                            window.alert('Could not find postcode. This service is only available to users in the UK.')
+                        }                        
                         
                         // Remove the disabled class on the button
                         button.classList.remove('disabled')
-                    ))
+                    })
                     .catch(error => {
                         // Set local storage for use later
                         localStorage['authorizedGeoLocation'] = 0
