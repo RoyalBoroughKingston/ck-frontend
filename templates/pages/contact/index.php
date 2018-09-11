@@ -36,7 +36,7 @@
         </div>
 
         <div class="flex-col flex-col--3">
-            {% include('templates/_components/service.php') with { type: 'contact', name: 'Contact', telephone: '020 8255 3335', email: 'info@connectedkingston.com', enableSocial: 'true', facebook: '#', twitter: '#' } %}
+            {% include('templates/_components/service.php') with { type: 'contact', name: 'Contact', telephone: '020 8255 3335', email: 'info@connectedkingston.com', enableSocial: 'true', facebook: 'https://facebook.com/ConnectedKingston', twitter: 'https://twitter.com/ConnectedKings' } %}
         </div>
     </div>
 </section>

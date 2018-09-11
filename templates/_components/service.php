@@ -1,4 +1,4 @@
-<div class="service">
+<div class="service{% if type is defined %} service--{{type}}{% endif %}">
     {% if type is defined and type == 'contact' or type == 'referral' %}
         <div class="service__header">
             <span>
@@ -74,7 +74,7 @@
             <span class="sm-copy">
                 <i class="fa fa-phone"></i> Telephone
             </span>
-            <p>{{ telephone }}</p>
+            <a href="tel:{{ telephone }}">{{ telephone }}</a>
         </div>
     {% endif %}
 
@@ -83,7 +83,7 @@
             <span class="sm-copy">
                 <i class="fa fa-envelope"></i> Email
             </span>
-            <p>{{ email }}</p>
+            <a href="mailto:{{ email }}">{{ email }}</a>
         </div>
     {% endif %}
 
@@ -92,7 +92,7 @@
             <span class="sm-copy">
                 <i class="fa fa-globe"></i> Website
             </span>
-            <p>{{ website }}</p>
+            <a href="{{ website }}">{{ website }}</a>
         </div>
     {% endif %}
 
@@ -124,11 +124,11 @@
     {% if enableSocial is defined and enableSocial | length and type is defined and type == 'contact' %}
         <div class="service__social">
             {% if facebook is defined and facebook | length %}
-                <a href="{{ facebook }}"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{ facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
             {% endif %}
 
             {% if twitter is defined and twitter | length %}
-                <a href="{{ twitter }}"><i class="fab fa-twitter"></i></a>
+                <a href="{{ twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
             {% endif %}
         </div>
     {% endif %}

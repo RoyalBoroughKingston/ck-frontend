@@ -12,6 +12,14 @@
         box-shadow: 0 2px 10px 0 $mine_shaft;
     }
 
+    &--contact {
+        cursor: default;
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
     > div {
         background-color: $white;
         
@@ -126,12 +134,6 @@
         }
     }
 
-    &__content {
-        // @include breakpoint($break_mobile) {
-        //     display: none;
-        // }
-    }
-
     &__details {
         background-color: $alabaster !important;
         color: $mid_gray;
@@ -168,6 +170,13 @@
         padding: $base-margin*1.5 $base-margin*2;
         box-sizing: border-box;
         word-break: break-all;
+
+        a {
+            color: $san_juan;
+            font-size: 1.1875rem;
+            line-height: 1.75rem;
+            text-decoration: none;
+        }
 
         > span {
             display: block;
