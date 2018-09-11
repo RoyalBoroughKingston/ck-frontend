@@ -13,7 +13,7 @@
                 <li>To have the information shared with <strong>{{ service.name }}</strong></li>
                 <li>For [Service Name] or the Connected Kingston admin team to make contact regarding the connection</li>
             </ul>
-            <p>For further information, please view our <a href="/privacy-policy">privacy policy</a>.</p>
+            <p>For further information, please view our <a href="/privacy-policy" target="_blank">privacy policy</a>.</p>
         </div>
 
         <div class="flex-container flex-container--no-padding">
@@ -72,22 +72,28 @@
                 }
             },
             completeReferral(e) {
+                // Check if they have consented the referral
+                if(this.$parent.referral.feedback_consented) {
+                    // Set the referral params
+                    let params = this.$parent.referral
+
+                    // Call the referral endpoint with the params set
+                    axios
+                    .post('https://ck-api-staging.cloudapps.digital/core/v1/referrals', params)
+                    .then(response => (
+                        // Store the referral callback
+                        this.$parent.referral_callback = response.data.data,
+                        
+                        // Complete the referral
+                        this.updateStep('complete')
+                    ))
+                    .catch(error => console.log(error))
+                } else {
+                    // Send the user back to the service page they are referring too
+                    window.location.href = "/services/" + this.service.slug
+                }
+                
                 e.preventDefault()
-
-                // Set the referral params
-                let params = this.$parent.referral
-
-                // Call the referral endpoint with the params set
-                axios
-                .post('https://ck-api-staging.cloudapps.digital/core/v1/referrals', params)
-                .then(response => (
-                    // Store the referral callback
-                    this.$parent.referral_callback = response.data.data,
-                    
-                    // Complete the referral
-                    this.updateStep('complete')
-                ))
-                .catch(error => console.log(error))
             },
             showOther() {
                 this.show_other = true
@@ -100,5 +106,5 @@
 </script>
  
 <style scoped>
- 
+    
 </style>
