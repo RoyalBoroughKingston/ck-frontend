@@ -45,7 +45,7 @@
         </div>
 
         <div class="flex-col flex-col--6 text-right text-left--mobile">
-          <a href="#" class="btn btn--secondary btn--dark">Member area</a>
+          <a href="https://admin.connectedkingston.uk" class="btn btn--secondary btn--dark">Member area</a>
         </div>
 
         <div class="flex flex-col--12">
