@@ -91,10 +91,15 @@
   }
 
   &__disclaimer {
-    margin-top: $base-margin*2.5;
+    padding-right: $base-margin*3.5;
 
     @include breakpoint($break_tablet) {
-      margin-top: $base-margin*0.5;
+      padding-right: 0;
+      padding-bottom: $base-margin*3.5;
+    }
+
+    @include breakpoint($break_mobile) {
+      padding-bottom: 0;
     }
   }
 }

@@ -85,23 +85,10 @@
 
   &--footer {
     display: block;
-    margin-bottom: $base-margin*2.5;
+    margin-top: $base-margin*3.5;
 
     @include breakpoint($break_mobile) {
-      margin-bottom: $base-margin*2;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-
-      @include breakpoint($break_tablet) {
-        margin-bottom: $base-margin*2.5;
-      }
-
-
-      @include breakpoint($break_mobile) {
-        margin-bottom: 0;
-      }
+      margin-top: $base-margin*2.5;
     }
 
     label {
@@ -135,6 +122,8 @@
   }
 
   &--social {
+    margin-top: 0;
+    
     .nav__link {
       display: inline-block;
       margin-right: $base-margin*1.5;
