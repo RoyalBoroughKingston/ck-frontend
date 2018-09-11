@@ -38,9 +38,8 @@
           <nav class="nav nav--footer nav--social" name="social-nav">
             <label for="social-nav">Get in touch</label>
 
-            <a href="#" class="nav__link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="nav__link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="nav__link"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/ConnectedKingston" class="nav__link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/ConnectedKings" class="nav__link" target="_blank"><i class="fab fa-twitter"></i></a>
           </nav>
         </div>
 
