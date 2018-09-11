@@ -9,7 +9,7 @@
         <div class="field field--with-button flex-col flex-col--12">
             <label class="field__description" for="location">Location</label>
             <input type="text" class="input input--text" name="location" placeholder="Postcode" v-bind:value="postcode"/>
-            <a href="#" class="btn btn--secondary btn--icon-after" role="button" v-on:click="findLocation">Find <span class="mobile-hide">my location</span> <i class="fa fa-map-marker-alt"></i></a>
+            <a class="btn btn--secondary btn--icon-after" role="button" v-on:click="findLocation">Find <span class="mobile-hide">my location</span> <i class="fa fa-map-marker-alt"></i></a>
         </div>
 
         <div class="form__actions form__actions--center flex-col flex-col--12">
@@ -30,21 +30,27 @@
         },
         methods: {
             findLocation(event) {
-                // Get the button
-                let button = event.target;
+                let button;
+
+                // Get the button depending on what is clicked
+                if(event.target.tagName === "SPAN" || event.target.tagName === "I") {
+                    button = event.target.parentElement
+                } else {
+                    button = event.target
+                }
                 
                 // Add disabled class to button
                 button.classList.add('disabled');
 
                 navigator.geolocation.getCurrentPosition((location) => {
                     axios
-                    .get('https://api.postcodes.io/postcodes?lon=' + location.coords.latitude + '&lat=' + location.coords.longitude)
+                    .get('https://api.postcodes.io/postcodes?lon=' + location.coords.longitude + '&lat=' + location.coords.latitude)
                     .then(response => (
                         // Set local storage for use later
                         localStorage['authorizedGeoLocation'] = 1,
                         
                         // Store the postcode
-                        this.postcode = response.data.result,
+                        this.postcode = response.result[0].postcode,
                         
                         // Remove the disabled class on the button
                         button.classList.remove('disabled')

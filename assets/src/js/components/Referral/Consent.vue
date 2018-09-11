@@ -11,7 +11,7 @@
             <p>If you click ‘I agree’ below, you are consenting to the following:</p>
             <ul>
                 <li>To have the information shared with <strong>{{ service.name }}</strong></li>
-                <li>For [Service Name] or the Connected Kingston admin team to make contact regarding the connection</li>
+                <li>For <strong>{{ service.name }}</strong> or the Connected Kingston admin team to make contact regarding the connection</li>
             </ul>
             <p>For further information, please view our <a href="/privacy-policy" target="_blank">privacy policy</a>.</p>
         </div>
@@ -65,8 +65,7 @@
                 for (var i = 0, length = radios.length; i < length; i++) {
                     if (radios[i].checked) {
                         // Set referral_consented in parent
-                        this.$parent.referral.feedback_consented = radios[i].value
-                        this.$parent.referral.feedback_consented = (this.$parent.referral.referral_consented === 'true')
+                        this.$parent.referral.feedback_consented = (radios[i].value === 'true')
                         break;
                     }
                 }
