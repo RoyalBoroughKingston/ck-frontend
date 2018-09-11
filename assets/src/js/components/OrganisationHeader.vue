@@ -3,7 +3,7 @@
         <vue-headful
             :title="`Connected Kingston - ` + organisation.name"
             :description="organisation.description"
-            :image="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo`"
+            :image="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo.png`"
         />
 
         <div class="flex-container flex-container--mobile-no-padding flex-container--align-center">
@@ -20,7 +20,7 @@
             <div class="flex-col flex-col--4 flex-col--gutter" v-if="$mq !== 'mobile'">
                 <div class="title-card">
                     <div class="title-card__image">
-                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo`">
+                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo.png`">
                     </div>
                 </div>
             </div>

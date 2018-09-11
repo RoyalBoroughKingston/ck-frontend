@@ -2,7 +2,7 @@
     <section class="section section--no-padding">
         <div class="flex-container">
             <div class="flex-col" v-if="$mq === 'mobile'">
-                <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo`" class="img-responsive">
+                <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo.png`" class="img-responsive">
             </div>
 
             <div class="flex-col flex-col--4" v-if="organisation && $mq === 'mobile'">

@@ -6,12 +6,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
 	<title>Connected Kingston - <?php print $PAGE_TITLE;?></title>
-	
-	<meta name="description" content="<?php print $DESCRIPTION; ?>" />
-
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<link rel="canonical" href="https://connectedkingston.co.uk" />
+	<meta name="description" content="<?php print $DESCRIPTION; ?>" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />

@@ -3,7 +3,7 @@
         <vue-headful
             :title="`Connected Kingston - ` + service.seo_title"
             :description="service.seo_description"
-            :image="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo`"
+            :image="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/seo-image.png`"
         />
         
         <div class="flex-container flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
