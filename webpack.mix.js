@@ -13,6 +13,7 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath(path.resolve('./'))
 .sass('assets/src/sass/vendor.scss', 'assets/dist/vendor.css')
+.sass('assets/src/sass/print.scss', 'assets/dist/print.css')
 .sass('assets/src/sass/app.scss', 'assets/dist/app.css')
 .js('assets/src/js/app.js', 'assets/dist').extract(['axios', 'vue', 'leaflet', 'clipboard', 'moment', 'showdown', 'vue-media-embed', 'vuex'])
 .copy('assets/src/img', 'assets/dist/img').options({

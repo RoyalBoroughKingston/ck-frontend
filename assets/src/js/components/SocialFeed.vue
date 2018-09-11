@@ -66,12 +66,18 @@
             }
         },
         methods: {
-            getSocialFeed() {
-                
+            getTwitterFeed() {
+                axios
+                .get('https://api.twitter.com/1/statuses/user_timeline/seanjessenuk.json?count=1&include_rts=1&callback=?')
+                .then(response => (
+                    console.log(response)
+                ))
+                .catch(error => console.log(error))
             }
         },
         mounted() {
-            this.getSocialFeed()
+            // Get twitter feed
+            this.getTwitterFeed()
         }
     }
 </script>

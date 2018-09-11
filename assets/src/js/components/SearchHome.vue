@@ -3,7 +3,7 @@
         <input type="hidden" name="is_free" value="true">
         <div class="field flex-col flex-col--12">
             <label class="field__description" for="search_term">Search</label>
-            <input type="text" class="input input--text" name="search_term" minlength="3"/>
+            <input type="text" class="input input--text" name="search_term" placeholder="Enter search term" minlength="3"/>
         </div>
 
         <div class="field field--with-button flex-col flex-col--12">

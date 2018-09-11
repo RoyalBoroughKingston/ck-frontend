@@ -117,7 +117,7 @@
                 <div class="section__component">
                     <h4 class="section__component__header">Where I can access this service</h4>
 
-                    <div class="card card--grey card--location" v-if="service_locations.length === 0">
+                    <div class="card card--grey card--location" v-if="service_locations && service_locations.length === 0">
                         <p class="card__location__name">
                             <strong>There is no set location for this service.</strong>
                         </p>
@@ -254,7 +254,7 @@
 
             <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter">
                 <div class="section__component text-center tablet-hide">
-                    <a href="#print" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print"></i></a>
+                    <a :href="`#print`" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print"></i></a>
                 </div>
                 
                 <div class="section__component">
@@ -341,7 +341,7 @@
                 <div class="section__component section__component--mobile-padding text-center">
                     <div class="page-meta">
                         <p class="sm-copy"><span class="color-grey">Page last updated</span> <em>{{ service.updated_at | moment("Do MMMM YYYY") }}</em></p>
-                        <p class="sm-copy"><a v-on:click="giveFeedback">Give us feedback</a></p>
+                        <p class="sm-copy service-feedback"><a v-on:click="giveFeedback">Give us feedback</a></p>
                     </div>
                 </div>
             </div>

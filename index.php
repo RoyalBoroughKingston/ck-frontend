@@ -24,6 +24,9 @@
 	<!-- Site styles -->
 	<link href="/assets/dist/app.css" media="screen, projection" rel="stylesheet" />
 
+	<!-- Print styles -->
+	<link rel="stylesheet" type="text/css" media="print" href="/assets/dist/print.css" />
+
 	<!-- Icons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/assets/dist/img/icons/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/assets/dist/img/icons/apple-icon-60x60.png">

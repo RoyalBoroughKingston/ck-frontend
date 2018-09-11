@@ -15,7 +15,7 @@
                         <p>{{ service.intro }}</p>
                     </div>
 
-                    <div class="title-card__action text-center" v-if="$mq === 'mobile'">
+                    <div class="title-card__action text-center service-actions" v-if="$mq === 'mobile'">
                         <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
                         <a v-if="service && isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
 
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter" v-if="$mq !== 'mobile'">
+            <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter service-actions" v-if="$mq !== 'mobile'">
                 <div class="title-card title-card--reduce-padding title-card--service text-center">
                     <div class="title-card__action">
                         <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>

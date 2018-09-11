@@ -45,17 +45,13 @@ import SearchHome from './components/SearchHome'
 import Search from './components/Search'
 
 // Site modules
-import { Accordion } from "./modules/accordion.js"
+import { Print } from "./modules/print.js"
 import { Navigation } from "./modules/navigation.js"
 import { ScrollToAnchor } from "./modules/scrollToAnchor.js"
 
 export class App {
 
   constructor() {
-
-    let accordion = new Accordion();
-    let navigation = new Navigation();
-    let scrollToAnchor = new ScrollToAnchor();
 
     // Init the vue app
     var app = new Vue({
@@ -76,6 +72,11 @@ export class App {
         SocialShare
       }
     })
+
+    // Init modules
+    let print = new Print();
+    let navigation = new Navigation();
+    let scrollToAnchor = new ScrollToAnchor();
 
   }
 
