@@ -24,7 +24,7 @@
   }
 
   &--reduce-padding {
-    padding: $base-margin*2.5;
+    padding: $base-margin*2.5 0;
   }
 
   // Social media
@@ -106,6 +106,10 @@
 
     &.section--reduce-padding {
       padding: $base-margin*2.5 0;
+    }
+
+    &--no-margin-bottom {
+      margin-bottom: 0;
     }
 
     .title-card {
