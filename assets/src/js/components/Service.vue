@@ -23,14 +23,14 @@
             <span class="sm-copy">
                 <i class="fa fa-phone"></i> Telephone
             </span>
-            <p>{{ service.contact_phone }}</p>
+            <a :href="`tel:`+service.contact_phone">{{ service.contact_phone }}</a>
         </div>
 
         <div class="service__contact service__contact--email" v-if="type === 'shortlist' && service.contact_email">
             <span class="sm-copy">
                 <i class="fa fa-envelope"></i> Email
             </span>
-            <p>{{ service.contact_email }}</p>
+            <a :href="`mailto:`+service.contact_email">{{ service.contact_email }}</a>
         </div>
         
         <div class="service__meta" v-if="type === 'service'">
