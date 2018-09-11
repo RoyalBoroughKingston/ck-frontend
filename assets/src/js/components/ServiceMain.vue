@@ -114,10 +114,19 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="service_locations && service_locations.length > 0">
+                <div class="section__component">
                     <h4 class="section__component__header">Where I can access this service</h4>
 
-                    <div class="card card--grey card--location" v-for="location in service_locations" :key="location.id">
+                    <div class="card card--grey card--location" v-if="service_locations.length === 0">
+                        <p class="card__location__name">
+                            <strong>There is no set location for this service.</strong>
+                        </p>
+                        <p class="card__location__name">
+                            You can access the service by using the contact details provided.
+                        </p>
+                    </div>
+
+                    <div class="card card--grey card--location" v-for="location in service_locations" :key="location.id" v-if="service_locations && service_locations.length > 0">
                         <div class="card__location flex-col flex-col--6">
                             <p class="card__location__name" v-if="location.name"><strong>{{ location.name }}</strong></p>
                             
