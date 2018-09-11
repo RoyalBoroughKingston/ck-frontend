@@ -6,15 +6,12 @@
     overflow: hidden;
     transition: box-shadow 0.2s ease-out;
     will-change: box-shadow;
-    cursor: pointer;
 
     &:hover {
         box-shadow: 0 2px 10px 0 $mine_shaft;
     }
 
     &--contact {
-        cursor: default;
-
         &:hover {
             box-shadow: none;
         }
@@ -176,6 +173,7 @@
             font-size: 1.1875rem;
             line-height: 1.75rem;
             text-decoration: none;
+            cursor: pointer;
         }
 
         > span {
