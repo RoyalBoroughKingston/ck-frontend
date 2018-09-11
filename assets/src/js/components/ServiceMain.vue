@@ -231,9 +231,7 @@
 
                 <div class="section__component" v-if="service.video_embed">
                     <div class="media">
-                        <div class="responsive-embed">
-                            <vue-media-embed :source="service.video_embed" :auto-play="0" :allow-fullscreen="0" />
-                        </div>
+                        <vue-media-embed :source="service.video_embed" :auto-play="0" :allow-fullscreen="0" />
                     </div>
                 </div>
 
@@ -278,14 +276,14 @@
                                 <span class="sm-copy">
                                     <i class="fa fa-phone"></i> Telephone
                                 </span>
-                                <p>{{ service.contact_phone }}</p>
+                                <a :href="`tel:`+service.contact_phone">{{ service.contact_phone }}</a>
                             </div>
                             
                             <div class="service__contact service__contact--email" v-if="service.contact_email">
                                 <span class="sm-copy">
                                     <i class="fa fa-envelope"></i> Email
                                 </span>
-                                <p>{{ service.contact_email }}</p>
+                                <a :href="`mailto:`+service.contact_email">{{ service.contact_email }}</a>
                             </div>
                             
                             <div class="service__contact service__contact--website" v-if="service.url">
@@ -293,7 +291,7 @@
                                     <i class="fa fa-globe"></i>
                                     Website
                                 </span>
-                                <p>{{ service.url }}</p>
+                                <a :href="service.url" target="_blank">{{ service.url }}</a>
                             </div>
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
