@@ -13,7 +13,7 @@
 
     <services-shortlist></services-shortlist>
 
-    <div class="flex-container flex-container--justify">
+    <div class="flex-container flex-container--justify services-shortlist-add-more">
         <div class="flex-col highlight highlight--green text-center">
             {% include('templates/_components/button.php') with { type: 'green', action: '/results?is_free=true&search_term=&location=', iconPosition: 'before', icon: 'fa fa-plus', text: 'Add more services' } %}
         </div>

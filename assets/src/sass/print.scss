@@ -3,31 +3,17 @@
   display: none !important;
 }
 
-.footer {
-  display: none !important;
-}
-
-.breadcrumbs {
-  display: none !important;
-}
-
-a[href="#print"] {
-  display: none !important;
-}
-
-.section__anchor {
-  display: none !important;
-}
-
-.title-card--share {
-  display: none !important;
-}
-
-.service-feedback {
-  display: none !important;
-}
-
-.service-actions {
+.footer,
+.breadcrumbs,
+a[href="#print"],
+.section__anchor,
+.title-card--share,
+.service-feedback,
+.service-actions,
+.services-shortlist-header,
+.services-shortlist-add-more,
+.service__actions,
+.title-card__share {
   display: none !important;
 }
 
