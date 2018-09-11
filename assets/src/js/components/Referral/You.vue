@@ -17,14 +17,12 @@
                         </div>
 
                         <div class="field field--select flex-col flex-col--8">
-                            <label for="organisation">What organisation are you with?</label>
+                            <label for="referee_organisation">What organisation are you with?</label>
                             
                             <select class="select" name="referee_organisation" required>
-                                <option>Organisation</option>
-                                <option>Organisation</option>
-                                <option>Organisation</option>
-                                <option>Organisation</option>
-                                <option>Organisation</option>
+                                <option v-for="organisation in organisations" :key="organisation.id" :value="organisation.name">
+                                    {{organisation.name}}
+                                </option>
                             </select>
 
                             <p>&nbsp;</p>
@@ -82,10 +80,20 @@
         props: ['service', 'step', 'steps'],
         data() {
             return {
-                show_other: false
+                show_other: false,
+                organisations: null
             }
         },
         methods: {
+            getOrganisations() {
+                axios
+                .get('https://ck-api-staging.cloudapps.digital/core/v1/taxonomies/organisations?page=1')
+                .then(response => (
+                    // Store the service
+                    this.organisations = response.data.data
+                ))
+                .catch(error => console.log(error))
+            },
             setYou(e) {
                 e.preventDefault()
 
@@ -113,6 +121,10 @@
             updateStep(step) {
                 this.$parent.setStep(step);
             }
+        },
+        mounted() {
+            // Get the organisations
+            this.getOrganisations()
         }
     }
 </script>

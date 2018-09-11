@@ -106,7 +106,7 @@
                             </div>
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
-                                <a v-bind:href="social_media.url" v-for="social_media in service.social_medias"  :key="social_media.type">
+                                <a v-bind:href="social_media.url" v-for="social_media in service.social_medias" :key="social_media.type">
                                     <i v-bind:class="['fab fa-' + social_media.type]"></i>
                                 </a>
                             </div>
