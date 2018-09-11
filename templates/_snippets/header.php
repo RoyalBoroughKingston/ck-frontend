@@ -1,17 +1,17 @@
 <header class="header">
   <div class="flex-container flex-container--align-center flex-container--justify">
-    <div class="flex-col flex-col--6 flex-col--tablet--12 header__brand">
+    <div class="flex-col flex-col--6 flex-col--tablet-large--12 header__brand">
       <figure class="logo">
         <a href="/"><img src="/assets/dist/img/global/logo.png" alt="Connected Kingston" class="img-responsive"/></a>
       </figure>
 
-      <button type="button" name="nav-trigger" class="nav-trigger tablet-show">
+      <button type="button" name="nav-trigger" class="nav-trigger tablet--large-show">
         <label for="nav-trigger"></label>
         <i class="bars fa fa-bars"></i>
       </button>
     </div>
 
-    <div class="flex-col flex-col--6 flex-col--tablet--12 header__navigation tablet-hide">
+    <div class="flex-col flex-col--6 flex-col--tablet-large--12 header__navigation tablet--large-hide">
       <nav class="nav nav--primary" role="navigation">
         <a href="/" class="nav__link <?php if ($CURRENT_PAGE == "index") {?>active<?php }?>" role="menuitem">Search</a>
         <a href="/about" class="nav__link <?php if ($CURRENT_PAGE == "about") {?>active<?php }?>" role="menuitem">About</a>

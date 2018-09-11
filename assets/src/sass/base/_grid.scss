@@ -165,6 +165,17 @@ body {
     }
   }
 
+  @include breakpoint($break_tablet_large) {
+    &--tablet-large {
+      // Column width
+      @for $i from 1 to $total-columns+1 {
+        &--#{$i} {
+          width: percentage($i/$total-columns);
+        }
+      }
+    }
+  }
+
   @include breakpoint($break_tablet) {
     &--tablet {
       // Column width
@@ -256,6 +267,19 @@ body {
 
 .tablet-show {
   display: none !important;
+}
+
+.tablet--large-show {
+  display: none !important;
+}
+
+@include breakpoint($break_tablet_large) {
+  .tablet--large-hide {
+    display: none !important;
+  }
+  .tablet--large-show {
+    display: block !important;
+  }
 }
 
 @include breakpoint($break_tablet) {

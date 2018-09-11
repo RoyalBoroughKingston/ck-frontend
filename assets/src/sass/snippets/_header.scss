@@ -8,7 +8,7 @@
   overflow: hidden;
   z-index: 999;
 
-  @include breakpoint($break_tablet) {
+  @include breakpoint($break_tablet_large) {
     padding: 0;
 
     .flex-col {
@@ -25,7 +25,7 @@
     z-index: 999;
 
     #google_translate_element {
-      @include breakpoint($break_tablet) {
+      @include breakpoint($break_tablet_large) {
         display: block;
         top: auto;
         bottom: $base-margin*1.5;
@@ -37,7 +37,7 @@
   .flex-container {
     position: relative;
 
-    @include breakpoint($break_tablet) {
+    @include breakpoint($break_tablet_large) {
       height: 100%;
       align-items: baseline;
     }
@@ -52,7 +52,7 @@
       display: inline-block;
     }
 
-    @include breakpoint($break_tablet) {
+    @include breakpoint($break_tablet_large) {
       display: none;
     }
   }
@@ -62,7 +62,7 @@
     padding: $base-margin 0;
     z-index: 1;
 
-    @include breakpoint($break_tablet) {
+    @include breakpoint($break_tablet_large) {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -71,7 +71,7 @@
   }
 
   &__navigation {
-    @include breakpoint($break_tablet) {
+    @include breakpoint($break_tablet_large) {
       display: flex;
       text-align: center;
 
@@ -88,7 +88,7 @@
     max-width: 510px;
     height: auto;
 
-    @include breakpoint($break_tablet) {
+    @include breakpoint($break_tablet_large) {
       max-width: 360px;
     }
 
