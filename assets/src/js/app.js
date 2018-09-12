@@ -70,15 +70,16 @@ export class App {
         Search,
         SocialFeed,
         SocialShare
+      },
+      created() {
+        // Init modules
+        window.onload = function(){
+          let print = new Print();
+          let navigation = new Navigation();
+          let scrollToAnchor = new ScrollToAnchor();
+        }
       }
     })
-
-    // Init modules
-    window.onload = function(){
-      let print = new Print();
-      let navigation = new Navigation();
-      let scrollToAnchor = new ScrollToAnchor();
-    }
 
   }
 

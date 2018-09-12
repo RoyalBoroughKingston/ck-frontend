@@ -26,7 +26,26 @@
     
     export default {
         name: "complete",
-        props: ['service', 'referral']
+        props: ['service', 'referral'],
+        methods: {
+            initPrint() {
+                const printTriggers = document.querySelectorAll("a[href*='#print']")
+
+                if(printTriggers)
+                    printTriggers.forEach((trigger) => {
+                        trigger.addEventListener('click', (e) => {
+                            e.preventDefault ? e.preventDefault() : e.returnValue = !1;
+                            
+                            // Print the window
+                            window.print()
+                        })
+                    })
+            }
+        },
+        mounted() {
+            // Init print button
+            this.initPrint()
+        }
     }
 </script>
  

@@ -1,6 +1,6 @@
 <template>
     <section class="section">
-        <div class="flex-container services-shortlist-header">
+        <div class="flex-container">
             <div class="flex-col flex-col--12">
                 <p class="sm-copy color-grey text-center" v-if="services">{{ services.length }} service<span v-if="services.length > 1 || services.length === 0">s</span> shortlisted</p>
             </div>
