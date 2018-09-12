@@ -74,9 +74,11 @@ export class App {
     })
 
     // Init modules
-    let print = new Print();
-    let navigation = new Navigation();
-    let scrollToAnchor = new ScrollToAnchor();
+    window.onload = function(){
+      let print = new Print();
+      let navigation = new Navigation();
+      let scrollToAnchor = new ScrollToAnchor();
+    }
 
   }
 
