@@ -14,6 +14,10 @@
     .flex-col {
       margin-bottom: 0;
     }
+
+    .btn--shortlist {
+      margin-bottom: $base-margin*3.5;
+    }
   }
 
   &.active {
@@ -23,14 +27,10 @@
     width: 100%;
     height: 100%;
     z-index: 999;
+    overflow: auto;
 
     #google_translate_element {
-      @include breakpoint($break_tablet_large) {
-        display: block;
-        top: auto;
-        bottom: $base-margin*1.5;
-        right: auto;
-      }
+      display: block;
     }
   }
 
@@ -40,6 +40,7 @@
     @include breakpoint($break_tablet_large) {
       height: 100%;
       align-items: baseline;
+      flex:1 1 auto;
     }
   }
 
@@ -54,6 +55,9 @@
 
     @include breakpoint($break_tablet_large) {
       display: none;
+      top: auto;
+      right: auto;
+      position: relative;
     }
   }
 
