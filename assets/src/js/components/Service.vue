@@ -16,7 +16,9 @@
         </div>
         
         <div class="service__location" v-if="location">
-            <i class="fa fa-map-marker-alt" aria-hidden></i> <span class="service__location__name" v-html="location"></span>
+            <i class="fa fa-map-marker-alt" aria-hidden title="Location"></i>
+            <span class="sr-only">Location</span>
+            <span class="service__location__name" v-html="location"></span>
         </div>
 
         <div class="service__contact service__contact--telephone" v-if="type === 'shortlist' && service.contact_phone">
@@ -34,8 +36,16 @@
         </div>
         
         <div class="service__meta" v-if="type === 'service'">
-            <div class="service__meta__item sm-copy" v-if="service.is_free === true"><i class="fa fa-pound-sign" aria-hidden></i> Free</div>
-            <div class="service__meta__item sm-copy" v-if="service.wait_time"><i class="fa fa-hourglass" aria-hidden></i> {{ returnWaitTime(service.wait_time) }}</div>
+            <div class="service__meta__item sm-copy" v-if="service.is_free === true">
+                <i class="fa fa-pound-sign" aria-hidden title="Cost"></i>
+                <span class="sr-only">Cost</span>
+                Free
+            </div>
+            <div class="service__meta__item sm-copy" v-if="service.wait_time">
+                <i class="fa fa-hourglass" aria-hidden title="Wait time"></i>
+                <span class="sr-only">Wait time</span>
+                {{ returnWaitTime(service.wait_time) }}
+            </div>
         </div>
 
         <div class="service__details" v-if="type === 'service'">

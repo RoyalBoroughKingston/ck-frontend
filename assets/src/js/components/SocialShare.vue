@@ -15,12 +15,12 @@
             </network>
             
             <a class="link-share" :data-clipboard-text="url">
-                <i class="fab fa-link" aria-hidden title="Link"></i>
+                <i class="fa fa-link" aria-hidden title="Link"></i>
                 <span class="sr-only">Link</span>
             </a>
 
             <network network="email">
-                <i class="fab fa-envelope" aria-hidden title="Email"></i>
+                <i class="fa fa-envelope" aria-hidden title="Email"></i>
                 <span class="sr-only">Email</span>
             </network>
         </div>

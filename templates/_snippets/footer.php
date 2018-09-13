@@ -13,8 +13,8 @@
           <nav class="nav nav--footer nav--social" name="social-nav">
             <label for="social-nav">Get in touch</label>
 
-            <a href="https://facebook.com/ConnectedKingston" class="nav__link" target="_blank"> class="fab fa-facebook-f" aria-hidden></i></a>
-            <a href="https://twitter.com/ConnectedKings" class="nav__link" target="_blank"> class="fab fa-twitter" aria-hidden></i></a>
+            <a href="https://facebook.com/ConnectedKingston" class="nav__link" target="_blank"><i class="fab fa-facebook-f" aria-hidden></i></a>
+            <a href="https://twitter.com/ConnectedKings" class="nav__link" target="_blank"><i class="fab fa-twitter" aria-hidden></i></a>
           </nav>
         </div>
 
