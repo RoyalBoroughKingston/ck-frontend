@@ -26,6 +26,7 @@
         height: 100%;
         z-index: 999;
         overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
 
         &--left {
             left: 0;
@@ -86,7 +87,7 @@
         line-height: 1.4375rem !important;
         color: $san_juan !important;
         border: none !important;
-        margin: 0 $base-margin*0.5 !important;
+        margin: -4px $base-margin*0.5 0 $base-margin*0.5 !important;
         vertical-align: middle !important;
         opacity: 0.8;
 

@@ -3,7 +3,6 @@ export class Print {
     constructor() {
   
       const printTriggers = document.querySelectorAll("a[href*='#print']")
-      console.log(printTriggers)
 
       if(printTriggers)
         printTriggers.forEach((trigger) => {

@@ -26,7 +26,7 @@
                     <div class="flex-container flex-container--no-margin flex-container--no-padding flex-container--no-space">
                         <div class="field flex-col">
                             <p for="search_term" class="field__description">Search</p>
-                            <input type="text" name="search_term" class="input input--text" v-bind:value="search_term">
+                            <input type="text" name="search_term" placeholder="Enter search term" class="input input--text" v-bind:value="search_term">
                         </div>
                         <div class="field flex-col">
                             <p for="location" class="field__description">Location</p>

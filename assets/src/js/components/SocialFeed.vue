@@ -68,7 +68,7 @@
         methods: {
             getTwitterFeed() {
                 axios
-                .get('https://api.twitter.com/1/statuses/user_timeline/seanjessenuk.json?count=1&include_rts=1&callback=?')
+                .get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=seanjessen&count=2')
                 .then(response => (
                     console.log(response)
                 ))

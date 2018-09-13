@@ -120,6 +120,10 @@
 
         p {
             margin-bottom: $base-margin*2.5;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
         
         &__title {

@@ -14,7 +14,7 @@ select,
   background-repeat: no-repeat;
   background-position: calc(100% - 8px) 8px;
   color: $san_juan_50;
-  -webkit-appearance: none;
+  appearance: none;
 
   @include breakpoint($break_mobile) {
     font-size: 0.875rem;
