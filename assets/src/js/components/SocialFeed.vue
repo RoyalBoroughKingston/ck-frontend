@@ -77,7 +77,7 @@
         },
         mounted() {
             // Get twitter feed
-            this.getTwitterFeed()
+            // this.getTwitterFeed()
         }
     }
 </script>

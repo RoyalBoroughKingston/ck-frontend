@@ -1,3 +1,6 @@
+// Polyfills for IE
+import "@babel/polyfill"
+
 import axios from 'axios'
 import Vue from 'vue'
 import Paginate from 'vuejs-paginate'
@@ -6,7 +9,7 @@ import VueCookies from 'vue-cookies'
 import SocialSharing from 'vue-social-sharing'
 import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
-import vueHeadful from 'vue-headful';
+import vueHeadful from 'vue-headful'
 
 Vue.use(axios)
 Vue.use(VueCookies)

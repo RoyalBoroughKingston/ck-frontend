@@ -97,7 +97,7 @@
             },
             showService(e) {
                 // Unset previous marker icon
-                document.querySelectorAll('.leaflet-marker-icon').forEach((marker) => {
+                Array.prototype.slice.call(document.querySelectorAll('.leaflet-marker-icon'), 0).forEach((marker) => {
                     marker.src="/assets/dist/img/map/map-marker.svg"
                 })
 

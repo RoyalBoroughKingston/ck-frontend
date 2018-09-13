@@ -26,3 +26,8 @@ select,
     outline: 0;
   }
 }
+
+// IE Arrow hack
+select::-ms-expand {
+  display: none;
+}

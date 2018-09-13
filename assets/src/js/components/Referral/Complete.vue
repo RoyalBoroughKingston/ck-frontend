@@ -29,7 +29,7 @@
         props: ['service', 'referral'],
         methods: {
             initPrint() {
-                const printTriggers = document.querySelectorAll("a[href*='#print']")
+                const printTriggers = Array.prototype.slice.call(document.querySelectorAll("a[href*='#print']"), 0)
 
                 if(printTriggers)
                     printTriggers.forEach((trigger) => {

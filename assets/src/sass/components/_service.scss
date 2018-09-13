@@ -46,17 +46,25 @@
     }
 
     &__location {
-        display: flex;
-        align-items: center;
+        display: table;
+        width: 100%;
         background-color: $jungle_green !important;
         color: $white;
         font-size: 1.1875rem;
         line-height: 1.625rem;
         padding: $base-margin*0.75 $base-margin*2;
         box-sizing: border-box;
+        word-wrap: break-word;
+
+        &__name {
+            display: table-cell;
+            vertical-align: middle;
+        }
 
         i {
-            margin-right: $base-margin;
+            display: table-cell;
+            vertical-align: middle;
+            padding-right: $base-margin;
         }
 
         @include breakpoint($break_mobile) {

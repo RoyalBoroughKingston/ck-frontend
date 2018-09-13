@@ -24,14 +24,14 @@
                         <span class="sm-copy">
                             <i class="fa fa-phone"></i> Telephone
                         </span>
-                        <p>{{ organisation.phone }}</p>
+                        <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
                             <i class="fa fa-envelope"></i> Email
                         </span>
-                        <p>{{ organisation.email }}</p>
+                        <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
@@ -39,7 +39,7 @@
                             <i class="fa fa-globe"></i>
                             Website
                         </span>
-                        <p>{{ organisation.url }}</p>
+                        <a :href="organisation.url" target="_blank">{{ organisation.url }}</a>
                     </div>
                 </div>
             </div>
@@ -71,14 +71,14 @@
                         <span class="sm-copy">
                             <i class="fa fa-phone"></i> Telephone
                         </span>
-                        <p>{{ organisation.phone }}</p>
+                        <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
                             <i class="fa fa-envelope"></i> Email
                         </span>
-                        <p>{{ organisation.email }}</p>
+                        <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
@@ -86,7 +86,7 @@
                             <i class="fa fa-globe"></i>
                             Website
                         </span>
-                        <p>{{ organisation.url }}</p>
+                        <a :href="organisation.url" target="_blank">{{ organisation.url }}</a>
                     </div>
                 </div>
             </div>

@@ -50,8 +50,9 @@
                         localStorage['authorizedGeoLocation'] = 1
                         
                         // Store the postcode
+                        console.log(response.data.result)
                         if(response.data.result) {
-                            this.postcode = response.data.result[0].postcode
+                            this.postcode = array.slice(0, response.data.result).postcode
                         } else {
                             window.alert('Could not find postcode. This service is only available to users in the UK.')
                         }                        
