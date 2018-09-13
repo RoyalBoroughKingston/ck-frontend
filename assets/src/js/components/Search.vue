@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="flex-col flex-col--3" v-if="displayOption && ($mq !== 'mobile' || $mq !== 'tablet')">
-                    <search-filter :type="'sidebar'"></search-filter>
+                    <search-filter :type="'sidebar'" :is_free="is_free" :wait_time="wait_time"></search-filter>
                 </div>
             </div>
             

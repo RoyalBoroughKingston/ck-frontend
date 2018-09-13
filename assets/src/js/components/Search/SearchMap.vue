@@ -26,7 +26,7 @@
             return {
                 map: null,
                 tileLayer: null,
-                markers: [],
+                markers: new L.LayerGroup(),
                 layers: [
                     {
                         id: 0,
@@ -53,6 +53,9 @@
         },
         methods: {
             findLayers() {
+                // Empty the array
+                this.layers[0].features = []
+
                 // Loop through the services
                 this.services.forEach((service) => {
                     // Check if the service has locations
@@ -78,22 +81,36 @@
                 // Add zoom position
                 L.control.zoom({
                     position:'bottomright'
-                }).addTo(this.map);
+                }).addTo(this.map)
+
+                // Add the markers layer to the map
+                this.markers.addTo(this.map)
             },
             initLayers() {
+                let marker;
+
                 this.layers.forEach((layer) => {
                     const markerFeatures = layer.features.filter(feature => feature.type === 'marker');
 
                     markerFeatures.forEach((feature) => {
                         // Create marker
-                        feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
+                        marker = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
                             .addTo(this.map)
                             .on('click', this.showService)
-                        
-                        // Push markers to array for use later
-                        this.markers.push(feature.leafletObject)
+
+                        this.markers.addLayer(marker)
                     });
                 });
+            },
+            updateMap() {
+                // Clear all markers
+                this.markers.clearLayers()
+
+                // Find the new layers
+                this.findLayers()
+                
+                // Now init the layers
+                this.initLayers()
             },
             showService(e) {
                 // Unset previous marker icon
@@ -148,13 +165,15 @@
             }
         },
         mounted() {
-            this.findLayers();
-            this.initMap();
-            this.initLayers();
+            this.findLayers()
+            this.initMap()
+            this.initLayers()
         },
         watch: {
-            // You can also set up a watcher for name here if you like
-            service() {}
+            services() {
+                // Update the map
+                this.updateMap()
+            }
         }
     }
 </script>

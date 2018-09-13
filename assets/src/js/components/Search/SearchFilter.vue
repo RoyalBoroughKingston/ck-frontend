@@ -72,7 +72,7 @@
             <div class="service__filter">
                 <div class="field field--no-margin field--checkbox flex-col">
                     <div class="checkbox">
-                        <input type="checkbox" id="cost-free" name="is_free" class="input input--checkbox" v-bind:value="'true'" :checked="is_free" v-on:change="setParameters">
+                        <input type="checkbox" id="cost-free" name="is_free" class="input input--checkbox" :value="'true'" :checked="is_free" @click="setParameters">
                         <label for="cost-free"><span><span></span></span> Free</label>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="field field--no-margin field--select flex-col">
                     <p class="service__name sm-copy color-grey"><i class="fa fa-hourglass-half"></i> Average waiting time</p>
                     
-                    <select class="select" name="wait_time" v-on:change="setParameters">
+                    <select class="select" name="wait_time" v-model="wait_time" v-on:change="setParameters">
                         <option v-bind:value="null">Show all</option>
                         <option v-bind:value="'one_week'">Up to 1 week</option>
                         <option v-bind:value="'two_weeks'">Up to 2 weeks</option>
