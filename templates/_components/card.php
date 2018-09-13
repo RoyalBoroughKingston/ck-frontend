@@ -79,12 +79,6 @@
         </table>
       </div>
     </div>
-
-    <div class="card__services flex-col flex-col--12">
-      <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt="">
-      <img src="/assets/dist/img/access-icons/access-by-ramps-slopes-manual-doors.png" alt="">
-      <img src="/assets/dist/img/access-icons/mobility-impaired-walker.png" alt="">
-    </div>
   {% endif %}
 
   {% if usefulInformation is defined and usefulInformation | length %}

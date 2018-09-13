@@ -19,7 +19,7 @@
                         </span>
                     </div>
                     <div class="service__image">
-                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo.png`" :title="service.name">
+                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo.png`" :name="service.name">
                     </div>
 
                     <div class="service__details">

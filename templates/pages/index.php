@@ -59,7 +59,7 @@
 <section class="section mobile-hide">
     <div class="flex-container">
         <div class="flex-col flex-col--7 highlight highlight--grey">
-        {% include('templates/_components/media.php') with { type: 'image', imageUrl: '/assets/dist/img/global/CK_Homepage_About.jpg', imageTitle: 'Connected Kingston' } %}
+            {% include('templates/_components/media.php') with { type: 'image', imageUrl: '/assets/dist/img/global/CK_Homepage_About.jpg', imageTitle: 'Connected Kingston' } %}
         </div>
 
         <div class="flex-col flex-col--5">

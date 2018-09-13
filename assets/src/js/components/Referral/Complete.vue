@@ -1,7 +1,7 @@
 <template>
     <div class="referral__complete">
         <div class="section__component flex-container flex-container--justify text-center">
-            <img src="/assets/dist/img/symbols/tick.svg" class="display-inline">
+            <img src="/assets/dist/img/symbols/tick.svg" class="display-inline" alt="Tick">
         </div>
         
         <div class="section__component flex-container flex-container--justify text-center">

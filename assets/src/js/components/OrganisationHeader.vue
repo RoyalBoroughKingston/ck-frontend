@@ -20,7 +20,7 @@
             <div class="flex-col flex-col--4 flex-col--gutter" v-if="$mq !== 'mobile'">
                 <div class="title-card">
                     <div class="title-card__image">
-                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo.png`">
+                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo.png`" :alt="organisation.name">
                     </div>
                 </div>
             </div>
