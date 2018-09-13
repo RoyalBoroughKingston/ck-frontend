@@ -50,6 +50,11 @@
           opacity: 1;
         }
       }
+
+      &:focus {
+        color: $puerto_rico;
+        text-decoration: none;
+      }
   
       span {
         position: relative;
@@ -114,6 +119,10 @@
 
       &:hover {
         text-decoration: underline;
+      }
+
+      &:focus {
+        color: $puerto_rico;
       }
 
       &:last-child {

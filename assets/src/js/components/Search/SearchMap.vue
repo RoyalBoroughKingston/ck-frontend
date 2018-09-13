@@ -113,6 +113,7 @@
                 this.initLayers()
             },
             showService(e) {
+                console.log(e)
                 // Unset previous marker icon
                 Array.prototype.slice.call(document.querySelectorAll('.leaflet-marker-icon'), 0).forEach((marker) => {
                     marker.src="/assets/dist/img/map/map-marker.svg"

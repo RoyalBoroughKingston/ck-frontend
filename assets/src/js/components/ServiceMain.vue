@@ -316,7 +316,7 @@
                 <div class="section__component section__component--mobile-padding text-center">
                     <div class="page-meta">
                         <p class="sm-copy"><span class="color-grey">Page last updated</span> <em>{{ service.updated_at | moment("Do MMMM YYYY") }}</em></p>
-                        <p class="sm-copy service-feedback"><a v-on:click="giveFeedback">Give us feedback</a></p>
+                        <p class="sm-copy service-feedback"><a v-on:click="giveFeedback" role="button">Give us feedback</a></p>
                     </div>
                 </div>
             </div>

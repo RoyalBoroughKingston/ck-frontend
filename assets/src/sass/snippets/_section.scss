@@ -290,6 +290,12 @@
 
     > a {
       text-decoration: none;
+
+      &:focus {
+        p {
+          color: $puerto_rico;
+        }
+      }
     }
 
     i {

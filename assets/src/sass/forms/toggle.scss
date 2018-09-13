@@ -23,7 +23,8 @@
   }
 
   input[type="radio"] {
-    display:none;
+    position: absolute;
+    left: -99999px;
   }
 
   input[type="radio"] + label {
@@ -54,6 +55,10 @@
     box-sizing: border-box;
   }
 
+  input[type="radio"]:focus + label > span {
+    border-color: $puerto_rico;
+  }
+
   input[type="radio"] + label > span > span {
     display: block;
     width: 27px;
@@ -79,7 +84,8 @@
 // CHECKBOX
 .checkbox {
   input[type="checkbox"] {
-    display:none;
+    position: absolute;
+    left: -99999px;
   }
 
   input[type="checkbox"] + label {
@@ -102,6 +108,10 @@
     cursor:pointer;
     background-color: transparent;
     border: 2px solid $san_juan;
+  }
+  
+  input[type="checkbox"]:focus + label > span {
+    border-color: $puerto_rico;
   }
 
   input[type="checkbox"] + label > span > span:before {

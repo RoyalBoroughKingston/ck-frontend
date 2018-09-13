@@ -16,7 +16,7 @@
                         <textarea class="input input--textarea" name="message" v-model="message"></textarea>
                     </div>
 
-                    <a v-on:click="submitFeedback" class="modal__cta btn" role="button"><span>Submit feedback</span></a>
+                    <button v-on:click="submitFeedback" class="modal__cta btn" role="button"><span>Submit feedback</span></button>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
   <div class="flex-container flex-container--align-center flex-container--justify">
     <div class="flex-col flex-col--6 flex-col--tablet-large--12 header__brand">
       <figure class="logo">
-        <a href="/"><img src="/assets/dist/img/global/logo.png" alt="Connected Kingston" class="img-responsive"/></a>
+        <a href="/" aria-label="Home Link"><img src="/assets/dist/img/global/logo.png" alt="Connected Kingston" class="img-responsive"/></a>
       </figure>
 
       <button type="button" name="nav-trigger" class="nav-trigger tablet--large-show" role="button">
@@ -12,8 +12,8 @@
       </button>
     </div>
 
-    <div class="flex-col flex-col--6 flex-col--tablet-large--12 header__navigation tablet--large-hide">
-      <nav class="nav nav--primary" role="navigation">
+    <div class="flex-col flex-col--6 flex-col--tablet-large--12 header__navigation tablet--large-hide" role="navigation">
+      <nav class="nav nav--primary" role="menubar" aria-label="Primary Navigation">
         <a href="/" class="nav__link <?php if ($CURRENT_PAGE == "index") {?>active<?php }?>" role="menuitem">Search</a>
         <a href="/about" class="nav__link <?php if ($CURRENT_PAGE == "about") {?>active<?php }?>" role="menuitem">About</a>
         <a href="/contact" class="nav__link <?php if ($CURRENT_PAGE == "contact") {?>active<?php }?>" role="menuitem">Contact</a>

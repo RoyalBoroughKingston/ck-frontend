@@ -25,7 +25,7 @@
                 <form class="form" v-on:submit="setWhoFor" role="form">
                     <div class="field field--radio">
                         <div class="radio">
-                            <input type="radio" id="myself" value="myself" name="who_for" class="input input--radio" checked="checked">
+                            <input type="radio" id="myself" value="myself" name="who_for" class="input input--radio" checked="checked" v-focus>
                             <label for="myself"><span><span></span></span> Myself</label>
                         </div>
                         

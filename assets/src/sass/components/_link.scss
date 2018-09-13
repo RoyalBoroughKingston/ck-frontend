@@ -62,4 +62,11 @@
             line-height: 1.625rem;
         }
     }
+
+    &:focus,
+    &:hover {
+        &:after {
+            background-color: transparent;
+        }
+    }
 }

@@ -11,7 +11,7 @@
             $base = ($_SERVER['HTTPS'] ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
         
             // Initialize a temporary array with our breadcrumbs. (starting with our home page, which I'm assuming will be the base URL)
-            $breadcrumbs = Array("<a href=\"$base\" class=\"breadcrumbs__crumb\">$home</a>");
+            $breadcrumbs = Array("<a href=\"$base\" class=\"breadcrumbs__crumb\" role=\"button\">$home</a>");
         
             // Find out the index for the last value in our path array
             $keys = array_keys($path);
@@ -24,7 +24,7 @@
         
                 // If we are not on the last index, then display an <a> tag
                 if ($x != $last)
-                    $breadcrumbs[] = "<a href=\"$base$crumb\" class=\"breadcrumbs__crumb\">$title</a>";
+                    $breadcrumbs[] = "<a href=\"$base$crumb\" class=\"breadcrumbs__crumb\" role=\"button\">$title</a>";
                 // Otherwise, just display the title (minus)
                 else
                     $breadcrumbs[] = ucwords(str_replace("-"," ",$title));

@@ -56,7 +56,8 @@
   &:focus {
     box-shadow: none;
     border-color: $puerto_rico;
-    outline: 0;
+    
+    text-decoration: none;
   }
 
   &--green {

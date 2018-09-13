@@ -15,7 +15,7 @@
                     <div class="flex-container flex-container--no-padding">
                         <div class="field flex-col flex-col--8">
                             <label for="client_name">Name</label>
-                            <input type="text" class="input input--text" name="name" placeholder="Enter here" required/>
+                            <input type="text" class="input input--text" name="name" placeholder="Enter here" required v-focus/>
                         </div>
                     </div>
 

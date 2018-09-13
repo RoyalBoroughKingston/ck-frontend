@@ -182,6 +182,10 @@
             line-height: 1.75rem;
             text-decoration: none;
             cursor: pointer;
+
+            &:focus {
+                color: $puerto_rico;
+            }
         }
 
         > span {

@@ -27,6 +27,13 @@ const store = new Vuex.Store({})
 
 Vue.use(VueMediaEmbed, { store })
 
+// Focus directive for newly insterted elements
+Vue.directive('focus', {
+  inserted: function (el) {
+    el.focus()
+  }
+})
+
 // Vue Components
 Vue.component('paginate', Paginate)
 Vue.component('vue-headful', vueHeadful);

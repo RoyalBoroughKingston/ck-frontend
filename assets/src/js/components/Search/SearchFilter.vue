@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="flex-col flex-col--tablet--6 flex-col--mobile--6 text-right" v-if="$mq !== 'desktop'">
-                    <a v-on:click="showFilter()" class="btn btn--small">Edit search</a>
+                    <button v-on:click="showFilter()" class="btn btn--small">Edit search</button>
                 </div>
             </div>
             
@@ -72,7 +72,7 @@
                 <div class="field field--no-margin field--checkbox flex-col">
                     <div class="checkbox">
                         <input type="checkbox" id="cost-free" name="is_free" class="input input--checkbox" :value="'true'" :checked="is_free" @click="setParameters">
-                        <label for="cost-free"><span><span></span></span> Free</label>
+                        <label for="cost-free" tabindex="0"><span><span></span></span> Free</label>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <div class="field field--no-margin field--select flex-col">
                     <p class="service__name sm-copy color-grey"><i class="fa fa-hourglass-half" aria-hidden></i> Average waiting time</p>
                     
-                    <select class="select" name="wait_time" v-model="wait_time" v-on:change="setParameters">
+                    <select class="select" name="wait_time" v-model="wait_time" v-on:change="setParameters" tabindex="0">
                         <option v-bind:value="null">Show all</option>
                         <option v-bind:value="'one_week'">Up to 1 week</option>
                         <option v-bind:value="'two_weeks'">Up to 2 weeks</option>

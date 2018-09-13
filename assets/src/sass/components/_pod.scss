@@ -21,6 +21,12 @@
             display: flex;
             align-items: center;
         }
+
+        &:focus {
+            .pod__image img {
+                border-color: $puerto_rico;
+            }
+        }
     }
 
     &__title {

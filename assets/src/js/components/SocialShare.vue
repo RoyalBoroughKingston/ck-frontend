@@ -4,22 +4,22 @@
         :title="title"
         inline-template>
         <div>
-            <network network="facebook">
+            <network network="facebook" :role="`button`">
                 <i class="fab fa-facebook" aria-hidden title="Facebook"></i>
                 <span class="sr-only">Facebook</span>
             </network>
             
-            <network network="twitter">
+            <network network="twitter" :role="`button`">
                 <i class="fab fa-twitter" aria-hidden title="Twitter"></i>
                 <span class="sr-only">Twitter</span>
             </network>
             
-            <a class="link-share" :data-clipboard-text="url">
+            <a class="link-share" :data-clipboard-text="url" :role="`button`">
                 <i class="fa fa-link" aria-hidden title="Link"></i>
                 <span class="sr-only">Link</span>
             </a>
 
-            <network network="email">
+            <network network="email" :role="`button`">
                 <i class="fa fa-envelope" aria-hidden title="Email"></i>
                 <span class="sr-only">Email</span>
             </network>

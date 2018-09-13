@@ -10,11 +10,11 @@
     <div class="flex-col flex-col--6 flex-col--tablet--12">
       <div class="flex-container flex-container--no-padding">
         <div class="flex-col flex-col--6">
-          <nav class="nav nav--footer nav--social" name="social-nav">
+          <nav class="nav nav--footer nav--social" name="social-nav" role="menubar" aria-label="Social Media Links">
             <label for="social-nav">Get in touch</label>
 
-            <a href="https://facebook.com/ConnectedKingston" class="nav__link" target="_blank"><i class="fab fa-facebook-f" aria-hidden></i></a>
-            <a href="https://twitter.com/ConnectedKings" class="nav__link" target="_blank"><i class="fab fa-twitter" aria-hidden></i></a>
+            <a href="https://facebook.com/ConnectedKingston" class="nav__link" target="_blank" role="menuitem"><i class="fab fa-facebook-f" aria-hidden></i></a>
+            <a href="https://twitter.com/ConnectedKings" class="nav__link" target="_blank" role="menuitem"><i class="fab fa-twitter" aria-hidden></i></a>
           </nav>
         </div>
 
@@ -25,13 +25,13 @@
 
       <div class="flex-container flex-container--no-padding">
         <div class="flex-col flex-col--6 flex-col--mobile--6">
-          <nav class="nav nav--footer" name="about-nav" role="navigation>
+          <nav class="nav nav--footer" name="about-nav" role="menubar" aria-label="Terms and Conditions">
             <a href="#" class="nav__link">Terms and conditions</a>
           </nav>
         </div>
   
         <div class="flex-col flex-col--6 flex-col--mobile--6">            
-          <nav class="nav nav--footer" name="about-nav" role="navigation>
+          <nav class="nav nav--footer" name="about-nav" role="menubar" aria-label="Privacy Policy">
             <a href="#" class="nav__link">Privacy Policy</a>
           </nav>
         </div>

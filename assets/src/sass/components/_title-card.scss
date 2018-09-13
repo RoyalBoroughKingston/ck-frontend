@@ -102,6 +102,10 @@
             &:last-child {
                 margin-right: 0;
             }
+
+            &:focus {
+                color: $puerto_rico;
+            }
         }
     }
 

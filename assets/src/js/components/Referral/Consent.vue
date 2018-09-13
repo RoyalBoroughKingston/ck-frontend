@@ -26,7 +26,7 @@
 
                         <div class="field field--radio">
                             <div class="radio radio--stack">
-                                <input type="radio" id="yes" class="input input--radio" name="referral_consented" v-on:click="setConsent" value="true"/>
+                                <input type="radio" id="yes" class="input input--radio" name="referral_consented" v-on:click="setConsent" value="true" v-focus/>
                                 <label for="yes"><span><span></span></span> I agree, please proceed with the connection to <strong>{{ service.name }}</strong></label>
                             </div>
 
