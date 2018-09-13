@@ -8,7 +8,10 @@
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
                 <div class="card card--notification card--light-blue">
-                    <div class="card__icon"><i class="fa fa-info-circle"></i></div>
+                    <div class="card__icon">
+                        <i class="fa fa-info-circle" aria-hidden title="Info"></i>
+                        <span class="sr-only">Info</span>
+                    </div>
                     <div class="card__content">
                         <p>'Myself' is anyone who is referring themselves or a friend.</p>
                     </div>
@@ -35,7 +38,7 @@
                     <p>&nbsp;</p>
                     
                     <div class="form__actions">
-                        <button class="btn btn--icon-after" role="button">Continue <i class="fa fa-angle-right"></i></button>
+                        <button class="btn btn--icon-after" role="button">Continue <i class="fa fa-angle-right" aria-hidden></i></button>
                     </div>
                 </form>
             </div>

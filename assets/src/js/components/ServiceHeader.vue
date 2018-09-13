@@ -16,10 +16,10 @@
                     </div>
 
                     <div class="title-card__action text-center service-actions" v-if="$mq === 'mobile'">
-                        <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                        <a v-if="service && isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star" aria-hidden></i></a>
+                        <a v-if="service && isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star" aria-hidden></i></a>
 
-                        <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a>
+                        <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right" aria-hidden></i></a>
                         <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
                     </div>
                 </div>
@@ -28,10 +28,10 @@
             <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter service-actions" v-if="$mq !== 'mobile'">
                 <div class="title-card title-card--reduce-padding title-card--service text-center">
                     <div class="title-card__action">
-                        <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></a>
-                        <a v-if="service && isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star"></i></a>
+                        <a v-if="service && !isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star" aria-hidden></i></a>
+                        <a v-if="service && isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star" aria-hidden></i></a>
 
-                        <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right"></i></a>
+                        <a :href="['/referral?service=' + service.id]" class="btn btn--icon-after" v-if="service && service.referral_method !== 'none'">{{ service.referral_button_text }} <i class="fa fa-arrow-right" aria-hidden></i></a>
                         <p v-if="service && service.referral_method === 'none'"><strong>Please contact the service directly</strong></p>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
             <a href="#main" class="scroll-to-anchor">
                 <p>
                     <strong>Find out more</strong><br>
-                    <i class="fa fa-angle-down"></i>
+                    <i class="fa fa-angle-down" aria-hidden></i>
                 </p>
             </a>
         </div>
@@ -82,7 +82,7 @@
                 let shortlist = window.$cookies.get("ck_shortlist") + ',' + e.currentTarget.getAttribute('data-id')
                 window.$cookies.set("ck_shortlist", shortlist, null, '/')
                 e.currentTarget.classList.add('btn--green')
-                e.currentTarget.innerHTML = 'In your shortlist <i class="fa fa-star"></i>'
+                e.currentTarget.innerHTML = 'In your shortlist <i class="fa fa-star" aria-hidden></i>'
             }
         },
         mounted () {

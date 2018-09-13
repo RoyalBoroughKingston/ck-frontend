@@ -15,28 +15,28 @@
                     
                     <div class="service__contact service__contact--telephone" v-if="organisation.name">
                         <span class="sm-copy">
-                            <i class="fa fa-user"></i> Name
+                            <i class="fa fa-user" aria-hidden></i> Name
                         </span>
                         <p>{{ organisation.name }}</p>
                     </div>
 
                     <div class="service__contact service__contact--telephone" v-if="organisation.phone">
                         <span class="sm-copy">
-                            <i class="fa fa-phone"></i> Telephone
+                            <i class="fa fa-phone" aria-hidden></i> Telephone
                         </span>
                         <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
-                            <i class="fa fa-envelope"></i> Email
+                            <i class="fa fa-envelope" aria-hidden></i> Email
                         </span>
                         <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
                         <span class="sm-copy">
-                            <i class="fa fa-globe"></i>
+                            <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
                         <a :href="organisation.url" target="_blank">{{ organisation.url }}</a>
@@ -62,28 +62,28 @@
                     
                     <div class="service__contact service__contact--telephone" v-if="organisation.name">
                         <span class="sm-copy">
-                            <i class="fa fa-user"></i> Name
+                            <i class="fa fa-user" aria-hidden></i> Name
                         </span>
                         <p>{{ organisation.name }}</p>
                     </div>
 
                     <div class="service__contact service__contact--telephone" v-if="organisation.phone">
                         <span class="sm-copy">
-                            <i class="fa fa-phone"></i> Telephone
+                            <i class="fa fa-phone" aria-hidden></i> Telephone
                         </span>
                         <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
-                            <i class="fa fa-envelope"></i> Email
+                            <i class="fa fa-envelope" aria-hidden></i> Email
                         </span>
                         <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
                         <span class="sm-copy">
-                            <i class="fa fa-globe"></i>
+                            <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
                         <a :href="organisation.url" target="_blank">{{ organisation.url }}</a>

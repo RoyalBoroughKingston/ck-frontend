@@ -2,7 +2,7 @@
     <div class="modal" data-modal="main">
         <div class="valign">
             <div class="modal__wrapper">
-                <a v-on:click="hideFeedback" class="modal__close">Close <i class="fa fa-times"></i></a>
+                <a v-on:click="hideFeedback" class="modal__close">Close <i class="fa fa-times" aria-hidden></i></a>
               
                 <div class="modal__header">
                     <h2 class="modal__title" v-if="!feedbackSubmitted">Submit your feedback</h2>

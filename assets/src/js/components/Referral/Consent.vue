@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="form__actions">
-                        <button class="btn btn--icon-after" role="button">Continue <i class="fa fa-angle-right"></i></button>
+                        <button class="btn btn--icon-after" role="button">Continue <i class="fa fa-angle-right" aria-hidden></i></button>
                     </div>
                 </form>
             </div>

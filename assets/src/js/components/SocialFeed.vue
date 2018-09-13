@@ -16,7 +16,8 @@
                         </div>
 
                         <div class="card__header__icon">
-                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-twitter" aria-hidden title="Twitter"></i>
+                            <span class="sr-only">Twitter</span>
                         </div>
                     </div>
 
@@ -39,8 +40,9 @@
                         </div>
 
                         <div class="card__header__icon">
-                            <i class="fab fa-facebook"></i>
-                            </div>
+                            <i class="fab fa-facebook" aria-hidden title="Facebook"></i>
+                            <span class="sr-only">Facebook</span>
+                        </div>
                     </div>
 
                     <div class="card__content">

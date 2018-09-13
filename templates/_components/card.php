@@ -1,31 +1,7 @@
 <div class="card{% if frame is defined and frame | length %} card--{{frame}}{% endif %}{% if type is defined and type | length %} card--{{ type }}{% endif %}{% if colour is defined and colour | length %} card--{{ colour }}{% endif %}">
   {% if type == 'notification' and icon is defined and icon | length %}
     <div class="card__icon">
-      <i class="{{ icon }}"></i>
-    </div>
-  {% endif %}
-
-  {% if type is defined and type == 'social' %}
-    <div class="card__header">
-      <div class="card__header__meta">
-        <p><strong>Connected Kingston</strong></p>
-        
-        <p class="sm-copy">
-          {% if platform is defined and platform == 'twitter' %}
-            <span>@ConnectedKingtson</span>
-          {% endif %}
-          
-          <span>21h</span>
-        </p>
-      </div>
-
-      <div class="card__header__icon">
-        {% if platform is defined and platform == 'twitter' %}
-          <i class="fab fa-twitter"></i>
-        {% elseif platform is defined and platform == 'facebook' %}
-          <i class="fab fa-facebook"></i>
-        {% endif %}
-      </div>
+      <i class="{{ icon }}" aria-hidden></i>
     </div>
   {% endif %}
 

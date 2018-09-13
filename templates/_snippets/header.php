@@ -7,7 +7,8 @@
 
       <button type="button" name="nav-trigger" class="nav-trigger tablet--large-show" role="button">
         <label for="nav-trigger"></label>
-        <i class="bars fa fa-bars"></i>
+        <i class="bars fa fa-bars" aria-hidden title="Menu Trigger"></i>
+        <span class="sr-only">Menu Trigger</span>
       </button>
     </div>
 

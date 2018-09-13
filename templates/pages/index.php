@@ -1,7 +1,7 @@
 <section class="section section--header section--header--1" role="banner">
     <div class="flex-container flex-container--justify flex-container--mobile-no-padding">
         <div class="title-card flex-col">
-            <h3 class="text-center">I'm looking for <i class="fa fa-search"></i></h3>
+            <h3 class="text-center">I'm looking for <i class="fa fa-search" aria-hidden></i></h3>
 
             <search-home></search-home>
         </div>
@@ -17,7 +17,7 @@
         <a href="#categories" class="scroll-to-anchor">
             <p>
                 <strong>More options</strong><br>
-                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-angle-down" aria-hidden></i>
             </p>
         </a>
     </div>
@@ -32,7 +32,7 @@
 <section id="categories" class="section">
     <div class="flex-container">
         <div class="flex-col flex-col--12 text-center">
-            <h3>Browse by category <i class="fa fa-columns"></i></h3>
+            <h3>Browse by category <i class="fa fa-columns" aria-hidden></i></h3>
         </div>
     </div>
 

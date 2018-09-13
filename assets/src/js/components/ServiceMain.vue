@@ -78,28 +78,28 @@
                         <div class="service__content">
                             <div class="service__contact service__contact--telephone" v-if="service.contact_name">
                                 <span class="sm-copy">
-                                    <i class="fa fa-user"></i> Name
+                                    <i class="fa fa-user" aria-hidden></i> Name
                                 </span>
                                 <p>{{ service.contact_name }}</p>
                             </div>
 
                             <div class="service__contact service__contact--telephone" v-if="service.contact_phone">
                                 <span class="sm-copy">
-                                    <i class="fa fa-phone"></i> Telephone
+                                    <i class="fa fa-phone" aria-hidden></i> Telephone
                                 </span>
                                 <p>{{ service.contact_phone }}</p>
                             </div>
                             
                             <div class="service__contact service__contact--email" v-if="service.contact_email">
                                 <span class="sm-copy">
-                                    <i class="fa fa-envelope"></i> Email
+                                    <i class="fa fa-envelope" aria-hidden></i> Email
                                 </span>
                                 <p>{{ service.contact_email }}</p>
                             </div>
                             
                             <div class="service__contact service__contact--website" v-if="service.url">
                                 <span class="sm-copy">
-                                    <i class="fa fa-globe"></i>
+                                    <i class="fa fa-globe" aria-hidden></i>
                                     Website
                                 </span>
                                 <p>{{ service.url }}</p>
@@ -107,7 +107,7 @@
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
                                 <a v-bind:href="social_media.url" v-for="social_media in service.social_medias" :key="social_media.type">
-                                    <i v-bind:class="['fab fa-' + social_media.type]"></i>
+                                    <i v-bind:class="['fab fa-' + social_media.type]" aria-hidden></i>
                                 </a>
                             </div>
                         </div>
@@ -162,20 +162,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="section__component" v-if="$mq === 'mobile'">
-                    <div class="service">
-                        <div class="service__image map map--service">
-                            <div id="map-container"></div>
-                        </div>
-                        
-                        <div class="service__content text-center">
-                            <div class="service__actions">
-                                <a :href="google_map_link" class="btn btn--secondary" target="_blank">Open Google Maps</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
 
                 <div class="section__component" v-if="Object.keys(service.criteria).length === 0 && $mq !== 'mobile'">
                     <h4 class="section__component__header">Who is this service for</h4>
@@ -246,7 +232,7 @@
 
                 <div class="section__component" v-if="service.testimonial">
                     <div class="quote">
-                        <p class="quote__icons"><i class="fa fa-quote-left"></i> <i class="fa fa-quote-right"></i></p>
+                        <p class="quote__icons"><i class="fa fa-quote-left" aria-hidden></i> <i class="fa fa-quote-right" aria-hidden></i></p>
                         <p class="quote__quote"><strong>{{ service.testimonial }}</strong></p>
                     </div>
                 </div>
@@ -254,12 +240,15 @@
 
             <div class="flex-col flex-col--4 flex-col--tablet--5 flex-col--gutter">
                 <div class="section__component text-center tablet-hide">
-                    <a :href="`#print`" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print"></i></a>
+                    <a :href="`#print`" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print" aria-hidden></i></a>
                 </div>
                 
                 <div class="section__component">
                     <div class="card card--notification card--mint" v-if="service.is_free === true && $mq !== 'mobile'">
-                        <div class="card__icon"><i class="fa fa-pound-sign"></i></div>
+                        <div class="card__icon">
+                            <i class="fa fa-pound-sign" aria-hidden title="Cost"></i>
+                            <span class="sr-only">Cost</span>
+                        </div>
                         <div class="card__content">
                             <p>Free</p>
                             <p class="sm-copy">This service costs no money.</p>
@@ -276,28 +265,28 @@
                         <div class="service__content">
                             <div class="service__contact service__contact--telephone" v-if="service.contact_name">
                                 <span class="sm-copy">
-                                    <i class="fa fa-user"></i> Name
+                                    <i class="fa fa-user" aria-hidden></i> Name
                                 </span>
                                 <p>{{ service.contact_name }}</p>
                             </div>
 
                             <div class="service__contact service__contact--telephone" v-if="service.contact_phone">
                                 <span class="sm-copy">
-                                    <i class="fa fa-phone"></i> Telephone
+                                    <i class="fa fa-phone" aria-hidden></i> Telephone
                                 </span>
                                 <a :href="`tel:`+service.contact_phone">{{ service.contact_phone }}</a>
                             </div>
                             
                             <div class="service__contact service__contact--email" v-if="service.contact_email">
                                 <span class="sm-copy">
-                                    <i class="fa fa-envelope"></i> Email
+                                    <i class="fa fa-envelope" aria-hidden></i> Email
                                 </span>
                                 <a :href="`mailto:`+service.contact_email">{{ service.contact_email }}</a>
                             </div>
                             
                             <div class="service__contact service__contact--website" v-if="service.url">
                                 <span class="sm-copy">
-                                    <i class="fa fa-globe"></i>
+                                    <i class="fa fa-globe" aria-hidden></i>
                                     Website
                                 </span>
                                 <a :href="service.url" target="_blank">{{ service.url }}</a>
@@ -305,26 +294,12 @@
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
                                 <a v-bind:href="social_media.url" v-for="social_media in service.social_medias"  :key="social_media.type">
-                                    <i v-bind:class="['fab fa-' + social_media.type]"></i>
+                                    <i v-bind:class="['fab fa-' + social_media.type]" aria-hidden></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="section__component" v-if="$mq !== 'mobile'">
-                    <div class="service">
-                        <div class="service__image map map--service">
-                            <div id="map-container"></div>
-                        </div>
-                        
-                        <div class="service__content text-center">
-                            <div class="service__actions">
-                                <a :href="google_map_link" class="btn btn--secondary" target="_blank">Open Google Maps</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 
                 <div class="section__component">
                     <div class="card card--border-blue card--reduce-padding">

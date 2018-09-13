@@ -17,7 +17,7 @@
             
             <div class="title-card__form">
                 <div class="title-card__form__header" v-if="$mq !== 'desktop'">
-                    <a v-on:click="hideFilter()" class="link link--icon-before"><i class="fa fa-angle-left"></i> Back</a>
+                    <a v-on:click="hideFilter()" class="link link--icon-before"><i class="fa fa-angle-left" aria-hidden></i> Back</a>
                 
                     <h4>I'm looking for</h4>
                 </div>
@@ -54,7 +54,7 @@
                             </select>
                         </div>
                         <div class="form__actions flex-col">
-                            <button type="submit" class="btn btn--small btn--icon-after">Search <i class="fa fa-search"></i></button>
+                            <button type="submit" class="btn btn--small btn--icon-after">Search <i class="fa fa-search" aria-hidden></i></button>
                         </div>
                     </div>
                 </form>
@@ -64,9 +64,8 @@
         <div class="service" v-if="type === 'sidebar'">
             <div class="service__header">
                 <span>
-                    <p class="service__name sm-copy color-grey"><i class="fa fa-filter"></i> Filters</p>
+                    <p class="service__name sm-copy color-grey"><i class="fa fa-filter" aria-hidden></i> Filters</p>
                 </span>
-                <span class="mobile-show"><i class="fa fa-angle-down"></i></span>
             </div>
 
             <div class="service__filter">
@@ -80,7 +79,7 @@
 
             <div class="service__filter">
                 <div class="field field--no-margin field--select flex-col">
-                    <p class="service__name sm-copy color-grey"><i class="fa fa-hourglass-half"></i> Average waiting time</p>
+                    <p class="service__name sm-copy color-grey"><i class="fa fa-hourglass-half" aria-hidden></i> Average waiting time</p>
                     
                     <select class="select" name="wait_time" v-model="wait_time" v-on:change="setParameters">
                         <option v-bind:value="null">Show all</option>

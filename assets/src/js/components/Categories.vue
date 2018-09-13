@@ -1,7 +1,7 @@
 <template>
    <div class="tag-cloud">
         <a v-for="category in categories" :key="category.id" v-bind:href="['/results?is_free=true&wait_time=null&category=' + category.id]" role="button" class="btn btn--secondary btn--icon-after">
-            {{category.name}} <i v-bind:class="['fa fa-' + category.icon]"></i>
+            {{category.name}} <i v-bind:class="['fa fa-' + category.icon]" aria-hidden></i>
         </a>
     </div>
 </template>
