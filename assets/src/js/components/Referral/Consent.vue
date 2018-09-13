@@ -18,7 +18,7 @@
 
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
-                <form class="form" v-on:submit="completeReferral">
+                <form class="form" v-on:submit="completeReferral" role="form">
                     <div class="flex-container flex-container--no-padding">
                         <div class="flex-col flex-col--12">
                             <p>&nbsp;</p>

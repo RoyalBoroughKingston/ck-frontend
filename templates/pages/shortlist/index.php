@@ -1,4 +1,4 @@
-<section class="section section--reduce-padding section--header section--header--3 section--header--no-margin-bottom">
+<section class="section section--reduce-padding section--header section--header--3 section--header--no-margin-bottom" role="banner">
     <div class="flex-container flex-container--mobile-no-padding flex-container--align-center">
         <div class="flex-col">
             {% include('templates/_components/title-card.php') with { title: 'Shortlist', enableShare:'true' } %}

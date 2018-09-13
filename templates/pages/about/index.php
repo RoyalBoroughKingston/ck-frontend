@@ -1,4 +1,4 @@
-<section class="section section--header section--header--1 section--reduce-padding">
+<section class="section section--header section--header--1 section--reduce-padding" role="banner">
     <div class="flex-container flex-container--mobile-no-padding">
         <div class="flex-col flex-col--5">
             {% include('templates/_components/title-card.php') with { title: 'About us' } %}

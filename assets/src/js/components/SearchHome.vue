@@ -1,5 +1,5 @@
 <template>
-    <form action="/results" class="form form--search form--center flex-container">
+    <form action="/results" class="form form--search form--center flex-container" role="search">
         <input type="hidden" name="is_free" value="true">
         <div class="field flex-col flex-col--12">
             <label class="field__description" for="search_term">Search</label>

@@ -1,4 +1,4 @@
-<section class="section section--header section--header--1">
+<section class="section section--header section--header--1" role="banner">
     <div class="flex-container flex-container--justify flex-container--mobile-no-padding">
         <div class="title-card flex-col">
             <h3 class="text-center">I'm looking for <i class="fa fa-search"></i></h3>

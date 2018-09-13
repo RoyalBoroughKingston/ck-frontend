@@ -1,4 +1,4 @@
-<form class="form" action="" method="post">
+<form class="form" action="" method="post" role="form">
   <div class="field field--select">
     <select class="select">
       <option>Option</option>

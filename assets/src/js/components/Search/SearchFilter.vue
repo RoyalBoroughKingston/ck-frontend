@@ -22,7 +22,7 @@
                     <h4>I'm looking for</h4>
                 </div>
 
-                <form action="/results" class="form form--filter">
+                <form action="/results" class="form form--filter" role="search">
                     <div class="flex-container flex-container--no-margin flex-container--no-padding flex-container--no-space">
                         <div class="field flex-col">
                             <p for="search_term" class="field__description">Search</p>

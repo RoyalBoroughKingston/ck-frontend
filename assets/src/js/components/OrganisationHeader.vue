@@ -1,5 +1,5 @@
 <template>
-    <section class="section section--header section--header--reduce-padding section--header--3" v-if="organisation">
+    <section class="section section--header section--header--reduce-padding section--header--3" v-if="organisation" role="banner">
         <vue-headful
             :title="`Connected Kingston - ` + organisation.name"
             :description="organisation.description"

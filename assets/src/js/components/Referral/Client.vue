@@ -11,7 +11,7 @@
 
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
-                <form class="form" v-on:submit="setClient">
+                <form class="form" v-on:submit="setClient" role="form">
                     <div class="flex-container flex-container--no-padding">
                         <div class="field flex-col flex-col--8">
                             <label for="client_name">Name</label>

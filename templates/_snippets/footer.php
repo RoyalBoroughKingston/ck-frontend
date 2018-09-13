@@ -1,4 +1,4 @@
-<footer class="footer footer--<?php echo $CURRENT_PAGE; ?>">
+<footer class="footer footer--<?php echo $CURRENT_PAGE; ?>" role="contentinfo">
   <div class="flex-container">
     <div class="flex-col flex-col--6 flex-col--tablet--12">
       <div class="footer__disclaimer">
@@ -25,13 +25,13 @@
 
       <div class="flex-container flex-container--no-padding">
         <div class="flex-col flex-col--6 flex-col--mobile--6">
-          <nav class="nav nav--footer" name="about-nav">
+          <nav class="nav nav--footer" name="about-nav" role="navigation>
             <a href="#" class="nav__link">Terms and conditions</a>
           </nav>
         </div>
   
         <div class="flex-col flex-col--6 flex-col--mobile--6">            
-          <nav class="nav nav--footer" name="about-nav">
+          <nav class="nav nav--footer" name="about-nav" role="navigation>
             <a href="#" class="nav__link">Privacy Policy</a>
           </nav>
         </div>

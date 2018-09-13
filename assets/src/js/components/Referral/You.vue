@@ -9,7 +9,7 @@
 
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
-                <form class="form" v-on:submit="setYou">
+                <form class="form" v-on:submit="setYou" role="form">
                     <div class="flex-container flex-container--no-padding">
                         <div class="field flex-col flex-col--8">
                             <label for="your_name">Name</label>

@@ -19,7 +19,7 @@
         </div>
         <div class="flex-container flex-container--no-padding">
             <div class="flex-col flex-col--12">
-                <form class="form" v-on:submit="setWhoFor">
+                <form class="form" v-on:submit="setWhoFor" role="form">
                     <div class="field field--radio">
                         <div class="radio">
                             <input type="radio" id="myself" value="myself" name="who_for" class="input input--radio" checked="checked">

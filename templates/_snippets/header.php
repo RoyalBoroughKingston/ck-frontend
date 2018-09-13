@@ -5,7 +5,7 @@
         <a href="/"><img src="/assets/dist/img/global/logo.png" alt="Connected Kingston" class="img-responsive"/></a>
       </figure>
 
-      <button type="button" name="nav-trigger" class="nav-trigger tablet--large-show">
+      <button type="button" name="nav-trigger" class="nav-trigger tablet--large-show" role="button">
         <label for="nav-trigger"></label>
         <i class="bars fa fa-bars"></i>
       </button>

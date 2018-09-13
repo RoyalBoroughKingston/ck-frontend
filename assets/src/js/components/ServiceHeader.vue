@@ -1,5 +1,5 @@
 <template>
-    <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading">
+    <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading" role="banner">
         <vue-headful
             :title="`Connected Kingston - ` + service.seo_title"
             :description="service.seo_description"

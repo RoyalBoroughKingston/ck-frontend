@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="section section--header section--reduce-padding section--header--1">
+        <section class="section section--header section--reduce-padding section--header--1" role="banner">
             <div class="flex-container flex-container--align-bottom flex-container--mobile-no-padding">
                 <div class="flex-col flex-col--7 flex-col--tablet--9">
                     <search-filter :type="'full'" :search_term="search_term" :location="location" :is_free="is_free" :wait_time="wait_time" v-if="!displayOption"></search-filter>
