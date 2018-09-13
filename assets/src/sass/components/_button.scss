@@ -92,11 +92,6 @@
     &:hover {
       box-shadow: none;
       background: $hawkes_blue;
-
-      &.btn--dark {
-        background: $white;
-        color: $san_juan;
-      }
     }
 
     &:focus {
@@ -113,6 +108,16 @@
     &.btn--dark {
       color: $white;
       border-color: $white;
+
+      &:hover {
+        background: $white;
+        color: $san_juan;
+      }
+
+      &:focus {
+        background: transparent;
+        color: $white;
+      }
     }
   }
 

@@ -48,6 +48,7 @@
 </head>
 
 <body>
+	<a href="#app" class="skip">Skip to content</a>
 
 	<?php include('templates/_snippets/header.php'); ?>
 

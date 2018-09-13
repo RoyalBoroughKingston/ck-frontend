@@ -1,0 +1,21 @@
+/* Accessibility styling */
+.sr-only {
+    display: none !important;
+}
+
+.skip {
+    display: block;
+    position: absolute;
+    top: -1000%;
+    width: 100%;
+    background-color: $mercury;
+    padding: $base-margin;
+    box-sizing: border-box;
+}
+
+a.skip:active, 
+a.skip:focus, 
+a.skip:hover {
+    position: relative;
+    top: auto;
+}
