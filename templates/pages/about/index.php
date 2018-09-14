@@ -10,7 +10,8 @@
     <div class="flex-container flex-container--justify">
         <div class="flex-col flex-col--6">
             <div class="section__component">
-                <p>Connected Kingston is a site dedicated to helping Kingston residents find local activities and navigate local services. It’s run in conjunction with local charities and statutory organisations. Special training is available to anyone who regularly comes into contact with people that may be struggling to navigate or find local activities or services.</p>
+                <p>Connected Kingston is a site dedicated to helping Kingston residents find local activities and navigate local services. It is run by the Royal Borough of Kingston Council and Kingston Voluntary Action in conjunction with local charities and statutory organisations. Special training is available to anyone who regularly comes into contact with people that may be struggling to navigate or find local activities or services.</p>
+
                 <p>Our goal is to help residents of Kingston stay happy, healthy and connected to each other. Our goal is maintaining and building Kingston’s community so we can all live our best lives.</p>
             </div>
 
