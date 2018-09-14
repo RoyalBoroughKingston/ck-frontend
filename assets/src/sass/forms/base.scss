@@ -46,7 +46,6 @@ label {
   position: relative;
   margin-right: $base-margin*1.5;
   margin-bottom: $base-margin*4.5;
-  overflow: hidden;
 
   @include breakpoint($break_tablet) {
     margin-bottom: $base-margin*3;

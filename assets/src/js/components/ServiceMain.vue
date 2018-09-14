@@ -316,7 +316,7 @@
                 <div class="section__component section__component--mobile-padding text-center">
                     <div class="page-meta">
                         <p class="sm-copy"><span class="color-grey">Page last updated</span> <em>{{ service.updated_at | moment("Do MMMM YYYY") }}</em></p>
-                        <p class="sm-copy service-feedback"><a :click="giveFeedback" @keyup.enter="giveFeedback" @keyup.space="giveFeedback" role="button" tabindex="0">Give us feedback</a></p>
+                        <p class="sm-copy service-feedback"><a @click="giveFeedback" @keyup.enter="giveFeedback" role="button" tabindex="0">Give us feedback</a></p>
                     </div>
                 </div>
             </div>

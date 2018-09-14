@@ -42,6 +42,10 @@ input, textarea, .input {
     border-color: $san_juan_25;
     cursor: not-allowed;
   }
+
+  &:invalid {
+    border-color: $red;
+  }
 }
 
 textarea {
