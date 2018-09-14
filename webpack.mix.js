@@ -28,7 +28,7 @@ mix.setPublicPath(path.resolve('./'))
 })
 .version()
 .browserSync({
-  proxy: 'https://connectedkingston.test',
+  proxy: 'http://ck-frontend.test',
   https: true,
   files: [
     'assets/dist/app.css',  // Generated .css file

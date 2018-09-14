@@ -11,8 +11,11 @@
             <p>If you click ‘I agree’ below, you are consenting to the following:</p>
             <ul>
                 <li>To have the information shared with <strong>{{ service.name }}</strong></li>
-                <li>For <strong>{{ service.name }}</strong> or the Connected Kingston admin team to make contact regarding the connection</li>
+                <li>For <strong>{{ service.name }}</strong> to contact you regarding the service you have enquired about
+                <li>For the Connected Kingston admin team to contact you regarding your experience or to request feedback</li>
+                <li>For the Connected Kingston admin team to contact you to let you know about changes to our terms of service</li>
             </ul>
+            <p>If you are sign-posting another person to this service, please make them aware of the consent statement above</p>
             <p>For further information, please view our <a href="/privacy-policy" target="_blank">privacy policy</a>.</p>
         </div>
 
