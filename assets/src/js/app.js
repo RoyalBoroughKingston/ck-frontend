@@ -47,7 +47,6 @@ import ServiceMain from './components/ServiceMain'
 import OrganisationHeader from './components/OrganisationHeader'
 import OrganisationMain from './components/OrganisationMain'
 import Referral from './components/Referral'
-import SocialFeed from './components/SocialFeed'
 import SocialShare from './components/SocialShare'
 
 // Vue JS Components - Search

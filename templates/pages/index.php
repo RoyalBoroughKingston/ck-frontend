@@ -54,7 +54,7 @@
     <persona></persona>
 </section>
 
-<social-feed></social-feed>
+<?php include('./templates/_components/social-feed.php') ?>
 
 <section class="section mobile-hide">
     <div class="flex-container">
