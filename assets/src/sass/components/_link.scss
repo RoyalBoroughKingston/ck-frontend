@@ -65,6 +65,8 @@
 
     &:focus,
     &:hover {
+        text-decoration: none;
+        
         &:after {
             background-color: transparent;
         }

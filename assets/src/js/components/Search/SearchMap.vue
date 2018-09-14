@@ -2,7 +2,7 @@
     <div class="flex-container flex-container--mobile-no-padding">
         <div class="flex-col flex-col--12">
             <div class="map">
-                <div class="map__overlay map__overlay--left" v-if="selected_panel_left" v-focus>
+                <div class="map__overlay map__overlay--left" v-if="selected_panel_left">
                     <service v-if="selected_service" :type="'service'" :view="'map'" :service="selected_service" :organisation="getOrganisation(selected_service.organisation_id)"></service>
                 </div>
 
@@ -135,7 +135,9 @@
                     // Show the service panel
                     this.selected_panel_left = true,
                     // Add noscroll class to body
-                    document.getElementsByTagName("body")[0].classList.add('noscroll--mobile')
+                    document.getElementsByTagName("body")[0].classList.add('noscroll--mobile'),
+                    // Focus on service component
+                    this.selected_service.focus()
                 ))
                 .catch(error => console.log(error))
             },
