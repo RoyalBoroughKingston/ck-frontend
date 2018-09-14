@@ -2,7 +2,7 @@
     <div class="flex-container flex-container--mobile-no-padding">
         <div class="flex-col flex-col--12">
             <div class="map">
-                <div class="map__overlay map__overlay--left" v-if="selected_panel_left">
+                <div class="map__overlay map__overlay--left" v-if="selected_panel_left" v-focus>
                     <service v-if="selected_service" :type="'service'" :view="'map'" :service="selected_service" :organisation="getOrganisation(selected_service.organisation_id)"></service>
                 </div>
 
@@ -97,6 +97,7 @@
                         marker = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
                             .addTo(this.map)
                             .on('click', this.showService)
+                            .on('keypress', this.showService)
 
                         this.markers.addLayer(marker)
                     });
@@ -113,7 +114,6 @@
                 this.initLayers()
             },
             showService(e) {
-                console.log(e)
                 // Unset previous marker icon
                 Array.prototype.slice.call(document.querySelectorAll('.leaflet-marker-icon'), 0).forEach((marker) => {
                     marker.src="/assets/dist/img/map/map-marker.svg"

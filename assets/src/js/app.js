@@ -77,7 +77,6 @@ export class App {
         Referral,
         SearchHome,
         Search,
-        SocialFeed,
         SocialShare
       },
       created() {
