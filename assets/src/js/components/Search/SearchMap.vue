@@ -128,7 +128,7 @@
 
                 // Query the selected service
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services/'+e.target.options.id)
+                .get('https://api.connectedkingston.uk/core/v1/services/'+e.target.options.id)
                 .then(response => (
                     // Set the selected service
                     this.selected_service = response.data.data,

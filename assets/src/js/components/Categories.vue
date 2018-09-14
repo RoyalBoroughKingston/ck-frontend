@@ -18,7 +18,7 @@
         },
         mounted () {
             axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/collections/categories?page=1')
+            .get('https://api.connectedkingston.uk/core/v1/collections/categories?page=1')
             .then(response => (this.categories = response.data.data))
             .catch(error => console.log(error))
         }

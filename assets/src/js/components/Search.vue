@@ -135,7 +135,7 @@
                 
                 // Call the search endpoint with the params set
                 axios
-                .post('https://ck-api-staging.cloudapps.digital/core/v1/search?page='+this.current_page, params)
+                .post('https://api.connectedkingston.uk/core/v1/search?page='+this.current_page, params)
                 .then(response => (
                     // Set the services
                     this.services = response.data.data,
@@ -159,7 +159,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations?filter[id]=' + this.organisations)
+                .get('https://api.connectedkingston.uk/core/v1/organisations?filter[id]=' + this.organisations)
                 .then(response => (
                     // Overwrite the organisations data model
                     this.organisations = response.data.data,
@@ -179,7 +179,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[id]=' + this.service_locations + '&include=location')
+                .get('https://api.connectedkingston.uk/core/v1/service-locations?filter[id]=' + this.service_locations + '&include=location')
                 .then(response => (
                     // Overwrite the organisations data model
                     this.service_locations = response.data.data,
@@ -191,7 +191,7 @@
             },
             getCategory() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/collections/categories/'+this.category)
+                .get('https://api.connectedkingston.uk/core/v1/collections/categories/'+this.category)
                 .then(response => (
                     // Store the category
                     this.category = response.data.data,
@@ -202,7 +202,7 @@
             },
             getPersona() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/collections/personas/'+this.persona)
+                .get('https://api.connectedkingston.uk/core/v1/collections/personas/'+this.persona)
                 .then(response => (
                     // Store the category
                     this.persona = response.data.data,

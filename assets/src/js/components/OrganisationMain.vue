@@ -2,7 +2,7 @@
     <section class="section section--no-padding">
         <div class="flex-container">
             <div class="flex-col" v-if="$mq === 'mobile'">
-                <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${organisation.slug}/logo.png`" :alt="organisation.name" class="img-responsive">
+                <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${organisation.slug}/logo.png`" :alt="organisation.name" class="img-responsive">
             </div>
 
             <div class="flex-col flex-col--4" v-if="organisation && $mq === 'mobile'">
@@ -120,7 +120,7 @@
             },
             getOrganisation() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/organisations/' + this.getSlug())
+                .get('https://api.connectedkingston.uk/core/v1/organisations/' + this.getSlug())
                 .then(response => (
                     // Store the organisation
                     this.organisation = response.data.data,
@@ -131,7 +131,7 @@
             },
             getServices() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services?filter[organisation_id]=' + this.$data.organisation.id)
+                .get('https://api.connectedkingston.uk/core/v1/services?filter[organisation_id]=' + this.$data.organisation.id)
                 .then(response => (
                     // Store the organisations services
                     this.services = response.data.data,
@@ -148,7 +148,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]=' + this.service_ids + '&include=location')
+                .get('https://api.connectedkingston.uk/core/v1/service-locations?filter[service_id]=' + this.service_ids + '&include=location')
                 .then(response => (
                     // Overwrite the organisations data model
                     this.service_locations = response.data.data,

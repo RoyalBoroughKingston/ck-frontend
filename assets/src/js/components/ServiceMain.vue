@@ -305,7 +305,7 @@
                     <div class="card card--border-blue card--reduce-padding">
                         <a v-bind:href="['/organisations/' + service.organisation.slug]">
                             <div class="card__content text-center">
-                                <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/organisations/${service.organisation.slug}/logo.png`" :alt="service.name" class="card__image">
+                                <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${service.organisation.slug}/logo.png`" :alt="service.name" class="card__image">
                                 <p class="sm-copy">{{ service.organisation.name }}</p>
                                 <p class="sm-copy">{{ service.organisation.url }}</p>
                             </div>
@@ -377,7 +377,7 @@
             },
             getService() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getSlug() + '?include=organisation')
+                .get('https://api.connectedkingston.uk/core/v1/services/' + this.getSlug() + '?include=organisation')
                 .then(response => (
                     // Store the service
                     this.service = response.data.data,
@@ -389,7 +389,7 @@
             },
             getServiceLocations() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
+                .get('https://api.connectedkingston.uk/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
                 .then(response => (
                     // Store the services locations
                     this.service_locations = response.data.data,
