@@ -41,4 +41,4 @@
     </div>
 </section>
 
-<social-feed></social-feed>
+<?php include('./templates/_components/social-feed.php') ?>

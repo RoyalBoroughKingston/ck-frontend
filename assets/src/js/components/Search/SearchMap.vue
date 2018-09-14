@@ -97,6 +97,7 @@
                         marker = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
                             .addTo(this.map)
                             .on('click', this.showService)
+                            .on('keypress', this.showService)
 
                         this.markers.addLayer(marker)
                     });
