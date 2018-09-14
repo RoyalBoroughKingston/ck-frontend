@@ -8,7 +8,7 @@
             <div class="flex-col flex-col--6">
                 <h3>You’ve successfully connected to {{ service.name }} - {{ service.organisation.name }}</h3>
                 <p>The service will make contact using the details provided as soon as possible.</p>
-                <p>Your referral ID is <strong>{{ referral.reference }}</strong>. If you have any feedback regarding this connection, please contact the admin team via <a href="mailto:admin@connectedkingston.uk">admin@connectedkingston.uk</a> or complete the referral <a :href="`https://docs.google.com/forms/d/e/1FAIpQLSe38Oe0vsqLRQbcBjYrGzMooBJKkYqFWAlHy4dcgwJnMFg9dQ/viewform?usp=pp_url&entry.400427747=`+referral.reference" target="_blank">feedback form</a></p>
+                <p>Your referral ID is <strong>{{ referral.reference }}</strong>. If you have any feedback regarding this connection, please contact the admin team via <a href="mailto:info@connectedkingston.uk">info@connectedkingston.uk</a> or complete the referral <a :href="`https://docs.google.com/forms/d/e/1FAIpQLSe38Oe0vsqLRQbcBjYrGzMooBJKkYqFWAlHy4dcgwJnMFg9dQ/viewform?usp=pp_url&entry.400427747=`+referral.reference" target="_blank">feedback form</a></p>
             </div>
         </div>
 
