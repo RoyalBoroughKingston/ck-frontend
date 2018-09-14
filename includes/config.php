@@ -53,6 +53,16 @@
 		$PAGE_TITLE = "Contact";
 		$DESCRIPTION = "";
 		$TEMPLATE_URL = "templates/pages/contact/index.php";
+	elseif($request_uri === "/terms-and-conditions"):
+		$CURRENT_PAGE = "terms-and-conditions"; 
+		$PAGE_TITLE = "Terms &amp; Conditions";
+		$DESCRIPTION = "";
+		$TEMPLATE_URL = "templates/pages/terms-and-conditions/index.php";
+	elseif($request_uri === "/privacy-policy"):
+		$CURRENT_PAGE = "privacy-policy"; 
+		$PAGE_TITLE = "Privacy Polocy";
+		$DESCRIPTION = "";
+		$TEMPLATE_URL = "templates/pages/privacy-policy/index.php";
 	else:
 		header('HTTP/1.0 404 Not Found');
 		$PAGE_TITLE = "404 Not Found";

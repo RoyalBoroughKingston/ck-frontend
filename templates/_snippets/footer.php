@@ -3,7 +3,7 @@
     <div class="flex-col flex-col--6 flex-col--tablet--12">
       <div class="footer__disclaimer">
         <p><strong>Disclaimer</strong></p>
-        <p class="sm-copy">Kingston Voluntary Action (KVA) on behalf of the Royal Borough of Kingston Council makes every effort to provide up-to-date and accurate information on this website. However, KVA and other parties involved in creating and delivering this website's contents do not accept any liability for any loss or damage arising in any way whatsoever from the use of information on this website. The listing of an organisation and the option to make referrals online in no way should be viewed as an endorsement or recommendation</p>
+        <p class="sm-copy">Connected Kingston makes every effort to provide up-to-date and accurate information on this website. The listing of a service with an online referral option in no way should be viewed as an endorsement or recommendation by Connected Kingston (please see section 3 of Connected Kingston <a href="/terms-and-conditions">Terms and Conditions</a> for full details).</p>
       </div>
     </div>
 
@@ -19,20 +19,20 @@
         </div>
 
         <div class="flex-col flex-col--6 text-right text-left--mobile">
-          <a href="https://admin.connectedkingston.uk" class="btn btn--secondary btn--dark">Member area</a>
+          <a href="https://admin.connectedkingston.uk" target="_blank" class="btn btn--secondary btn--dark">Member area</a>
         </div>
       </div>
 
       <div class="flex-container flex-container--no-padding">
         <div class="flex-col flex-col--6 flex-col--mobile--6">
           <nav class="nav nav--footer" name="about-nav" role="menubar" aria-label="Terms and Conditions">
-            <a href="#" class="nav__link">Terms and conditions</a>
+            <a href="/terms-and-conditions" class="nav__link">Terms and conditions</a>
           </nav>
         </div>
   
         <div class="flex-col flex-col--6 flex-col--mobile--6">            
           <nav class="nav nav--footer" name="about-nav" role="menubar" aria-label="Privacy Policy">
-            <a href="#" class="nav__link">Privacy Policy</a>
+            <a href="/privacy-policy" class="nav__link">Privacy Policy</a>
           </nav>
         </div>
       </div>

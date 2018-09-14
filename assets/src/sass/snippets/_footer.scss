@@ -8,7 +8,13 @@
   margin-top: $base-margin*10;
 
   p {
+    
     color: $white;
+
+    a {
+      color: $white !important;
+    }
+
   }
 
   &--service {
@@ -92,6 +98,7 @@
 
   &__disclaimer {
     padding-right: $base-margin*3.5;
+
 
     @include breakpoint($break_tablet) {
       padding-right: 0;
