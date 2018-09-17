@@ -54,7 +54,7 @@
             <p class="service__description sm-copy" v-if="service.description">{{ service.intro }}</p>
             
             <div class="service__details__actions">
-                <button :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right" aria-hidden></i></button>
+                <a :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right" aria-hidden></i></a>
                 <a @click="closeService" @keyup.enter="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map'" tabindex="0">Close <i class="fa fa-times" aria-hidden></i></a>
             </div>
         </div>
