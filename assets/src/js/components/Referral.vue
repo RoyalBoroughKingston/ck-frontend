@@ -19,7 +19,7 @@
                         </span>
                     </div>
                     <div class="service__image">
-                        <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo.png`" :name="service.name">
+                        <img :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :name="service.name">
                     </div>
 
                     <div class="service__details">
@@ -82,7 +82,7 @@
         methods: {
             getService() {
                 axios
-                .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getParameterByName('service') + '?include=organisation')
+                .get('https://api.connectedkingston.uk/core/v1/services/' + this.getParameterByName('service') + '?include=organisation')
                 .then(response => (
                     this.service = response.data.data,
                     this.type = response.data.data.referral_method,

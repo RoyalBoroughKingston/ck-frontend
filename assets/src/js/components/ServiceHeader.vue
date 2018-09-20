@@ -3,7 +3,7 @@
         <vue-headful
             :title="`Connected Kingston - ` + service.seo_title"
             :description="service.seo_description"
-            :image="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/seo-image.png`"
+            :image="`https://api.connectedkingston.uk/core/v1/services/${service.slug}/seo-image.png?v=${service.updated_at}`"
         />
         
         <div class="flex-container flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
@@ -87,7 +87,7 @@
         },
         mounted () {
             axios
-            .get('https://ck-api-staging.cloudapps.digital/core/v1/services/' + this.getSlug())
+            .get('https://api.connectedkingston.uk/core/v1/services/' + this.getSlug())
             .then(response => (
                 // Set the service
                 this.service = response.data.data,

@@ -7,7 +7,7 @@
         </div>
 
         <div class="service__image" v-if="type === 'service'">
-            <img :src="`https://ck-api-staging.cloudapps.digital/core/v1/services/${service.slug}/logo.png`" :alt="service.name">
+            <img :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name">
             
             <div class="service__add">
                 <button v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></button>
@@ -54,7 +54,7 @@
             <p class="service__description sm-copy" v-if="service.description">{{ service.intro }}</p>
             
             <div class="service__details__actions">
-                <button :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right" aria-hidden></i></button>
+                <a :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right" aria-hidden></i></a>
                 <a @click="closeService" @keyup.enter="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map'" tabindex="0">Close <i class="fa fa-times" aria-hidden></i></a>
             </div>
         </div>

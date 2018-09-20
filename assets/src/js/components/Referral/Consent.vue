@@ -81,7 +81,7 @@
 
                     // Call the referral endpoint with the params set
                     axios
-                    .post('https://ck-api-staging.cloudapps.digital/core/v1/referrals', params)
+                    .post('https://api.connectedkingston.uk/core/v1/referrals', params)
                     .then(response => (
                         // Store the referral callback
                         this.$parent.referral_callback = response.data.data,

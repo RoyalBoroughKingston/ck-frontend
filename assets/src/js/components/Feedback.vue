@@ -45,7 +45,7 @@
                 console.log(params)
 
                 axios
-                .post('https://ck-api-staging.cloudapps.digital/core/v1/page-feedbacks', params)
+                .post('https://api.connectedkingston.uk/core/v1/page-feedbacks', params)
                 .then(response => (
                     this.feedbackSubmitted = true
                 ))
