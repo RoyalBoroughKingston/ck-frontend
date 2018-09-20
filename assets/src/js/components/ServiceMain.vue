@@ -143,7 +143,6 @@
 
                         <div class="card__hours flex-col flex-col--6" v-if="location && location.regular_opening_hours.length > 0">
                             <div class="card__hours__times">
-                                {{location.regular_opening_hours}}
                                 <table>
                                     <tbody>
                                         <tr v-for="(regularOpeningHour, index) in location.regular_opening_hours"
@@ -214,7 +213,7 @@
 
                 <div class="section__component" v-if="service.useful_infos.length > 0">
                     <div class="card card--border-blue">
-                        <h4 class="card__title">Useful infos</h4>
+                        <h4 class="card__title">Useful Information</h4>
                         <div class="flex-col flex-col--12">
                             <blockquote v-for="info in service.useful_infos" :key="info.id">
                                 <p v-if="info.title">{{ info.title }}</p>

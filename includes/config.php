@@ -20,7 +20,7 @@
 		$DESCRIPTION = "";
 		$TEMPLATE_URL = "templates/pages/search/results.php";
 	elseif($request_uri === "/services"):
-		header('Location: /results?is_free=true&search_term=&location=');
+		header('Location: /results?is_free=false&search_term=&location=');
 	elseif(preg_match('/services/', $request_uri)):
 		$CURRENT_PAGE = "service"; 
 		$PAGE_TITLE = "";

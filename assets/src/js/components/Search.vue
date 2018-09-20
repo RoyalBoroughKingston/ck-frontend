@@ -78,7 +78,7 @@
                 search_term: null,
                 location: null,
                 location_coords: null,
-                is_free: true,
+                is_free: false,
                 wait_time: null,
                 sort_by: 'relevance',
                 category: null,
@@ -128,7 +128,7 @@
                 if(this.search_term !== null) params["query"] = this.search_term
                 if(this.category !== null) params["category"] = this.category.name
                 if(this.persona !== null) params["persona"] = this.persona.name
-                if(this.is_free !== null) params["is_free"] = this.is_free
+                if(this.is_free !== null && this.is_free !== false) params["is_free"] = this.is_free
                 if(this.sort_by !== null) params["order"] = this.sort_by
                 if(this.wait_time !== null) params["wait_time"] = this.wait_time
                 if(this.location_coords !== null) params["location"] = this.location_coords
@@ -231,10 +231,8 @@
                     this.location = this.getParameterByName('location')
                 }
 
-                if(this.getParameterByName('is_free') !== null) {
+                if(this.getParameterByName('is_free') !== null && this.getParameterByName('is_free') !== false) {
                     this.is_free = this.getParameterByName('is_free')
-                } else {
-                    this.is_free = false
                 }
                 this.is_free = (this.is_free === 'true')
 
