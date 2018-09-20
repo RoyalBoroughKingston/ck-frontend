@@ -213,7 +213,7 @@
 
                 <div class="section__component" v-if="service.useful_infos.length > 0">
                     <div class="card card--border-blue">
-                        <h4 class="card__title">Useful infos</h4>
+                        <h4 class="card__title">Useful Information</h4>
                         <div class="flex-col flex-col--12">
                             <blockquote v-for="info in service.useful_infos" :key="info.id">
                                 <p v-if="info.title">{{ info.title }}</p>
