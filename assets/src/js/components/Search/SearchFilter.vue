@@ -37,7 +37,7 @@
                         <div class="field field--no-margin field--checkbox flex-col">
                             <p class="field__description">Cost</p>
                             <div class="checkbox">
-                                <input type="checkbox" id="cost-free" name="is_free" class="input input--checkbox" v-bind:value="'true'" v-model="is_free" :checked="is_free">
+                                <input type="checkbox" id="cost-free" name="is_free" class="input input--checkbox" v-bind:value="'false'" v-model="is_free" :checked="is_free">
                                 <label for="cost-free"><span><span></span></span> Free</label>
                             </div>
                         </div>
