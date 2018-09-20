@@ -54,8 +54,6 @@
     <persona></persona>
 </section>
 
-<?php include('./templates/_components/social-feed.php') ?>
-
 <section class="section mobile-hide">
     <div class="flex-container">
         <div class="flex-col flex-col--7 highlight highlight--grey">
