@@ -143,7 +143,6 @@
 
                         <div class="card__hours flex-col flex-col--6" v-if="location && location.regular_opening_hours.length > 0">
                             <div class="card__hours__times">
-                                {{location.regular_opening_hours}}
                                 <table>
                                     <tbody>
                                         <tr v-for="(regularOpeningHour, index) in location.regular_opening_hours"
