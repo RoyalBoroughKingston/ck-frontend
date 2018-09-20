@@ -77,6 +77,13 @@
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
 		})();
 	</script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124057892-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-124057892-1');
+	</script>
 
 	<!-- ~~~~~~~~~~~~ BUILT BY ~~~~~~~~~~~~
 		 AAAAAAA YYY  YYY UU    UU PPPPPPP
