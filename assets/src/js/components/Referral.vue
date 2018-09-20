@@ -19,7 +19,7 @@
                         </span>
                     </div>
                     <div class="service__image">
-                        <img :src="`https://api.connectedkingston.uk/core/v1/services/${service.slug}/logo.png`" :name="service.name">
+                        <img :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :name="service.name">
                     </div>
 
                     <div class="service__details">

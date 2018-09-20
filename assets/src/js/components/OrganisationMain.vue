@@ -2,7 +2,7 @@
     <section class="section section--no-padding">
         <div class="flex-container">
             <div class="flex-col" v-if="$mq === 'mobile'">
-                <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${organisation.slug}/logo.png`" :alt="organisation.name" class="img-responsive">
+                <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`" :alt="organisation.name" class="img-responsive">
             </div>
 
             <div class="flex-col flex-col--4" v-if="organisation && $mq === 'mobile'">

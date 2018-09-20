@@ -4,7 +4,7 @@
             <div class="pod">
                 <a v-bind:href="['/results?is_free=true&wait_time=null&persona=' + persona.id]">
                     <div class="pod__image">
-                        <img :src="`https://api.connectedkingston.uk/core/v1/collections/personas/${persona.id}/image.png`" :alt="persona.name">
+                        <img :src="`https://api.connectedkingston.uk/core/v1/collections/personas/${persona.id}/image.png?v=${persona.updated_at}`" :alt="persona.name">
                     </div>
 
                     <div class="pod__content">
