@@ -57,7 +57,7 @@
 <section class="section mobile-hide">
     <div class="flex-container">
         <div class="flex-col flex-col--7 highlight highlight--grey">
-            {% include('templates/_components/media.php') with { type: 'image', imageUrl: '/assets/dist/img/global/CK_Homepage_About.jpg', imageTitle: 'Connected Kingston' } %}
+            {% include('templates/_components/media.php') with { type: 'video', embedCode: '<iframe width="560" height="315" src="https://www.youtube.com/embed/h-2sgpokvGI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' } %}
         </div>
 
         <div class="flex-col flex-col--5">
