@@ -27,7 +27,7 @@
 
                             <p>&nbsp;</p>
 
-                            <p><a v-on:click="showOther" class="link" v-if="!show_other">Cant see my organisation</a></p>
+                            <p><a v-on:click="showOther" class="link" v-if="!show_other">I can't see my organisation</a></p>
                             
                             <div v-if="show_other">
                                 <label for="organisation_other">Other organisation</label>
