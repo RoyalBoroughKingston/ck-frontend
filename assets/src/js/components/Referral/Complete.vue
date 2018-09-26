@@ -15,7 +15,7 @@
         <div class="section__component flex-container flex-container--justify text-center">
             <div class="highlight highlight--grey flex-col flex-col--6">
                 <p><button href="#print" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print" aria-hidden></i></button></p>
-                <p><button href="/" role="button" class="btn btn--small btn--icon-after">Back to home <i class="fa fa-angle-right" aria-hidden></i></button></p>
+                <p><a href="/" role="button" class="btn btn--small btn--icon-after">Back to home <i class="fa fa-angle-right" aria-hidden></i></a></p>
             </div>
         </div>
     </div>

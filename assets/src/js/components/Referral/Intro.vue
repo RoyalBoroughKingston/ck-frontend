@@ -16,7 +16,7 @@
         <p class="sm-copy color-grey" v-if="type === 'external'">You are about to <strong>leave Connected Kingston</strong> and be redirected to an external website.</p>
         <p class="sm-copy color-grey" v-if="type === 'internal'">The form should take <strong>no longer than 5 minutes</strong> to complete.</p>
 
-        <button v-bind:href="service.referral_url" role="button" class="btn btn--icon-after" target="_blank" v-if="type === 'external'">Continue <i class="fa fa-angle-right" aria-hidden></i></button>
+        <a v-bind:href="service.referral_url" role="button" class="btn btn--icon-after" target="_blank" v-if="type === 'external'">Continue <i class="fa fa-angle-right" aria-hidden></i></a>
         <button v-on:click="setConsent" role="button" class="btn btn--icon-after" target="_blank" v-if="type === 'internal'">Continue <i class="fa fa-angle-right" aria-hidden></i></button>
     </div>
 </template>
