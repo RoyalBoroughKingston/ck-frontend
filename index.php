@@ -21,13 +21,13 @@
 	<link rel="stylesheet" href="https://use.typekit.net/bjq5bor.css">
 
 	<!-- Vendor styles -->
-	<link href="/assets/dist/vendor.csst=1" media="screen, projection" rel="stylesheet" />
+	<link href="/assets/dist/vendor.css?t=1" media="screen, projection" rel="stylesheet" />
 
 	<!-- Site styles -->
-	<link href="/assets/dist/app.csst=1" media="screen, projection" rel="stylesheet" />
+	<link href="/assets/dist/app.css?t=1" media="screen, projection" rel="stylesheet" />
 
 	<!-- Print styles -->
-	<link rel="stylesheet" type="text/css" media="print" href="/assets/dist/print.csst=1" />
+	<link rel="stylesheet" type="text/css" media="print" href="/assets/dist/print.css?t=1" />
 
 	<!-- Icons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/assets/dist/img/icons/apple-icon-57x57.png">
@@ -68,8 +68,8 @@
 
 	<!-- SCRIPTS -->
 	<script src="/assets/dist/manifest.js?t=1"></script>
-  	<script src="/assets/dist/vendor.jst=1"></script>
-	<script src="/assets/dist/app.jst=1"></script>
+  	<script src="/assets/dist/vendor.js?t=1"></script>
+	<script src="/assets/dist/app.js?t=1"></script>
 
 	<script type='text/javascript'>
 		window.__lo_site_id = 123958;
