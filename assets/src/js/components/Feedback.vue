@@ -7,7 +7,7 @@
                 <div class="modal__header">
                     <h2 class="modal__title" v-if="!feedbackSubmitted">Submit your feedback</h2>
                     <h2 class="modal__title" v-if="feedbackSubmitted">Thank you!</h2>
-                    <p class="lg-copy modal__description" v-if="feedbackSubmitted">Your feedback for <strong>{{service.name}}</strong> will greatly help to improve this service.</p>
+                    <p class="lg-copy modal__description" v-if="feedbackSubmitted">Your feedback has been submitted to the Connected Kingston admin team.</p>
                 </div>
               
                 <div class="modal__content" v-if="!feedbackSubmitted">
@@ -28,7 +28,6 @@
     
     export default {
         name: "feedback",
-        props: ['service'],
         data() {
             return {
                 message: null,
