@@ -63,6 +63,11 @@
 		$PAGE_TITLE = "Privacy Polocy";
 		$DESCRIPTION = "";
 		$TEMPLATE_URL = "templates/pages/privacy-policy/index.php";
+	elseif($request_uri === "/duty-to-refer"):
+		$CURRENT_PAGE = "duty-to-refer"; 
+		$PAGE_TITLE = "Duty to refer";
+		$DESCRIPTION = "";
+		$TEMPLATE_URL = "templates/pages/duty-to-refer/index.php";
 	else:
 		header('HTTP/1.0 404 Not Found');
 		$PAGE_TITLE = "404 Not Found";
