@@ -12,48 +12,40 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="Object.keys(service.criteria).length === 0 && $mq === 'mobile'">
+                <div class="section__component" v-if="Object.keys(service.criteria).length !== 0 && $mq === 'mobile'">
                     <h4 class="section__component__header">Who is this service for</h4>
 
                     <table class="table table--who-for">
                         <tbody>
                             <tr v-if="service.criteria.age_group">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/age-group.svg" alt="Age group"></td>
                                 <td class="text-center">Age group</td>
                                 <td class="sm-copy">{{ service.criteria.age_group }}</td>
                             </tr>
                             <tr v-if="service.criteria.disability">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/disability.svg" alt="Disability"></td>
                                 <td class="text-center">Disability</td>
                                 <td class="sm-copy">{{ service.criteria.disability }}</td>
                             </tr>
                             <tr v-if="service.criteria.employment">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/employment.svg" alt="Employment"></td>
                                 <td class="text-center">Text</td>
                                 <td class="sm-copy">{{ service.criteria.employment }}</td>
                             </tr>
                             <tr v-if="service.criteria.gender">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/gender.svg" alt="Gender"></td>
                                 <td class="text-center">Gender</td>
                                 <td class="sm-copy">{{ service.criteria.gender }}</td>
                             </tr>
                             <tr v-if="service.criteria.housing">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/housing.svg" alt="Housing"></td>
                                 <td class="text-center">Housing</td>
                                 <td class="sm-copy">{{ service.criteria.housing }}</td>
                             </tr>
                             <tr v-if="service.criteria.income">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/income.svg" alt="Income"></td>
                                 <td class="text-center">Income</td>
                                 <td class="sm-copy">{{ service.criteria.income }}</td>
                             </tr>
                             <tr v-if="service.criteria.language">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/language.svg" alt="Language"></td>
                                 <td class="text-center">Language</td>
                                 <td class="sm-copy">{{ service.criteria.language }}</td>
                             </tr>
                             <tr v-if="service.criteria.other">
-                                <td><img src="/assets/dist/img/whos-this-for-icons/other.svg" alt="Other"></td>
                                 <td class="text-center">Other</td>
                                 <td class="sm-copy">{{ service.criteria.other }}</td>
                             </tr>
@@ -162,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="Object.keys(service.criteria).length === 0 && $mq !== 'mobile'">
+                <div class="section__component" v-if="Object.keys(service.criteria).length !== 0 && $mq !== 'mobile'">
                     <h4 class="section__component__header">Who is this service for</h4>
 
                     <table class="table table--who-for">
