@@ -19,7 +19,8 @@
                         </span>
                     </div>
                     <div class="service__image">
-                        <img :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :name="service.name">
+                        <img v-if="service.has_logo" :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
+                        <img v-else :src="`https://api.connectedkingston.uk/core/v1/organisation/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
                     </div>
 
                     <div class="service__details">

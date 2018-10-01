@@ -10,6 +10,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<link rel="canonical" href="https://connectedkingston.co.uk" />
 	<meta name="description" content="<?php print $DESCRIPTION; ?>" />
+	<meta itemprop="image">
+	<meta property="og:image">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -19,13 +21,13 @@
 	<link rel="stylesheet" href="https://use.typekit.net/bjq5bor.css">
 
 	<!-- Vendor styles -->
-	<link href="/assets/dist/vendor.css" media="screen, projection" rel="stylesheet" />
+	<link href="/assets/dist/vendor.csst=1" media="screen, projection" rel="stylesheet" />
 
 	<!-- Site styles -->
-	<link href="/assets/dist/app.css" media="screen, projection" rel="stylesheet" />
+	<link href="/assets/dist/app.csst=1" media="screen, projection" rel="stylesheet" />
 
 	<!-- Print styles -->
-	<link rel="stylesheet" type="text/css" media="print" href="/assets/dist/print.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="/assets/dist/print.csst=1" />
 
 	<!-- Icons -->
 	<link rel="apple-touch-icon" sizes="57x57" href="/assets/dist/img/icons/apple-icon-57x57.png">
@@ -65,9 +67,9 @@
 	<?php include('templates/_snippets/footer.php'); ?>
 
 	<!-- SCRIPTS -->
-	<script src="/assets/dist/manifest.js"></script>
-  	<script src="/assets/dist/vendor.js"></script>
-	<script src="/assets/dist/app.js"></script>
+	<script src="/assets/dist/manifest.js?t=1"></script>
+  	<script src="/assets/dist/vendor.jst=1"></script>
+	<script src="/assets/dist/app.jst=1"></script>
 
 	<script type='text/javascript'>
 		window.__lo_site_id = 123958;
