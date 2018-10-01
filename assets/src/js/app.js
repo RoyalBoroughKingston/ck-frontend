@@ -11,7 +11,6 @@ import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
 import vueHeadful from 'vue-headful'
 
-Vue.use(axios)
 Vue.use(VueCookies)
 Vue.use(require('vue-moment'))
 Vue.use(VueMq, {
@@ -48,6 +47,7 @@ import OrganisationHeader from './components/OrganisationHeader'
 import OrganisationMain from './components/OrganisationMain'
 import Referral from './components/Referral'
 import SocialShare from './components/SocialShare'
+import Banner from './components/Banner'
 
 // Vue JS Components - Search
 import SearchHome from './components/SearchHome'
@@ -77,7 +77,8 @@ export class App {
         Referral,
         SearchHome,
         Search,
-        SocialShare
+        SocialShare,
+        Banner
       },
       created() {
         // Init modules

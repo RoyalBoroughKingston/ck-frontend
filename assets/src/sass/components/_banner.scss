@@ -1,0 +1,27 @@
+/* BANNER */
+
+.banner {
+
+	display: block;
+	width: 100%;
+	padding: $base-margin*1.5;
+	background: $blue_bayoux;
+
+	> p {
+		text-align: center;
+		color: $white;
+		font-size: 1rem;
+  		line-height: 1.75rem;
+  		margin: 0;
+
+  		a {
+  			color: $white;
+  			text-decoration: underline;
+  		}
+	}
+
+	i {
+		padding-right: $base-margin/2;
+	}
+
+}

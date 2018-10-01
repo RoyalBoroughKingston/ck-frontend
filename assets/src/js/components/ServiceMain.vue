@@ -313,7 +313,7 @@
             </div>
         </div>
 
-        <feedback v-if="showFeedback" :service="service"></feedback>
+        <feedback v-if="showFeedback"></feedback>
     </section>
 </template>
  
