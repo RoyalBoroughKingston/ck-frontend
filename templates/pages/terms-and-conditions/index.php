@@ -43,6 +43,16 @@
 				
 				<p>We aim to make the site accessible, but, if you find there are any problems that you feel we have overlooked please contact us at <a href="mailto:info@connectedkingston.uk">info@connectedkingston.uk</a>. For assistance with visual impairments and our site the  BBC  How To Guide provides instructions on how to change the size of text in a wide range of browsers and gives other useful tips.</p>
 
+				<h3>6. Provider conditions</h3>
+				<p>The criteria for a provider being included on the Connected Kingston online directory is as follows:</p>
+				<ul>
+					<li>Council and voluntary and community sector services.</li>
+					<li>Faith based services (not prosthletising).</li>
+					<li>Commercial services providing gardening and housework services (including blitz cleans), plus pet respite (catteries, kennels) who have a contractual or spot purchase commissioning arrangement with Royal Borough of Kingston (RBK) Council.</li>
+					<li>Commercial services providing support workers to adults with learning disabilities or mental health conditions enabling them to live as independently as possible who have a contractual or spot purchase commissioning arrangement with RBK Council.</li>
+					<li>Home care agencies (registered by the Care Quality Commission) providing care workers to visit people in their own homes to provide them with personal care support (washing/dressing, meal preparation) who have a contractual or spot purchase commissioning arrangement with RBK Council</li>
+				</ul>
+
             </div>
 
         </div>
