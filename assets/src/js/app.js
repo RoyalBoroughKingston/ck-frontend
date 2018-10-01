@@ -11,7 +11,6 @@ import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
 import vueHeadful from 'vue-headful'
 
-Vue.use(axios)
 Vue.use(VueCookies)
 Vue.use(require('vue-moment'))
 Vue.use(VueMq, {
