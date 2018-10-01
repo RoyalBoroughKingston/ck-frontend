@@ -3,7 +3,7 @@
         <input type="hidden" name="is_free" value="false">
         <div class="field flex-col flex-col--12">
             <label class="field__description" for="search_term">Search</label>
-            <input type="text" class="input input--text" name="search_term" placeholder="Enter search term" minlength="3"/>
+            <input type="search" class="input input--text" name="search_term" placeholder="Enter search term" minlength="3"/>
         </div>
 
         <div class="field field--with-button flex-col flex-col--12">
@@ -50,11 +50,10 @@
                         localStorage['authorizedGeoLocation'] = 1
                         
                         // Store the postcode
-                        console.log(response.data.result)
                         if(response.data.result) {
-                            this.postcode = array.slice(0, response.data.result).postcode
+                            this.postcode = response.data.result[0].postcode
                         } else {
-                            window.alert('Could not find postcode. This service is only available to users in the UK.')
+                            window.alert('There was an error finding your location. Please enter your postcode manually.')
                         }                        
                         
                         // Remove the disabled class on the button
@@ -63,7 +62,7 @@
                     .catch(error => {
                         // Set local storage for use later
                         localStorage['authorizedGeoLocation'] = 0
-                        console.log(error)
+                        window.alert('There was an error finding your location. Please enter your postcode manually.')
                     })
                 });
             }

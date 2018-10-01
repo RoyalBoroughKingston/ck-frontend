@@ -1,9 +1,9 @@
 <template>
     <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading" role="banner">
         <vue-headful
-            :title="`Connected Kingston - ` + service.seo_title"
-            :description="service.seo_description"
-            :image="`https://api.connectedkingston.uk/core/v1/services/${service.slug}/seo-image.png?v=${service.updated_at}`"
+            :title="`Connected Kingston - ` + service.name"
+            :description="service.intro"
+            :image="`https://api.connectedkingston.uk/core/v1/services/${service.slug}/logo.png?v=${service.updated_at}`"
         />
         
         <div class="flex-container flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
