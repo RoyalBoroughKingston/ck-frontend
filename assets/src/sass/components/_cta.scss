@@ -1,0 +1,50 @@
+/* CTA */
+
+.cta {
+    
+    display: table;
+    width: 100%;
+    max-width: 730px;
+    box-sizing: border-box;
+    background-color: $hawkes_blue;
+    padding: $base-margin*4 $base-margin*2.5;
+
+    @include breakpoint($break_mobile) {
+        padding: $base-margin*4 $base-margin*1.5;
+    }
+
+    &__icon {
+        
+        width: 25%;
+        display: table-cell;
+        vertical-align: top;
+        text-align: center;
+
+        @include breakpoint($break_mobile) {
+            display: none;
+        }
+
+        i {
+            font-size: 400%;
+            color: $blue_bayoux;
+        }
+
+    }
+
+    &__content {
+        
+        width: 75%;
+        display: table-cell;
+        vertical-align: top;
+
+        @include breakpoint($break_mobile) {
+            width: 100%;
+        }
+
+        .btn {
+            margin-top: $base-margin*2;
+        }
+
+    }
+    
+}

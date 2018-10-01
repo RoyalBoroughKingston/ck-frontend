@@ -1,9 +1,9 @@
 <template>
     <section class="section section--header section--header--reduce-padding section--header--3" v-if="finished_loading" role="banner">
         <vue-headful
-            :title="`Connected Kingston - ` + service.seo_title"
-            :description="service.seo_description"
-            :image="`https://api.connectedkingston.uk/core/v1/services/${service.slug}/seo-image.png?v=${service.updated_at}`"
+            :title="`Connected Kingston - ` + service.name"
+            :description="service.intro"
+            :image="serviceLogo"
         />
         
         <div class="flex-container flex-container--align-center flex-container--mobile-no-padding" v-if="finished_loading">
@@ -59,6 +59,15 @@
                 service: null,
                 shortlist: window.$cookies.get("ck_shortlist"),
                 finished_loading: false
+            }
+        },
+        computed: {
+            serviceLogo() {
+                if(this.service.has_logo) {
+                    return `https://api.connectedkingston.uk/core/v1/services/${this.service.id}/logo.png?v=${this.service.updated_at}`
+                } else {
+                    return `https://api.connectedkingston.uk/core/v1/organisations/${this.service.organisation_id}/logo.png?v=${this.service.updated_at}`
+                }
             }
         },
         methods: {
