@@ -78,13 +78,13 @@
 
         <div class="flex-col flex-col--3">
             <div class="pod">
-                <a href="https://www.citizensadvicekingston.org.uk/find-help/" target="_blank">
+                <a href="https://england.shelter.org.uk/get_help" target="_blank">
                     <div class="pod__image">
-                        <img src="/assets/dist/img/duty-to-refer/citizens-advice.png" alt="Citizens Advice Kingston">
+                        <img src="/assets/dist/img/duty-to-refer/shelter.png" alt="Shelter">
                     </div>
 
                     <div class="pod__content">
-                        <p class="pod__title"><strong>Citizens Advice Kingston</strong></p>
+                        <p class="pod__title"><strong>Shelter</strong></p>
                     </div>
                 </a>
             </div>
