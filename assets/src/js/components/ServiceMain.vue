@@ -137,7 +137,7 @@
                             <div class="card__hours__times">
                                 <table>
                                     <tbody>
-                                        <tr v-for="(regularOpeningHour, index) in location.regular_opening_hours"
+                                        <tr v-for="(regularOpeningHour, index) in orderedOpeningHours(location.regular_opening_hours)"
                                             :key="index"
                                             v-html="humanReadableRegularOpeningHour(regularOpeningHour)">
                                         </tr>
@@ -360,6 +360,9 @@
             }
         },
         methods: {
+            orderedOpeningHours: function (openingHours) {
+                return _.orderBy(openingHours, ['frequency', 'weekday'], ['asc', 'asc'])
+            },
             getSlug() {
                 let pathArray = window.location.pathname.split('/');
                 let slug = pathArray[2]
@@ -504,9 +507,9 @@
                     case "monthly":
                     return `<td class="sm-copy">${this.dayOfMonth(openingHour.day_of_month)} of each month</td><td>${this.timePeriod(openingHour)}</td>`;
                     case "fortnightly":
-                    return `<td class="sm-copy">Every other ${this.weekdayFromDate(openingHour.starts_at)}</td><td>${this.fortnightWeek(openingHour.starts_at)}) - ${this.timePeriod(openingHour)}</td>`;
+                    return `<td class="sm-copy">Fortnightly on ${this.weekdayFromDate(openingHour.starts_at)}s</td><td>${this.fortnightWeek(openingHour.starts_at)} - ${this.timePeriod(openingHour)}</td>`;
                     case "nth_occurrence_of_month":
-                    return `<td class="sm-copy">${this.dayOfMonth(openingHour.occurrence_of_month)}</td><td>${this.weekday(openingHour.weekday)} of each month</td>`;
+                    return `<td class="sm-copy">${this.nthOfMonth(openingHour.occurrence_of_month)}</td><td>${this.weekday(openingHour.weekday)} of each month</td>`;
                 }
             },
             timePeriod(openingHour) {
@@ -521,13 +524,26 @@
             dayOfMonth(dayOfMonth) {
                 return moment(dayOfMonth, "D").format("Do");
             },
+            nthOfMonth(occurence) {
+                if(occurence == 1) {
+                    return "First"
+                } else if(occurence == 2) {
+                    return "Second"
+                } else if(occurence == 3) {
+                    return "Third"
+                } else if(occurence == 4) {
+                    return "Fourth"
+                } else if(occurence == 5) {
+                    return "Last"
+                }
+            },
             fortnightWeek(date) {
                 const daysInFortnight = 14;
                 const thisSunday = moment().day(7);
                 const diffInDays = moment(date, moment.HTML5_FMT.DATE).diff(thisSunday, "days");
                 const remainingDays = Math.abs(diffInDays % daysInFortnight);
 
-                return remainingDays > 6 ? "next calendar week" : "this calendar week";
+                return remainingDays > 6 ? "next week" : "this week";
             },
             toHtml(markdown) {
                 const classMap = {
