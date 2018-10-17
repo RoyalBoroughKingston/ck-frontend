@@ -20,7 +20,7 @@
                             <label for="referee_organisation">What organisation are you with?</label>
                             
                             <select class="select" name="referee_organisation" required>
-                                <option v-for="organisation in organisations" :key="organisation.id" :value="organisation.name">
+                                <option v-for="organisation in orderedOrganisations" :key="organisation.id" :value="organisation.name">
                                     {{organisation.name}}
                                 </option>
                             </select>
@@ -74,7 +74,8 @@
  
 <script>
     import axios from 'axios'
-    
+    import _ from 'lodash'
+
     export default {
         name: "you",
         props: ['service', 'step', 'steps'],
@@ -83,6 +84,11 @@
                 show_other: false,
                 organisations: null
             }
+        },
+        computed: {
+          orderedOrganisations: function () {
+            return _.orderBy(this.organisations, 'name', 'asc')
+          }
         },
         methods: {
             getOrganisations() {
