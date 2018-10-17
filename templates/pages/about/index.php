@@ -18,6 +18,9 @@
             <div class="section__component">
                 <p><a href="/contact" class="link link--icon-after">Contact us here <i class="fa fa-angle-right" aria-hidden></i></a></p>
             </div>
+
+            {% include('templates/_components/media.php') with { type: 'video', embedCode: '<iframe width="560" height="315" src="https://www.youtube.com/embed/h-2sgpokvGI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' } %}
+
         </div>
     </div>
 </section>

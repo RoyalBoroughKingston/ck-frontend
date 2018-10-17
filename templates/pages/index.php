@@ -53,15 +53,3 @@
 
     <persona></persona>
 </section>
-
-<section class="section mobile-hide">
-    <div class="flex-container">
-        <div class="flex-col flex-col--7 highlight highlight--grey">
-            {% include('templates/_components/media.php') with { type: 'video', embedCode: '<iframe width="560" height="315" src="https://www.youtube.com/embed/h-2sgpokvGI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' } %}
-        </div>
-
-        <div class="flex-col flex-col--5">
-            {% include('templates/_components/quote.php') with { quote: "We don't want people to start a journey they are not yet ready for!", by: 'Lisa Blackman', what: 'Manager Alfriston Day Centre, Surbiton' } %}
-        </div>
-    </div>
-</section>
