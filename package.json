@@ -42,5 +42,8 @@
     "vuejs-paginate": "^2.0.1",
     "vuex": "^3.0.1",
     "webpack": "^3.11.0"
+  },
+  "dependencies": {
+    "vue-lodash": "^2.0.0"
   }
 }
