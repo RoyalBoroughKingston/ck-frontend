@@ -106,6 +106,20 @@
       }
     }
 
+    // Reduced padding button style
+    &.btn--tiny {
+      font-weight: $font_regular;
+      font-size: 0.8rem;
+      line-height: 1.1rem;
+      padding: $base-margin - 11px $base-margin*1.5 - 11px;
+
+      i {
+        margin-left: $base-margin*0.5;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+      }
+    }
+
     &.btn--dark {
       color: $white;
       border-color: $white;

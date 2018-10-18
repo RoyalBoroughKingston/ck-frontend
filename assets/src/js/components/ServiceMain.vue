@@ -12,7 +12,7 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="Object.keys(service.criteria).length !== 0 && $mq === 'mobile'">
+                <div class="section__component" v-if="(service.criteria.age_group != null || service.criteria.disability != null || service.criteria.employment != null || service.criteria.gender != null || service.criteria.housing != null || service.criteria.income != null || service.criteria.language != null || service.criteria.other != null) && $mq === 'mobile'">
                     <h4 class="section__component__header">Who is this service for</h4>
 
                     <table class="table table--who-for">
@@ -94,7 +94,7 @@
                                     <i class="fa fa-globe" aria-hidden></i>
                                     Website
                                 </span>
-                                <p>{{ service.url }}</p>
+                                <p>{{ toFriendlyURL(service.url) }}</p>
                             </div>
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="section__component" v-if="Object.keys(service.criteria).length !== 0 && $mq !== 'mobile'">
+                <div class="section__component" v-if="(service.criteria.age_group != null || service.criteria.disability != null || service.criteria.employment != null || service.criteria.gender != null || service.criteria.housing != null || service.criteria.income != null || service.criteria.language != null || service.criteria.other != null) && $mq !== 'mobile'">
                     <h4 class="section__component__header">Who is this service for</h4>
 
                     <table class="table table--who-for">
@@ -280,7 +280,7 @@
                                     <i class="fa fa-globe" aria-hidden></i>
                                     Website
                                 </span>
-                                <a :href="service.url" target="_blank">{{ service.url }}</a>
+                                <a :href="service.url" target="_blank">{{ toFriendlyURL(service.url) }}</a>
                             </div>
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
@@ -298,7 +298,6 @@
                             <div class="card__content text-center">
                                 <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${service.organisation.id}/logo.png?v=${service.organisation.updated_at}`" :alt="service.name" class="card__image">
                                 <p class="sm-copy">{{ service.organisation.name }}</p>
-                                <p class="sm-copy">{{ service.organisation.url }}</p>
                             </div>
                         </a>
                     </div>
@@ -488,6 +487,9 @@
                     let rounded = Math.round( d * 10 ) / 10
                     return rounded + ' miles away'
                 });
+            },
+            toFriendlyURL(url) {
+                return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
             },
             toRad(item) {
                 return item * Math.PI / 180;

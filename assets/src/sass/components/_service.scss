@@ -27,13 +27,15 @@
 
     &__image {
         position: relative;
-        background-color: $white;
+        background-color: $pure_white !important;
         min-height: 80px;
         box-sizing: border-box;
 
         img {
             width: 100%;
             height: auto;
+            max-width: 350px;
+            margin: 0 auto;
         }
     }
 
@@ -145,13 +147,37 @@
         padding: $base-margin*1.5 $base-margin*2;
         box-sizing: border-box;
 
+        .service__sub-title {
+            font-weight: 700;
+        }
+
         &__actions {
             display: flex;
             align-items: center;
             justify-content: space-between;
 
+            @include breakpoint($break_medium) {
+                flex-wrap: wrap;
+                button {
+                    margin-top: $base-margin*2;    
+                }
+            }
+
+            @include breakpoint($break_tablet) {
+                flex-wrap: nowrap;
+                button {
+                    margin-top: 0;
+                }
+            }
+
+            @include breakpoint($break_mobile) {
+                flex-wrap: wrap;
+                button {
+                    margin-top: $base-margin*1;    
+                }
+            }
+
             &__close {
-            
                 margin-left: $base-margin;
             }
         }
