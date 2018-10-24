@@ -20,6 +20,7 @@
                             <label for="referee_organisation">What organisation are you with?</label>
                             
                             <select class="select" name="referee_organisation" required>
+                                <option value="" disabled="disabled" selected="selected">Please select</option>
                                 <option v-for="organisation in orderedOrganisations" :key="organisation.id" :value="organisation.name">
                                     {{organisation.name}}
                                 </option>
@@ -51,12 +52,12 @@
                     <div class="flex-container flex-container--no-padding">
                         <div class="field flex-col flex-col--8">
                             <label for="email">Email</label>
-                            <input type="email" class="input input--text" name="referee_email" placeholder="Enter here">
+                            <input type="email" class="input input--text" required name="referee_email" placeholder="Enter here">
                         </div>
 
                         <div class="field flex-col flex-col--8">
                             <label for="telephone">Telephone</label>
-                            <input type="tel" class="input input--text" pattern="^\s*\(?(020[7,8]{1}\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\s*$" title="Please enter a valid UK phone number in the format '01234567890'." name="referee_phone" placeholder="Enter here"/>
+                            <input type="tel" class="input input--text" pattern="^\s*\(?(020[7,8]{1}\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\s*$" required title="Please enter a valid UK phone number in the format '01234567890'." name="referee_phone" placeholder="Enter here"/>
                         </div>
                     </div>
 
