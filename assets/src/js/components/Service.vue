@@ -54,7 +54,7 @@
             <div class="service__details__actions">
                 
                 <a :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right" aria-hidden></i></a>
-                <a @click="closeService" @keyup.enter="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map'" tabindex="0">Close <i class="fa fa-times" aria-hidden></i></a>
+                <a @click="closeService" @keyup.enter="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map' && $mq === 'mobile'" tabindex="0">Close <i class="fa fa-times" aria-hidden></i></a>
 
                 <button v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" needle="service.id" role="button" class="btn btn--secondary btn--tiny">Add to shortlist <i class="fa fa-star"></i></button>
                 <button v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--secondary btn--tiny btn--green">In shortlist <i class="fa fa-star" aria-hidden></i></button>            
