@@ -171,7 +171,7 @@
                             </tr>
                             <tr v-if="service.criteria.employment">
                                 <td><img src="/assets/dist/img/whos-this-for-icons/employment.svg" alt="Employment"></td>
-                                <td class="text-center">Text</td>
+                                <td class="text-center">Employment</td>
                                 <td class="sm-copy">{{ service.criteria.employment }}</td>
                             </tr>
                             <tr v-if="service.criteria.gender">
