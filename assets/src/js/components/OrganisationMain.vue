@@ -39,7 +39,7 @@
                             <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
-                        <a :href="organisation.url" target="_blank">{{ organisation.url }}</a>
+                        <a :href="organisation.url" target="_blank">{{ toFriendlyURL(organisation.url) }}</a>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                             <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
-                        <a :href="organisation.url" target="_blank">{{ organisation.url }}</a>
+                        <a :href="organisation.url" target="_blank">{{ toFriendlyURL(organisation.url) }}</a>
                     </div>
                 </div>
             </div>
@@ -169,6 +169,9 @@
                                 
                                 return null;
                 }
+            },
+            toFriendlyURL(url) {
+                return url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
             },
         },
         mounted () {

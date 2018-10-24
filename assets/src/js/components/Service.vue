@@ -7,13 +7,10 @@
         </div>
 
         <div class="service__image" v-if="type === 'service'">
-            <img v-if="service.has_logo" :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name">
-            <img v-else :src="`https://api.connectedkingston.uk/core/v1/organisations/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name">
-            
-            <div class="service__add">
-                <button v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" needle="service.id" role="button" class="btn btn--small">Add to your shortlist <i class="fa fa-star"></i></button>
-                <button v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--small btn--green">In your shortlist <i class="fa fa-star" aria-hidden></i></button>
-            </div>
+            <a :href="['services/' + service.slug]">
+                <img v-if="service.has_logo" :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name">
+                <img v-else :src="`https://api.connectedkingston.uk/core/v1/organisations/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name">
+            </a>
         </div>
         
         <div class="service__location" v-if="location">
@@ -55,8 +52,13 @@
             <p class="service__description sm-copy" v-if="service.description">{{ service.intro }}</p>
             
             <div class="service__details__actions">
+                
                 <a :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right" aria-hidden></i></a>
-                <a @click="closeService" @keyup.enter="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map'" tabindex="0">Close <i class="fa fa-times" aria-hidden></i></a>
+                <a @click="closeService" @keyup.enter="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map' && $mq === 'mobile'" tabindex="0">Close <i class="fa fa-times" aria-hidden></i></a>
+
+                <button v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" needle="service.id" role="button" class="btn btn--secondary btn--tiny">Add to shortlist <i class="fa fa-star"></i></button>
+                <button v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--secondary btn--tiny btn--green">In shortlist <i class="fa fa-star" aria-hidden></i></button>            
+
             </div>
         </div>
 

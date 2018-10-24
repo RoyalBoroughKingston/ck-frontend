@@ -2,7 +2,7 @@
     <div class="title-card">
         <h2 class="title-card__title">{{ header.name }}</h2>
 
-        <div class="title-card__description">{{ header.intro }}</div>
+        <div class="title-card__description"><p>{{ header.intro }}</p></div>
     </div>
 </template>
  

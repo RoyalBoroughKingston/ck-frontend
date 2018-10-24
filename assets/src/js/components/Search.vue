@@ -225,6 +225,10 @@
                 // Set search parameters
                 if(this.getParameterByName('search_term') !== "") {
                     this.search_term = this.getParameterByName('search_term')
+                    if(this.search_term != null) {
+                        this.search_term = this.search_term.replace("+", " ")
+                    }
+
                 }
                 
                 if(this.getParameterByName('location') !== "") {
