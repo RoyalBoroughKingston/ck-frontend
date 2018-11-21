@@ -1,5 +1,7 @@
-node_modules
-package-lock.json
-assets/dist
-vendor
-composer.lock
+node_modules/
+assets/dist/
+vendor/
+.idea/
+.DS_Store
+.env
+mix-manifest.json

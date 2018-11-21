@@ -64,9 +64,9 @@
         computed: {
             serviceLogo() {
                 if(this.service.has_logo) {
-                    return `https://api.connectedkingston.uk/core/v1/services/${this.service.id}/logo.png?v=${this.service.updated_at}`
+                    return `{process.env.MIX_API_URI}/services/${this.service.id}/logo.png?v=${this.service.updated_at}`
                 } else {
-                    return `https://api.connectedkingston.uk/core/v1/organisations/${this.service.organisation_id}/logo.png?v=${this.service.updated_at}`
+                    return `{process.env.MIX_API_URI}/organisations/${this.service.organisation_id}/logo.png?v=${this.service.updated_at}`
                 }
             }
         },
@@ -96,7 +96,7 @@
         },
         mounted () {
             axios
-            .get('https://api.connectedkingston.uk/core/v1/services/' + this.getSlug())
+            .get(`${process.env.MIX_API_URI}/services/${this.getSlug()}`)
             .then(response => (
                 // Set the service
                 this.service = response.data.data,

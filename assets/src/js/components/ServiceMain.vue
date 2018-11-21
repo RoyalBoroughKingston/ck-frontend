@@ -296,7 +296,7 @@
                     <div class="card card--border-blue card--reduce-padding">
                         <a v-bind:href="['/organisations/' + service.organisation.slug]">
                             <div class="card__content text-center">
-                                <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${service.organisation.id}/logo.png?v=${service.organisation.updated_at}`" :alt="service.name" class="card__image">
+                                <img :src="`{process.env.MIX_API_URI}/organisations/${service.organisation.id}/logo.png?v=${service.organisation.updated_at}`" :alt="service.name" class="card__image">
                                 <p class="sm-copy">{{ service.organisation.name }}</p>
                             </div>
                         </a>
@@ -370,7 +370,7 @@
             },
             getService() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/services/' + this.getSlug() + '?include=organisation')
+                .get(`${process.env.MIX_API_URI}/services/${this.getSlug()}?include=organisation`)
                 .then(response => (
                     // Store the service
                     this.service = response.data.data,
@@ -382,7 +382,7 @@
             },
             getServiceLocations() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/service-locations?filter[service_id]='+ this.service.id +'&include=location')
+                .get(`${process.env.MIX_API_URI}/service-locations?filter[service_id]=${this.service.id}&include=location`)
                 .then(response => (
                     // Store the services locations
                     this.service_locations = response.data.data,

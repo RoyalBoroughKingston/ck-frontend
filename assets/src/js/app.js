@@ -26,6 +26,17 @@ const store = new Vuex.Store({})
 
 Vue.use(VueMediaEmbed, { store })
 
+// Bugsnag.
+import bugsnag from "bugsnag-js";
+const bugsnagClient = bugsnag({
+    apiKey: process.env.MIX_BUGSNAG_API_KEY,
+    releaseStage: process.env.MIX_APP_ENV,
+    notifyReleaseStages: ["local", "staging", "production"]
+});
+import bugsnagVue from "bugsnag-vue";
+
+bugsnagClient.use(bugsnagVue(Vue));
+
 // Focus directive for newly insterted elements
 Vue.directive('focus', {
   inserted: function (el) {

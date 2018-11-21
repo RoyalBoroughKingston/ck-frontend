@@ -44,7 +44,7 @@
                 console.log(params)
 
                 axios
-                .post('https://api.connectedkingston.uk/core/v1/page-feedbacks', params)
+                .post(`${process.env.MIX_API_URI}/page-feedbacks`, params)
                 .then(response => (
                     this.feedbackSubmitted = true
                 ))

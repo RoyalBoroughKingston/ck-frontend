@@ -3,7 +3,7 @@
         <vue-headful
             :title="`Connected Kingston - ` + organisation.name"
             :description="organisation.description"
-            :image="`https://api.connectedkingston.uk/core/v1/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`"
+            :image="`{process.env.MIX_API_URI}/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`"
         />
 
         <div class="flex-container flex-container--mobile-no-padding flex-container--align-center">
@@ -20,7 +20,7 @@
             <div class="flex-col flex-col--4 flex-col--gutter" v-if="$mq !== 'mobile'">
                 <div class="title-card">
                     <div class="title-card__image">
-                        <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`" :alt="organisation.name">
+                        <img :src="`{process.env.MIX_API_URI}/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`" :alt="organisation.name">
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             },
             getOrganisation() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/organisations/' + this.getSlug())
+                .get(`${process.env.MIX_API_URI}/organisations/${this.getSlug()}`)
                 .then(response => (this.organisation = response.data.data))
                 .catch(error => console.log(error))
             },
