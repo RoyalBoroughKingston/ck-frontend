@@ -44,6 +44,14 @@ Vue.directive('focus', {
   }
 })
 
+Vue.mixin({
+    data() {
+      return {
+        process
+      }
+    }
+})
+
 // Vue Components
 Vue.component('paginate', Paginate)
 Vue.component('vue-headful', vueHeadful);
@@ -99,8 +107,7 @@ export class App {
           let scrollToAnchor = new ScrollToAnchor();
         }
       }
-    })
-
+    });
   }
 
 }
