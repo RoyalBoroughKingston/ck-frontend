@@ -1,6 +1,6 @@
 {
   "COMPOSER_VENDOR_DIR": "vendor",
-  "WEBDIR": "htdocs",
+  "WEBDIR": "",
   "PHP_MODULES": [
     "fpm",
     "cli"
