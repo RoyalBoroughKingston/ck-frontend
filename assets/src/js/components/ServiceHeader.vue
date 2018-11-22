@@ -64,9 +64,9 @@
         computed: {
             serviceLogo() {
                 if(this.service.has_logo) {
-                    return `${process.env.MIX_API_URI}/services/${this.service.id}/logo.png?v=${this.service.updated_at}`
+                    return `${this.apiUri}/services/${this.service.id}/logo.png?v=${this.service.updated_at}`
                 } else {
-                    return `${process.env.MIX_API_URI}/organisations/${this.service.organisation_id}/logo.png?v=${this.service.updated_at}`
+                    return `${this.apiUri}/organisations/${this.service.organisation_id}/logo.png?v=${this.service.updated_at}`
                 }
             }
         },
@@ -96,7 +96,7 @@
         },
         mounted () {
             axios
-            .get(`${process.env.MIX_API_URI}/services/${this.getSlug()}`)
+            .get(`${this.apiUri}/services/${this.getSlug()}`)
             .then(response => (
                 // Set the service
                 this.service = response.data.data,

@@ -128,7 +128,7 @@
 
                 // Query the selected service
                 axios
-                .get(`${process.env.MIX_API_URI}/services/${e.target.options.id}`)
+                .get(`${this.apiUri}/services/${e.target.options.id}`)
                 .then(response => (
                     // Set the selected service
                     this.selected_service = response.data.data,

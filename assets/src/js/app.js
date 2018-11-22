@@ -47,7 +47,7 @@ Vue.directive('focus', {
 Vue.mixin({
     data() {
       return {
-        process
+        apiUri: process.env.MIX_API_URI
       }
     }
 })

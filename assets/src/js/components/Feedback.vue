@@ -44,7 +44,7 @@
                 console.log(params)
 
                 axios
-                .post(`${process.env.MIX_API_URI}/page-feedbacks`, params)
+                .post(`${this.apiUri}/page-feedbacks`, params)
                 .then(response => (
                     this.feedbackSubmitted = true
                 ))

@@ -18,7 +18,7 @@
         },
         mounted () {
             axios
-            .get(`${process.env.MIX_API_URI}/collections/categories?page=1`)
+            .get(`${this.apiUri}/collections/categories?page=1`)
             .then(response => (this.categories = response.data.data))
             .catch(error => console.log(error))
         }

@@ -8,8 +8,8 @@
 
         <div class="service__image" v-if="type === 'service'">
             <a :href="['services/' + service.slug]">
-                <img v-if="service.has_logo" :src="`${process.env.MIX_API_URI}/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name">
-                <img v-else :src="`${process.env.MIX_API_URI}/organisations/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name">
+                <img v-if="service.has_logo" :src="`${apiUri}/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name">
+                <img v-else :src="`${apiUri}/organisations/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name">
             </a>
         </div>
         

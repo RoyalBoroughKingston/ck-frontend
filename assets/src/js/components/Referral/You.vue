@@ -94,7 +94,7 @@
         methods: {
             getOrganisations() {
                 axios
-                .get(`${process.env.MIX_API_URI}/taxonomies/organisations?page=1`)
+                .get(`${this.apiUri}/taxonomies/organisations?page=1`)
                 .then(response => (
                     // Store the service
                     this.organisations = response.data.data
