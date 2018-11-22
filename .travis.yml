@@ -33,5 +33,6 @@ script:
 deploy:
 - provider: script
   script: APP_ENV=staging API_URI=$STAGING_API_URI FRONTEND_URI=$STAGING_FRONTEND_URI CF_SPACE=$STAGING_CF_SPACE scripts/Deploy.sh
+  skip_cleanup: true
   on:
     branch: develop

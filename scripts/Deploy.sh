@@ -14,12 +14,6 @@ MIX_API_URI=$API_URI
 MIX_BUGSNAG_API_KEY=$BUGSNAG_API_KEY
 EOF
 
-# Install composer dependencies.
-composer install --no-interaction
-
-# Install NPM dependencies.
-npm install
-
 # Compile assets.
 npm run dev
 
@@ -39,5 +33,4 @@ cf api $CF_API
 cf login -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORGANISATION" -s "$CF_SPACE"
 
 # Deploy.
-echo "Pushing to CloudFoundry..."
 cf push --vars-file secrets.yml
