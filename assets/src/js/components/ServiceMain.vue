@@ -296,7 +296,7 @@
                     <div class="card card--border-blue card--reduce-padding">
                         <a v-bind:href="['/organisations/' + service.organisation.slug]">
                             <div class="card__content text-center">
-                                <img :src="`{process.env.MIX_API_URI}/organisations/${service.organisation.id}/logo.png?v=${service.organisation.updated_at}`" :alt="service.name" class="card__image">
+                                <img :src="`${process.env.MIX_API_URI}/organisations/${service.organisation.id}/logo.png?v=${service.organisation.updated_at}`" :alt="service.name" class="card__image">
                                 <p class="sm-copy">{{ service.organisation.name }}</p>
                             </div>
                         </a>

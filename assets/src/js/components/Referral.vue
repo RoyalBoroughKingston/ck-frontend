@@ -19,8 +19,8 @@
                         </span>
                     </div>
                     <div class="service__image">
-                        <img v-if="service.has_logo" :src="`{process.env.MIX_API_URI}/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
-                        <img v-else :src="`{process.env.MIX_API_URI}/organisation/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
+                        <img v-if="service.has_logo" :src="`${process.env.MIX_API_URI}/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
+                        <img v-else :src="`${process.env.MIX_API_URI}/organisation/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
                     </div>
 
                     <div class="service__details">

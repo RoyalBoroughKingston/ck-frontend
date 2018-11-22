@@ -2,7 +2,7 @@
     <section class="section section--no-padding">
         <div class="flex-container">
             <div class="flex-col" v-if="$mq === 'mobile'">
-                <img :src="`{process.env.MIX_API_URI}/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`" :alt="organisation.name" class="img-responsive">
+                <img :src="`${process.env.MIX_API_URI}/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`" :alt="organisation.name" class="img-responsive">
             </div>
 
             <div class="flex-col flex-col--4" v-if="organisation && $mq === 'mobile'">
