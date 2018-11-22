@@ -1,7 +1,8 @@
 {
   "COMPOSER_VENDOR_DIR": "vendor",
   "PHP_MODULES": [
-    "fpm"
+    "fpm",
+    "cli"
   ],
   "PHP_EXTENSIONS": [
     "bz2",
