@@ -1,0 +1,8 @@
+---
+applications:
+- name: ck-frontend
+  memory: 128M
+  instances: 1
+  buildpack: php_buildpack
+  routes:
+  - route: ((route))

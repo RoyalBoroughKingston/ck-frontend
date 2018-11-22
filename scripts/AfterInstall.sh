@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Bail on error.
+set -e;
+
 # Go to the install directory.
 cd /var/www/html
 
@@ -17,5 +20,5 @@ npm install
 export COMPOSER_HOME="$HOME/.config/composer/"
 composer install --no-interaction --no-dev
 
-# Run NPM
+# Compile assets.
 npm run production

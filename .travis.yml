@@ -1,0 +1,42 @@
+if: tag IS blank
+branches:
+  only:
+  - master
+  - develop
+
+sudo: required
+dist: trusty
+
+language: php
+php:
+- "7.2"
+
+cache:
+  directories:
+  - vendor
+
+before_install:
+- wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+- echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+- sudo apt-get update
+- sudo apt-get install -y --allow-unauthenticated cf-cli
+
+install:
+- composer self-update
+- composer install --no-interaction
+- npm install
+- npm run dev
+
+script:
+- echo "No tests ran"
+
+deploy:
+- provider: script
+  script: >
+    APP_ENV=staging
+    API_URI=$STAGING_API_URI
+    FRONTEND_URI=$STAGING_FRONTEND_URI
+    CF_SPACE=$STAGING_CF_SPACE
+    scripts/Deploy.sh
+  on:
+    branch: develop
