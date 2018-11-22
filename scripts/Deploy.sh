@@ -39,4 +39,5 @@ cf api $CF_API
 cf login -u "$CF_USERNAME" -p "$CF_PASSWORD" -o "$CF_ORGANISATION" -s "$CF_SPACE"
 
 # Deploy.
-cf push --vars-file secrets.yml
+echo "Pushing to CloudFoundry..."
+cf push --vars-file secrets.yml &> /dev/null
