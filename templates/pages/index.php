@@ -46,8 +46,8 @@
 <section class="section section--light-blue">
     <div class="flex-container">
         <div class="flex-col flex-col--12 text-center">
-            <h3>Services for people</h3>
-            <p>Sometimes it's hard to know where to start with a problem - here are some suggestions</p>
+            <h3>Help me to...</h3>
+            <p>Sometimes it's hard to know where to start - here are some suggestions</p>
         </div>
     </div>
 
