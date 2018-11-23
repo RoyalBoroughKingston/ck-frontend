@@ -13,6 +13,8 @@
             </div>
         </section>
         
+        <search-no-results v-if="services_meta && services_meta.total === 0"></search-no-results>
+
         <section id="results" class="section section--no-padding">
             <div class="flex-container flex-container--mobile-no-padding">
                 <div :class="layoutClass">
@@ -43,6 +45,21 @@
                 </div>
             </div>
         </section>
+
+        <section id="categories" class="section" v-if="services_meta && services_meta.total > 0">
+            <div class="flex-container">
+                <div class="flex-col flex-col--12 text-center">
+                    <h3>Browse by category <i class="fa fa-columns" aria-hidden></i></h3>
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div class="flex-col flex-col--12 highlight highlight--grey text-center">
+                    <categories></categories>
+                </div>
+            </div>
+        </section>
+
     </div>
 </template>
  
@@ -50,20 +67,24 @@
     import axios from 'axios'
     import SearchFilter from './Search/SearchFilter'
     import SearchGrid from './Search/SearchGrid'
+    import SearchNoResults from './Search/SearchNoResults'
     import SearchHeader from './Search/SearchHeader'
     import SearchMap from './Search/SearchMap'
     import SearchSort from './Search/SearchSort'
     import SearchView from './Search/SearchView'
+    import Categories from './Categories'
     
     export default {
         name: "search",
         components: {
             SearchFilter,
             SearchGrid,
+            SearchNoResults,
             SearchHeader,
             SearchMap,
             SearchSort,
-            SearchView
+            SearchView,
+            Categories
         },
         data () {
             return {

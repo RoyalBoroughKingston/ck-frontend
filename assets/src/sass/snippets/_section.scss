@@ -23,6 +23,10 @@
     padding: 0 !important;
   }
 
+  &--no-top-padding {
+    padding: 0 0 $base-margin*4.5 0;
+  }
+
   &--reduce-padding {
     padding: $base-margin*2.5 0;
   }
