@@ -23,14 +23,14 @@
             <span class="sm-copy">
                 <i class="fa fa-phone" aria-hidden></i> Telephone
             </span>
-            <a :href="`tel:`+service.contact_phone">{{ service.contact_phone }}</a>
+            <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Phone`" :data-event-label="service.contact_phone">{{ service.contact_phone }}</a>
         </div>
 
         <div class="service__contact service__contact--email" v-if="type === 'shortlist' && service.contact_email">
             <span class="sm-copy">
                 <i class="fa fa-envelope" aria-hidden></i> Email
             </span>
-            <a :href="`mailto:`+service.contact_email">{{ service.contact_email }}</a>
+            <a :href="`mailto:`+service.contact_email" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Email`" :data-event-label="service.contact_email">{{ service.contact_email }}</a>
         </div>
         
         <div class="service__meta" v-if="type === 'service'">
@@ -136,7 +136,12 @@
         mounted () {
             // Get the shortlist
             this.getShortlist()
-        }
+        },
+        computed: {
+            phoneWithoutSpaces() {
+                return this.service.contact_phone.replace(/ /g, "");
+            }
+        },
     }
 </script>
  

@@ -79,14 +79,14 @@
                                 <span class="sm-copy">
                                     <i class="fa fa-phone" aria-hidden></i> Telephone
                                 </span>
-                                <p>{{ service.contact_phone }}</p>
+                                <p><a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Phone`" :data-event-label="service.contact_phone">{{ service.contact_phone }}</a></p>
                             </div>
                             
                             <div class="service__contact service__contact--email" v-if="service.contact_email">
                                 <span class="sm-copy">
                                     <i class="fa fa-envelope" aria-hidden></i> Email
                                 </span>
-                                <p>{{ service.contact_email }}</p>
+                                <p><a :href="`mailto:`+service.contact_email" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Email`" :data-event-label="service.contact_email">{{ service.contact_email }}</a></p>
                             </div>
                             
                             <div class="service__contact service__contact--website" v-if="service.url">
@@ -94,7 +94,7 @@
                                     <i class="fa fa-globe" aria-hidden></i>
                                     Website
                                 </span>
-                                <p>{{ toFriendlyURL(service.url) }}</p>
+                                <p><a :href="service.url" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(service.url)">{{ toFriendlyURL(service.url) }}</a></p>
                             </div>
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
@@ -265,14 +265,14 @@
                                 <span class="sm-copy">
                                     <i class="fa fa-phone" aria-hidden></i> Telephone
                                 </span>
-                                <a :href="`tel:`+service.contact_phone">{{ service.contact_phone }}</a>
+                                <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Phone`" :data-event-label="service.contact_phone">{{ service.contact_phone }}</a>
                             </div>
                             
                             <div class="service__contact service__contact--email" v-if="service.contact_email">
                                 <span class="sm-copy">
                                     <i class="fa fa-envelope" aria-hidden></i> Email
                                 </span>
-                                <a :href="`mailto:`+service.contact_email">{{ service.contact_email }}</a>
+                                <a :href="`mailto:`+service.contact_email" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Email`" :data-event-label="service.contact_email">{{ service.contact_email }}</a>
                             </div>
                             
                             <div class="service__contact service__contact--website" v-if="service.url">
@@ -280,7 +280,7 @@
                                     <i class="fa fa-globe" aria-hidden></i>
                                     Website
                                 </span>
-                                <a :href="service.url" target="_blank">{{ toFriendlyURL(service.url) }}</a>
+                                <a :href="service.url" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(service.url)">{{ toFriendlyURL(service.url) }}</a>
                             </div>
                             
                             <div class="service__social" v-if="service.social_medias.length > 0">
@@ -572,7 +572,12 @@
         mounted () {
             // Get the service
             this.getService()
-        }
+        },
+        computed: {
+            phoneWithoutSpaces() {
+                return this.service.contact_phone.replace(/ /g, "");
+            }
+        },
     }
 </script>
 
