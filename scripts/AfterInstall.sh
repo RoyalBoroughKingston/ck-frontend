@@ -3,6 +3,9 @@
 # Bail on error.
 set -e;
 
+# Set permissions.
+chown -R ec2-user:apache /var/www/html
+
 # Go to the install directory.
 cd /var/www/html
 
