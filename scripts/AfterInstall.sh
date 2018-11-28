@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 
+# Bail on error.
+set -e;
+
 # Go to the install directory.
 cd /var/www/html
+
+# Create the .env file.
+cat > .env << EOF
+MIX_APP_ENV=production
+MIX_API_URI=https://api.connectedkingston.uk/core/v1
+MIX_BUGSNAG_API_KEY=77cdf9175a5584df05a75924b7febf4a
+EOF
 
 # Install NPM dependencies.
 npm install
@@ -10,5 +20,5 @@ npm install
 export COMPOSER_HOME="$HOME/.config/composer/"
 composer install --no-interaction --no-dev
 
-# Run NPM
+# Compile assets.
 npm run production

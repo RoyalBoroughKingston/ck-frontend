@@ -8,7 +8,7 @@
 	<title>Connected Kingston - <?php print $PAGE_TITLE;?></title>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<link rel="canonical" href="https://connectedkingston.co.uk" />
+	<link rel="canonical" href="https://connectedkingston.uk" />
 	<meta name="description" content="<?php print $DESCRIPTION; ?>" />
 	<meta itemprop="image">
 	<meta property="og:image">

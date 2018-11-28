@@ -26,11 +26,48 @@ const store = new Vuex.Store({})
 
 Vue.use(VueMediaEmbed, { store })
 
+// Bugsnag.
+import bugsnag from "bugsnag-js";
+const bugsnagClient = bugsnag({
+    apiKey: process.env.MIX_BUGSNAG_API_KEY,
+    releaseStage: process.env.MIX_APP_ENV,
+    notifyReleaseStages: ["local", "staging", "production"]
+});
+import bugsnagVue from "bugsnag-vue";
+
+bugsnagClient.use(bugsnagVue(Vue));
+
 // Focus directive for newly insterted elements
 Vue.directive('focus', {
   inserted: function (el) {
     el.focus()
   }
+})
+
+Vue.mixin({
+    data() {
+      return {
+        apiUri: process.env.MIX_API_URI
+      }
+    },
+    methods: {
+      trackClicks(event) {
+
+        // Grab data
+        var category = event.target.getAttribute('data-event-category');
+        var action = event.target.getAttribute('data-event-action');
+        var label = event.target.getAttribute('data-event-label');
+
+        // Send event to Google
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label
+        });
+
+        window.location = event.target.href;
+
+      }
+    }
 })
 
 // Vue Components
@@ -88,8 +125,7 @@ export class App {
           let scrollToAnchor = new ScrollToAnchor();
         }
       }
-    })
-
+    });
   }
 
 }

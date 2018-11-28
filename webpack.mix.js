@@ -27,6 +27,7 @@ mix.setPublicPath(path.resolve('./'))
   }
 })
 .version()
+.sourceMaps()
 .browserSync({
   proxy: 'http://ck-frontend.test',
   https: true,

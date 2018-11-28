@@ -19,8 +19,8 @@
                         </span>
                     </div>
                     <div class="service__image">
-                        <img v-if="service.has_logo" :src="`https://api.connectedkingston.uk/core/v1/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
-                        <img v-else :src="`https://api.connectedkingston.uk/core/v1/organisation/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
+                        <img v-if="service.has_logo" :src="`${apiUri}/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
+                        <img v-else :src="`${apiUri}/organisation/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
                     </div>
 
                     <div class="service__details">
@@ -83,7 +83,7 @@
         methods: {
             getService() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/services/' + this.getParameterByName('service') + '?include=organisation')
+                .get(`${this.apiUri}/services/${this.getParameterByName('service')}?include=organisation`)
                 .then(response => (
                     this.service = response.data.data,
                     this.type = response.data.data.referral_method,

@@ -36,7 +36,7 @@
             updateShortlist() {
                 // Retrieve items in shortlist
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/services?filter[id]=' + this.shortlist)
+                .get(`${this.apiUri}/services?filter[id]=${this.shortlist}`)
                 .then(response => (
                     // Set the shortlist services
                     this.services = response.data.data,
@@ -56,7 +56,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/organisations?filter[id]=' + this.organisations)
+                .get(`${this.apiUri}/organisations?filter[id]=${this.organisations}`)
                 .then(response => (
                     // Overwrite the organisations data model
                     this.organisations = response.data.data
@@ -79,7 +79,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/service-locations?filter[service_id]=' + this.service_ids + '&include=location')
+                .get(`${this.apiUri}/service-locations?filter[service_id]=${this.service_ids}&include=location`)
                 .then(response => (
                     // Overwrite the organisations data model
                     this.service_locations = response.data.data,

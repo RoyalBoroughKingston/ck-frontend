@@ -2,7 +2,7 @@
     <section class="section section--no-padding">
         <div class="flex-container">
             <div class="flex-col" v-if="$mq === 'mobile'">
-                <img :src="`https://api.connectedkingston.uk/core/v1/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`" :alt="organisation.name" class="img-responsive">
+                <img :src="`${apiUri}/organisations/${organisation.id}/logo.png?v=${organisation.updated_at}`" :alt="organisation.name" class="img-responsive">
             </div>
 
             <div class="flex-col flex-col--4" v-if="organisation && $mq === 'mobile'">
@@ -24,14 +24,14 @@
                         <span class="sm-copy">
                             <i class="fa fa-phone" aria-hidden></i> Telephone
                         </span>
-                        <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
+                        <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" data-event-category="organisation.name" data-event-action="Phone" data-event-label="organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
                             <i class="fa fa-envelope" aria-hidden></i> Email
                         </span>
-                        <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
+                        <a :href="`mailto:`+organisation.email" @click.prevent="trackClicks" data-event-category="organisation.name" data-event-action="Email" data-event-label="organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
@@ -39,7 +39,7 @@
                             <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
-                        <a :href="organisation.url" target="_blank">{{ toFriendlyURL(organisation.url) }}</a>
+                        <a :href="organisation.url" @click.prevent="trackClicks" :data-event-category="organisation.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(organisation.url)">{{ toFriendlyURL(organisation.url) }}</a>
                     </div>
                 </div>
             </div>
@@ -71,14 +71,14 @@
                         <span class="sm-copy">
                             <i class="fa fa-phone" aria-hidden></i> Telephone
                         </span>
-                        <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
+                        <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="organisation.name" :data-event-action="`Phone`" :data-event-label="organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
                             <i class="fa fa-envelope" aria-hidden></i> Email
                         </span>
-                        <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
+                        <a :href="`mailto:`+organisation.email" @click.prevent="trackClicks" data-event-category="organisation.name" data-event-action="Email" data-event-label="organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
@@ -86,7 +86,7 @@
                             <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
-                        <a :href="organisation.url" target="_blank">{{ toFriendlyURL(organisation.url) }}</a>
+                        <a :href="organisation.url" @click.prevent="trackClicks" :data-event-category="organisation.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(organisation.url)">{{ toFriendlyURL(organisation.url) }}</a>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
             },
             getOrganisation() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/organisations/' + this.getSlug())
+                .get(`${this.apiUri}/organisations/${this.getSlug()}`)
                 .then(response => (
                     // Store the organisation
                     this.organisation = response.data.data,
@@ -131,7 +131,7 @@
             },
             getServices() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/services?filter[organisation_id]=' + this.$data.organisation.id)
+                .get(`${this.apiUri}/services?filter[organisation_id]=${this.$data.organisation.id}`)
                 .then(response => (
                     // Store the organisations services
                     this.services = response.data.data,
@@ -148,7 +148,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/service-locations?filter[service_id]=' + this.service_ids + '&include=location')
+                .get(`${this.apiUri}/service-locations?filter[service_id]=${this.service_ids}&include=location`)
                 .then(response => (
                     // Overwrite the organisations data model
                     this.service_locations = response.data.data,
@@ -176,7 +176,12 @@
         },
         mounted () {
             this.getOrganisation();
-        }
+        },
+        computed: {
+            phoneWithoutSpaces() {
+                return this.organisation.phone.replace(/ /g, "");
+            }
+        },
     }
 </script>
  

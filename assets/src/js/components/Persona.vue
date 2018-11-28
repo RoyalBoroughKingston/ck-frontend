@@ -4,7 +4,7 @@
             <div class="pod">
                 <a v-bind:href="['/results?is_free=false&wait_time=null&persona=' + persona.id]">
                     <div class="pod__image">
-                        <img :src="`https://api.connectedkingston.uk/core/v1/collections/personas/${persona.id}/image.png?v=${persona.updated_at}`" :alt="persona.name">
+                        <img :src="`${apiUri}/collections/personas/${persona.id}/image.png?v=${persona.updated_at}`" :alt="persona.name">
                     </div>
 
                     <div class="pod__content">
@@ -28,7 +28,7 @@
         },
         mounted () {
             axios
-            .get('https://api.connectedkingston.uk/core/v1/collections/personas')
+            .get(`${this.apiUri}/collections/personas`)
             .then(response => (this.personas = response.data.data))
             .catch(error => console.log(error))
         }

@@ -13,6 +13,8 @@
             </div>
         </section>
         
+        <search-no-results v-if="services_meta && services_meta.total === 0"></search-no-results>
+
         <section id="results" class="section section--no-padding">
             <div class="flex-container flex-container--mobile-no-padding">
                 <div :class="layoutClass">
@@ -43,6 +45,21 @@
                 </div>
             </div>
         </section>
+
+        <section id="categories" class="section" v-if="services_meta && services_meta.total > 0">
+            <div class="flex-container">
+                <div class="flex-col flex-col--12 text-center">
+                    <h3>Browse by category <i class="fa fa-columns" aria-hidden></i></h3>
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div class="flex-col flex-col--12 highlight highlight--grey text-center">
+                    <categories></categories>
+                </div>
+            </div>
+        </section>
+
     </div>
 </template>
  
@@ -50,20 +67,24 @@
     import axios from 'axios'
     import SearchFilter from './Search/SearchFilter'
     import SearchGrid from './Search/SearchGrid'
+    import SearchNoResults from './Search/SearchNoResults'
     import SearchHeader from './Search/SearchHeader'
     import SearchMap from './Search/SearchMap'
     import SearchSort from './Search/SearchSort'
     import SearchView from './Search/SearchView'
+    import Categories from './Categories'
     
     export default {
         name: "search",
         components: {
             SearchFilter,
             SearchGrid,
+            SearchNoResults,
             SearchHeader,
             SearchMap,
             SearchSort,
-            SearchView
+            SearchView,
+            Categories
         },
         data () {
             return {
@@ -135,7 +156,7 @@
                 
                 // Call the search endpoint with the params set
                 axios
-                .post('https://api.connectedkingston.uk/core/v1/search?page='+this.current_page, params)
+                .post(`${this.apiUri}/search?page=${this.current_page}`, params)
                 .then(response => (
                     // Set the services
                     this.services = response.data.data,
@@ -159,7 +180,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/organisations?filter[id]=' + this.organisations)
+                .get(`${this.apiUri}/organisations?filter[id]=${this.organisations}`)
                 .then(response => (
                     // Overwrite the organisations data model
                     this.organisations = response.data.data,
@@ -179,7 +200,7 @@
 
                 // Do a request for organisations
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/service-locations?filter[id]=' + this.service_locations + '&include=location')
+                .get(`${this.apiUri}/service-locations?filter[id]=${this.service_locations}&include=location`)
                 .then(response => (
                     // Overwrite the organisations data model
                     this.service_locations = response.data.data,
@@ -191,7 +212,7 @@
             },
             getCategory() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/collections/categories/'+this.category)
+                .get(`${this.apiUri}/collections/categories/${this.category}`)
                 .then(response => (
                     // Store the category
                     this.category = response.data.data,
@@ -202,7 +223,7 @@
             },
             getPersona() {
                 axios
-                .get('https://api.connectedkingston.uk/core/v1/collections/personas/'+this.persona)
+                .get(`${this.apiUri}/collections/personas/${this.persona}`)
                 .then(response => (
                     // Store the category
                     this.persona = response.data.data,

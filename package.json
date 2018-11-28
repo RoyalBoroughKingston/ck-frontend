@@ -44,6 +44,8 @@
     "webpack": "^3.11.0"
   },
   "dependencies": {
+    "bugsnag-js": "^4.7.3",
+    "bugsnag-vue": "^1.0.1",
     "vue-lodash": "^2.0.0"
   }
 }
