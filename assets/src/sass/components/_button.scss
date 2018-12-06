@@ -35,6 +35,16 @@
     }
   }
 
+  &--row {
+    
+    display: block;
+
+    @include breakpoint($break_tablet) {
+      display: inline-block;
+    }
+
+  }
+
   &--icon-before {
     i {
       margin-left: 0 !important;

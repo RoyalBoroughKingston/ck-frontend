@@ -87,6 +87,22 @@ label {
     }
   }
 
+  &__buttons--center {
+    text-align: center;
+
+    .btn {
+      margin: 0 auto $base-margin*0.25 auto;
+
+      @include breakpoint($break_tablet) {
+        margin-right: $base-margin*0.75;
+        &:last-child {
+          margin-right: 0;
+        }  
+      }
+
+    }
+  }
+
   &__buttons {
     .btn {
       margin-right: $base-margin*0.75;
