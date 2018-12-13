@@ -14,10 +14,10 @@
       {% if image is defined and image | length %}
         <img src="{{ image }}" {% if imageTitle is defined and imageTitle | length %}alt="{{ imageTitle }}"{% endif %} class="card__image">
       {% endif %}
-      
-      
+
+
       <p {% if type is defined and type != 'notification' %}class="sm-copy"{% endif %}>{{ content | raw }}</p>
-      
+
       {% if description is defined and description | length %}
         <p class="sm-copy">{{ description | raw }}</p>
       {% endif %}
