@@ -33,25 +33,25 @@
                     </div>
 
                     <!-- Persona -->
-                    <div class="section__component" v-if="persona">
-                      <div class="card card--border-blue card--reduce-padding" >
+                    <div class="section__component" v-if="persona && persona.sidebox_title && persona.sidebox_content">
+                      <div class="card card--border-blue card--reduce-padding">
                         <div class="card__content text-left">
-                          <p><strong>Dummy Title</strong></p>
-                          <p class="sm-copy">Suspendisse volutpat pellentesque metus id <a href="">egestas</a>. Mauris sodales, massa in dignissim iaculis, leo urna laoreet dui, <strong>sed placerat dolor</strong> quam ut nunc.</p>
-                          {{persona.sidebox_title}}
-                          {{persona.sidebox_content}}
+                          <p><strong>{{persona.sidebox_title}}</strong></p>
+                          <div class="sm-copy">
+                            <vue-simple-markdown :source="persona.sidebox_content"></vue-simple-markdown>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    
+
                     <!-- Category -->
-                    <div class="section__component" v-if="category">
-                      <div class="card card--border-blue card--reduce-padding" >
+                    <div class="section__component" v-if="category && category.sidebox_title && category.sidebox_content">
+                      <div class="card card--border-blue card--reduce-padding">
                         <div class="card__content text-left">
-                          <p><strong>Dummy Title</strong></p>
-                          <p class="sm-copy">Suspendisse volutpat pellentesque metus id <a href="">egestas</a>. Mauris sodales, massa in dignissim iaculis, leo urna laoreet dui, <strong>sed placerat dolor</strong> quam ut nunc.</p>
-                          {{category.sidebox_title}}
-                          {{category.sidebox_content}}
+                          <p><strong>{{category.sidebox_title}}</strong></p>
+                          <div class="sm-copy">
+                            <vue-simple-markdown :source="category.sidebox_content"></vue-simple-markdown>
+                          </div>
                         </div>
                       </div>
                     </div>
