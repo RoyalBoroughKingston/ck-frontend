@@ -308,9 +308,8 @@
                   <div class="map map--service">
                       <div id="map-container" class="map__container"></div>
                   </div>
+                  <a v-bind:href="google_map_link" role="button" class="btn btn--secondary btn--icon-after" target="_blank">Open Google Map</a>
                 </div>
-
-
 
                 <div class="section__component section__component--mobile-padding text-center">
                     <div class="page-meta">
