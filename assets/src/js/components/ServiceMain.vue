@@ -308,7 +308,6 @@
                   <div class="map map--service">
                       <div id="map-container" class="map__container"></div>
                   </div>
-                  <a v-bind:href="google_map_link" role="button" class="btn btn--secondary btn--icon-after" target="_blank">Open Google Map</a>
                 </div>
 
                 <div class="section__component section__component--mobile-padding text-center">
@@ -362,7 +361,7 @@
                     iconUrl: '/assets/dist/img/map/map-marker.svg',
                     iconSize:     [30, 40],
                     iconAnchor:   [15, 40],
-                    popupAnchor:  [-3, -76]
+                    popupAnchor:  [0, -20]
                 })
             }
         },
@@ -416,7 +415,7 @@
                 // Loop through the service locations
                 this.service_locations.forEach((location) => {
                     // Push each service location to features array
-                    this.layers[0].features.push({id: this.service.id, name: this.service.name, type: 'marker', coords: [location.location.lat, location.location.lon]});
+                    this.layers[0].features.push({id: this.service.id, name: this.service.name, address_1: location.location.address_line_1, address_2: location.location.address_line_2, address_3: location.location.address_line_3, postcode: location.location.postcode, type: 'marker', coords: [location.location.lat, location.location.lon]});
                 })
             },
             initMap() {
@@ -428,7 +427,6 @@
                     }
                 )
                 this.tileLayer.addTo(this.map)
-
                 //this.map.dragging.disable();
                 //this.map.touchZoom.disable();
                 //this.map.doubleClickZoom.disable();
@@ -440,8 +438,26 @@
 
                     markerFeatures.forEach((feature) => {
                         // Create marker
-                        feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
-                            .addTo(this.map)
+
+                        let ad_1 = '';
+                        let ad_2 = '';
+                        let ad_3 = '';
+                        let post = '';
+
+                        if(feature.address_1 != null && feature.address_1 != 0) {
+                          ad_1 = feature.address_1 + '<br/>';
+                        }
+                        if(feature.address_2 != null && feature.address_2 != 0) {
+                          ad_2 = feature.address_2 + '<br/>';
+                        }
+                        if(feature.address_3 != null && feature.address_3 != 0) {
+                          ad_3 = feature.address_3 + '<br/>';
+                        }
+                        if(feature.postcode != null && feature.postcode != 0) {
+                          post = feature.postcode;
+                        }
+
+                        feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon}).bindPopup('<p class="sm-copy">'+ad_1+''+ad_2+''+ad_3+''+post+'</p><p class="sm-copy"><a href="https://www.google.com/maps/search/?api=1&query='+feature.coords+'" target="_blank" class="">Open Google Map</a></p>').addTo(this.map);
 
                         // Push markers to array for use later
                         this.markers.push(feature.leafletObject)
@@ -459,7 +475,7 @@
                 // Loop through the service locations
                 this.service_locations.forEach((location) => {
                     // Push each service location to features array
-                    locations += location.location.lon + ', ' + location.location.lat
+                    locations += location.location.lat + ', ' + location.location.lon
                 })
 
                 // Set the google map link

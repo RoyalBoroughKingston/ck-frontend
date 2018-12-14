@@ -1,15 +1,14 @@
 /* Map */
 .leaflet {
   text-align: center;
-
   .map--service {
     height: 195px;
     border-radius: 0;
   }
 
   a {
-    margin: $base-margin*2 auto;
-    display: inline-block;
+    color:$elm;
+    text-decoration: none;
   }
 }
 
