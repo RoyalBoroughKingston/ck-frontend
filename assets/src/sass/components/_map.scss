@@ -13,6 +13,8 @@
         height: 420px;
     }
 
+
+
     &--service {
         height: 195px;
         border-radius: 0;
@@ -101,4 +103,17 @@
 
 .leaflet-control-attribution {
     display: none !important;
+}
+
+.hide + .leaflet {
+  visibility: hidden;
+  height:0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.show + .leaflet {
+  visibility: visible;
+  height:auto;
+  overflow: auto;
+  margin-bottom: 56px;
 }
