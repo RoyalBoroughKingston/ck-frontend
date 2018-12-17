@@ -303,13 +303,6 @@
                     </div>
                 </div>
 
-                <div class="hide" v-bind:class="{show: service_locations != null && service_locations.length != 0}"></div>
-                <div class="section__component leaflet">
-                  <div class="map map--service">
-                      <div id="map-container" class="map__container"></div>
-                  </div>
-                </div>
-
                 <div class="section__component section__component--mobile-padding text-center">
                     <div class="page-meta">
                         <p class="sm-copy"><span class="color-grey">Page last updated</span> <em>{{ service.updated_at | moment("Do MMMM YYYY") }}</em></p>
@@ -361,7 +354,7 @@
                     iconUrl: '/assets/dist/img/map/map-marker.svg',
                     iconSize:     [30, 40],
                     iconAnchor:   [15, 40],
-                    popupAnchor:  [0, -20]
+                    popupAnchor:  [-3, -76]
                 })
             }
         },
@@ -395,16 +388,16 @@
                     this.service_locations = response.data.data,
 
                     // // Build the google map link
-                    this.buildGoogleMapUrl(),
+                    // this.buildGoogleMapUrl(),
 
                     // // Find the leaflet layers
-                    this.findLayers(),
+                    // this.findLayers(),
 
                     // // Create the leaflet map
-                    this.initMap(),
+                    // this.initMap(),
 
                     // // Create the leaflet layers
-                    this.initLayers(),
+                    // this.initLayers(),
 
                     // Set finish loading
                     this.finished_loading = true
@@ -415,7 +408,7 @@
                 // Loop through the service locations
                 this.service_locations.forEach((location) => {
                     // Push each service location to features array
-                    this.layers[0].features.push({id: this.service.id, name: this.service.name, address_1: location.location.address_line_1, address_2: location.location.address_line_2, address_3: location.location.address_line_3, postcode: location.location.postcode, type: 'marker', coords: [location.location.lat, location.location.lon]});
+                    this.layers[0].features.push({id: this.service.id, name: this.service.name, type: 'marker', coords: [location.location.lat, location.location.lon]});
                 })
             },
             initMap() {
@@ -427,10 +420,11 @@
                     }
                 )
                 this.tileLayer.addTo(this.map)
-                //this.map.dragging.disable();
-                //this.map.touchZoom.disable();
-                //this.map.doubleClickZoom.disable();
-                //this.map.scrollWheelZoom.disable();
+
+                this.map.dragging.disable();
+                this.map.touchZoom.disable();
+                this.map.doubleClickZoom.disable();
+                this.map.scrollWheelZoom.disable();
             },
             initLayers() {
                 this.layers.forEach((layer) => {
@@ -438,25 +432,8 @@
 
                     markerFeatures.forEach((feature) => {
                         // Create marker
-                        let ad_1 = '';
-                        let ad_2 = '';
-                        let ad_3 = '';
-                        let post = '';
-
-                        if(feature.address_1 != null && feature.address_1 != 0) {
-                          ad_1 = feature.address_1 + '<br/>';
-                        }
-                        if(feature.address_2 != null && feature.address_2 != 0) {
-                          ad_2 = feature.address_2 + '<br/>';
-                        }
-                        if(feature.address_3 != null && feature.address_3 != 0) {
-                          ad_3 = feature.address_3 + '<br/>';
-                        }
-                        if(feature.postcode != null && feature.postcode != 0) {
-                          post = feature.postcode;
-                        }
-
-                        feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon}).bindPopup('<p class="sm-copy">'+ad_1+''+ad_2+''+ad_3+''+post+'</p><p class="sm-copy"><a href="https://www.google.com/maps/search/?api=1&query='+feature.coords+'" target="_blank" class="">Open Google Map</a></p>').addTo(this.map);
+                        feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
+                            .addTo(this.map)
 
                         // Push markers to array for use later
                         this.markers.push(feature.leafletObject)
@@ -474,7 +451,7 @@
                 // Loop through the service locations
                 this.service_locations.forEach((location) => {
                     // Push each service location to features array
-                    locations += location.location.lat + ', ' + location.location.lon
+                    locations += location.location.lon + ', ' + location.location.lat
                 })
 
                 // Set the google map link
@@ -497,8 +474,10 @@
                     let x1 = lat2-lat1;
                     let dLat = this.toRad(x1);
                     let x2 = lon2-lon1;
-                    let dLon = this.toRad(x1
-                    let a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);
+                    let dLon = this.toRad(x1);
+                    let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                                    Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) *
+                                    Math.sin(dLon/2) * Math.sin(dLon/2);
                     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
                     let d = R * c;
 
@@ -598,7 +577,7 @@
             phoneWithoutSpaces() {
                 return this.service.contact_phone.replace(/ /g, "");
             }
-        }
+        },
     }
 </script>
 
