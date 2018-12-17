@@ -46,6 +46,8 @@
   "dependencies": {
     "bugsnag-js": "^4.7.3",
     "bugsnag-vue": "^1.0.1",
-    "vue-lodash": "^2.0.0"
+    "node-sass": "^4.11.0",
+    "vue-lodash": "^2.0.0",
+    "vue-simple-markdown": "^1.0.8"
   }
 }

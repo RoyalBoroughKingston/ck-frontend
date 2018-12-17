@@ -12,7 +12,7 @@
                 <img v-else :src="`${apiUri}/organisations/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name">
             </a>
         </div>
-        
+
         <div class="service__location" v-if="location">
             <i class="fa fa-map-marker-alt" aria-hidden title="Location"></i>
             <span class="sr-only">Location</span>
@@ -23,16 +23,16 @@
             <span class="sm-copy">
                 <i class="fa fa-phone" aria-hidden></i> Telephone
             </span>
-            <a :href="`tel:`+service.contact_phone">{{ service.contact_phone }}</a>
+            <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Phone`" :data-event-label="service.contact_phone">{{ service.contact_phone }}</a>
         </div>
 
         <div class="service__contact service__contact--email" v-if="type === 'shortlist' && service.contact_email">
             <span class="sm-copy">
                 <i class="fa fa-envelope" aria-hidden></i> Email
             </span>
-            <a :href="`mailto:`+service.contact_email">{{ service.contact_email }}</a>
+            <a :href="`mailto:`+service.contact_email" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Email`" :data-event-label="service.contact_email">{{ service.contact_email }}</a>
         </div>
-        
+
         <div class="service__meta" v-if="type === 'service'">
             <div class="service__meta__item sm-copy" v-if="service.is_free === true">
                 <i class="fa fa-pound-sign" aria-hidden title="Cost"></i>
@@ -50,14 +50,14 @@
             <h4 class="service__name" v-if="service.name">{{ service.name }}</h4>
             <p class="service__sub-title sm-copy" v-if="organisation">{{ organisation.name }}</p>
             <p class="service__description sm-copy" v-if="service.description">{{ service.intro }}</p>
-            
+
             <div class="service__details__actions">
-                
+
                 <a :href="['/services/' + service.slug]" role="button" class="btn btn--small">View more <i class="fa fa-angle-right" aria-hidden></i></a>
                 <a @click="closeService" @keyup.enter="closeService" class="service__details__close link link--icon-after" role="button" v-if="view === 'map' && $mq === 'mobile'" tabindex="0">Close <i class="fa fa-times" aria-hidden></i></a>
 
                 <button v-if="!isInShortlist(service.id)" v-on:click="addToShortlist" :data-id="service.id" needle="service.id" role="button" class="btn btn--secondary btn--tiny">Add to shortlist <i class="fa fa-star"></i></button>
-                <button v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--secondary btn--tiny btn--green">In shortlist <i class="fa fa-star" aria-hidden></i></button>            
+                <button v-if="isInShortlist(service.id)" v-bind:href="'/shortlist'" :data-id="service.id" role="button" class="btn btn--secondary btn--tiny btn--green">In shortlist <i class="fa fa-star" aria-hidden></i></button>
 
             </div>
         </div>
@@ -68,10 +68,10 @@
         </div>
     </div>
 </template>
- 
+
 <script>
     import axios from 'axios'
-    
+
     export default {
         name: "service",
         props: ['type', 'view', 'service', 'location', 'organisation'],
@@ -93,7 +93,7 @@
                 } else {
                     return false;
                 }
-                
+
             },
             addToShortlist(e) {
                 // Set shortlist cookie
@@ -108,7 +108,7 @@
 
                 // Set shortlist cookie
                 window.$cookies.set("ck_shortlist", this.$parent.shortlist)
-                
+
                 // retrieve new shortlist
                 this.$parent.updateShortlist()
             },
@@ -136,10 +136,15 @@
         mounted () {
             // Get the shortlist
             this.getShortlist()
-        }
+        },
+        computed: {
+            phoneWithoutSpaces() {
+                return this.service.contact_phone.replace(/ /g, "");
+            }
+        },
     }
 </script>
- 
+
 <style scoped>
- 
+
 </style>

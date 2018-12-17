@@ -1,8 +1,8 @@
 <template>
-    <div class="search__sort flex-container flex-container--align-bottom">
-        <div class="flex-col flex-col--4 flex-col--tablet--11 flex-col--mobile--12">
-            <p class="sm-copy color-grey" v-if="services_meta && $mq === 'desktop'">{{ services_meta.total }} service<span v-if="services_meta.total > 1 || services_meta.total === 0">s</span> found</p>
 
+    <div class="search__sort flex-container flex-container--align-bottom" v-if="services_meta && services_meta.total > 0">
+        <div class="flex-col flex-col--4 flex-col--tablet--6 flex-col--mobile--7">
+            <p class="sm-copy color-grey" v-if="services_meta">{{ services_meta.total }} service<span v-if="services_meta.total > 1 || services_meta.total === 0">s</span> found</p>
             <search-view :view="view" v-if="$mq !== 'desktop'" @setView="setViewInParent"></search-view>
         </div>
 

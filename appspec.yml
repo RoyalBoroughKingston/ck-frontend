@@ -5,5 +5,7 @@ files:
     destination: /var/www/html
     overwrite: true
 hooks:
+  BeforeInstall:
+    - location: scripts/BeforeInstall.sh
   AfterInstall:
     - location: scripts/AfterInstall.sh

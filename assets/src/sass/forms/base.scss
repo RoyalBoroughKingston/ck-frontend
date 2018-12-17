@@ -56,6 +56,11 @@ label {
     margin-bottom: $base-margin*2;
   }
 
+  .optional {
+    font-style: italic;
+    font-size: 0.6rem;
+  }
+
   &--no-margin {
     margin-bottom: 0 !important;
   }

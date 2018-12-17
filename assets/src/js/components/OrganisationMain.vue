@@ -24,14 +24,14 @@
                         <span class="sm-copy">
                             <i class="fa fa-phone" aria-hidden></i> Telephone
                         </span>
-                        <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
+                        <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" data-event-category="organisation.name" data-event-action="Phone" data-event-label="organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
                             <i class="fa fa-envelope" aria-hidden></i> Email
                         </span>
-                        <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
+                        <a :href="`mailto:`+organisation.email" @click.prevent="trackClicks" data-event-category="organisation.name" data-event-action="Email" data-event-label="organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
@@ -39,7 +39,7 @@
                             <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
-                        <a :href="organisation.url" target="_blank">{{ toFriendlyURL(organisation.url) }}</a>
+                        <a :href="organisation.url" @click.prevent="trackClicks" :data-event-category="organisation.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(organisation.url)">{{ toFriendlyURL(organisation.url) }}</a>
                     </div>
                 </div>
             </div>
@@ -71,14 +71,14 @@
                         <span class="sm-copy">
                             <i class="fa fa-phone" aria-hidden></i> Telephone
                         </span>
-                        <a :href="`tel:`+organisation.phone">{{ organisation.phone }}</a>
+                        <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="organisation.name" :data-event-action="`Phone`" :data-event-label="organisation.phone">{{ organisation.phone }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--email" v-if="organisation.email">
                         <span class="sm-copy">
                             <i class="fa fa-envelope" aria-hidden></i> Email
                         </span>
-                        <a :href="`mailto:`+organisation.email">{{ organisation.email }}</a>
+                        <a :href="`mailto:`+organisation.email" @click.prevent="trackClicks" data-event-category="organisation.name" data-event-action="Email" data-event-label="organisation.email">{{ organisation.email }}</a>
                     </div>
                     
                     <div class="service__contact service__contact--website" v-if="organisation.url">
@@ -86,7 +86,7 @@
                             <i class="fa fa-globe" aria-hidden></i>
                             Website
                         </span>
-                        <a :href="organisation.url" target="_blank">{{ toFriendlyURL(organisation.url) }}</a>
+                        <a :href="organisation.url" @click.prevent="trackClicks" :data-event-category="organisation.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(organisation.url)">{{ toFriendlyURL(organisation.url) }}</a>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,12 @@
         },
         mounted () {
             this.getOrganisation();
-        }
+        },
+        computed: {
+            phoneWithoutSpaces() {
+                return this.organisation.phone.replace(/ /g, "");
+            }
+        },
     }
 </script>
  

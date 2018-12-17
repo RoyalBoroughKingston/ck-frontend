@@ -11,6 +11,9 @@ import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
 import vueHeadful from 'vue-headful'
 
+import VueSimpleMarkdown from 'vue-simple-markdown'
+Vue.use(VueSimpleMarkdown)
+
 Vue.use(VueCookies)
 Vue.use(require('vue-moment'))
 Vue.use(VueMq, {
@@ -48,6 +51,24 @@ Vue.mixin({
     data() {
       return {
         apiUri: process.env.MIX_API_URI
+      }
+    },
+    methods: {
+      trackClicks(event) {
+
+        // Grab data
+        var category = event.target.getAttribute('data-event-category');
+        var action = event.target.getAttribute('data-event-action');
+        var label = event.target.getAttribute('data-event-label');
+
+        // Send event to Google
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label
+        });
+
+        window.location = event.target.href;
+
       }
     }
 })
