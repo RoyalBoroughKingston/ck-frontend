@@ -17,14 +17,6 @@
         }
     }
 
-    > div {
-        background-color: $white;
-        
-        &:nth-child(odd) {
-            background-color: $alabaster;
-        }
-    }
-
     &__image {
         position: relative;
         background-color: $pure_white !important;
@@ -37,14 +29,6 @@
             max-width: 350px;
             margin: 0 auto;
         }
-    }
-
-    &__add {
-        position: absolute;
-        top: $base-margin;
-        left: $base-margin;
-        right: $base-margin;
-        text-align: center;
     }
 
     &__location {
@@ -258,4 +242,49 @@
             margin: 0 $base-margin*0.5;
         }
     }
+
+
+    &__shortlist {
+
+        .btn {
+            background-color: $san_juan;
+            color: $white;
+            border-radius: 10px 10px 0 0;
+            width: 100% !important;
+            border-color: transparent;
+            
+            &:hover, &:active, &:focus, &.active {
+                border-color: transparent !important;
+                background: $jungle_green !important;
+                box-shadow: none !important;
+            }
+
+        }
+
+    }
+
+  &--compact {
+
+    .service__sub-title {
+        margin: $base-margin*0.75 0 $base-margin*0.5 0;
+    }
+
+    .service__image {
+
+        position: relative;
+        background-color: $pure_white !important;
+        min-height: 70px;
+        box-sizing: border-box;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 70px;
+            margin: 0 auto;
+        }
+
+    }
+
+  }
+
 }

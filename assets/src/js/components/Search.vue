@@ -21,6 +21,7 @@
                     <search-sort :location="location" :services_meta="services_meta" :view="view" @setView="setViewParameter"></search-sort>
 
                     <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :locations="service_locations" :persona="persona" :category="category"></search-grid>
+                    <search-compact v-if="view === 'compact'" :services="services" :organisations="organisations" :locations="service_locations" :persona="persona" :category="category"></search-compact>
                     <search-map v-if="view === 'map' && services" :services="services" :organisations="organisations"></search-map>
 
                     <div class="loading-icon" v-if="!finished_loading"><div></div><div></div><div></div><div></div></div>
@@ -60,8 +61,8 @@
 
 
             </div>
-
-            <div class="pagination" v-if="last_page > 1 && view === 'grid'">
+            
+            <div class="pagination" v-if="last_page > 1 && (view === 'grid' || view === 'compact')">
                 <div class="flex-container">
                     <paginate
                         v-model="current_page"
@@ -97,6 +98,7 @@
     import axios from 'axios'
     import SearchFilter from './Search/SearchFilter'
     import SearchGrid from './Search/SearchGrid'
+    import SearchCompact from './Search/SearchCompact'
     import SearchNoResults from './Search/SearchNoResults'
     import SearchHeader from './Search/SearchHeader'
     import SearchMap from './Search/SearchMap'
@@ -109,6 +111,7 @@
         components: {
             SearchFilter,
             SearchGrid,
+            SearchCompact,
             SearchNoResults,
             SearchHeader,
             SearchMap,
@@ -125,7 +128,7 @@
                 services_meta: null,
                 organisations: [],
                 service_locations: [],
-                view: 'grid',
+                view: 'compact',
                 search_term: null,
                 location: null,
                 location_coords: null,
@@ -323,14 +326,14 @@
         },
         computed: {
             displayOption() {
-                if(this.category || this.persona) {
+                if((this.category || this.persona) && this.view != 'compact') {
                     return true
                 } else {
                     return false
                 }
             },
             layoutClass() {
-                if(this.category || this.persona) {
+                if((this.category || this.persona) && this.view != 'compact') {
                     return 'flex-col flex-col--9'
                 } else {
                     return 'flex-col flex-col--12'
