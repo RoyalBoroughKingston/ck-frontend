@@ -1,104 +1,121 @@
 /* Map */
+.leaflet {
+  text-align: center;
+  .map--service {
+    height: 195px;
+    border-radius: 0;
+  }
+
+  a {
+    color:$elm;
+    text-decoration: none;
+  }
+}
 
 .map {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 25px;
+  overflow: hidden;
+  @include breakpoint($break_mobile) {
+    position: inherit;
+    border-radius: 0;
+    height: 420px;
+  }
+
+  &__overlay {
+    background-color: $alabaster;
+    position: absolute;
+    top: 0;
+    width: 360px;
+    height: 100%;
+    z-index: 999;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    &--left {
+      left: 0;
+    }
+
+    > div {
+      border-radius: 0;
+      overflow-y: scroll;
+    }
+    @include breakpoint($break_tablet) {
+      width: 50%;
+    }
+    @include breakpoint($break_mobile) {
+      width: 100%;
+      position: fixed;
+    }
+  }
+
+  #map-container {
     position: relative;
     width: 100%;
-    height: 600px;
-    border-radius: 25px;
-    overflow: hidden;
-
-    @include breakpoint($break_mobile) {
-        position: inherit;
-        border-radius: 0;
-        height: 420px;
-    }
-
-    &--service {
-        height: 195px;
-        border-radius: 0;
-    }
-
-    &__overlay {
-        background-color: $alabaster;
-        position: absolute;
-        top: 0;
-        width: 360px;
-        height: 100%;
-        z-index: 999;
-        overflow-y: auto;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-
-        &--left {
-            left: 0;
-        }
-
-        > div {
-            border-radius: 0;
-            overflow-y: scroll;
-        }
-
-        @include breakpoint($break_tablet) {
-            width: 50%;
-        }
-
-        @include breakpoint($break_mobile) {
-            width: 100%;
-            position: fixed;
-        }
-    }
-
-    #map-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-    }
+    height: 100%;
+    z-index: 0;
+  }
 }
 
 .leaflet-control {
-    background: $alabaster;
-    color: $san_juan;
+  background: $alabaster;
+  color: $san_juan;
+  border: none !important;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  margin: 0 0 $base-margin*3.5 !important;
+  padding: $base-margin*0.625 $base-margin $base-margin*0.625 $base-margin*2.5;
+  box-sizing: border-box;
+  @include breakpoint($break_mobile) {
+    margin: 0 0 $base-margin*0.75 !important;
+  }
+
+  &:before {
+    content: 'Zoom';
+    display: inline-block;
+    margin-right: $base-margin;
+    font-size: 1.1875rem;
+    line-height: 1.4375rem;
+    vertical-align: middle;
+  }
+
+  > a {
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    font-size: 1.1875rem !important;
+    line-height: 1.4375rem !important;
+    color: $san_juan !important;
     border: none !important;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    margin: 0 0 $base-margin*3.5 !important;
-    padding: $base-margin*0.625 $base-margin $base-margin*0.625 $base-margin*2.5;
-    box-sizing: border-box;
+    margin: -4px $base-margin*0.5 0 $base-margin*0.5 !important;
+    vertical-align: middle !important;
+    opacity: 0.8;
 
-    @include breakpoint($break_mobile) {
-        margin: 0 0 $base-margin*0.75 !important;
+    &:hover {
+      display: inline-block;
+      background: none;
+      border: none;
     }
-
-    &:before {
-        content: 'Zoom';
-        display: inline-block;
-        margin-right: $base-margin;
-        font-size: 1.1875rem;
-        line-height: 1.4375rem;
-        vertical-align: middle
-    }
-
-    > a {
-        display: inline-block !important;
-        width: auto !important;
-        height: auto !important;
-        background: transparent !important;
-        font-size: 1.1875rem !important;
-        line-height: 1.4375rem !important;
-        color: $san_juan !important;
-        border: none !important;
-        margin: -4px $base-margin*0.5 0 $base-margin*0.5 !important;
-        vertical-align: middle !important;
-        opacity: 0.8;
-
-        &:hover {
-            display: inline-block;
-            background: none;
-            border: none;
-        }
-    }
+  }
 }
 
 .leaflet-control-attribution {
-    display: none !important;
+  display: none !important;
+}
+
+.hide + .leaflet {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.show + .leaflet {
+  visibility: visible;
+  height: auto;
+  overflow: auto;
+  margin-bottom: 56px;
 }
