@@ -438,7 +438,6 @@
 
                     markerFeatures.forEach((feature) => {
                         // Create marker
-
                         let ad_1 = '';
                         let ad_2 = '';
                         let ad_3 = '';
@@ -498,7 +497,7 @@
                     let x1 = lat2-lat1;
                     let dLat = this.toRad(x1);
                     let x2 = lon2-lon1;
-                    let dLon = this.toRad(x1);
+                    let dLon = this.toRad(x1
                     let a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);
                     let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
                     let d = R * c;
