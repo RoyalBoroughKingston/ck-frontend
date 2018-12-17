@@ -21,7 +21,7 @@
     {% if image is defined and image | length %}
         <div class="service__image">
             <img src="https://picsum.photos/315/157" alt="Image title">
-            
+
             {% if type is defined and type == 'shortlist' %}
                 <div class="service__add">
                     <a href="#" class="btn btn--small{% if added == 'true' %} btn--green{% endif %}" role="button">{% if added == 'true' %}In your shortlist{% else %}Add to shortlist{% endif %} <i class="fa fa-star"></i></a>
@@ -35,7 +35,7 @@
             {% if name is defined and name | length %}
                 <h4 class="service__name">{{ name }}</h4>
             {% endif %}
-            
+
             {% if subTitle is defined and subTitle | length %}
                 <p class="service__sub-title sm-copy">{{ subTitle }}</p>
             {% endif %}
@@ -101,7 +101,7 @@
             {% if name is defined and name | length %}
                 <h4 class="service__name">{{ name }}</h4>
             {% endif %}
-            
+
             {% if subTitle is defined and subTitle | length %}
                 <p class="service__sub-title sm-copy">{{ subTitle }}</p>
             {% endif %}

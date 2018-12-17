@@ -1,5 +1,5 @@
 <template>
-    <section id="main" class="section section--no-padding" v-if="service">        
+    <section id="main" class="section section--no-padding" v-if="service">
         <div class="flex-container">
             <div class="flex-col flex-col--7 flex-col--gutter">
                 <div class="section__component">
@@ -55,7 +55,7 @@
 
                 <div class="section__component" v-if="service.description">
                     <h4 class="section__component__header">About</h4>
-                    
+
                     <div class="color-grey" v-html="toHtml(service.description)"></div>
                 </div>
 
@@ -66,7 +66,7 @@
                                 <p class="service__name"><strong>Contact</strong></p>
                             </span>
                         </div>
-                        
+
                         <div class="service__content">
                             <div class="service__contact service__contact--telephone" v-if="service.contact_name">
                                 <span class="sm-copy">
@@ -81,14 +81,14 @@
                                 </span>
                                 <p><a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Phone`" :data-event-label="service.contact_phone">{{ service.contact_phone }}</a></p>
                             </div>
-                            
+
                             <div class="service__contact service__contact--email" v-if="service.contact_email">
                                 <span class="sm-copy">
                                     <i class="fa fa-envelope" aria-hidden></i> Email
                                 </span>
                                 <p><a :href="`mailto:`+service.contact_email" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Email`" :data-event-label="service.contact_email">{{ service.contact_email }}</a></p>
                             </div>
-                            
+
                             <div class="service__contact service__contact--website" v-if="service.url">
                                 <span class="sm-copy">
                                     <i class="fa fa-globe" aria-hidden></i>
@@ -96,7 +96,7 @@
                                 </span>
                                 <p><a :href="service.url" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(service.url)">{{ toFriendlyURL(service.url) }}</a></p>
                             </div>
-                            
+
                             <div class="service__social" v-if="service.social_medias.length > 0">
                                 <a v-bind:href="social_media.url" v-for="social_media in service.social_medias" :key="social_media.type">
                                     <i v-bind:class="['fab fa-' + social_media.type]" aria-hidden></i>
@@ -121,7 +121,7 @@
                     <div class="card card--grey card--location" v-for="location in service_locations" :key="location.id" v-if="service_locations && service_locations.length > 0">
                         <div class="card__location flex-col flex-col--6">
                             <p class="card__location__name" v-if="location.name"><strong>{{ location.name }}</strong></p>
-                            
+
                             <p class="card__location__address">
                                 <span v-if="location.location.address_line_1">{{ location.location.address_line_1 }}</span>
                                 <span v-if="location.location.address_line_2">{{ location.location.address_line_2 }}</span>
@@ -129,7 +129,7 @@
                                 <span v-if="location.location.county">{{ location.location.county }}</span>
                                 <span v-if="location.location.postcode">{{ location.location.postcode }}</span>
                             </p>
-                            
+
                             <p class="card__location__distance sm-copy" v-if="showDistance()" v-text="calculateDistance(location.location.lat, location.location.lon)"></p>
                         </div>
 
@@ -145,7 +145,7 @@
                                 </table>
                             </div>
                         </div>
-                        
+
                         <div class="card__services flex-col flex-col--12" v-if="service.has_induction_loop || service.has_wheelchair_access">
                             <img src="/assets/dist/img/access-icons/hearing-system.png" alt="Hearing System" v-if="service.has_induction_loop">
                             <img src="/assets/dist/img/access-icons/level-access-automatic-doors.png" alt="Level Access and Automatic Doors" v-if="service.has_wheelchair_access">
@@ -233,7 +233,7 @@
                 <div class="section__component text-center tablet-hide">
                     <a :href="`#print`" role="button" class="btn btn--secondary btn--icon-after">Print page <i class="fa fa-print" aria-hidden></i></a>
                 </div>
-                
+
                 <div class="section__component">
                     <div class="card card--notification card--mint" v-if="service.is_free === true && $mq !== 'mobile'">
                         <div class="card__icon">
@@ -252,7 +252,7 @@
                                 <p class="service__name"><strong>Contact</strong></p>
                             </span>
                         </div>
-                        
+
                         <div class="service__content">
                             <div class="service__contact service__contact--telephone" v-if="service.contact_name">
                                 <span class="sm-copy">
@@ -267,14 +267,14 @@
                                 </span>
                                 <a :href="`tel:`+phoneWithoutSpaces" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Phone`" :data-event-label="service.contact_phone">{{ service.contact_phone }}</a>
                             </div>
-                            
+
                             <div class="service__contact service__contact--email" v-if="service.contact_email">
                                 <span class="sm-copy">
                                     <i class="fa fa-envelope" aria-hidden></i> Email
                                 </span>
                                 <a :href="`mailto:`+service.contact_email" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Email`" :data-event-label="service.contact_email">{{ service.contact_email }}</a>
                             </div>
-                            
+
                             <div class="service__contact service__contact--website" v-if="service.url">
                                 <span class="sm-copy">
                                     <i class="fa fa-globe" aria-hidden></i>
@@ -282,7 +282,7 @@
                                 </span>
                                 <a :href="service.url" @click.prevent="trackClicks" :data-event-category="service.name" :data-event-action="`Web`" :data-event-label="toFriendlyURL(service.url)">{{ toFriendlyURL(service.url) }}</a>
                             </div>
-                            
+
                             <div class="service__social" v-if="service.social_medias.length > 0">
                                 <a v-bind:href="social_media.url" v-for="social_media in service.social_medias"  :key="social_media.type">
                                     <i v-bind:class="['fab fa-' + social_media.type]" aria-hidden></i>
@@ -291,7 +291,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="section__component">
                     <div class="card card--border-blue card--reduce-padding">
                         <a v-bind:href="['/organisations/' + service.organisation.slug]">
@@ -315,7 +315,7 @@
         <feedback v-if="showFeedback"></feedback>
     </section>
 </template>
- 
+
 <script>
     // Import libraries
     import axios from 'axios'
@@ -324,7 +324,7 @@
 
     // Import components
     import Feedback from './Feedback'
-    
+
     export default {
         name: "service-main",
         components: {
@@ -386,7 +386,7 @@
                 .then(response => (
                     // Store the services locations
                     this.service_locations = response.data.data,
-            
+
                     // // Build the google map link
                     // this.buildGoogleMapUrl(),
 
@@ -413,7 +413,7 @@
             },
             initMap() {
                 this.map = L.map('map-container', {zoomControl: false}).setView([51.41233, -0.300689], 10)
-                
+
                 this.tileLayer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png',
                     {
                         maxZoom: 18
@@ -434,7 +434,7 @@
                         // Create marker
                         feature.leafletObject = L.marker(feature.coords, {id: feature.id, icon: this.green_icon})
                             .addTo(this.map)
-                        
+
                         // Push markers to array for use later
                         this.markers.push(feature.leafletObject)
                     });
@@ -459,9 +459,9 @@
             },
             showDistance() {
                 // Check local storage for geoloation authorization
-                if(typeof localStorage['authorizedGeoLocation'] == "undefined" || localStorage['authorizedGeoLocation'] == "0" ) 
+                if(typeof localStorage['authorizedGeoLocation'] == "undefined" || localStorage['authorizedGeoLocation'] == "0" )
                     return false;
-                else 
+                else
                     return true;
             },
             calculateDistance(lat2, lon2) {
@@ -469,18 +469,18 @@
                     let lat1 = location.coords.latitude;
                     let lon1 = location.coords.longitude;
 
-                    let R = 6371; // km 
+                    let R = 6371; // km
                     //has a problem with the .toRad() method below.
                     let x1 = lat2-lat1;
-                    let dLat = this.toRad(x1);  
+                    let dLat = this.toRad(x1);
                     let x2 = lon2-lon1;
-                    let dLon = this.toRad(x1);  
-                    let a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
-                                    Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) * 
-                                    Math.sin(dLon/2) * Math.sin(dLon/2);  
-                    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                    let dLon = this.toRad(x1);
+                    let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                                    Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) *
+                                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
                     let d = R * c;
-                    
+
                     // Convert to miles
                     d /= 1.60934
 
@@ -582,5 +582,5 @@
 </script>
 
 <style scoped>
- 
+
 </style>

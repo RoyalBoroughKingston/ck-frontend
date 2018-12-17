@@ -1,6 +1,5 @@
 <service-header></service-header>
 <service-main></service-main>
-
 <section class="section section--share">
     <div class="flex-container flex-container--justify">
         <div class="flex-col">

@@ -11,6 +11,9 @@ import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
 import vueHeadful from 'vue-headful'
 
+import VueSimpleMarkdown from 'vue-simple-markdown'
+Vue.use(VueSimpleMarkdown)
+
 Vue.use(VueCookies)
 Vue.use(require('vue-moment'))
 Vue.use(VueMq, {

@@ -12,7 +12,7 @@
                 </div>
             </div>
         </section>
-        
+
         <search-no-results v-if="services_meta && services_meta.total === 0"></search-no-results>
 
         <section id="results" class="section section--no-padding">
@@ -27,10 +27,40 @@
                 </div>
 
                 <div class="flex-col flex-col--3" v-if="displayOption && ($mq !== 'mobile' || $mq !== 'tablet')">
-                    <search-filter :type="'sidebar'" :is_free="is_free" :wait_time="wait_time"></search-filter>
+
+                    <div class="section__component">
+                      <search-filter :type="'sidebar'" :is_free="is_free" :wait_time="wait_time"></search-filter>
+                    </div>
+
+                    <!-- Persona -->
+                    <div class="section__component" v-if="persona && persona.sidebox_title && persona.sidebox_content">
+                      <div class="card card--border-blue card--reduce-padding">
+                        <div class="card__content text-left">
+                          <p><strong>{{persona.sidebox_title}}</strong></p>
+                          <div class="sm-copy">
+                            <vue-simple-markdown :source="persona.sidebox_content"></vue-simple-markdown>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="section__component" v-if="category && category.sidebox_title && category.sidebox_content">
+                      <div class="card card--border-blue card--reduce-padding">
+                        <div class="card__content text-left">
+                          <p><strong>{{category.sidebox_title}}</strong></p>
+                          <div class="sm-copy">
+                            <vue-simple-markdown :source="category.sidebox_content"></vue-simple-markdown>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                 </div>
+
+
             </div>
-            
+
             <div class="pagination" v-if="last_page > 1 && view === 'grid'">
                 <div class="flex-container">
                     <paginate
@@ -62,7 +92,7 @@
 
     </div>
 </template>
- 
+
 <script>
     import axios from 'axios'
     import SearchFilter from './Search/SearchFilter'
@@ -73,7 +103,7 @@
     import SearchSort from './Search/SearchSort'
     import SearchView from './Search/SearchView'
     import Categories from './Categories'
-    
+
     export default {
         name: "search",
         components: {
@@ -104,7 +134,6 @@
                 sort_by: 'relevance',
                 category: null,
                 persona: null
-
             }
         },
         methods: {
@@ -153,7 +182,7 @@
                 if(this.sort_by !== null) params["order"] = this.sort_by
                 if(this.wait_time !== null) params["wait_time"] = this.wait_time
                 if(this.location_coords !== null) params["location"] = this.location_coords
-                
+
                 // Call the search endpoint with the params set
                 axios
                 .post(`${this.apiUri}/search?page=${this.current_page}`, params)
@@ -175,7 +204,7 @@
                 // Store organisation ids
                 this.services.forEach(service => {
                    // Push organisation id to organisations array
-                   this.organisations.push(service.organisation_id) 
+                   this.organisations.push(service.organisation_id)
                 });
 
                 // Do a request for organisations
@@ -251,7 +280,7 @@
                     }
 
                 }
-                
+
                 if(this.getParameterByName('location') !== "") {
                     this.location = this.getParameterByName('location')
                 }
@@ -274,7 +303,7 @@
                 if(this.getParameterByName('category')) {
                     this.category = this.getParameterByName('category')
                 }
-                
+
                 if(this.getParameterByName('persona')) {
                     this.persona = this.getParameterByName('persona')
                 }
@@ -340,7 +369,7 @@
         }
     }
 </script>
- 
+
 <style scoped>
- 
+
 </style>
