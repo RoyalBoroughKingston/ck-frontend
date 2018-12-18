@@ -49,7 +49,7 @@
         },
         computed: {
             layoutClass() {
-                    return 'flex-col flex-col--4 flex-col--tablet--6 flex-col--gutter'
+                    return (this.persona || this.category) ? 'flex-col flex-col--6 flex-col--tablet--6 flex-col--gutter' : 'flex-col flex-col--4 flex-col--tablet--6 flex-col--gutter';
             },
         }
     }

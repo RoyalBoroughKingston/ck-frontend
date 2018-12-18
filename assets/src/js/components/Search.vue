@@ -326,14 +326,14 @@
         },
         computed: {
             displayOption() {
-                if((this.category || this.persona) && this.view != 'compact') {
+                if(this.category || this.persona) {
                     return true
                 } else {
                     return false
                 }
             },
             layoutClass() {
-                if((this.category || this.persona) && this.view != 'compact') {
+                if(this.category || this.persona) {
                     return 'flex-col flex-col--9'
                 } else {
                     return 'flex-col flex-col--12'
