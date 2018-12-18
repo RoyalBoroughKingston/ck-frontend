@@ -39,7 +39,7 @@
                         <div class="card__content text-left">
                           <p><strong>{{persona.sidebox_title}}</strong></p>
                           <div class="sm-copy">
-                            <vue-simple-markdown :source="persona.sidebox_content"></vue-simple-markdown>
+                            <VueShowdown :markdown="`${persona.sidebox_content}`"/>
                           </div>
                         </div>
                       </div>
@@ -51,7 +51,7 @@
                         <div class="card__content text-left">
                           <p><strong>{{category.sidebox_title}}</strong></p>
                           <div class="sm-copy">
-                            <vue-simple-markdown :source="category.sidebox_content"></vue-simple-markdown>
+                            <VueShowdown :markdown="`${category.sidebox_content}`"/>
                           </div>
                         </div>
                       </div>
