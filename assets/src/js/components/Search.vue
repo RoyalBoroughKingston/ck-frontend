@@ -12,7 +12,7 @@
                 </div>
             </div>
         </section>
-        
+
         <search-no-results v-if="services_meta && services_meta.total === 0"></search-no-results>
 
         <section id="results" class="section section--no-padding">
@@ -21,17 +21,48 @@
                     <search-sort :location="location" :services_meta="services_meta" :view="view" @setView="setViewParameter"></search-sort>
 
                     <search-grid v-if="view === 'grid'" :services="services" :organisations="organisations" :locations="service_locations" :persona="persona" :category="category"></search-grid>
+                    <search-compact v-if="view === 'compact'" :services="services" :organisations="organisations" :locations="service_locations" :persona="persona" :category="category"></search-compact>
                     <search-map v-if="view === 'map' && services" :services="services" :organisations="organisations"></search-map>
 
                     <div class="loading-icon" v-if="!finished_loading"><div></div><div></div><div></div><div></div></div>
                 </div>
 
                 <div class="flex-col flex-col--3" v-if="displayOption && ($mq !== 'mobile' || $mq !== 'tablet')">
-                    <search-filter :type="'sidebar'" :is_free="is_free" :wait_time="wait_time"></search-filter>
+
+                    <div class="section__component">
+                      <search-filter :type="'sidebar'" :is_free="is_free" :wait_time="wait_time"></search-filter>
+                    </div>
+
+                    <!-- Persona -->
+                    <div class="section__component" v-if="persona && persona.sidebox_title && persona.sidebox_content">
+                      <div class="card card--border-blue card--reduce-padding">
+                        <div class="card__content text-left">
+                          <p><strong>{{persona.sidebox_title}}</strong></p>
+                          <div class="sm-copy">
+                            <VueShowdown :markdown="`${persona.sidebox_content}`"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="section__component" v-if="category && category.sidebox_title && category.sidebox_content">
+                      <div class="card card--border-blue card--reduce-padding">
+                        <div class="card__content text-left">
+                          <p><strong>{{category.sidebox_title}}</strong></p>
+                          <div class="sm-copy">
+                            <VueShowdown :markdown="`${category.sidebox_content}`"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                 </div>
+
+
             </div>
             
-            <div class="pagination" v-if="last_page > 1 && view === 'grid'">
+            <div class="pagination" v-if="last_page > 1 && (view === 'grid' || view === 'compact')">
                 <div class="flex-container">
                     <paginate
                         v-model="current_page"
@@ -62,23 +93,25 @@
 
     </div>
 </template>
- 
+
 <script>
     import axios from 'axios'
     import SearchFilter from './Search/SearchFilter'
     import SearchGrid from './Search/SearchGrid'
+    import SearchCompact from './Search/SearchCompact'
     import SearchNoResults from './Search/SearchNoResults'
     import SearchHeader from './Search/SearchHeader'
     import SearchMap from './Search/SearchMap'
     import SearchSort from './Search/SearchSort'
     import SearchView from './Search/SearchView'
     import Categories from './Categories'
-    
+
     export default {
         name: "search",
         components: {
             SearchFilter,
             SearchGrid,
+            SearchCompact,
             SearchNoResults,
             SearchHeader,
             SearchMap,
@@ -95,7 +128,7 @@
                 services_meta: null,
                 organisations: [],
                 service_locations: [],
-                view: 'grid',
+                view: 'compact',
                 search_term: null,
                 location: null,
                 location_coords: null,
@@ -104,7 +137,6 @@
                 sort_by: 'relevance',
                 category: null,
                 persona: null
-
             }
         },
         methods: {
@@ -153,7 +185,7 @@
                 if(this.sort_by !== null) params["order"] = this.sort_by
                 if(this.wait_time !== null) params["wait_time"] = this.wait_time
                 if(this.location_coords !== null) params["location"] = this.location_coords
-                
+
                 // Call the search endpoint with the params set
                 axios
                 .post(`${this.apiUri}/search?page=${this.current_page}`, params)
@@ -175,7 +207,7 @@
                 // Store organisation ids
                 this.services.forEach(service => {
                    // Push organisation id to organisations array
-                   this.organisations.push(service.organisation_id) 
+                   this.organisations.push(service.organisation_id)
                 });
 
                 // Do a request for organisations
@@ -251,7 +283,7 @@
                     }
 
                 }
-                
+
                 if(this.getParameterByName('location') !== "") {
                     this.location = this.getParameterByName('location')
                 }
@@ -274,7 +306,7 @@
                 if(this.getParameterByName('category')) {
                     this.category = this.getParameterByName('category')
                 }
-                
+
                 if(this.getParameterByName('persona')) {
                     this.persona = this.getParameterByName('persona')
                 }
@@ -340,7 +372,7 @@
         }
     }
 </script>
- 
+
 <style scoped>
- 
+
 </style>

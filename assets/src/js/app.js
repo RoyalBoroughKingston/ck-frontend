@@ -10,6 +10,7 @@ import SocialSharing from 'vue-social-sharing'
 import VueMediaEmbed from 'vue-media-embed'
 import Vuex from 'vuex'
 import vueHeadful from 'vue-headful'
+import VueShowdown from 'vue-showdown'
 
 Vue.use(VueCookies)
 Vue.use(require('vue-moment'))
@@ -25,6 +26,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({})
 
 Vue.use(VueMediaEmbed, { store })
+Vue.use(VueShowdown)
 
 // Bugsnag.
 import bugsnag from "bugsnag-js";
