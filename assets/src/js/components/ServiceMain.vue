@@ -534,13 +534,13 @@
             humanReadableRegularOpeningHour(openingHour) {
                 switch (openingHour.frequency) {
                     case "weekly":
-                    return `<td class="sm-copy">${this.weekday(openingHour.weekday)}</td><td>${this.timePeriod(openingHour)}</td>`;
+                    return `<td>${this.weekday(openingHour.weekday)}</td><td>${this.timePeriod(openingHour)}</td>`;
                     case "monthly":
-                    return `<td class="sm-copy">${this.dayOfMonth(openingHour.day_of_month)} of each month</td><td>${this.timePeriod(openingHour)}</td>`;
+                    return `<td class="sm-copy">${this.dayOfMonth(openingHour.day_of_month)} of each month</td><td>${this.timePeriod(openingHour)} - ${this.timePeriod(openingHour)}</td>`;
                     case "fortnightly":
                     return `<td class="sm-copy">Fortnightly on ${this.weekdayFromDate(openingHour.starts_at)}s</td><td>${this.fortnightWeek(openingHour.starts_at)} - ${this.timePeriod(openingHour)}</td>`;
                     case "nth_occurrence_of_month":
-                    return `<td class="sm-copy">${this.nthOfMonth(openingHour.occurrence_of_month)}</td><td>${this.weekday(openingHour.weekday)} of each month</td>`;
+                    return `<td class="sm-copy">${this.nthOfMonth(openingHour.occurrence_of_month)} ${this.weekday(openingHour.weekday)} of each month - ${this.timePeriod(openingHour)}</td>`;
                 }
             },
             timePeriod(openingHour) {
