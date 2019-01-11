@@ -14,13 +14,13 @@
                 <div class="service">
                     <div class="service__header">
                         <span>
-                            <p class="service__name"><strong>Referring to</strong></p>
+                            <p class="service__name"><strong>Connecting to</strong></p>
                             <p class="service__sub-title sm-copy mobile-show">{{ service.organisation.name }}</p>
                         </span>
                     </div>
                     <div class="service__image">
                         <img v-if="service.has_logo" :src="`${apiUri}/services/${service.id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
-                        <img v-else :src="`${apiUri}/organisation/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
+                        <img v-else :src="`${apiUri}/organisations/${service.organisation_id}/logo.png?v=${service.updated_at}`" :alt="service.name" :name="service.name">
                     </div>
 
                     <div class="service__details">

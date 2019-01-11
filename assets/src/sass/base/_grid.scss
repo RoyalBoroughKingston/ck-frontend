@@ -125,6 +125,12 @@ body {
   &--no-space {
     justify-content: flex-start;
   }
+
+  // Horizontal align left
+  &--left {
+    justify-content: center;
+  }
+
 }
 
 .flex-col {
