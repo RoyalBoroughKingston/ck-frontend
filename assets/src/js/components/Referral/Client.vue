@@ -31,7 +31,7 @@
                         <div class="flex-col flex-col--12" v-if="who_for === 'myself'">
                             <h4>How can we contact you?</h4>
                             <p>Please provide an email address or phone number for us to contact you. We will send an email or SMS confirmation once your connection has been made to the service.</p>
-                            <p>{{service.name }} will contact you using these details.</p>
+                            <p><strong>{{service.name }} will contact you using these details.</strong></p>
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
 
                     <div class="flex-container flex-container--no-padding">
                         <div class="field field--radio">
-                            <div class="radio radio--stack">
+                            <div class="radio radio--stack" v-if="!show_other">
                                 <input type="radio" id="email" class="input input--radio input--reveal" name="contact" value="email" v-on:click="setContact" checked="checked"/>
                                 <label for="email"><span><span></span></span> Email</label>
 
@@ -48,11 +48,12 @@
                                 </div>
                             </div>
 
-                            <div class="radio radio--stack">
+                            <div class="radio radio--stack" v-if="!show_other">
                                 <input type="radio" id="telephone" class="input input--radio input--reveal" name="contact" value="phone" v-on:click="setContact"/>
                                 <label for="telephone"><span><span></span></span> Telephone</label>
 
                                 <div class="radio__input" v-if="contact === 'phone'">
+                                    <p>Must be a valid UK phone number</p>
                                     <input type="tel" class="input input--text" name="phone" pattern="^\s*\(?(020[7,8]{1}\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\s*$" title="Please enter a valid UK phone number in the format '01234567890'." placeholder="Enter here"/>
                                 </div>
                             </div>

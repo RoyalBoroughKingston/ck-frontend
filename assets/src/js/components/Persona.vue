@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-container">
+    <div class="flex-container flex-container--left">
         <div class="flex-col flex-col--4" v-for="persona in personas" :key="persona.id">
             <div class="pod">
                 <a v-bind:href="['/results?is_free=false&wait_time=null&persona=' + persona.id]">
