@@ -57,7 +57,7 @@
 
                         <div class="field flex-col flex-col--8">
                             <label for="telephone">Telephone - (Must be a valid UK phone number)</label>
-                            <input type="tel" class="input input--text" pattern="^\s*\(?(020[7,8]{1}\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\s*$" required title="Please enter a valid UK phone number in the format '01234567890'." name="referee_phone" placeholder="Enter here"/>
+                            <input type="tel" class="input input--text" pattern="^(0(\s*[0-9]\s*){10})$" required title="Please enter a valid UK phone number in the format '01234567890'." name="referee_phone" placeholder="Enter here"/>
                         </div>
                     </div>
 
@@ -114,6 +114,8 @@
 
                 this.$parent.referral.referee_email = document.getElementsByName('referee_email')[0].value
                 this.$parent.referral.referee_phone = document.getElementsByName('referee_phone')[0].value
+
+                this.$parent.referral.referee_phone = this.$parent.referral.referee_phone.replace(/ /g, "")
 
                 // Updatee the step
                 if(this.$parent.referral.referee_email || this.$parent.referral.referee_phone) {

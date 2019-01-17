@@ -10,7 +10,7 @@
                 <complete :service="service" :referral="referral_callback" v-if="step === 'complete'"></complete>
             </div>
 
-            <div class="referral__service flex-col flex-col--3 flex-col--medium--4 flex-col--tablet--6" v-if="step !== 'complete'">
+      <!--       <div class="referral__service flex-col flex-col--3 flex-col--medium--4 flex-col--tablet--6" v-if="step !== 'complete'">
                 <div class="service">
                     <div class="service__header">
                         <span>
@@ -29,7 +29,7 @@
                         <p class="service__description sm-copy">{{ service.intro }}</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </template>
@@ -65,7 +65,7 @@
                     service_id: this.getParameterByName('service'),
                     name: null,
                     email: null,
-                    phone: null,
+                    phone: "",
                     other_contact: null,
                     postcode_outward_code: null,
                     comments: null,
@@ -73,7 +73,7 @@
                     feedback_consented: false,
                     referee_name: null,
                     referee_email: null,
-                    referee_phone: null,
+                    referee_phone: "",
                     organisation_taxonomy_id: null,
                     organisation: null
                 },
