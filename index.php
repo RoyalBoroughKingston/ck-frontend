@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-	<title>Connected Kingston - <?php print $PAGE_TITLE;?></title>
+	<title>Connected Kingston: <?php print $PAGE_TITLE;?></title>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<link rel="canonical" href="https://connectedkingston.uk" />

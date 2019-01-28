@@ -8,7 +8,7 @@
 
         <div class="field field--with-button flex-col flex-col--12">
             <label class="field__description" for="location">Location</label>
-            <input type="text" class="input input--text" name="location" placeholder="Postcode" v-bind:value="postcode"/>
+            <input type="text" class="input input--text" name="location" placeholder="Full Postcode" v-bind:value="postcode"/>
             <button type="button" class="btn btn--secondary btn--icon-after" role="button" v-on:click="findLocation">Find <span class="mobile-hide">my location</span> <i class="fa fa-map-marker-alt" aria-hidden></i></button>
         </div>
 
