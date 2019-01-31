@@ -37,6 +37,36 @@
         // margin-bottom: 0;
     }
 
+    &__intro {
+        
+        position: relative;
+        text-align: center;
+        
+        p {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 15px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            @include breakpoint($break_tablet_large) {
+                position: relative;
+                margin: 5px 0;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: $blue_bayoux;
+            font-size: 1.2rem;
+            i {
+                padding: 0 2px;
+                vertical-align: middle;
+            }
+        }
+
+    }
+
     &__image {
         img {
             display: block;

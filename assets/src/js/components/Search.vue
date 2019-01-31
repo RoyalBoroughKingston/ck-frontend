@@ -167,7 +167,7 @@
                     this.updateServices()
                 ))
                 .catch((error) => {
-                    window.alert(error.response.data.error + ': Please enter a different postcode and try again')
+                    window.alert(error.response.data.error + ': Please enter a your full postcode and try again')
 
                     // Set finish loading
                     this.finished_loading = true

@@ -68,6 +68,11 @@ Vue.mixin({
 
         window.location = event.target.href;
 
+      },
+      smoothScroll(event) {
+        var id = event.currentTarget.getAttribute("href");
+        var element = document.getElementById(id.replace("#", ""));
+        element.scrollIntoView({ behavior: 'smooth', top: -80 });
       }
     }
 })
