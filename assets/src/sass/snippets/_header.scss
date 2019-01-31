@@ -3,7 +3,7 @@
 .header {
   position: relative;
   background: $white;
-  padding: $base-margin*1.5 0;
+  padding: $base-margin*0.5 0;
   text-align: right;
   overflow: hidden;
   z-index: 999;
@@ -46,7 +46,7 @@
 
   #google_translate_element {
     position: absolute;
-    top: -$base-margin*0.5;
+    top: -$base-margin*0.2;
     right: $base-margin*2.5;
 
     img {
@@ -75,6 +75,9 @@
   }
 
   &__navigation {
+    
+    margin-top: $base-margin*0.5;
+
     @include breakpoint($break_tablet_large) {
       display: flex;
       text-align: center;
