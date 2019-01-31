@@ -108,6 +108,10 @@
       margin-bottom: $base-margin*2;
     }
 
+    &--home {
+      margin-top: $base-margin*4;
+    }
+
     &.section--reduce-padding {
       padding: $base-margin*2.5 0;
     }
@@ -161,18 +165,19 @@
 
       &:before {
         top: $base-margin;
+        right: 20%;
       }
   
       &:after {
-        top: $base-margin*2;
+        top: 3px;
+        right: 15%;
       }
 
       @include breakpoint($break_mobile) {
         background-image: url('/assets/dist/img/header-shapes/shape--05.svg');
 
         &:before {
-          top: -$base-margin*3;
-          right: 30%;
+          display: none;
 
           .page--referral &, {
             top: -$base-margin*4;
@@ -180,8 +185,7 @@
         }
     
         &:after {
-          top: -$base-margin*2;
-          right: 18%;
+          display: none;
 
           .page--referral &, {
             top: -$base-margin*3.5;
