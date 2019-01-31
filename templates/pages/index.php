@@ -1,5 +1,5 @@
 <div class="title-card__intro">
-    <p>Search by <a :href=`#keyword` @click.prevent="smoothScroll"><span class="underline">keyword</span> <i class="fa fa-search" aria-hidden></i></a> <a :href=`#categories` @click.prevent="smoothScroll"><span class="underline">category</span> <i class="fa fa-columns" aria-hidden></i></a> or by <a :href=`#situations` @click.prevent="smoothScroll"><span class="underline">situations</span> <i class="fa fa-users" aria-hidden></i></a></p>
+    <p>Search by <a :href="`#keyword`" @click.prevent="smoothScroll"><span class="underline">keyword</span> <i class="fa fa-search" aria-hidden></i></a> <a :href="`#categories`" @click.prevent="smoothScroll"><span class="underline">category</span> <i class="fa fa-columns" aria-hidden></i></a> or by <a :href="`#situations`" @click.prevent="smoothScroll"><span class="underline">situations</span> <i class="fa fa-users" aria-hidden></i></a></p>
 </div>
 
 <section class="section section--header section--header--1 section--header--home" role="banner" id="keyword">
