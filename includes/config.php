@@ -20,7 +20,7 @@
 		$DESCRIPTION = "Connected Kingston is a site dedicated to helping Kingston residents find local activities and navigate local services. Our goal is to help residents of Kingston stay happy, healthy and connected to each other. Our goal is maintaining and building Kingston’s community so we can all live our best lives.";
 		$TEMPLATE_URL = "templates/pages/search/results.php";
 	elseif($request_uri === "/services"):
-		header('Location: /results?is_free=false&search_term=&location=');
+		header('Location: /');
 	elseif(preg_match('/services/', $request_uri)):
 		$CURRENT_PAGE = "service"; 
 		$PAGE_TITLE = "";
