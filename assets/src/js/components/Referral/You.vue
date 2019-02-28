@@ -19,7 +19,7 @@
                         <div class="field field--select flex-col flex-col--8">
                             <label for="referee_organisation">What organisation are you with?</label>
                             
-                            <select class="select" name="referee_organisation" required>
+                            <select class="select" name="referee_organisation">
                                 <option value="" disabled="disabled" selected="selected">Please select</option>
                                 <option v-for="organisation in orderedOrganisations" :key="organisation.id" :value="organisation.name">
                                     {{organisation.name}}
