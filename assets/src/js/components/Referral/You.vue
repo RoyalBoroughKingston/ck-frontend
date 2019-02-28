@@ -17,11 +17,11 @@
                         </div>
 
                         <div class="field field--select flex-col flex-col--8">
-                            <label for="referee_organisation">What organisation are you with?</label>
+                            <label for="organisation_taxonomy_id">What organisation are you with?</label>
                             
-                            <select class="select" name="referee_organisation" required>
+                            <select class="select" name="organisation_taxonomy_id" :required="!show_other">
                                 <option value="" disabled="disabled" selected="selected">Please select</option>
-                                <option v-for="organisation in orderedOrganisations" :key="organisation.id" :value="organisation.name">
+                                <option v-for="organisation in orderedOrganisations" :key="organisation.id" :value="organisation.id">
                                     {{organisation.name}}
                                 </option>
                             </select>
@@ -31,8 +31,8 @@
                             <p><a v-on:click="showOther" class="link" v-if="!show_other">I can't see my organisation</a></p>
                             
                             <div v-if="show_other">
-                                <label for="organisation_other">Other organisation</label>
-                                <input type="text" class="input input--text" name="referee_organisation_other" placeholder="Enter here"/>
+                                <label for="organisation">Other organisation</label>
+                                <input type="text" class="input input--text" name="organisation" placeholder="Enter here" :required="show_other"/>
                             </div>
 
                             <p>&nbsp;</p>
@@ -107,9 +107,9 @@
                 this.$parent.referral.referee_name = document.getElementsByName('referee_name')[0].value
                 
                 if(this.show_other) {
-                    this.$parent.referral.referee_organisation = document.getElementsByName('referee_organisation_other')[0].value
+                    this.$parent.referral.organisation = document.getElementsByName('organisation')[0].value
                 } else {
-                    this.$parent.referral.referee_organisation = document.getElementsByName('referee_organisation')[0].value
+                    this.$parent.referral.organisation_taxonomy_id = document.getElementsByName('organisation_taxonomy_id')[0].value
                 }
 
                 this.$parent.referral.referee_email = document.getElementsByName('referee_email')[0].value
