@@ -86,8 +86,7 @@
                 .get(`${this.apiUri}/services/${this.getParameterByName('service')}?include=organisation`)
                 .then(response => (
                     this.service = response.data.data,
-                    this.type = response.data.data.referral_method,
-                    this.referral.organisation = response.data.data.organisation.name
+                    this.type = response.data.data.referral_method
                 ))
                 .catch(error => console.log(error))
             },

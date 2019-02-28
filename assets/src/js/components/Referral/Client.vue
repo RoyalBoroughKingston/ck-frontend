@@ -30,7 +30,7 @@
 
                         <div class="flex-col flex-col--12" v-if="who_for === 'myself'">
                             <h4>How can we contact you?</h4>
-                            <p>Please provide an email address or phone number for us to contact you. We will send an email or SMS confirmation once your connection has been made to the service.</p>
+                            <p>Please provide an email address and/or phone number for us to contact you. We will send an email or SMS confirmation once your connection has been made to the service.</p>
                             <p><strong>{{service.name }} will contact you using these details.</strong></p>
                         </div>
                     </div>
@@ -38,33 +38,23 @@
                     <p>&nbsp;</p>
 
                     <div class="flex-container flex-container--no-padding">
-                        <div class="field field--radio">
-                            <div class="radio radio--stack" v-if="!show_other">
-                                <input type="radio" id="email" class="input input--radio input--reveal" name="contact" value="email" v-on:click="setContact" checked="checked"/>
-                                <label for="email"><span><span></span></span> Email</label>
-
-                                <div class="radio__input" v-if="contact === 'email'">
-                                    <input type="email" class="input input--text" name="email" placeholder="Enter here"/>
-                                </div>
-                            </div>
-
-                            <div class="radio radio--stack" v-if="!show_other">
-                                <input type="radio" id="telephone" class="input input--radio input--reveal" name="contact" value="phone" v-on:click="setContact"/>
-                                <label for="telephone"><span><span></span></span> Telephone</label>
-
-                                <div class="radio__input" v-if="contact === 'phone'">
-                                    <p>Must be a valid UK phone number</p>
-                                    <input type="tel" class="input input--text" name="phone" pattern="^(0(\s*[0-9]\s*){10})$" title="Please enter a valid UK phone number in the format '01234567890'." placeholder="Enter here"/>
-                                </div>
-                            </div>
-
-                            <p><a v-on:click="showOther" class="link" v-if="!show_other">I can't provide an email/phone</a></p>
-
-                            <div v-if="show_other">
-                                <label for="other_contact">Other contact information</label>
-                                <input type="text" class="input input--text" name="other_contact" placeholder="Enter here"/>
-                            </div>
+                        <div class="field flex-col flex-col--8" v-if="!show_other">
+                            <label for="email">Email</label>
+                            <input type="email" class="input input--text" name="email" placeholder="Enter here">
                         </div>
+
+                        <div class="field flex-col flex-col--8" v-if="!show_other">
+                            <label for="phone">Telephone - (Must be a valid UK phone number)</label>
+                            <input type="tel" class="input input--text" pattern="^(0(\s*[0-9]\s*){10})$" title="Please enter a valid UK phone number in the format '01234567890'." name="phone" placeholder="Enter here"/>
+                        </div>
+
+                        <p v-if="!show_other"><a v-on:click="showOther" class="link">I can't provide an email/phone</a></p>
+
+                        <div class="field flex-col flex-col--8" v-if="show_other">
+                            <label for="other_contact">Other contact information</label>
+                            <textarea class="input" name="other_contact"></textarea>
+                        </div>
+
                     </div>
 
                     <p>&nbsp;</p>
@@ -115,18 +105,6 @@
                     this.updateStep(5)
                 } else {
                     window.alert('You must enter one form of contact information e.g email, phone or other contact information')
-                }
-            },
-            setContact(e) {
-                // Get the checked radio
-                let radios = document.getElementsByName('contact');
-
-                for (var i = 0, length = radios.length; i < length; i++) {
-                    if (radios[i].checked) {
-                        // Set who for in parent
-                        this.contact = radios[i].value
-                        break;
-                    }
                 }
             },
             showOther() {
