@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Set script scope environment variables for dev or CI.
+export APP_PORT=${APP_PORT:-80}
+
+COMPOSE="docker-compose -f docker-compose.yml"
+
+# Pass arguments to docker-compose, or default to docker-compose ps.
+if [ $# -gt 0  ]; then
+    case "$1" in
+
+        composer )
+            shift 1
+            ${COMPOSE} run --rm \
+                api \
+                composer "$@"
+            ;;
+
+        npm )
+            shift 1
+            ${COMPOSE} run --rm \
+                node \
+                npm "$@"
+            ;;
+
+        * ) ${COMPOSE} "$@"; ;;
+
+    esac
+else
+    ${COMPOSE} ps
+fi
