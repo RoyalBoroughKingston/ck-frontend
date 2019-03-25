@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  app:
+    image: connected-kingston/frontend/app
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - .:/var/www/html
+
+  node:
+    image: connected-kingston/frontend/node
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
