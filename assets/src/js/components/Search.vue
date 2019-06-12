@@ -34,24 +34,24 @@
                     </div>
 
                     <!-- Persona -->
-                    <div class="section__component" v-if="persona && persona.sidebox_title && persona.sidebox_content">
+                    <div class="section__component" v-if="persona && persona.sideboxes.length > 0">
                       <div class="card card--border-blue card--reduce-padding">
                         <div class="card__content text-left">
-                          <p><strong>{{persona.sidebox_title}}</strong></p>
+                          <p><strong>{{persona.sideboxes[0].title}}</strong></p>
                           <div class="sm-copy">
-                            <VueShowdown :markdown="`${persona.sidebox_content}`"/>
+                            <VueShowdown :markdown="`${persona.sideboxes[0].content}`"/>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     <!-- Category -->
-                    <div class="section__component" v-if="category && category.sidebox_title && category.sidebox_content">
+                    <div class="section__component" v-if="category && category.sideboxes.length > 0">
                       <div class="card card--border-blue card--reduce-padding">
                         <div class="card__content text-left">
-                          <p><strong>{{category.sidebox_title}}</strong></p>
+                          <p><strong>{{category.sideboxes[0].title}}</strong></p>
                           <div class="sm-copy">
-                            <VueShowdown :markdown="`${category.sidebox_content}`"/>
+                            <VueShowdown :markdown="`${category.sideboxes[0].content}`"/>
                           </div>
                         </div>
                       </div>
@@ -61,7 +61,7 @@
 
 
             </div>
-            
+
             <div class="pagination" v-if="last_page > 1 && (view === 'grid' || view === 'compact')">
                 <div class="flex-container">
                     <paginate
