@@ -2,7 +2,7 @@ version: "3"
 
 services:
   app:
-    image: connected-kingston/frontend/app
+    image: royal-borough-kingston/ck-frontend/app
     build:
       context: ./docker/app
       dockerfile: Dockerfile
@@ -12,9 +12,18 @@ services:
       - .:/var/www/html
 
   node:
-    image: connected-kingston/frontend/node
+    image: royal-borough-kingston/ck-frontend/node
     build:
       context: ./docker/node
       dockerfile: Dockerfile
     volumes:
       - .:/var/www/html
+
+  troposphere:
+    image: royal-borough-kingston/ck-frontend/troposphere
+    build:
+      context: ./docker/troposphere
+      dockerfile: Dockerfile
+    volumes:
+      - ./aws:/tmp
+    command: "python ${CFN_TEMPLATE}.py"
