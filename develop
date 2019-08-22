@@ -13,7 +13,7 @@ if [ $# -gt 0  ]; then
         composer )
             shift 1
             ${COMPOSE} run --rm \
-                api \
+                app \
                 composer "$@"
             ;;
 

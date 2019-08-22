@@ -1,6 +1,2 @@
-/.bp-config
-/.travis
-/assets/src
-/docker
 /node_modules
 /vendor
