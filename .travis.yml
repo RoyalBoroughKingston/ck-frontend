@@ -25,9 +25,6 @@ before_deploy: |
   if ! [[ ${HAS_RAN_BEFORE_DEPLOY} ]]; then
     export HAS_RAN_BEFORE_DEPLOY="TRUE"
 
-    echo "Compiling assets for production..."
-    ./develop npm run production
-
     echo "Installing AWS CLI..."
     curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
     unzip awscli-bundle.zip
