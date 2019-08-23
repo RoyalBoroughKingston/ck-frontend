@@ -1,7 +1,7 @@
-node_modules/
-assets/dist/
-vendor/
-.idea/
+/node_modules
+/public/assets
+/vendor
+/.idea
 .DS_Store
-.env
-mix-manifest.json
+/.env
+/public/mix-manifest.json

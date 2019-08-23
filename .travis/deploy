@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Requires the following environment variables:
+# $TRAVIS_BRANCH = The branch the build is against.
+# $CF_API = The URI of the Cloud Foundry instance.
+# $CF_USERNAME = The Cloud Foundry username.
+# $CF_PASSWORD = The Cloud Foundry password.
+# $CF_ORGANISATION = The Cloud Foundry organisation.
+# $CF_SPACE = The Cloud Foundry space.
+
+# Bail out on first error.
+set -e
+
+# Get the environment from the branch.
+case ${TRAVIS_BRANCH} in
+    master )
+        ENVIRONMENT=production
+        ;;
+    develop )
+        ENVIRONMENT=staging
+        ;;
+esac
+
+# Declare the configuration variables for the deployment.
+echo "Setting deployment configuration for ${ENVIRONMENT}..."
+ENV_SECRET_ID=".env.frontend.${ENVIRONMENT}"
+SECRETS_FILE=".travis/secrets.${ENVIRONMENT}.yml"
+
+# Get the .env file.
+echo "Downloading .env file..."
+rm -f .env
+aws secretsmanager get-secret-value \
+    --secret-id ${ENV_SECRET_ID} | \
+    python -c "import json,sys;obj=json.load(sys.stdin);print obj['SecretString'];" > .env
+
+echo "Compiling assets for production..."
+./develop npm run production
+
+# Connect to the Cloud Foundry API.
+echo "Logging into Cloud Foundry..."
+cf api $CF_API
+
+# Login to Cloud Foundry.
+cf login -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORGANISATION -s $CF_SPACE
+
+# Deploy.
+cf push --vars-file "${SECRETS_FILE}"
