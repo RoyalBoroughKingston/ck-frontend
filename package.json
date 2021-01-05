@@ -23,7 +23,7 @@
   "homepage": "https://github.com/AyupDigital/Boilerplate_Dev#readme",
   "devDependencies": {
     "@babel/polyfill": "^7.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.23.6",
     "browser-sync-webpack-plugin": "^2.0.1",
